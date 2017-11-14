@@ -1,0 +1,16 @@
+F:\ApsService\APSWcfService\ServiceHandle\bin\ServiceHandle.dll.config
+F:\ApsService\APSWcfService\ServiceHandle\bin\ServiceHandle.dll
+F:\ApsService\APSWcfService\ServiceHandle\bin\ServiceHandle.pdb
+F:\ApsService\APSWcfService\ServiceHandle\bin\Microsoft.Owin.dll
+F:\ApsService\APSWcfService\ServiceHandle\bin\MySql.Data.dll
+F:\ApsService\APSWcfService\ServiceHandle\bin\Newtonsoft.Json.dll
+F:\ApsService\APSWcfService\ServiceHandle\bin\Owin.dll
+F:\ApsService\APSWcfService\ServiceHandle\bin\SubSonic.Core.dll
+F:\ApsService\APSWcfService\ServiceHandle\bin\SubSonic.dll
+F:\ApsService\APSWcfService\ServiceHandle\bin\SubSonic.Migrations.dll
+F:\ApsService\APSWcfService\ServiceHandle\bin\Microsoft.Owin.xml
+F:\ApsService\APSWcfService\ServiceHandle\bin\Newtonsoft.Json.xml
+F:\ApsService\APSWcfService\ServiceHandle\obj\Debug\APSWcfServiceHandle.csprojResolveAssemblyReference.cache
+F:\ApsService\APSWcfService\ServiceHandle\obj\Debug\APSWcfServiceHandle.csproj.CoreCompileInputs.cache
+F:\ApsService\APSWcfService\ServiceHandle\obj\Debug\ServiceHandle.dll
+F:\ApsService\APSWcfService\ServiceHandle\obj\Debug\ServiceHandle.pdb

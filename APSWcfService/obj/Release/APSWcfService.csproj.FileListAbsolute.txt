@@ -1,0 +1,9 @@
+F:\ApsService\APSWcfService\APSWcfService\bin\APSWcfService.dll.config
+F:\ApsService\APSWcfService\APSWcfService\bin\APSWcfService.dll
+F:\ApsService\APSWcfService\APSWcfService\bin\APSWcfService.pdb
+F:\ApsService\APSWcfService\APSWcfService\bin\Newtonsoft.Json.dll
+F:\ApsService\APSWcfService\APSWcfService\bin\Newtonsoft.Json.xml
+F:\ApsService\APSWcfService\APSWcfService\obj\Release\APSWcfService.csproj.CoreCompileInputs.cache
+F:\ApsService\APSWcfService\APSWcfService\obj\Release\APSWcfService.dll
+F:\ApsService\APSWcfService\APSWcfService\obj\Release\APSWcfService.pdb
+F:\ApsService\APSWcfService\APSWcfService\obj\Release\APSWcfService.csprojResolveAssemblyReference.cache

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+此文件由 Web 项目的发布/打包过程使用。可以通过编辑此 MSBuild 文件
+自定义此过程的行为。为了解与此相关的更多内容，请访问 https://go.microsoft.com/fwlink/?LinkID=208121。 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>F:\Release\ServiceHandle</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ActivationService.svc">
+      <publishTime>11/04/2017 16:10:53</publishTime>
+    </File>
+    <File Include="bin/activationservice.svc.cdcab7d2.compiled">
+      <publishTime>11/07/2017 11:03:14</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>11/07/2017 11:03:14</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>11/07/2017 11:03:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>02/13/2015 13:16:30</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>06/27/2012 15:49:06</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>12/29/2015 13:46:58</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/27/2012 13:00:52</publishTime>
+    </File>
+    <File Include="bin/ServiceHandle.dll">
+      <publishTime>11/14/2017 09:58:28</publishTime>
+    </File>
+    <File Include="bin/ServiceHandle.pdb">
+      <publishTime>11/14/2017 09:58:28</publishTime>
+    </File>
+    <File Include="bin/SubSonic.Core.dll">
+      <publishTime>06/27/2012 15:49:06</publishTime>
+    </File>
+    <File Include="bin/SubSonic.dll">
+      <publishTime>06/27/2012 15:49:06</publishTime>
+    </File>
+    <File Include="bin/SubSonic.Migrations.dll">
+      <publishTime>06/27/2012 15:49:06</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>11/07/2017 10:40:10</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>11/07/2017 11:03:11</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>11/14/2017 09:58:34</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

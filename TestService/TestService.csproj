@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{819836BA-B463-4466-AEB2-6F13EB4C7F2E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TestService</RootNamespace>
+    <AssemblyName>TestService</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=5.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\SubSonic.Scaffold.2.2.0.0\lib\net20\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SubSonic, Version=2.2.0.0, Culture=neutral, PublicKeyToken=eadb47849839a332, processorArchitecture=MSIL">
+      <HintPath>..\packages\SubSonic.Scaffold.2.2.0.0\lib\net20\SubSonic.dll</HintPath>
+    </Reference>
+    <Reference Include="SubSonic.Core, Version=3.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SubSonic.Scaffold.2.2.0.0\lib\net20\SubSonic.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SubSonic.Migrations, Version=2.1.1.0, Culture=neutral, PublicKeyToken=eadb47849839a332, processorArchitecture=MSIL">
+      <HintPath>..\packages\SubSonic.Scaffold.2.2.0.0\lib\net20\SubSonic.Migrations.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\APSService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceTest\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TestApsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ModelsOther\BLDate.cs" />
+    <Compile Include="ModelsOther\Completion.cs" />
+    <Compile Include="ModelsOther\Mflxx.cs" />
+    <Compile Include="ModelsOther\Order.cs" />
+    <Compile Include="ModelsOther\Ordermx.cs" />
+    <Compile Include="Models\AllStructs.cs" />
+    <Compile Include="Models\BCutterSet.cs" />
+    <Compile Include="Models\BCutterSetController.cs" />
+    <Compile Include="Models\BISOFileSet.cs" />
+    <Compile Include="Models\BISOFileSetController.cs" />
+    <Compile Include="Models\BPMOrder.cs" />
+    <Compile Include="Models\BPMOrderController.cs" />
+    <Compile Include="Models\BWorkTimeSet.cs" />
+    <Compile Include="Models\BWorkTimeSetController.cs" />
+    <Compile Include="Models\BWorkTimeSetCopy.cs" />
+    <Compile Include="Models\BWorkTimeSetCopyController.cs" />
+    <Compile Include="Models\CadSchedulingResault.cs" />
+    <Compile Include="Models\CAD衬衣特殊款式每人分组.cs" />
+    <Compile Include="Models\Dictionary.cs" />
+    <Compile Include="Models\DictionaryController.cs" />
+    <Compile Include="Models\Factory.cs" />
+    <Compile Include="Models\FactoryController.cs" />
+    <Compile Include="Models\FactoryOrderTran.cs" />
+    <Compile Include="Models\FactoryOrderTranController.cs" />
+    <Compile Include="Models\HljtExecuteProc.cs" />
+    <Compile Include="Models\HljtExecuteProcController.cs" />
+    <Compile Include="Models\HljtTaskList.cs" />
+    <Compile Include="Models\HljtTaskListController.cs" />
+    <Compile Include="Models\Isypb.cs" />
+    <Compile Include="Models\IsypbController.cs" />
+    <Compile Include="Models\Kkk.cs" />
+    <Compile Include="Models\OrderTest.cs" />
+    <Compile Include="Models\OrderTestController.cs" />
+    <Compile Include="Models\ResourcesCAD.cs" />
+    <Compile Include="Models\ResourcesCADAll.cs" />
+    <Compile Include="Models\SCM06.cs" />
+    <Compile Include="Models\SCM06Controller.cs" />
+    <Compile Include="Models\SCM13.cs" />
+    <Compile Include="Models\SCM13Controller.cs" />
+    <Compile Include="Models\SCT12.cs" />
+    <Compile Include="Models\SCT12Controller.cs" />
+    <Compile Include="Models\SCT26.cs" />
+    <Compile Include="Models\SCT262.cs" />
+    <Compile Include="Models\SCT262Controller.cs" />
+    <Compile Include="Models\SCT26Controller.cs" />
+    <Compile Include="Models\SCT27.cs" />
+    <Compile Include="Models\SCT271.cs" />
+    <Compile Include="Models\SCT271Controller.cs" />
+    <Compile Include="Models\SCT272.cs" />
+    <Compile Include="Models\SCT272Controller.cs" />
+    <Compile Include="Models\SCT27Controller.cs" />
+    <Compile Include="Models\SCT28.cs" />
+    <Compile Include="Models\SCT282.cs" />
+    <Compile Include="Models\SCT282Controller.cs" />
+    <Compile Include="Models\SCT28Controller.cs" />
+    <Compile Include="Models\SCT31.cs" />
+    <Compile Include="Models\SCT31Controller.cs" />
+    <Compile Include="Models\SCT32.cs" />
+    <Compile Include="Models\SCT32Controller.cs" />
+    <Compile Include="Models\SCT51.cs" />
+    <Compile Include="Models\SCT51Controller.cs" />
+    <Compile Include="Models\SCT52.cs" />
+    <Compile Include="Models\SCT52Controller.cs" />
+    <Compile Include="Models\StoredProcedures.cs" />
+    <Compile Include="Models\TAnalysisCyMTMJh.cs" />
+    <Compile Include="Models\TAnalysisCyMTMJhController.cs" />
+    <Compile Include="Models\TAnalysisCyTZJh.cs" />
+    <Compile Include="Models\TAnalysisCyTZJhController.cs" />
+    <Compile Include="Models\TAnalysisDelivery.cs" />
+    <Compile Include="Models\TAnalysisDeliveryController.cs" />
+    <Compile Include="Models\TAnalysisErpList.cs" />
+    <Compile Include="Models\TAnalysisErpListController.cs" />
+    <Compile Include="Models\TAnalysisErpOrderList.cs" />
+    <Compile Include="Models\TAnalysisErpOrderListController.cs" />
+    <Compile Include="Models\TAnalysisMTMXFJh.cs" />
+    <Compile Include="Models\TAnalysisMTMXFJhController.cs" />
+    <Compile Include="Models\TAnalysisOrderList.cs" />
+    <Compile Include="Models\TAnalysisOrderListByCF.cs" />
+    <Compile Include="Models\TAnalysisOrderListByCFController.cs" />
+    <Compile Include="Models\TAnalysisOrderListController.cs" />
+    <Compile Include="Models\TAnalysisOrderListDel.cs" />
+    <Compile Include="Models\TAnalysisOrderListDelController.cs" />
+    <Compile Include="Models\TAnalysisOutputList.cs" />
+    <Compile Include="Models\TAnalysisOutputListBack.cs" />
+    <Compile Include="Models\TAnalysisOutputListBackController.cs" />
+    <Compile Include="Models\TAnalysisOutPutListByCF.cs" />
+    <Compile Include="Models\TAnalysisOutPutListByCFController.cs" />
+    <Compile Include="Models\TAnalysisOutPutListByFZ.cs" />
+    <Compile Include="Models\TAnalysisOutPutListByFZController.cs" />
+    <Compile Include="Models\TAnalysisOutputListController.cs" />
+    <Compile Include="Models\TAnalysisOutputListTzWithCode.cs" />
+    <Compile Include="Models\TAnalysisOutputListTzWithCodeController.cs" />
+    <Compile Include="Models\TAnalysisOutputListWithCode.cs" />
+    <Compile Include="Models\TAnalysisOutputListWithCodeController.cs" />
+    <Compile Include="Models\TAnalysisOutputListWithCodeCopy.cs" />
+    <Compile Include="Models\TAnalysisOutputListWithCodeCopyController.cs" />
+    <Compile Include="Models\TAnalysisOutputListWithCodeCopyTest.cs" />
+    <Compile Include="Models\TAnalysisOutputListWithCodeCopyTestController.cs" />
+    <Compile Include="Models\TAnalysisOutputListWithCodeL.cs" />
+    <Compile Include="Models\TAnalysisOutputListWithCodeLController.cs" />
+    <Compile Include="Models\TAnalysisOutputListWithCodeShirt.cs" />
+    <Compile Include="Models\TAnalysisOutputListWithCodeShirtController.cs" />
+    <Compile Include="Models\TAnalysisOutputListWithCodeTZShirt.cs" />
+    <Compile Include="Models\TAnalysisOutputListWithCodeTZShirtController.cs" />
+    <Compile Include="Models\TApsClientLog.cs" />
+    <Compile Include="Models\TApsClientLogController.cs" />
+    <Compile Include="Models\TAPSCount.cs" />
+    <Compile Include="Models\TAPSCountController.cs" />
+    <Compile Include="Models\TAttendance.cs" />
+    <Compile Include="Models\TAttendanceController.cs" />
+    <Compile Include="Models\TAttendanceMode.cs" />
+    <Compile Include="Models\TAttendanceModeController.cs" />
+    <Compile Include="Models\TBackupsMtmJH.cs" />
+    <Compile Include="Models\TBackupsMtmJHController.cs" />
+    <Compile Include="Models\TBasisBodyList.cs" />
+    <Compile Include="Models\TBasisBodyListController.cs" />
+    <Compile Include="Models\TBasisCoatList.cs" />
+    <Compile Include="Models\TBasisCoatListController.cs" />
+    <Compile Include="Models\TBasisCoatType.cs" />
+    <Compile Include="Models\TBasisCoatTypeController.cs" />
+    <Compile Include="Models\TBasisGetDataSet.cs" />
+    <Compile Include="Models\TBasisGetDataSetController.cs" />
+    <Compile Include="Models\TBasisLinerType.cs" />
+    <Compile Include="Models\TBasisLinerTypeController.cs" />
+    <Compile Include="Models\TBasisOrderStatus.cs" />
+    <Compile Include="Models\TBasisOrderStatusController.cs" />
+    <Compile Include="Models\TBasisResource.cs" />
+    <Compile Include="Models\TBasisResourceController.cs" />
+    <Compile Include="Models\TBasisSpecialList.cs" />
+    <Compile Include="Models\TBasisSpecialListController.cs" />
+    <Compile Include="Models\TBasisSystemInfo.cs" />
+    <Compile Include="Models\TBasisSystemInfoController.cs" />
+    <Compile Include="Models\TBlankingDetaile.cs" />
+    <Compile Include="Models\TBlankingDetaileController.cs" />
+    <Compile Include="Models\TBLCADTemp.cs" />
+    <Compile Include="Models\TBlcadtempbca.cs" />
+    <Compile Include="Models\TBlcadtempbcaController.cs" />
+    <Compile Include="Models\TBLCADTempController.cs" />
+    <Compile Include="Models\TBLCADTempCopy.cs" />
+    <Compile Include="Models\TBLCADTempCopyController.cs" />
+    <Compile Include="Models\TBLCADTempHistory.cs" />
+    <Compile Include="Models\TBLCADTempHistoryController.cs" />
+    <Compile Include="Models\TBLDataMflxx.cs" />
+    <Compile Include="Models\TBLDataMflxxController.cs" />
+    <Compile Include="Models\TBLDataOrder.cs" />
+    <Compile Include="Models\TBLDataOrderController.cs" />
+    <Compile Include="Models\TBLDataOrdermx.cs" />
+    <Compile Include="Models\TBLDataOrdermxController.cs" />
+    <Compile Include="Models\TBom.cs" />
+    <Compile Include="Models\TBomController.cs" />
+    <Compile Include="Models\TCategoryProcessFlow.cs" />
+    <Compile Include="Models\TCategoryProcessFlowController.cs" />
+    <Compile Include="Models\TCutterAP.cs" />
+    <Compile Include="Models\TCutterAPController.cs" />
+    <Compile Include="Models\TCutterME.cs" />
+    <Compile Include="Models\TCutterMEController.cs" />
+    <Compile Include="Models\TERPDataOrder.cs" />
+    <Compile Include="Models\TERPDataOrderController.cs" />
+    <Compile Include="Models\TErpOrder.cs" />
+    <Compile Include="Models\TErpOrderController.cs" />
+    <Compile Include="Models\TErrorLog.cs" />
+    <Compile Include="Models\TErrorLogController.cs" />
+    <Compile Include="Models\TestService.cs" />
+    <Compile Include="Models\TestServiceController.cs" />
+    <Compile Include="Models\TFZfirstOrder.cs" />
+    <Compile Include="Models\TFZfirstOrderController.cs" />
+    <Compile Include="Models\TFZfirstOut.cs" />
+    <Compile Include="Models\TFZfirstOutController.cs" />
+    <Compile Include="Models\TFZOver.cs" />
+    <Compile Include="Models\TFZOverController.cs" />
+    <Compile Include="Models\TFZsecondOrder.cs" />
+    <Compile Include="Models\TFZsecondOrderController.cs" />
+    <Compile Include="Models\TFZsecondOut.cs" />
+    <Compile Include="Models\TFZsecondOutController.cs" />
+    <Compile Include="Models\TFzthirdOrder.cs" />
+    <Compile Include="Models\TFzthirdOrderController.cs" />
+    <Compile Include="Models\TGetUrl.cs" />
+    <Compile Include="Models\TGetUrlController.cs" />
+    <Compile Include="Models\TLog.cs" />
+    <Compile Include="Models\TLogController.cs" />
+    <Compile Include="Models\TLogError.cs" />
+    <Compile Include="Models\TLogErrorController.cs" />
+    <Compile Include="Models\TLogService.cs" />
+    <Compile Include="Models\TLogServiceController.cs" />
+    <Compile Include="Models\TMessage.cs" />
+    <Compile Include="Models\TMessageController.cs" />
+    <Compile Include="Models\TMflSearch.cs" />
+    <Compile Include="Models\TMflSearchController.cs" />
+    <Compile Include="Models\TMLCodeList.cs" />
+    <Compile Include="Models\TMLCodeListController.cs" />
+    <Compile Include="Models\TOldApsByCf.cs" />
+    <Compile Include="Models\TOldApsByCf1.cs" />
+    <Compile Include="Models\TOldApsByCf1Controller.cs" />
+    <Compile Include="Models\TOldApsByCf3.cs" />
+    <Compile Include="Models\TOldApsByCf3Controller.cs" />
+    <Compile Include="Models\TOldApsByCfBk.cs" />
+    <Compile Include="Models\TOldApsByCfBkController.cs" />
+    <Compile Include="Models\TOldApsByCfController.cs" />
+    <Compile Include="Models\TOldApsByCfTest.cs" />
+    <Compile Include="Models\TOldApsByCfTestController.cs" />
+    <Compile Include="Models\TOperationLog.cs" />
+    <Compile Include="Models\TOperationLogController.cs" />
+    <Compile Include="Models\TOrderProcessHour.cs" />
+    <Compile Include="Models\TOrderProcessHourController.cs" />
+    <Compile Include="Models\TPlan.cs" />
+    <Compile Include="Models\TPlanController.cs" />
+    <Compile Include="Models\TPlanM.cs" />
+    <Compile Include="Models\TPlanMAdd.cs" />
+    <Compile Include="Models\TPlanMAddController.cs" />
+    <Compile Include="Models\TPlanMController.cs" />
+    <Compile Include="Models\TPlanSAdd.cs" />
+    <Compile Include="Models\TPlanSAddController.cs" />
+    <Compile Include="Models\TPushBlOutputList.cs" />
+    <Compile Include="Models\TPushBlOutputListController.cs" />
+    <Compile Include="Models\TResultMsg.cs" />
+    <Compile Include="Models\TResultMsgController.cs" />
+    <Compile Include="Models\TSendLog.cs" />
+    <Compile Include="Models\TSendLogController.cs" />
+    <Compile Include="Models\TSql.cs" />
+    <Compile Include="Models\TSqlController.cs" />
+    <Compile Include="Models\TTemp.cs" />
+    <Compile Include="Models\TTempController.cs" />
+    <Compile Include="Models\TTempInfo.cs" />
+    <Compile Include="Models\TTempInfoController.cs" />
+    <Compile Include="Models\TTempME.cs" />
+    <Compile Include="Models\TTempMEController.cs" />
+    <Compile Include="Models\TTsgy.cs" />
+    <Compile Include="Models\TTsgyController.cs" />
+    <Compile Include="Models\TTzwf.cs" />
+    <Compile Include="Models\TTzwfController.cs" />
+    <Compile Include="Models\TUsersGroup.cs" />
+    <Compile Include="Models\TUsersGroupController.cs" />
+    <Compile Include="Models\TUsersInfo.cs" />
+    <Compile Include="Models\TUsersInfoController.cs" />
+    <Compile Include="Models\TUsersPage.cs" />
+    <Compile Include="Models\TUsersPageController.cs" />
+    <Compile Include="Models\TViewOutputResuorce.cs" />
+    <Compile Include="Models\TViewOutputtzresoure.cs" />
+    <Compile Include="Models\TWorkTime.cs" />
+    <Compile Include="Models\TWorkTimeController.cs" />
+    <Compile Include="Models\TWorkTimeShirt.cs" />
+    <Compile Include="Models\TWorkTimeShirtController.cs" />
+    <Compile Include="Models\VBlankingOut.cs" />
+    <Compile Include="Models\VCadOrderlist.cs" />
+    <Compile Include="Models\VCadOrderlistBak.cs" />
+    <Compile Include="Models\VCadOrderlistCopy.cs" />
+    <Compile Include="Models\VCADResourceNum.cs" />
+    <Compile Include="Models\VClientTypeCY.cs" />
+    <Compile Include="Models\VClientTypeXF.cs" />
+    <Compile Include="Models\VCyjh.cs" />
+    <Compile Include="Models\VFactoryCalendar.cs" />
+    <Compile Include="Models\VFzScjh.cs" />
+    <Compile Include="Models\VGroupWeb.cs" />
+    <Compile Include="Models\View1.cs" />
+    <Compile Include="Models\View2.cs" />
+    <Compile Include="Models\View3.cs" />
+    <Compile Include="Models\ViewBLDataOrder.cs" />
+    <Compile Include="Models\ViewBomList.cs" />
+    <Compile Include="Models\ViewCFByMTM.cs" />
+    <Compile Include="Models\ViewErrorLog.cs" />
+    <Compile Include="Models\ViewFzCoatlist.cs" />
+    <Compile Include="Models\ViewFzerpCoatlist.cs" />
+    <Compile Include="Models\ViewLookOutPutTable.cs" />
+    <Compile Include="Models\ViewOrderList.cs" />
+    <Compile Include="Models\ViewOrderListWithoutmflxx.cs" />
+    <Compile Include="Models\ViewOutPutListByCF.cs" />
+    <Compile Include="Models\ViewOutputListCF.cs" />
+    <Compile Include="Models\ViewUnPerson.cs" />
+    <Compile Include="Models\ViewUsersList.cs" />
+    <Compile Include="Models\ViewYWyPdDZ.cs" />
+    <Compile Include="Models\VJh.cs" />
+    <Compile Include="Models\VManageListNoRead.cs" />
+    <Compile Include="Models\VManageListRead.cs" />
+    <Compile Include="Models\VOutPutByCAD.cs" />
+    <Compile Include="Models\VOutPutListByCF.cs" />
+    <Compile Include="Models\VPlanDetail.cs" />
+    <Compile Include="Models\VPlanSDetail.cs" />
+    <Compile Include="Models\VTempMESCad.cs" />
+    <Compile Include="Models\VTempPlan.cs" />
+    <Compile Include="Models\VTzjh.cs" />
+    <Compile Include="Models\VUser.cs" />
+    <Compile Include="Models\VUsersNeedPermission.cs" />
+    <Compile Include="Models\VWorkTimeCy.cs" />
+    <Compile Include="Models\VWorktimexf.cs" />
+    <Compile Include="Models\VZbNowMTM.cs" />
+    <Compile Include="Models\VZbNowTZ.cs" />
+    <Compile Include="Models\WmsSyncCutterAP.cs" />
+    <Compile Include="Models\WmsSyncCutterAPController.cs" />
+    <Compile Include="Models\WmsSyncPlan.cs" />
+    <Compile Include="Models\WmsSyncPlanController.cs" />
+    <Compile Include="Models\WmsSyncPlanm.cs" />
+    <Compile Include="Models\WmsSyncPlanmController.cs" />
+    <Compile Include="Models\XTM12.cs" />
+    <Compile Include="Models\XTM124.cs" />
+    <Compile Include="Models\XTM124Controller.cs" />
+    <Compile Include="Models\XTM12Controller.cs" />
+    <Compile Include="Models\XTM14.cs" />
+    <Compile Include="Models\XTM14Controller.cs" />
+    <Compile Include="Models\XTM22.cs" />
+    <Compile Include="Models\XTM22Controller.cs" />
+    <Compile Include="Models\XTM32.cs" />
+    <Compile Include="Models\XTM32Controller.cs" />
+    <Compile Include="Models\检查死锁进程.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Connected Services\APSService\NewMessageQueues.wsdl" />
+    <None Include="Connected Services\APSService\NewMessageQueues.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\APSService\NewMessageQueues1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceTest\NewMassgeService.wsdl" />
+    <None Include="Connected Services\ServiceTest\NewMassgeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceTest\NewMassgeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TestApsService\NewMessageQueues.wsdl" />
+    <None Include="Connected Services\TestApsService\NewMessageQueues.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TestApsService\NewMessageQueues1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\APSService\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceTest\" />
+    <WCFMetadataStorage Include="Connected Services\TestApsService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestApsService\NewMessageQueues.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestApsService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestApsService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestApsService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceTest\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceTest\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceTest\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\APSService\NewMessageQueues.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\APSService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\APSService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\APSService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,12 @@
+F:\ApsService\APSWcfService\TestService\bin\Release\TestService.exe.config
+F:\ApsService\APSWcfService\TestService\bin\Release\TestService.exe
+F:\ApsService\APSWcfService\TestService\bin\Release\TestService.pdb
+F:\ApsService\APSWcfService\TestService\bin\Release\MySql.Data.dll
+F:\ApsService\APSWcfService\TestService\bin\Release\Newtonsoft.Json.dll
+F:\ApsService\APSWcfService\TestService\bin\Release\SubSonic.Core.dll
+F:\ApsService\APSWcfService\TestService\bin\Release\SubSonic.dll
+F:\ApsService\APSWcfService\TestService\bin\Release\SubSonic.Migrations.dll
+F:\ApsService\APSWcfService\TestService\bin\Release\Newtonsoft.Json.xml
+F:\ApsService\APSWcfService\TestService\obj\Release\TestService.csproj.CoreCompileInputs.cache
+F:\ApsService\APSWcfService\TestService\obj\Release\TestService.exe
+F:\ApsService\APSWcfService\TestService\obj\Release\TestService.pdb

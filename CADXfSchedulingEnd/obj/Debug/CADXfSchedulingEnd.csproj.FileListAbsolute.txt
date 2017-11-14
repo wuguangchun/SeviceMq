@@ -1,0 +1,7 @@
+F:\ApsService\APSWcfService\CADXfSchedulingEnd\bin\Debug\CADXfSchedulingEnd.exe.config
+F:\ApsService\APSWcfService\CADXfSchedulingEnd\bin\Debug\CADXfSchedulingEnd.exe
+F:\ApsService\APSWcfService\CADXfSchedulingEnd\bin\Debug\CADXfSchedulingEnd.pdb
+F:\ApsService\APSWcfService\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csprojResolveAssemblyReference.cache
+F:\ApsService\APSWcfService\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csproj.CoreCompileInputs.cache
+F:\ApsService\APSWcfService\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.exe
+F:\ApsService\APSWcfService\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.pdb
