@@ -278,8 +278,7 @@ namespace Model
 				colvarSczssl.IsPrimaryKey = false;
 				colvarSczssl.IsForeignKey = false;
 				colvarSczssl.IsReadOnly = false;
-				
-						colvarSczssl.DefaultSetting = @"((1))";
+				colvarSczssl.DefaultSetting = @"";
 				colvarSczssl.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarSczssl);
 				

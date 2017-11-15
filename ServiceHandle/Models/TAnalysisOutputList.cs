@@ -129,7 +129,7 @@ namespace Model
 				TableSchema.TableColumn colvarOrderId = new TableSchema.TableColumn(schema);
 				colvarOrderId.ColumnName = "orderId";
 				colvarOrderId.DataType = DbType.String;
-				colvarOrderId.MaxLength = 50;
+				colvarOrderId.MaxLength = 100;
 				colvarOrderId.AutoIncrement = false;
 				colvarOrderId.IsNullable = false;
 				colvarOrderId.IsPrimaryKey = true;
@@ -142,9 +142,9 @@ namespace Model
 				TableSchema.TableColumn colvarJobCode = new TableSchema.TableColumn(schema);
 				colvarJobCode.ColumnName = "jobCode";
 				colvarJobCode.DataType = DbType.String;
-				colvarJobCode.MaxLength = 50;
+				colvarJobCode.MaxLength = 100;
 				colvarJobCode.AutoIncrement = false;
-				colvarJobCode.IsNullable = true;
+				colvarJobCode.IsNullable = false;
 				colvarJobCode.IsPrimaryKey = false;
 				colvarJobCode.IsForeignKey = false;
 				colvarJobCode.IsReadOnly = false;
@@ -181,7 +181,7 @@ namespace Model
 				TableSchema.TableColumn colvarCoatType = new TableSchema.TableColumn(schema);
 				colvarCoatType.ColumnName = "coatType";
 				colvarCoatType.DataType = DbType.String;
-				colvarCoatType.MaxLength = 50;
+				colvarCoatType.MaxLength = 100;
 				colvarCoatType.AutoIncrement = false;
 				colvarCoatType.IsNullable = true;
 				colvarCoatType.IsPrimaryKey = false;
@@ -194,7 +194,7 @@ namespace Model
 				TableSchema.TableColumn colvarBodyType = new TableSchema.TableColumn(schema);
 				colvarBodyType.ColumnName = "bodyType";
 				colvarBodyType.DataType = DbType.String;
-				colvarBodyType.MaxLength = 50;
+				colvarBodyType.MaxLength = 100;
 				colvarBodyType.AutoIncrement = false;
 				colvarBodyType.IsNullable = true;
 				colvarBodyType.IsPrimaryKey = false;
@@ -207,7 +207,7 @@ namespace Model
 				TableSchema.TableColumn colvarFabric = new TableSchema.TableColumn(schema);
 				colvarFabric.ColumnName = "fabric";
 				colvarFabric.DataType = DbType.String;
-				colvarFabric.MaxLength = 50;
+				colvarFabric.MaxLength = 100;
 				colvarFabric.AutoIncrement = false;
 				colvarFabric.IsNullable = true;
 				colvarFabric.IsPrimaryKey = false;
@@ -285,7 +285,7 @@ namespace Model
 				TableSchema.TableColumn colvarStylesResult = new TableSchema.TableColumn(schema);
 				colvarStylesResult.ColumnName = "stylesResult";
 				colvarStylesResult.DataType = DbType.String;
-				colvarStylesResult.MaxLength = 100;
+				colvarStylesResult.MaxLength = 200;
 				colvarStylesResult.AutoIncrement = false;
 				colvarStylesResult.IsNullable = true;
 				colvarStylesResult.IsPrimaryKey = false;
@@ -324,7 +324,7 @@ namespace Model
 				TableSchema.TableColumn colvarSupportingWay = new TableSchema.TableColumn(schema);
 				colvarSupportingWay.ColumnName = "supportingWay";
 				colvarSupportingWay.DataType = DbType.String;
-				colvarSupportingWay.MaxLength = 50;
+				colvarSupportingWay.MaxLength = 100;
 				colvarSupportingWay.AutoIncrement = false;
 				colvarSupportingWay.IsNullable = true;
 				colvarSupportingWay.IsPrimaryKey = false;
@@ -350,7 +350,7 @@ namespace Model
 				TableSchema.TableColumn colvarOrderNo = new TableSchema.TableColumn(schema);
 				colvarOrderNo.ColumnName = "orderNo";
 				colvarOrderNo.DataType = DbType.String;
-				colvarOrderNo.MaxLength = 50;
+				colvarOrderNo.MaxLength = 100;
 				colvarOrderNo.AutoIncrement = false;
 				colvarOrderNo.IsNullable = true;
 				colvarOrderNo.IsPrimaryKey = false;
@@ -363,7 +363,7 @@ namespace Model
 				TableSchema.TableColumn colvarCustomer = new TableSchema.TableColumn(schema);
 				colvarCustomer.ColumnName = "customer";
 				colvarCustomer.DataType = DbType.String;
-				colvarCustomer.MaxLength = 100;
+				colvarCustomer.MaxLength = 200;
 				colvarCustomer.AutoIncrement = false;
 				colvarCustomer.IsNullable = true;
 				colvarCustomer.IsPrimaryKey = false;
@@ -376,7 +376,7 @@ namespace Model
 				TableSchema.TableColumn colvarOriginalCode = new TableSchema.TableColumn(schema);
 				colvarOriginalCode.ColumnName = "originalCode";
 				colvarOriginalCode.DataType = DbType.String;
-				colvarOriginalCode.MaxLength = 50;
+				colvarOriginalCode.MaxLength = 100;
 				colvarOriginalCode.AutoIncrement = false;
 				colvarOriginalCode.IsNullable = true;
 				colvarOriginalCode.IsPrimaryKey = false;
@@ -389,7 +389,7 @@ namespace Model
 				TableSchema.TableColumn colvarAbnormal = new TableSchema.TableColumn(schema);
 				colvarAbnormal.ColumnName = "abnormal";
 				colvarAbnormal.DataType = DbType.String;
-				colvarAbnormal.MaxLength = 50;
+				colvarAbnormal.MaxLength = 100;
 				colvarAbnormal.AutoIncrement = false;
 				colvarAbnormal.IsNullable = true;
 				colvarAbnormal.IsPrimaryKey = false;
@@ -454,7 +454,7 @@ namespace Model
 				TableSchema.TableColumn colvarMakeTime = new TableSchema.TableColumn(schema);
 				colvarMakeTime.ColumnName = "makeTime";
 				colvarMakeTime.DataType = DbType.String;
-				colvarMakeTime.MaxLength = 50;
+				colvarMakeTime.MaxLength = 100;
 				colvarMakeTime.AutoIncrement = false;
 				colvarMakeTime.IsNullable = true;
 				colvarMakeTime.IsPrimaryKey = false;
@@ -480,7 +480,7 @@ namespace Model
 				TableSchema.TableColumn colvarPbcd = new TableSchema.TableColumn(schema);
 				colvarPbcd.ColumnName = "pbcd";
 				colvarPbcd.DataType = DbType.String;
-				colvarPbcd.MaxLength = 50;
+				colvarPbcd.MaxLength = 100;
 				colvarPbcd.AutoIncrement = false;
 				colvarPbcd.IsNullable = true;
 				colvarPbcd.IsPrimaryKey = false;
@@ -506,7 +506,7 @@ namespace Model
 				TableSchema.TableColumn colvarScjhdd = new TableSchema.TableColumn(schema);
 				colvarScjhdd.ColumnName = "scjhdd";
 				colvarScjhdd.DataType = DbType.String;
-				colvarScjhdd.MaxLength = 50;
+				colvarScjhdd.MaxLength = 100;
 				colvarScjhdd.AutoIncrement = false;
 				colvarScjhdd.IsNullable = true;
 				colvarScjhdd.IsPrimaryKey = false;
@@ -533,7 +533,7 @@ namespace Model
 				TableSchema.TableColumn colvarSfyp = new TableSchema.TableColumn(schema);
 				colvarSfyp.ColumnName = "sfyp";
 				colvarSfyp.DataType = DbType.String;
-				colvarSfyp.MaxLength = 50;
+				colvarSfyp.MaxLength = 100;
 				colvarSfyp.AutoIncrement = false;
 				colvarSfyp.IsNullable = true;
 				colvarSfyp.IsPrimaryKey = false;
@@ -546,7 +546,7 @@ namespace Model
 				TableSchema.TableColumn colvarSfjj = new TableSchema.TableColumn(schema);
 				colvarSfjj.ColumnName = "sfjj";
 				colvarSfjj.DataType = DbType.String;
-				colvarSfjj.MaxLength = 50;
+				colvarSfjj.MaxLength = 100;
 				colvarSfjj.AutoIncrement = false;
 				colvarSfjj.IsNullable = true;
 				colvarSfjj.IsPrimaryKey = false;
@@ -559,7 +559,7 @@ namespace Model
 				TableSchema.TableColumn colvarScggdh = new TableSchema.TableColumn(schema);
 				colvarScggdh.ColumnName = "SCGGDH";
 				colvarScggdh.DataType = DbType.String;
-				colvarScggdh.MaxLength = 50;
+				colvarScggdh.MaxLength = 100;
 				colvarScggdh.AutoIncrement = false;
 				colvarScggdh.IsNullable = true;
 				colvarScggdh.IsPrimaryKey = false;
@@ -572,7 +572,7 @@ namespace Model
 				TableSchema.TableColumn colvarClothType = new TableSchema.TableColumn(schema);
 				colvarClothType.ColumnName = "ClothType";
 				colvarClothType.DataType = DbType.String;
-				colvarClothType.MaxLength = 50;
+				colvarClothType.MaxLength = 100;
 				colvarClothType.AutoIncrement = false;
 				colvarClothType.IsNullable = true;
 				colvarClothType.IsPrimaryKey = false;
@@ -585,7 +585,7 @@ namespace Model
 				TableSchema.TableColumn colvarTzecode = new TableSchema.TableColumn(schema);
 				colvarTzecode.ColumnName = "tzecode";
 				colvarTzecode.DataType = DbType.String;
-				colvarTzecode.MaxLength = 50;
+				colvarTzecode.MaxLength = 100;
 				colvarTzecode.AutoIncrement = false;
 				colvarTzecode.IsNullable = true;
 				colvarTzecode.IsPrimaryKey = false;

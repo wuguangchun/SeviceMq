@@ -178,6 +178,19 @@ namespace Model
 				colvarCreateTime.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarCreateTime);
 				
+				TableSchema.TableColumn colvarKhdh = new TableSchema.TableColumn(schema);
+				colvarKhdh.ColumnName = "khdh";
+				colvarKhdh.DataType = DbType.String;
+				colvarKhdh.MaxLength = 50;
+				colvarKhdh.AutoIncrement = false;
+				colvarKhdh.IsNullable = true;
+				colvarKhdh.IsPrimaryKey = false;
+				colvarKhdh.IsForeignKey = false;
+				colvarKhdh.IsReadOnly = false;
+				colvarKhdh.DefaultSetting = @"";
+				colvarKhdh.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKhdh);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -219,6 +232,14 @@ namespace Model
 			get { return GetColumnValue<DateTime?>(Columns.CreateTime); }
 			set { SetColumnValue(Columns.CreateTime, value); }
 		}
+		  
+		[XmlAttribute("Khdh")]
+		[Bindable(true)]
+		public string Khdh 
+		{
+			get { return GetColumnValue<string>(Columns.Khdh); }
+			set { SetColumnValue(Columns.Khdh, value); }
+		}
 		
 		#endregion
 		
@@ -239,7 +260,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varProject,string varContent,DateTime? varCreateTime)
+		public static void Insert(string varProject,string varContent,DateTime? varCreateTime,string varKhdh)
 		{
 			TApsClientLog item = new TApsClientLog();
 			
@@ -248,6 +269,8 @@ namespace Model
 			item.Content = varContent;
 			
 			item.CreateTime = varCreateTime;
+			
+			item.Khdh = varKhdh;
 			
 		
 			if (System.Web.HttpContext.Current != null)
@@ -259,7 +282,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varId,string varProject,string varContent,DateTime? varCreateTime)
+		public static void Update(int varId,string varProject,string varContent,DateTime? varCreateTime,string varKhdh)
 		{
 			TApsClientLog item = new TApsClientLog();
 			
@@ -270,6 +293,8 @@ namespace Model
 				item.Content = varContent;
 			
 				item.CreateTime = varCreateTime;
+			
+				item.Khdh = varKhdh;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -312,6 +337,13 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn KhdhColumn
+        {
+            get { return Schema.Columns[4]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -320,6 +352,7 @@ namespace Model
 			 public static string Project = @"project";
 			 public static string Content = @"content";
 			 public static string CreateTime = @"CreateTime";
+			 public static string Khdh = @"khdh";
 						
 		}
 		#endregion

@@ -222,7 +222,7 @@ namespace Model
 				colvarMakeTime.DataType = DbType.String;
 				colvarMakeTime.MaxLength = 50;
 				colvarMakeTime.AutoIncrement = false;
-				colvarMakeTime.IsNullable = false;
+				colvarMakeTime.IsNullable = true;
 				colvarMakeTime.IsPrimaryKey = false;
 				colvarMakeTime.IsForeignKey = false;
 				colvarMakeTime.IsReadOnly = false;
@@ -235,7 +235,7 @@ namespace Model
 				colvarCreateTime.DataType = DbType.DateTime;
 				colvarCreateTime.MaxLength = 0;
 				colvarCreateTime.AutoIncrement = false;
-				colvarCreateTime.IsNullable = true;
+				colvarCreateTime.IsNullable = false;
 				colvarCreateTime.IsPrimaryKey = false;
 				colvarCreateTime.IsForeignKey = false;
 				colvarCreateTime.IsReadOnly = false;
@@ -248,7 +248,7 @@ namespace Model
 				colvarMtmOrTz.DataType = DbType.Int32;
 				colvarMtmOrTz.MaxLength = 0;
 				colvarMtmOrTz.AutoIncrement = false;
-				colvarMtmOrTz.IsNullable = false;
+				colvarMtmOrTz.IsNullable = true;
 				colvarMtmOrTz.IsPrimaryKey = false;
 				colvarMtmOrTz.IsForeignKey = false;
 				colvarMtmOrTz.IsReadOnly = false;
@@ -274,7 +274,7 @@ namespace Model
 				colvarState.DataType = DbType.Int32;
 				colvarState.MaxLength = 0;
 				colvarState.AutoIncrement = false;
-				colvarState.IsNullable = false;
+				colvarState.IsNullable = true;
 				colvarState.IsPrimaryKey = false;
 				colvarState.IsForeignKey = false;
 				colvarState.IsReadOnly = false;
@@ -359,17 +359,17 @@ namespace Model
 		  
 		[XmlAttribute("CreateTime")]
 		[Bindable(true)]
-		public DateTime? CreateTime 
+		public DateTime CreateTime 
 		{
-			get { return GetColumnValue<DateTime?>(Columns.CreateTime); }
+			get { return GetColumnValue<DateTime>(Columns.CreateTime); }
 			set { SetColumnValue(Columns.CreateTime, value); }
 		}
 		  
 		[XmlAttribute("MtmOrTz")]
 		[Bindable(true)]
-		public int MtmOrTz 
+		public int? MtmOrTz 
 		{
-			get { return GetColumnValue<int>(Columns.MtmOrTz); }
+			get { return GetColumnValue<int?>(Columns.MtmOrTz); }
 			set { SetColumnValue(Columns.MtmOrTz, value); }
 		}
 		  
@@ -383,9 +383,9 @@ namespace Model
 		  
 		[XmlAttribute("State")]
 		[Bindable(true)]
-		public int State 
+		public int? State 
 		{
-			get { return GetColumnValue<int>(Columns.State); }
+			get { return GetColumnValue<int?>(Columns.State); }
 			set { SetColumnValue(Columns.State, value); }
 		}
 		
@@ -408,7 +408,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varCustomerID,string varJobCode,string varProject,string varNote,string varResources,DateTime varBeginTime,DateTime varEndTime,string varMakeTime,DateTime? varCreateTime,int varMtmOrTz,DateTime varGrabTime,int varState)
+		public static void Insert(string varCustomerID,string varJobCode,string varProject,string varNote,string varResources,DateTime varBeginTime,DateTime varEndTime,string varMakeTime,DateTime varCreateTime,int? varMtmOrTz,DateTime varGrabTime,int? varState)
 		{
 			TBLCADTemp item = new TBLCADTemp();
 			
@@ -446,7 +446,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varCustomerID,string varJobCode,string varProject,string varNote,string varResources,DateTime varBeginTime,DateTime varEndTime,string varMakeTime,DateTime? varCreateTime,int varMtmOrTz,DateTime varGrabTime,int varState)
+		public static void Update(string varCustomerID,string varJobCode,string varProject,string varNote,string varResources,DateTime varBeginTime,DateTime varEndTime,string varMakeTime,DateTime varCreateTime,int? varMtmOrTz,DateTime varGrabTime,int? varState)
 		{
 			TBLCADTemp item = new TBLCADTemp();
 			

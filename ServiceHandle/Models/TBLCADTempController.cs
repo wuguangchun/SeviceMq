@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string CustomerID,string JobCode,string Project,string Note,string Resources,DateTime BeginTime,DateTime EndTime,string MakeTime,DateTime? CreateTime,int MtmOrTz,DateTime GrabTime,int State)
+	    public void Insert(string CustomerID,string JobCode,string Project,string Note,string Resources,DateTime BeginTime,DateTime EndTime,string MakeTime,DateTime CreateTime,int? MtmOrTz,DateTime GrabTime,int? State)
 	    {
 		    TBLCADTemp item = new TBLCADTemp();
 		    
@@ -116,7 +116,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string CustomerID,string JobCode,string Project,string Note,string Resources,DateTime BeginTime,DateTime EndTime,string MakeTime,DateTime? CreateTime,int MtmOrTz,DateTime GrabTime,int State)
+	    public void Update(string CustomerID,string JobCode,string Project,string Note,string Resources,DateTime BeginTime,DateTime EndTime,string MakeTime,DateTime CreateTime,int? MtmOrTz,DateTime GrabTime,int? State)
 	    {
 		    TBLCADTemp item = new TBLCADTemp();
 	        item.MarkOld();

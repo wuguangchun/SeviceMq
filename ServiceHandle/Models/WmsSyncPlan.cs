@@ -311,7 +311,7 @@ namespace Model
 				TableSchema.TableColumn colvarWlbw = new TableSchema.TableColumn(schema);
 				colvarWlbw.ColumnName = "WLBW";
 				colvarWlbw.DataType = DbType.AnsiString;
-				colvarWlbw.MaxLength = 128;
+				colvarWlbw.MaxLength = 100;
 				colvarWlbw.AutoIncrement = false;
 				colvarWlbw.IsNullable = true;
 				colvarWlbw.IsPrimaryKey = false;

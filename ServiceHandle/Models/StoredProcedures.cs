@@ -62,7 +62,7 @@ namespace Model{
         /// <summary>
         /// Creates an object wrapper for the P_Gen_CutterAPS Procedure
         /// </summary>
-        public static StoredProcedure PGenCutterAPS(string PLANMIDS, string Factory, int? CutterNum, string DateX, string Time, int? Cutcount, string cRESULT)
+        public static StoredProcedure PGenCutterAPS(string PLANMIDS, string Factory, int? CutterNum, string DateX, string Time, int? Cutcount, string isJIaJi, string cRESULT)
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("P_Gen_CutterAPS", DataService.GetInstance("Nowthwin"), "dbo");
         	
@@ -77,6 +77,8 @@ namespace Model{
             sp.Command.AddParameter("@Time", Time, DbType.AnsiString, null, null);
         	
             sp.Command.AddParameter("@Cutcount", Cutcount, DbType.Int32, 0, 10);
+        	
+            sp.Command.AddParameter("@isJIaJi", isJIaJi, DbType.AnsiString, null, null);
         	
             sp.Command.AddOutputParameter("@cRESULT", DbType.AnsiString, null, null);
             
@@ -93,6 +95,20 @@ namespace Model{
             sp.Command.AddParameter("@PLANMID", PLANMID, DbType.AnsiString, null, null);
         	
             sp.Command.AddOutputParameter("@cRESULT", DbType.AnsiString, null, null);
+            
+            return sp;
+        }
+        
+        /// <summary>
+        /// Creates an object wrapper for the P_GetPlanNLZY Procedure
+        /// </summary>
+        public static StoredProcedure PGetPlanNLZY(string SCZSDL, string jhnlzy)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("P_GetPlanNLZY", DataService.GetInstance("Nowthwin"), "dbo");
+        	
+            sp.Command.AddParameter("@SCZSDL", SCZSDL, DbType.AnsiString, null, null);
+        	
+            sp.Command.AddOutputParameter("@jhnlzy", DbType.AnsiString, null, null);
             
             return sp;
         }
@@ -276,6 +292,18 @@ namespace Model{
         }
         
         /// <summary>
+        /// Creates an object wrapper for the Proc_GetPlansDataCY_Cient Procedure
+        /// </summary>
+        public static StoredProcedure ProcGetPlansDataCYCient(DateTime? BeginTime)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetPlansDataCY_Cient", DataService.GetInstance("Nowthwin"), "dbo");
+        	
+            sp.Command.AddParameter("@BeginTime", BeginTime, DbType.DateTime, null, null);
+        	
+            return sp;
+        }
+        
+        /// <summary>
         /// Creates an object wrapper for the Proc_GetPlansDataCY_New Procedure
         /// </summary>
         public static StoredProcedure ProcGetPlansDataCYNew(DateTime? BeginTime)
@@ -317,6 +345,16 @@ namespace Model{
         public static StoredProcedure ProcGetPlansTZDataCy()
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetPlansTZDataCy", DataService.GetInstance("Nowthwin"), "");
+        	
+            return sp;
+        }
+        
+        /// <summary>
+        /// Creates an object wrapper for the Proc_GetXfmtmjh Procedure
+        /// </summary>
+        public static StoredProcedure ProcGetXfmtmjh()
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetXfmtmjh", DataService.GetInstance("Nowthwin"), "");
         	
             return sp;
         }
@@ -385,6 +423,16 @@ namespace Model{
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("proc_sql_webservice", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@OrderId", OrderId, DbType.String, null, null);
+        	
+            return sp;
+        }
+        
+        /// <summary>
+        /// Creates an object wrapper for the proc_tongbucheyi Procedure
+        /// </summary>
+        public static StoredProcedure ProcTongbucheyi()
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("proc_tongbucheyi", DataService.GetInstance("Nowthwin"), "");
         	
             return sp;
         }

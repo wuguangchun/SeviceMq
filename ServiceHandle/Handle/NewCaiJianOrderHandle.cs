@@ -87,7 +87,6 @@ namespace ServiceHandle.Handle
                 messageQueue.BeginReceive();
             }
         }
-
     }
 
     public class NewByCfHelper
@@ -334,6 +333,7 @@ namespace ServiceHandle.Handle
                         left join sct32 on  sct32.schtbh=a.schtbh
                         where scyspd=''{orderId}''  and scjhbz not like ''%未%''
                         order by scjhbz";
+                //and scjhbz not like ''%未%''
                 var erpTable = DataHelper.OtherBaseSelect("FYERP", sql).Rows[0].ItemArray.ToList();
 
                 if (orderId.ToLower().Contains("jjj") || orderId.ToLower().Contains("test") ||

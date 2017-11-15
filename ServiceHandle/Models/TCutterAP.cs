@@ -130,9 +130,9 @@ namespace Model
 				colvarApsid.ColumnName = "APSID";
 				colvarApsid.DataType = DbType.Int32;
 				colvarApsid.MaxLength = 0;
-				colvarApsid.AutoIncrement = false;
-				colvarApsid.IsNullable = true;
-				colvarApsid.IsPrimaryKey = false;
+				colvarApsid.AutoIncrement = true;
+				colvarApsid.IsNullable = false;
+				colvarApsid.IsPrimaryKey = true;
 				colvarApsid.IsForeignKey = false;
 				colvarApsid.IsReadOnly = false;
 				colvarApsid.DefaultSetting = @"";
@@ -187,7 +187,8 @@ namespace Model
 				colvarFilename.IsPrimaryKey = false;
 				colvarFilename.IsForeignKey = false;
 				colvarFilename.IsReadOnly = false;
-				colvarFilename.DefaultSetting = @"";
+				
+						colvarFilename.DefaultSetting = @"('')";
 				colvarFilename.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarFilename);
 				
@@ -213,8 +214,7 @@ namespace Model
 				colvarCutcount.IsPrimaryKey = false;
 				colvarCutcount.IsForeignKey = false;
 				colvarCutcount.IsReadOnly = false;
-				
-						colvarCutcount.DefaultSetting = @"((1))";
+				colvarCutcount.DefaultSetting = @"";
 				colvarCutcount.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarCutcount);
 				
@@ -266,7 +266,8 @@ namespace Model
 				colvarBarcode.IsPrimaryKey = false;
 				colvarBarcode.IsForeignKey = false;
 				colvarBarcode.IsReadOnly = false;
-				colvarBarcode.DefaultSetting = @"";
+				
+						colvarBarcode.DefaultSetting = @"(getdate())";
 				colvarBarcode.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarBarcode);
 				
@@ -334,75 +335,10 @@ namespace Model
 				colvarStatusdate.IsPrimaryKey = false;
 				colvarStatusdate.IsForeignKey = false;
 				colvarStatusdate.IsReadOnly = false;
-				colvarStatusdate.DefaultSetting = @"";
+				
+						colvarStatusdate.DefaultSetting = @"(getdate())";
 				colvarStatusdate.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarStatusdate);
-				
-				TableSchema.TableColumn colvarSyncd = new TableSchema.TableColumn(schema);
-				colvarSyncd.ColumnName = "SYNCD";
-				colvarSyncd.DataType = DbType.AnsiStringFixedLength;
-				colvarSyncd.MaxLength = 1;
-				colvarSyncd.AutoIncrement = false;
-				colvarSyncd.IsNullable = true;
-				colvarSyncd.IsPrimaryKey = false;
-				colvarSyncd.IsForeignKey = false;
-				colvarSyncd.IsReadOnly = false;
-				
-						colvarSyncd.DefaultSetting = @"((0))";
-				colvarSyncd.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarSyncd);
-				
-				TableSchema.TableColumn colvarStime = new TableSchema.TableColumn(schema);
-				colvarStime.ColumnName = "stime";
-				colvarStime.DataType = DbType.DateTime;
-				colvarStime.MaxLength = 0;
-				colvarStime.AutoIncrement = false;
-				colvarStime.IsNullable = true;
-				colvarStime.IsPrimaryKey = false;
-				colvarStime.IsForeignKey = false;
-				colvarStime.IsReadOnly = false;
-				colvarStime.DefaultSetting = @"";
-				colvarStime.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarStime);
-				
-				TableSchema.TableColumn colvarPid = new TableSchema.TableColumn(schema);
-				colvarPid.ColumnName = "pid";
-				colvarPid.DataType = DbType.Int32;
-				colvarPid.MaxLength = 0;
-				colvarPid.AutoIncrement = true;
-				colvarPid.IsNullable = false;
-				colvarPid.IsPrimaryKey = true;
-				colvarPid.IsForeignKey = false;
-				colvarPid.IsReadOnly = false;
-				colvarPid.DefaultSetting = @"";
-				colvarPid.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarPid);
-				
-				TableSchema.TableColumn colvarPbcdName = new TableSchema.TableColumn(schema);
-				colvarPbcdName.ColumnName = "pbcdName";
-				colvarPbcdName.DataType = DbType.AnsiString;
-				colvarPbcdName.MaxLength = 50;
-				colvarPbcdName.AutoIncrement = false;
-				colvarPbcdName.IsNullable = true;
-				colvarPbcdName.IsPrimaryKey = false;
-				colvarPbcdName.IsForeignKey = false;
-				colvarPbcdName.IsReadOnly = false;
-				colvarPbcdName.DefaultSetting = @"";
-				colvarPbcdName.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarPbcdName);
-				
-				TableSchema.TableColumn colvarFirstTime = new TableSchema.TableColumn(schema);
-				colvarFirstTime.ColumnName = "firstTime";
-				colvarFirstTime.DataType = DbType.DateTime;
-				colvarFirstTime.MaxLength = 0;
-				colvarFirstTime.AutoIncrement = false;
-				colvarFirstTime.IsNullable = true;
-				colvarFirstTime.IsPrimaryKey = false;
-				colvarFirstTime.IsForeignKey = false;
-				colvarFirstTime.IsReadOnly = false;
-				colvarFirstTime.DefaultSetting = @"";
-				colvarFirstTime.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarFirstTime);
 				
 				BaseSchema = schema;
 				//add this schema to the provider
@@ -416,9 +352,9 @@ namespace Model
 		  
 		[XmlAttribute("Apsid")]
 		[Bindable(true)]
-		public int? Apsid 
+		public int Apsid 
 		{
-			get { return GetColumnValue<int?>(Columns.Apsid); }
+			get { return GetColumnValue<int>(Columns.Apsid); }
 			set { SetColumnValue(Columns.Apsid, value); }
 		}
 		  
@@ -541,46 +477,6 @@ namespace Model
 			get { return GetColumnValue<DateTime?>(Columns.Statusdate); }
 			set { SetColumnValue(Columns.Statusdate, value); }
 		}
-		  
-		[XmlAttribute("Syncd")]
-		[Bindable(true)]
-		public string Syncd 
-		{
-			get { return GetColumnValue<string>(Columns.Syncd); }
-			set { SetColumnValue(Columns.Syncd, value); }
-		}
-		  
-		[XmlAttribute("Stime")]
-		[Bindable(true)]
-		public DateTime? Stime 
-		{
-			get { return GetColumnValue<DateTime?>(Columns.Stime); }
-			set { SetColumnValue(Columns.Stime, value); }
-		}
-		  
-		[XmlAttribute("Pid")]
-		[Bindable(true)]
-		public int Pid 
-		{
-			get { return GetColumnValue<int>(Columns.Pid); }
-			set { SetColumnValue(Columns.Pid, value); }
-		}
-		  
-		[XmlAttribute("PbcdName")]
-		[Bindable(true)]
-		public string PbcdName 
-		{
-			get { return GetColumnValue<string>(Columns.PbcdName); }
-			set { SetColumnValue(Columns.PbcdName, value); }
-		}
-		  
-		[XmlAttribute("FirstTime")]
-		[Bindable(true)]
-		public DateTime? FirstTime 
-		{
-			get { return GetColumnValue<DateTime?>(Columns.FirstTime); }
-			set { SetColumnValue(Columns.FirstTime, value); }
-		}
 		
 		#endregion
 		
@@ -601,11 +497,9 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int? varApsid,int? varPlanmid,int? varPlansid,string varSczsbh,string varFilename,int? varCutternum,int? varCutcount,string varCutdate,string varCuttime,DateTime? varOpdate,string varBarcode,string varFilestatus,string varMatstatus,string varMatlength,string varCutstatus,DateTime? varStatusdate,string varSyncd,DateTime? varStime,string varPbcdName,DateTime? varFirstTime)
+		public static void Insert(int? varPlanmid,int? varPlansid,string varSczsbh,string varFilename,int? varCutternum,int? varCutcount,string varCutdate,string varCuttime,DateTime? varOpdate,string varBarcode,string varFilestatus,string varMatstatus,string varMatlength,string varCutstatus,DateTime? varStatusdate)
 		{
 			TCutterAP item = new TCutterAP();
-			
-			item.Apsid = varApsid;
 			
 			item.Planmid = varPlanmid;
 			
@@ -637,14 +531,6 @@ namespace Model
 			
 			item.Statusdate = varStatusdate;
 			
-			item.Syncd = varSyncd;
-			
-			item.Stime = varStime;
-			
-			item.PbcdName = varPbcdName;
-			
-			item.FirstTime = varFirstTime;
-			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -655,7 +541,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int? varApsid,int? varPlanmid,int? varPlansid,string varSczsbh,string varFilename,int? varCutternum,int? varCutcount,string varCutdate,string varCuttime,DateTime? varOpdate,string varBarcode,string varFilestatus,string varMatstatus,string varMatlength,string varCutstatus,DateTime? varStatusdate,string varSyncd,DateTime? varStime,int varPid,string varPbcdName,DateTime? varFirstTime)
+		public static void Update(int varApsid,int? varPlanmid,int? varPlansid,string varSczsbh,string varFilename,int? varCutternum,int? varCutcount,string varCutdate,string varCuttime,DateTime? varOpdate,string varBarcode,string varFilestatus,string varMatstatus,string varMatlength,string varCutstatus,DateTime? varStatusdate)
 		{
 			TCutterAP item = new TCutterAP();
 			
@@ -690,16 +576,6 @@ namespace Model
 				item.Cutstatus = varCutstatus;
 			
 				item.Statusdate = varStatusdate;
-			
-				item.Syncd = varSyncd;
-			
-				item.Stime = varStime;
-			
-				item.Pid = varPid;
-			
-				item.PbcdName = varPbcdName;
-			
-				item.FirstTime = varFirstTime;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -826,41 +702,6 @@ namespace Model
         
         
         
-        public static TableSchema.TableColumn SyncdColumn
-        {
-            get { return Schema.Columns[16]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn StimeColumn
-        {
-            get { return Schema.Columns[17]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn PidColumn
-        {
-            get { return Schema.Columns[18]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn PbcdNameColumn
-        {
-            get { return Schema.Columns[19]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn FirstTimeColumn
-        {
-            get { return Schema.Columns[20]; }
-        }
-        
-        
-        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -881,11 +722,6 @@ namespace Model
 			 public static string Matlength = @"MATLENGTH";
 			 public static string Cutstatus = @"CUTSTATUS";
 			 public static string Statusdate = @"STATUSDATE";
-			 public static string Syncd = @"SYNCD";
-			 public static string Stime = @"stime";
-			 public static string Pid = @"pid";
-			 public static string PbcdName = @"pbcdName";
-			 public static string FirstTime = @"firstTime";
 						
 		}
 		#endregion

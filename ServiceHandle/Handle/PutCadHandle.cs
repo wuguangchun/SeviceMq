@@ -99,34 +99,34 @@ namespace ServiceHandle.Handle
                 //这里写引用提交到BL
 
                 //测试接口
-                PushWebHelper.PostToPost("http://172.16.7.124:8083/rest/aps/apspcsj", jsonBody, ref s);
+                //PushWebHelper.PostToPost("http://172.16.7.124:8083/rest/aps/apspcsj", jsonBody, ref s);
 
                 //正式接口
-                //PushWebHelper.PostToPost("http://172.16.7.127:8000/rest/aps/apspcsj", jsonBody, ref s);
+                PushWebHelper.PostToPost("http://172.16.7.127:8000/rest/aps/apspcsj", jsonBody, ref s);
 
                 var blObj = (BlReturnMsg)JsonHelper.ReturnObject(s, typeof(BlReturnMsg));
 
                 if (blObj.S == "1")
                 {
-                    //Json解析，获取客户单号
-                    var orderId =
-                        ((CadBlModelList)JsonHelper.ReturnObject(jsonBody, typeof(CadBlModelList))).ds.First()
-                        .customerId;
+                    ////Json解析，获取客户单号
+                    //var orderId =
+                    //    ((CadBlModelList)JsonHelper.ReturnObject(jsonBody, typeof(CadBlModelList))).ds.First()
+                    //    .customerId;
 
-                    //更新CAD排程表
-                    new Update(TBLCADTemp.Schema)
-                        .Set(TBLCADTemp.StateColumn).EqualTo(0)
-                        .Where(TBLCADTemp.CustomerIDColumn).IsEqualTo(orderId)
-                        .Execute();
+                    ////更新CAD排程表
+                    //new Update(TBLCADTemp.Schema)
+                    //    .Set(TBLCADTemp.StateColumn).EqualTo(0)
+                    //    .Where(TBLCADTemp.CustomerIDColumn).IsEqualTo(orderId)
+                    //    .Execute();
 
-                    json.RetCode = "1";
+                    json.RetCode = "error";
                     json.RetMessage = blObj.Rs;
 
                 }
                 else
                 {
-                    //Json解析，获取客户单号
-                    var orderId = ((CadBlModelList)JsonHelper.ReturnObject(jsonBody, typeof(CadBlModelList))).ds.First().customerId;
+                    json.RetCode = "success";
+                    json.RetMessage = blObj.Rs;
 
                 }
 
@@ -147,8 +147,8 @@ namespace ServiceHandle.Handle
                 var resource = new Select().From<TBasisResource>().ExecuteTypedList<TBasisResource>();
                 var query = new Select().From<TAnalysisOutputList>()
                     .Where(TAnalysisOutputList.ProjectColumn).IsEqualTo(project.ToLower().Contains("cy") ? "CY" : "CAD西服");
-
-                foreach (var outputList in query.ExecuteTypedList<TAnalysisOutputList>())
+                var orderResult = query.ExecuteTypedList<TAnalysisOutputList>();
+                foreach (var outputList in orderResult)
                 {
                     CadBlModelList ds = new CadBlModelList
                     {
@@ -161,8 +161,8 @@ namespace ServiceHandle.Handle
                                 abnormal = outputList.Abnormal,
                                 note = outputList.Note,
                                 resources = resource.Find(x=>x.ResourcesCode==outputList.Resources).Resources ,
-                                beginTime = outputList.BeginTime.ToString(),
-                                endTime = outputList.EndTime.ToString(),
+                                beginTime = outputList.BeginTime.ToString().Replace("/","-"),
+                                endTime = outputList.EndTime.ToString().Replace("/","-"),
                                 makeTime = outputList.MakeTime,
                                 createDate =DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
                                 mtmortz = outputList.OrderType.ToLower().Contains("mtm")?"1":"0",
@@ -174,8 +174,13 @@ namespace ServiceHandle.Handle
                     //将数据插入到消息队列，等待推送
                     var service = new ApsMessageService.NewMassgeServiceClient();
                     service.InsertMessage("PutCadBL", "CADScheduling", JsonHelper.GetJsonO(ds), null);
+
+                    //测试用只传输一条
+                    //break;
                 }
 
+                json.RetCode = "success";
+                json.RetMessage = $"加入队列无异常，共{orderResult.Count}条数据！";
             }
             catch (Exception e)
             {

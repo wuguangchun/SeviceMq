@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Pkid,string CustomerId,DateTime? BeginTime,string CoatCode,string Num,int? TypeT,string Gylx,int? Order,string Resource)
+	    public void Insert(int Pkid,string CustomerId,DateTime? BeginTime,string CoatCode,string Num,int? TypeT,string Gylx)
 	    {
 		    TFZfirstOrder item = new TFZfirstOrder();
 		    
@@ -98,10 +98,6 @@ namespace Model
             
             item.Gylx = Gylx;
             
-            item.Order = Order;
-            
-            item.Resource = Resource;
-            
 	    
 		    item.Save(UserName);
 	    }
@@ -110,7 +106,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string Pkid,string CustomerId,DateTime? BeginTime,string CoatCode,string Num,int? TypeT,string Gylx,int? Order,string Resource)
+	    public void Update(int Pkid,string CustomerId,DateTime? BeginTime,string CoatCode,string Num,int? TypeT,string Gylx)
 	    {
 		    TFZfirstOrder item = new TFZfirstOrder();
 	        item.MarkOld();
@@ -129,10 +125,6 @@ namespace Model
 			item.TypeT = TypeT;
 				
 			item.Gylx = Gylx;
-				
-			item.Order = Order;
-				
-			item.Resource = Resource;
 				
 	        item.Save(UserName);
 	    }

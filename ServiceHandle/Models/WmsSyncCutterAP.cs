@@ -330,8 +330,7 @@ namespace Model
 				colvarStatusdate.IsPrimaryKey = false;
 				colvarStatusdate.IsForeignKey = false;
 				colvarStatusdate.IsReadOnly = false;
-				
-						colvarStatusdate.DefaultSetting = @"(getdate())";
+				colvarStatusdate.DefaultSetting = @"";
 				colvarStatusdate.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarStatusdate);
 				

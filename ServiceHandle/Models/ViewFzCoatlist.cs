@@ -60,7 +60,7 @@ namespace Model{
                 TableSchema.TableColumn colvarKhdh = new TableSchema.TableColumn(schema);
                 colvarKhdh.ColumnName = "khdh";
                 colvarKhdh.DataType = DbType.String;
-                colvarKhdh.MaxLength = 50;
+                colvarKhdh.MaxLength = 250;
                 colvarKhdh.AutoIncrement = false;
                 colvarKhdh.IsNullable = true;
                 colvarKhdh.IsPrimaryKey = false;
@@ -96,7 +96,7 @@ namespace Model{
                 TableSchema.TableColumn colvarGylx = new TableSchema.TableColumn(schema);
                 colvarGylx.ColumnName = "gylx";
                 colvarGylx.DataType = DbType.String;
-                colvarGylx.MaxLength = 50;
+                colvarGylx.MaxLength = 250;
                 colvarGylx.AutoIncrement = false;
                 colvarGylx.IsNullable = true;
                 colvarGylx.IsPrimaryKey = false;
@@ -108,7 +108,7 @@ namespace Model{
                 TableSchema.TableColumn colvarFzfl = new TableSchema.TableColumn(schema);
                 colvarFzfl.ColumnName = "fzfl";
                 colvarFzfl.DataType = DbType.String;
-                colvarFzfl.MaxLength = 50;
+                colvarFzfl.MaxLength = 250;
                 colvarFzfl.AutoIncrement = false;
                 colvarFzfl.IsNullable = true;
                 colvarFzfl.IsPrimaryKey = false;
@@ -120,7 +120,7 @@ namespace Model{
                 TableSchema.TableColumn colvarKsjg = new TableSchema.TableColumn(schema);
                 colvarKsjg.ColumnName = "ksjg";
                 colvarKsjg.DataType = DbType.String;
-                colvarKsjg.MaxLength = 50;
+                colvarKsjg.MaxLength = 250;
                 colvarKsjg.AutoIncrement = false;
                 colvarKsjg.IsNullable = true;
                 colvarKsjg.IsPrimaryKey = false;
@@ -168,7 +168,7 @@ namespace Model{
                 TableSchema.TableColumn colvarKsh = new TableSchema.TableColumn(schema);
                 colvarKsh.ColumnName = "ksh";
                 colvarKsh.DataType = DbType.String;
-                colvarKsh.MaxLength = 50;
+                colvarKsh.MaxLength = 250;
                 colvarKsh.AutoIncrement = false;
                 colvarKsh.IsNullable = true;
                 colvarKsh.IsPrimaryKey = false;
@@ -192,7 +192,7 @@ namespace Model{
                 TableSchema.TableColumn colvarMlbm = new TableSchema.TableColumn(schema);
                 colvarMlbm.ColumnName = "mlbm";
                 colvarMlbm.DataType = DbType.String;
-                colvarMlbm.MaxLength = 50;
+                colvarMlbm.MaxLength = 250;
                 colvarMlbm.AutoIncrement = false;
                 colvarMlbm.IsNullable = true;
                 colvarMlbm.IsPrimaryKey = false;
@@ -204,7 +204,7 @@ namespace Model{
                 TableSchema.TableColumn colvarHxjg = new TableSchema.TableColumn(schema);
                 colvarHxjg.ColumnName = "hxjg";
                 colvarHxjg.DataType = DbType.String;
-                colvarHxjg.MaxLength = 50;
+                colvarHxjg.MaxLength = 250;
                 colvarHxjg.AutoIncrement = false;
                 colvarHxjg.IsNullable = true;
                 colvarHxjg.IsPrimaryKey = false;
@@ -216,7 +216,7 @@ namespace Model{
                 TableSchema.TableColumn colvarOrderType = new TableSchema.TableColumn(schema);
                 colvarOrderType.ColumnName = "orderType";
                 colvarOrderType.DataType = DbType.String;
-                colvarOrderType.MaxLength = 20;
+                colvarOrderType.MaxLength = 100;
                 colvarOrderType.AutoIncrement = false;
                 colvarOrderType.IsNullable = true;
                 colvarOrderType.IsPrimaryKey = false;
@@ -228,7 +228,7 @@ namespace Model{
                 TableSchema.TableColumn colvarC = new TableSchema.TableColumn(schema);
                 colvarC.ColumnName = "c";
                 colvarC.DataType = DbType.String;
-                colvarC.MaxLength = 71;
+                colvarC.MaxLength = 351;
                 colvarC.AutoIncrement = false;
                 colvarC.IsNullable = true;
                 colvarC.IsPrimaryKey = false;
@@ -252,7 +252,7 @@ namespace Model{
                 TableSchema.TableColumn colvarMtml = new TableSchema.TableColumn(schema);
                 colvarMtml.ColumnName = "MTML";
                 colvarMtml.DataType = DbType.String;
-                colvarMtml.MaxLength = 50;
+                colvarMtml.MaxLength = 100;
                 colvarMtml.AutoIncrement = false;
                 colvarMtml.IsNullable = true;
                 colvarMtml.IsPrimaryKey = false;
@@ -264,7 +264,7 @@ namespace Model{
                 TableSchema.TableColumn colvarXianh = new TableSchema.TableColumn(schema);
                 colvarXianh.ColumnName = "XIANH";
                 colvarXianh.DataType = DbType.String;
-                colvarXianh.MaxLength = 50;
+                colvarXianh.MaxLength = 100;
                 colvarXianh.AutoIncrement = false;
                 colvarXianh.IsNullable = true;
                 colvarXianh.IsPrimaryKey = false;
@@ -275,8 +275,8 @@ namespace Model{
                 
                 TableSchema.TableColumn colvarGyxx = new TableSchema.TableColumn(schema);
                 colvarGyxx.ColumnName = "gyxx";
-                colvarGyxx.DataType = DbType.String;
-                colvarGyxx.MaxLength = -1;
+                colvarGyxx.DataType = DbType.AnsiString;
+                colvarGyxx.MaxLength = 2147483647;
                 colvarGyxx.AutoIncrement = false;
                 colvarGyxx.IsNullable = true;
                 colvarGyxx.IsPrimaryKey = false;
@@ -288,7 +288,7 @@ namespace Model{
                 TableSchema.TableColumn colvarSfbcpsy = new TableSchema.TableColumn(schema);
                 colvarSfbcpsy.ColumnName = "sfbcpsy";
                 colvarSfbcpsy.DataType = DbType.String;
-                colvarSfbcpsy.MaxLength = 20;
+                colvarSfbcpsy.MaxLength = 250;
                 colvarSfbcpsy.AutoIncrement = false;
                 colvarSfbcpsy.IsNullable = true;
                 colvarSfbcpsy.IsPrimaryKey = false;

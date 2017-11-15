@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Project,string Content,DateTime? CreateTime)
+	    public void Insert(string Project,string Content,DateTime? CreateTime,string Khdh)
 	    {
 		    TApsClientLog item = new TApsClientLog();
 		    
@@ -90,6 +90,8 @@ namespace Model
             
             item.CreateTime = CreateTime;
             
+            item.Khdh = Khdh;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -98,7 +100,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Id,string Project,string Content,DateTime? CreateTime)
+	    public void Update(int Id,string Project,string Content,DateTime? CreateTime,string Khdh)
 	    {
 		    TApsClientLog item = new TApsClientLog();
 	        item.MarkOld();
@@ -111,6 +113,8 @@ namespace Model
 			item.Content = Content;
 				
 			item.CreateTime = CreateTime;
+				
+			item.Khdh = Khdh;
 				
 	        item.Save(UserName);
 	    }

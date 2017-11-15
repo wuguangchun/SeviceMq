@@ -155,7 +155,7 @@ namespace Model
 				TableSchema.TableColumn colvarScggdh = new TableSchema.TableColumn(schema);
 				colvarScggdh.ColumnName = "SCGGDH";
 				colvarScggdh.DataType = DbType.AnsiString;
-				colvarScggdh.MaxLength = 12;
+				colvarScggdh.MaxLength = 22;
 				colvarScggdh.AutoIncrement = false;
 				colvarScggdh.IsNullable = false;
 				colvarScggdh.IsPrimaryKey = true;

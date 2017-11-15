@@ -18,13 +18,59 @@ namespace Model
 	public partial struct Tables
 	{
 		
+		public static readonly string BCutterSet = @"B_CutterSet";
+        
+		public static readonly string BISOFileSet = @"B_ISOFileSet";
+        
 		public static readonly string BWorkTimeSet = @"B_WorkTimeSet";
+        
+		public static readonly string BWorkTimeSetCopy = @"B_WorkTimeSetCopy";
+        
+		public static readonly string BPMOrder = @"BPMOrders";
+        
+		public static readonly string Dictionary = @"Dictionaries";
+        
+		public static readonly string Factory = @"Factory";
+        
+		public static readonly string FactoryOrderTran = @"FactoryOrderTrans";
         
 		public static readonly string HljtExecuteProc = @"HLJT_ExecuteProc";
         
 		public static readonly string HljtTaskList = @"HLJT_TaskList";
         
-		public static readonly string Num = @"Nums";
+		public static readonly string Isypb = @"ISYPB";
+        
+		public static readonly string OrderTest = @"OrderTest";
+        
+		public static readonly string ProcessedOrder = @"ProcessedOrder";
+        
+		public static readonly string SCM06 = @"SCM06";
+        
+		public static readonly string SCM13 = @"SCM13";
+        
+		public static readonly string SCT12 = @"SCT12";
+        
+		public static readonly string SCT26 = @"SCT26";
+        
+		public static readonly string SCT262 = @"SCT262";
+        
+		public static readonly string SCT27 = @"SCT27";
+        
+		public static readonly string SCT271 = @"SCT271";
+        
+		public static readonly string SCT272 = @"SCT272";
+        
+		public static readonly string SCT28 = @"SCT28";
+        
+		public static readonly string SCT282 = @"SCT282";
+        
+		public static readonly string SCT31 = @"SCT31";
+        
+		public static readonly string SCT32 = @"SCT32";
+        
+		public static readonly string SCT51 = @"SCT51";
+        
+		public static readonly string SCT52 = @"SCT52";
         
 		public static readonly string TAnalysisCyMTMJh = @"T_Analysis_CyMTMJh";
         
@@ -47,6 +93,8 @@ namespace Model
 		public static readonly string TAnalysisOrderListByDH = @"T_Analysis_OrderListByDH";
         
 		public static readonly string TAnalysisOutputList = @"T_Analysis_OutputList";
+        
+		public static readonly string TAnalysisOutputListBack = @"T_Analysis_OutputListBack";
         
 		public static readonly string TAnalysisOutPutListByCF = @"T_Analysis_OutPutListByCF";
         
@@ -98,6 +146,12 @@ namespace Model
         
 		public static readonly string TBLCADTemp = @"T_BLCADTemp";
         
+		public static readonly string TBLCADTempCopy = @"T_BLCADTemp_copy";
+        
+		public static readonly string TBlcadtempbca = @"T_BLCADTEMPBCA";
+        
+		public static readonly string TBLCADTempHistory = @"T_BLCADTempHistory";
+        
 		public static readonly string TBLDataMflxx = @"T_BLData_Mflxx";
         
 		public static readonly string TBLDataOrder = @"T_BLData_Order";
@@ -105,6 +159,8 @@ namespace Model
 		public static readonly string TBLDataOrdermx = @"T_BLData_Ordermx";
         
 		public static readonly string TBom = @"T_BOM";
+        
+		public static readonly string TCategoryProcessFlow = @"T_CategoryProcessFlow";
         
 		public static readonly string TCutterAP = @"T_CutterAPS";
         
@@ -146,17 +202,23 @@ namespace Model
         
 		public static readonly string TOldApsByCf1 = @"T_OldApsByCf_1";
         
-		public static readonly string TOldApsByCf2 = @"T_OldApsByCf_2";
+		public static readonly string TOldApsByCf3 = @"T_OldApsByCf_3";
         
 		public static readonly string TOldApsByCfBk = @"T_OldApsByCf_Bk";
         
+		public static readonly string TOldApsByCfTest = @"T_OldApsByCf_test";
+        
 		public static readonly string TOperationLog = @"T_Operation_Log";
+        
+		public static readonly string TOrderProcessHour = @"T_OrderProcessHour";
         
 		public static readonly string TPlanM = @"T_PlanM";
         
 		public static readonly string TPlanMAdd = @"T_PlanM_Add";
         
 		public static readonly string TPlan = @"T_PlanS";
+        
+		public static readonly string TPlanSAdd = @"T_PlanS_Add";
         
 		public static readonly string TPushBlOutputList = @"T_PushBlOutputList";
         
@@ -165,6 +227,8 @@ namespace Model
 		public static readonly string TSendLog = @"T_sendLog";
         
 		public static readonly string TSql = @"T_SQL";
+        
+		public static readonly string TTemp = @"T_Temp";
         
 		public static readonly string TTempInfo = @"T_TempInfo";
         
@@ -190,14 +254,59 @@ namespace Model
         
 		public static readonly string WmsSyncPlan = @"WMS_SYNC_plans";
         
+		public static readonly string XTM12 = @"XTM12";
+        
+		public static readonly string XTM124 = @"XTM124";
+        
+		public static readonly string XTM14 = @"XTM14";
+        
+		public static readonly string XTM22 = @"XTM22";
+        
+		public static readonly string XTM32 = @"XTM32";
+        
 	}
 	#endregion
     #region Schemas
     public partial class Schemas {
 		
+		public static TableSchema.Table BCutterSet
+		{
+            get { return DataService.GetSchema("B_CutterSet", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table BISOFileSet
+		{
+            get { return DataService.GetSchema("B_ISOFileSet", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table BWorkTimeSet
 		{
             get { return DataService.GetSchema("B_WorkTimeSet", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table BWorkTimeSetCopy
+		{
+            get { return DataService.GetSchema("B_WorkTimeSetCopy", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table BPMOrder
+		{
+            get { return DataService.GetSchema("BPMOrders", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table Dictionary
+		{
+            get { return DataService.GetSchema("Dictionaries", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table Factory
+		{
+            get { return DataService.GetSchema("Factory", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table FactoryOrderTran
+		{
+            get { return DataService.GetSchema("FactoryOrderTrans", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table HljtExecuteProc
@@ -210,9 +319,89 @@ namespace Model
             get { return DataService.GetSchema("HLJT_TaskList", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table Num
+		public static TableSchema.Table Isypb
 		{
-            get { return DataService.GetSchema("Nums", "Nowthwin"); }
+            get { return DataService.GetSchema("ISYPB", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table OrderTest
+		{
+            get { return DataService.GetSchema("OrderTest", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table ProcessedOrder
+		{
+            get { return DataService.GetSchema("ProcessedOrder", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCM06
+		{
+            get { return DataService.GetSchema("SCM06", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCM13
+		{
+            get { return DataService.GetSchema("SCM13", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT12
+		{
+            get { return DataService.GetSchema("SCT12", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT26
+		{
+            get { return DataService.GetSchema("SCT26", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT262
+		{
+            get { return DataService.GetSchema("SCT262", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT27
+		{
+            get { return DataService.GetSchema("SCT27", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT271
+		{
+            get { return DataService.GetSchema("SCT271", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT272
+		{
+            get { return DataService.GetSchema("SCT272", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT28
+		{
+            get { return DataService.GetSchema("SCT28", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT282
+		{
+            get { return DataService.GetSchema("SCT282", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT31
+		{
+            get { return DataService.GetSchema("SCT31", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT32
+		{
+            get { return DataService.GetSchema("SCT32", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT51
+		{
+            get { return DataService.GetSchema("SCT51", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT52
+		{
+            get { return DataService.GetSchema("SCT52", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisCyMTMJh
@@ -268,6 +457,11 @@ namespace Model
 		public static TableSchema.Table TAnalysisOutputList
 		{
             get { return DataService.GetSchema("T_Analysis_OutputList", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TAnalysisOutputListBack
+		{
+            get { return DataService.GetSchema("T_Analysis_OutputListBack", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOutPutListByCF
@@ -395,6 +589,21 @@ namespace Model
             get { return DataService.GetSchema("T_BLCADTemp", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBLCADTempCopy
+		{
+            get { return DataService.GetSchema("T_BLCADTemp_copy", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TBlcadtempbca
+		{
+            get { return DataService.GetSchema("T_BLCADTEMPBCA", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TBLCADTempHistory
+		{
+            get { return DataService.GetSchema("T_BLCADTempHistory", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBLDataMflxx
 		{
             get { return DataService.GetSchema("T_BLData_Mflxx", "Nowthwin"); }
@@ -413,6 +622,11 @@ namespace Model
 		public static TableSchema.Table TBom
 		{
             get { return DataService.GetSchema("T_BOM", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TCategoryProcessFlow
+		{
+            get { return DataService.GetSchema("T_CategoryProcessFlow", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TCutterAP
@@ -515,9 +729,9 @@ namespace Model
             get { return DataService.GetSchema("T_OldApsByCf_1", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TOldApsByCf2
+		public static TableSchema.Table TOldApsByCf3
 		{
-            get { return DataService.GetSchema("T_OldApsByCf_2", "Nowthwin"); }
+            get { return DataService.GetSchema("T_OldApsByCf_3", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TOldApsByCfBk
@@ -525,9 +739,19 @@ namespace Model
             get { return DataService.GetSchema("T_OldApsByCf_Bk", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TOldApsByCfTest
+		{
+            get { return DataService.GetSchema("T_OldApsByCf_test", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TOperationLog
 		{
             get { return DataService.GetSchema("T_Operation_Log", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TOrderProcessHour
+		{
+            get { return DataService.GetSchema("T_OrderProcessHour", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TPlanM
@@ -543,6 +767,11 @@ namespace Model
 		public static TableSchema.Table TPlan
 		{
             get { return DataService.GetSchema("T_PlanS", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TPlanSAdd
+		{
+            get { return DataService.GetSchema("T_PlanS_Add", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TPushBlOutputList
@@ -563,6 +792,11 @@ namespace Model
 		public static TableSchema.Table TSql
 		{
             get { return DataService.GetSchema("T_SQL", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TTemp
+		{
+            get { return DataService.GetSchema("T_Temp", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TTempInfo
@@ -625,6 +859,31 @@ namespace Model
             get { return DataService.GetSchema("WMS_SYNC_plans", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table XTM12
+		{
+            get { return DataService.GetSchema("XTM12", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table XTM124
+		{
+            get { return DataService.GetSchema("XTM124", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table XTM14
+		{
+            get { return DataService.GetSchema("XTM14", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table XTM22
+		{
+            get { return DataService.GetSchema("XTM22", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table XTM32
+		{
+            get { return DataService.GetSchema("XTM32", "Nowthwin"); }
+		}
+        
 	
     }
     #endregion
@@ -650,15 +909,7 @@ namespace Model
         
 		public static readonly string VCadOrderlist = @"V_CAD_ORDERLIST";
         
-		public static readonly string VCadOrderlistBak = @"V_CAD_ORDERLIST_BAK";
-        
-		public static readonly string VCadOrderlistCopy = @"V_CAD_ORDERLIST_copy";
-        
 		public static readonly string VCADResourceNum = @"V_CADResourceNum";
-        
-		public static readonly string VClientTypeCY = @"V_ClientTypeCY";
-        
-		public static readonly string VClientTypeXF = @"V_ClientTypeXF";
         
 		public static readonly string VCyjh = @"V_CYJH";
         
@@ -666,13 +917,7 @@ namespace Model
         
 		public static readonly string VFzScjh = @"V_FZ_SCJH";
         
-		public static readonly string VGroupWeb = @"V_GroupWebs";
-        
 		public static readonly string VJh = @"V_JH";
-        
-		public static readonly string VManageListRead = @"V_ManageList_Read";
-        
-		public static readonly string VManageListNoRead = @"V_ManageListNoRead";
         
 		public static readonly string VOutPutByCAD = @"V_OutPutByCAD";
         
@@ -680,13 +925,19 @@ namespace Model
         
 		public static readonly string VPlanDetail = @"V_Plan_Detail";
         
+		public static readonly string VPlanSDetail = @"V_PlanS_Detail";
+        
 		public static readonly string VTempMESCad = @"V_TempMES_CAD";
+        
+		public static readonly string VTempPlan = @"V_TempPlanS";
         
 		public static readonly string VTzjh = @"v_tzjh";
         
-		public static readonly string VUser = @"V_Users";
+		public static readonly string VWorkTimeCy = @"V_workTimeCy";
         
-		public static readonly string VUsersNeedPermission = @"V_UsersNeedPermissions";
+		public static readonly string VWorktimexf = @"v_worktimexf";
+        
+		public static readonly string VXfmtmjh = @"v_xfmtmjh";
         
 		public static readonly string VZbNowMTM = @"V_ZbNowMTM";
         
@@ -719,8 +970,6 @@ namespace Model
 		public static readonly string ViewOutputListCF = @"View_outputListCF";
         
 		public static readonly string ViewUsersList = @"View_UsersList";
-        
-		public static readonly string ViewYWyPdDZ = @"View_YWyPdDZ";
         
 		public static readonly string ViewBomList = @"ViewBomList";
         

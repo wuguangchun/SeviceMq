@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Web;
 using ServiceHandle.Handle;
@@ -47,6 +48,38 @@ namespace ServiceHandle.Helper
             Thread threadKillOrder = new Thread(KillOrderHandle.GetMessageQueues) { IsBackground = true };
             threadKillOrder.Start();
 
+            //将排程数据推送给BL
+            Thread threadPushBl = new Thread(PutCadHandle.GetMessageQueues) { IsBackground = true };
+            threadPushBl.Start();
+
+            //检测以上自启动线程状态
+            /*TestThread(new List<Thread> { threadLog, threadNewOrder, threadComp, threadNewCadOrder, threadNewCaiJianOrder, threadBlanking, threadCallBack, threadKillOrder, threadPushBl });*/
+
+
+        }
+
+        public static void TestThread(List<Thread> list)
+        {
+            try
+            {
+                while (true)
+                {
+                    foreach (var thread in list)
+                    {
+                        if (thread.ThreadState != ThreadState.Running)
+                        {
+                            thread.Start();
+                        }
+                    }
+
+                    //系统每分钟检测一次 多线程任务是否有效
+                    Thread.Sleep(1000 * 60 * 60);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }

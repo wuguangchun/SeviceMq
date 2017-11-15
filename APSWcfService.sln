@@ -16,6 +16,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestService", "TestService\
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CADXfSchedulingEnd", "CADXfSchedulingEnd\CADXfSchedulingEnd.csproj", "{E046FF2F-5226-449C-8456-8F402B01250C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{912F776A-1FC0-4D42-B549-11BC347A0ED7} = {912F776A-1FC0-4D42-B549-11BC347A0ED7}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CADCySchedulingEnd", "CADCySchedulingEnd\CADCySchedulingEnd.csproj", "{947E6F31-25ED-45AD-A751-C7F6D348F810}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +44,10 @@ Global
 		{E046FF2F-5226-449C-8456-8F402B01250C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E046FF2F-5226-449C-8456-8F402B01250C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E046FF2F-5226-449C-8456-8F402B01250C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{947E6F31-25ED-45AD-A751-C7F6D348F810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{947E6F31-25ED-45AD-A751-C7F6D348F810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{947E6F31-25ED-45AD-A751-C7F6D348F810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{947E6F31-25ED-45AD-A751-C7F6D348F810}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

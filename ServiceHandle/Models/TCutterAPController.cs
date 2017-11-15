@@ -50,9 +50,9 @@ namespace Model
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public TCutterAPCollection FetchByID(object Pid)
+        public TCutterAPCollection FetchByID(object Apsid)
         {
-            TCutterAPCollection coll = new TCutterAPCollection().Where("pid", Pid).Load();
+            TCutterAPCollection coll = new TCutterAPCollection().Where("APSID", Apsid).Load();
             return coll;
         }
 		
@@ -64,14 +64,14 @@ namespace Model
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
-        public bool Delete(object Pid)
+        public bool Delete(object Apsid)
         {
-            return (TCutterAP.Delete(Pid) == 1);
+            return (TCutterAP.Delete(Apsid) == 1);
         }
         [DataObjectMethod(DataObjectMethodType.Delete, false)]
-        public bool Destroy(object Pid)
+        public bool Destroy(object Apsid)
         {
-            return (TCutterAP.Destroy(Pid) == 1);
+            return (TCutterAP.Destroy(Apsid) == 1);
         }
         
         
@@ -80,12 +80,10 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int? Apsid,int? Planmid,int? Plansid,string Sczsbh,string Filename,int? Cutternum,int? Cutcount,string Cutdate,string Cuttime,DateTime? Opdate,string Barcode,string Filestatus,string Matstatus,string Matlength,string Cutstatus,DateTime? Statusdate,string Syncd,DateTime? Stime,string PbcdName,DateTime? FirstTime)
+	    public void Insert(int? Planmid,int? Plansid,string Sczsbh,string Filename,int? Cutternum,int? Cutcount,string Cutdate,string Cuttime,DateTime? Opdate,string Barcode,string Filestatus,string Matstatus,string Matlength,string Cutstatus,DateTime? Statusdate)
 	    {
 		    TCutterAP item = new TCutterAP();
 		    
-            item.Apsid = Apsid;
-            
             item.Planmid = Planmid;
             
             item.Plansid = Plansid;
@@ -116,14 +114,6 @@ namespace Model
             
             item.Statusdate = Statusdate;
             
-            item.Syncd = Syncd;
-            
-            item.Stime = Stime;
-            
-            item.PbcdName = PbcdName;
-            
-            item.FirstTime = FirstTime;
-            
 	    
 		    item.Save(UserName);
 	    }
@@ -132,7 +122,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int? Apsid,int? Planmid,int? Plansid,string Sczsbh,string Filename,int? Cutternum,int? Cutcount,string Cutdate,string Cuttime,DateTime? Opdate,string Barcode,string Filestatus,string Matstatus,string Matlength,string Cutstatus,DateTime? Statusdate,string Syncd,DateTime? Stime,int Pid,string PbcdName,DateTime? FirstTime)
+	    public void Update(int Apsid,int? Planmid,int? Plansid,string Sczsbh,string Filename,int? Cutternum,int? Cutcount,string Cutdate,string Cuttime,DateTime? Opdate,string Barcode,string Filestatus,string Matstatus,string Matlength,string Cutstatus,DateTime? Statusdate)
 	    {
 		    TCutterAP item = new TCutterAP();
 	        item.MarkOld();
@@ -169,16 +159,6 @@ namespace Model
 			item.Cutstatus = Cutstatus;
 				
 			item.Statusdate = Statusdate;
-				
-			item.Syncd = Syncd;
-				
-			item.Stime = Stime;
-				
-			item.Pid = Pid;
-				
-			item.PbcdName = PbcdName;
-				
-			item.FirstTime = FirstTime;
 				
 	        item.Save(UserName);
 	    }

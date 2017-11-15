@@ -63,14 +63,14 @@ namespace TestService
         private static void TestMethod()
         {
 
-            Thread threadNewOrder = new Thread(ServiceHelper.NewOrderTest) { IsBackground = true };
-            threadNewOrder.Start();
+            //Thread threadNewOrder = new Thread(ServiceHelper.NewOrderTest) { IsBackground = true };
+            //threadNewOrder.Start();
 
             //Thread thread103 = new Thread(ServiceHelper.CompletionTest103) { IsBackground = true };
             //thread103.Start();
 
-            //Thread thread201 = new Thread(ServiceHelper.CompletionTest201) { IsBackground = true };
-            //thread201.Start();
+            Thread thread201 = new Thread(ServiceHelper.CompletionTest201) { IsBackground = true };
+            thread201.Start();
 
             //Thread thread300 = new Thread(ServiceHelper.CompletionTest300) { IsBackground = true };
             //thread300.Start();
@@ -154,8 +154,9 @@ namespace TestService
                 try
                 {
                     var list = new Select().From<TAnalysisOrderList>()
-                        .Where(TAnalysisOrderList.OrderStatusColumn).IsEqualTo("103")
-                        .And(TAnalysisOrderList.OrderTypeColumn).IsEqualTo("BLMTM")
+                        //.Where(TAnalysisOrderList.OrderStatusColumn).IsEqualTo("103")
+                        //.And(TAnalysisOrderList.OrderTypeColumn).IsEqualTo("BLMTM")
+                        .Where(TAnalysisOrderList.CustomerIdColumn).IsEqualTo("17B02546-CY")
                         .OrderDesc(TAnalysisOrderList.DeliveryTimeColumn.ColumnName)
                         .ExecuteTypedList<TAnalysisOrderList>();
 
