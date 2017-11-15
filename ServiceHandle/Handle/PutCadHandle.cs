@@ -48,7 +48,12 @@ namespace ServiceHandle.Handle
                 if (message.Label.ToLower().Trim() == "CADScheduling".ToLower())
                 {
                     //接收BL传入数据源
-                    //reMeg = CallBackHelper.CallBackGet(message.Body.ToString());
+                    reMeg = ApsCadDataPushToBLHelper.PushToBl(message.Body.ToString());
+                }
+                else if (message.Label.ToLower().Trim() == "SchedulingReady".ToLower())
+                {
+                    //接收BL传入数据源
+                    reMeg = ApsCadDataPushToBLHelper.PushToMq(message.Body.ToString());
                 }
                 else
                 {
@@ -133,6 +138,52 @@ namespace ServiceHandle.Handle
             }
         }
 
+        //检索数据插入到队列
+        public static string PushToMq(string project)
+        {
+            JsonHelper json = new JsonHelper();
+            try
+            {
+                var resource = new Select().From<TBasisResource>().ExecuteTypedList<TBasisResource>();
+                var query = new Select().From<TAnalysisOutputList>()
+                    .Where(TAnalysisOutputList.ProjectColumn).IsEqualTo(project.ToLower().Contains("cy") ? "CY" : "CAD西服");
+
+                foreach (var outputList in query.ExecuteTypedList<TAnalysisOutputList>())
+                {
+                    CadBlModelList ds = new CadBlModelList
+                    {
+                        ds = new List<CadBlModel>
+                        {
+                            new CadBlModel{
+                                customerId = outputList.OrderNo,
+                                jobCode = outputList.JobCode,
+                                project = outputList.Project,
+                                abnormal = outputList.Abnormal,
+                                note = outputList.Note,
+                                resources = resource.Find(x=>x.ResourcesCode==outputList.Resources).Resources ,
+                                beginTime = outputList.BeginTime.ToString(),
+                                endTime = outputList.EndTime.ToString(),
+                                makeTime = outputList.MakeTime,
+                                createDate =DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),
+                                mtmortz = outputList.OrderType.ToLower().Contains("mtm")?"1":"0",
+                                grabTime =DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")
+                            }
+                        }
+                    };
+
+                    //将数据插入到消息队列，等待推送
+                    var service = new ApsMessageService.NewMassgeServiceClient();
+                    service.InsertMessage("PutCadBL", "CADScheduling", JsonHelper.GetJsonO(ds), null);
+                }
+
+            }
+            catch (Exception e)
+            {
+                json.RetCode = "error";
+                json.RetMessage = e.Message;
+            }
+            return JsonHelper.GetJsonO(json);
+        }
     }
 
     public class BlReturnMsg
@@ -161,4 +212,5 @@ namespace ServiceHandle.Handle
     {
         public List<CadBlModel> ds { get; set; }
     }
+
 }

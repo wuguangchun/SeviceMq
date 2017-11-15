@@ -34,10 +34,10 @@
       <publishTime>11/27/2012 13:00:52</publishTime>
     </File>
     <File Include="bin/ServiceHandle.dll">
-      <publishTime>11/14/2017 09:58:28</publishTime>
+      <publishTime>11/14/2017 14:58:17</publishTime>
     </File>
     <File Include="bin/ServiceHandle.pdb">
-      <publishTime>11/14/2017 09:58:28</publishTime>
+      <publishTime>11/14/2017 14:58:17</publishTime>
     </File>
     <File Include="bin/SubSonic.Core.dll">
       <publishTime>06/27/2012 15:49:06</publishTime>
@@ -55,7 +55,7 @@
       <publishTime>11/07/2017 11:03:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/14/2017 09:58:34</publishTime>
+      <publishTime>11/14/2017 14:58:26</publishTime>
     </File>
   </ItemGroup>
 </Project>

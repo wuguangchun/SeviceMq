@@ -7,3 +7,12 @@ F:\ApsService\APSWcfService\APSWcfService\obj\Release\APSWcfService.csproj.CoreC
 F:\ApsService\APSWcfService\APSWcfService\obj\Release\APSWcfService.dll
 F:\ApsService\APSWcfService\APSWcfService\obj\Release\APSWcfService.pdb
 F:\ApsService\APSWcfService\APSWcfService\obj\Release\APSWcfService.csprojResolveAssemblyReference.cache
+C:\Users\kute\Source\Repos\SeviceMq\APSWcfService\bin\APSWcfService.dll.config
+C:\Users\kute\Source\Repos\SeviceMq\APSWcfService\bin\APSWcfService.dll
+C:\Users\kute\Source\Repos\SeviceMq\APSWcfService\bin\APSWcfService.pdb
+C:\Users\kute\Source\Repos\SeviceMq\APSWcfService\bin\Newtonsoft.Json.dll
+C:\Users\kute\Source\Repos\SeviceMq\APSWcfService\bin\Newtonsoft.Json.xml
+C:\Users\kute\Source\Repos\SeviceMq\APSWcfService\obj\Release\APSWcfService.csprojResolveAssemblyReference.cache
+C:\Users\kute\Source\Repos\SeviceMq\APSWcfService\obj\Release\APSWcfService.csproj.CoreCompileInputs.cache
+C:\Users\kute\Source\Repos\SeviceMq\APSWcfService\obj\Release\APSWcfService.dll
+C:\Users\kute\Source\Repos\SeviceMq\APSWcfService\obj\Release\APSWcfService.pdb

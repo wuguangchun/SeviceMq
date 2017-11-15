@@ -10,10 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/APSWcfService.dll">
-      <publishTime>11/14/2017 09:56:24</publishTime>
+      <publishTime>11/14/2017 14:51:35</publishTime>
     </File>
     <File Include="bin/APSWcfService.pdb">
-      <publishTime>11/14/2017 09:56:24</publishTime>
+      <publishTime>11/14/2017 14:51:35</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
       <publishTime>06/27/2012 15:49:06</publishTime>
@@ -34,7 +34,7 @@
       <publishTime>10/31/2017 13:26:54</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/14/2017 09:56:26</publishTime>
+      <publishTime>11/14/2017 14:51:36</publishTime>
     </File>
   </ItemGroup>
 </Project>
