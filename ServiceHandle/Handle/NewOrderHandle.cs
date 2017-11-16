@@ -7,6 +7,7 @@ using APSWcfService.Helper;
 using Kute.Helper;
 using Model;
 using SubSonic;
+using TestService.ModelsOther;
 
 namespace ServiceHandle.Handle
 {
@@ -130,10 +131,19 @@ namespace ServiceHandle.Handle
 
                         //执行撤单操作后在添加
                         var killJson = KillOrderHelper.KillOrder(blDate.order.Khdh);
-                        var errLog = new TLogError { CreateTime = DateTime.Now, MessageId = "异常警告", Message = JsonHelper.GetJsonO(killJson) };
+                        var errLog = new TLogError { CreateTime = DateTime.Now, MessageId = "警告-数据重复-自动撤单", Message = JsonHelper.GetJsonO(killJson) };
+                        var log = new ServiceLog
+                        {
+                            CallBackUrl = null,
+                            Context = killJson,
+                            CreateTime = DateTime.Now,
+                            Lable = "Notice",
+                            MessageID = "NoMessageId",
+                            MessagePath = "none"
+                        };
 
                         var serviceMq = new ApsMessageService.NewMassgeServiceClient();
-                        serviceMq.InsertMessage("LogService", "AddErrLog", JsonHelper.GetJsonO(errLog), null);
+                        serviceMq.InsertMessage("LogService", "AddErrLog", JsonHelper.GetJsonO(log), null);
                     }
 
                     #endregion

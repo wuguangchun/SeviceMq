@@ -20,3 +20,4 @@ F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.csprojResolveAssem
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.WebService.Form_PushCompletion.resources
 F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\Newtonsoft.Json.dll
 F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\Newtonsoft.Json.xml
+F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.WebService.Form_New_CjData.resources

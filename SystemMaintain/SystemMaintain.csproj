@@ -404,6 +404,12 @@
     <Compile Include="WebService\Form_BlToApsOrderData.Designer.cs">
       <DependentUpon>Form_BlToApsOrderData.cs</DependentUpon>
     </Compile>
+    <Compile Include="WebService\Form_New_CjData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebService\Form_New_CjData.Designer.cs">
+      <DependentUpon>Form_New_CjData.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebService\Form_PushCompletion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -442,6 +448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WebService\Form_BlToApsOrderData.resx">
       <DependentUpon>Form_BlToApsOrderData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebService\Form_New_CjData.resx">
+      <DependentUpon>Form_New_CjData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WebService\Form_PushCompletion.resx">
       <DependentUpon>Form_PushCompletion.cs</DependentUpon>

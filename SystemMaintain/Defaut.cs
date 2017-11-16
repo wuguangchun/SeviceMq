@@ -91,7 +91,10 @@ namespace SystemMaintain
         private void Push_Completion_Click(object sender, EventArgs e)
         {
             /* 数据走向
-             * BL-CAD 在页面操作定稿
+             * BL-CAD 在页面操作定稿/发送到PAD/关闭/锁定/提交CAD 分别推送 106/102/105/104/103
+             * 计划下达 推送201 并制造一条生成裁剪数据的通知
+             * 段料的处理打印完毕 推送301 并制造一条生成Banking的数据通知
+             * 裁剪末工序MES打卡 推送302
              */
 
             //新增TAB页面 
@@ -104,7 +107,15 @@ namespace SystemMaintain
         //生成裁剪数据通知
         private void New_CjData_Click(object sender, EventArgs e)
         {
+            /* 数据走向
+            * 计划下达后 → 生成裁剪数据
+            */
 
+            //新增TAB页面 
+            TabPage tabPage = AddTabPage(@"生成裁剪数据", "Tab_New_CjData");
+
+            var form = new Form_New_CjData { TopLevel = false, Parent = tabPage };
+            form.Show();
         }
         #endregion
 
