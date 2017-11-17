@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemMaintain.DailyQuery.Basicdata;
+using SystemMaintain.ServiceLog;
 using SystemMaintain.WebService;
 
 namespace SystemMaintain
@@ -33,8 +34,6 @@ namespace SystemMaintain
                 TopLevel = false,
                 Parent = tabPage
             };
-
-
 
             fromBasicdata.DataGrid.DataSource = new DataTable();
             fromBasicdata.Show();
@@ -117,6 +116,37 @@ namespace SystemMaintain
             var form = new Form_New_CjData { TopLevel = false, Parent = tabPage };
             form.Show();
         }
+
+        //生成段料数据通知
+        private void New_DlData_Click(object sender, EventArgs e)
+        {
+            /* 数据走向
+            * 裁床定稿 → 生成段料数据
+            */
+
+            //新增TAB页面 
+            TabPage tabPage = AddTabPage(@"生成段料数据", "Tab_New_DlData");
+
+            var form = new Form_New_CjData { TopLevel = false, Parent = tabPage };
+            form.Show();
+
+        }
+        #endregion
+
+        #region 日志处理
+        private void log_serviceError_Click(object sender, EventArgs e)
+        {
+            TabPage tabPage = AddTabPage(@"异常日志", "Tab_serviceError");
+
+            //实例化基础数据窗口
+            var fromBasicdata = new Form_Log_ServiceError
+            {
+                TopLevel = false,
+                Parent = tabPage
+            };
+            
+            fromBasicdata.Show();
+        }
         #endregion
 
         #region 新增TAB帮助类
@@ -142,6 +172,10 @@ namespace SystemMaintain
             //将新窗口添加到右键菜单
             var toolStrip = new ToolStripMenuItem { Text = tabTitle, Tag = tabName };
             toolStrip.Click += tabBoxMenus_Click;
+            toolStrip.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
+            toolStrip.Image = SystemMaintain.Properties.Resources.timg;
+
+
             tabBoxMenu.Items.Add(toolStrip);
 
             return tabPage;
@@ -173,6 +207,7 @@ namespace SystemMaintain
                 }
             }
         }
+
 
 
         #endregion

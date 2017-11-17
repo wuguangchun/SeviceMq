@@ -21,3 +21,5 @@ F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.WebService.Form_Pu
 F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\Newtonsoft.Json.dll
 F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\Newtonsoft.Json.xml
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.WebService.Form_New_CjData.resources
+F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.WebService.Form_New_DlData.resources
+F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.ServiceLog.Form_Log_ServiceError.resources

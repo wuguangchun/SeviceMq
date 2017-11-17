@@ -25,7 +25,7 @@ namespace SystemMaintain.WebService
             foreach (var khdh in khdhList)
             {
                 var service = new ServiceMq.NewMassgeServiceClient();
-                var result = service.InsertMessage("CaiJianOrder", "NewOrder", khdh, null);
+                var result = service.InsertMessage("CaiJianOrder", "NewOrder", khdh.Trim(), null);
                 if (result.ToLower().Contains("success"))
                 {
                     ok += 1;
@@ -43,7 +43,7 @@ namespace SystemMaintain.WebService
             foreach (var khdh in khdhList)
             {
                 var service = new ServiceMqTest.NewMassgeServiceClient();
-                var result = service.InsertMessage("CaiJianOrder", "NewOrder", khdh, null);
+                var result = service.InsertMessage("CaiJianOrder", "NewOrder", khdh.Trim(), null);
                 if (result.ToLower().Contains("success"))
                 {
                     ok += 1;
@@ -61,7 +61,7 @@ namespace SystemMaintain.WebService
             foreach (var khdh in khdhList)
             {
                 var service = new ServiceMqLocal.NewMassgeServiceClient();
-                var result = service.InsertMessage("CaiJianOrder", "NewOrder", khdh, null);
+                var result = service.InsertMessage("CaiJianOrder", "NewOrder", khdh.Trim(), null);
                 if (result.ToLower().Contains("success"))
                 {
                     ok += 1;

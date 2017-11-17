@@ -131,19 +131,18 @@ namespace ServiceHandle.Handle
 
                         //执行撤单操作后在添加
                         var killJson = KillOrderHelper.KillOrder(blDate.order.Khdh);
-                        var errLog = new TLogError { CreateTime = DateTime.Now, MessageId = "警告-数据重复-自动撤单", Message = JsonHelper.GetJsonO(killJson) };
                         var log = new ServiceLog
                         {
                             CallBackUrl = null,
                             Context = killJson,
                             CreateTime = DateTime.Now,
-                            Lable = "Notice",
+                            Lable = "AutoKill",
                             MessageID = "NoMessageId",
                             MessagePath = "none"
                         };
 
                         var serviceMq = new ApsMessageService.NewMassgeServiceClient();
-                        serviceMq.InsertMessage("LogService", "AddErrLog", JsonHelper.GetJsonO(log), null);
+                        serviceMq.InsertMessage("LogService", "AddLog", JsonHelper.GetJsonO(log), null);
                     }
 
                     #endregion

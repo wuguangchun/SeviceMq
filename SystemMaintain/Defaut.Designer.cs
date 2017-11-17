@@ -210,14 +210,14 @@
             // Push_CadToBlXf
             // 
             this.Push_CadToBlXf.Name = "Push_CadToBlXf";
-            this.Push_CadToBlXf.Size = new System.Drawing.Size(152, 22);
+            this.Push_CadToBlXf.Size = new System.Drawing.Size(148, 22);
             this.Push_CadToBlXf.Text = "西服数据推送";
             this.Push_CadToBlXf.Click += new System.EventHandler(this.Push_CadToBlXf_Click);
             // 
             // Push_CadToBlCy
             // 
             this.Push_CadToBlCy.Name = "Push_CadToBlCy";
-            this.Push_CadToBlCy.Size = new System.Drawing.Size(152, 22);
+            this.Push_CadToBlCy.Size = new System.Drawing.Size(148, 22);
             this.Push_CadToBlCy.Text = "衬衣数据推送";
             this.Push_CadToBlCy.Click += new System.EventHandler(this.Push_CadToBlCy_Click);
             // 
@@ -241,7 +241,7 @@
             // New_CadData
             // 
             this.New_CadData.Name = "New_CadData";
-            this.New_CadData.Size = new System.Drawing.Size(101, 22);
+            this.New_CadData.Size = new System.Drawing.Size(152, 22);
             this.New_CadData.Text = "CAD";
             // 
             // New_CjData
@@ -254,8 +254,9 @@
             // New_DlData
             // 
             this.New_DlData.Name = "New_DlData";
-            this.New_DlData.Size = new System.Drawing.Size(101, 22);
+            this.New_DlData.Size = new System.Drawing.Size(152, 22);
             this.New_DlData.Text = "段料";
+            this.New_DlData.Click += new System.EventHandler(this.New_DlData_Click);
             // 
             // toolStripSplitButton2
             // 
@@ -282,6 +283,7 @@
             this.log_serviceError.Name = "log_serviceError";
             this.log_serviceError.Size = new System.Drawing.Size(160, 22);
             this.log_serviceError.Text = "异常日志";
+            this.log_serviceError.Click += new System.EventHandler(this.log_serviceError_Click);
             // 
             // 老接口日志log_serviceOld
             // 
