@@ -243,6 +243,32 @@ namespace Model
 				colvarFlagDelete.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarFlagDelete);
 				
+				TableSchema.TableColumn colvarTg = new TableSchema.TableColumn(schema);
+				colvarTg.ColumnName = "tg";
+				colvarTg.DataType = DbType.String;
+				colvarTg.MaxLength = 50;
+				colvarTg.AutoIncrement = false;
+				colvarTg.IsNullable = true;
+				colvarTg.IsPrimaryKey = false;
+				colvarTg.IsForeignKey = false;
+				colvarTg.IsReadOnly = false;
+				colvarTg.DefaultSetting = @"";
+				colvarTg.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarTg);
+				
+				TableSchema.TableColumn colvarMltgkd = new TableSchema.TableColumn(schema);
+				colvarMltgkd.ColumnName = "mltgkd";
+				colvarMltgkd.DataType = DbType.Decimal;
+				colvarMltgkd.MaxLength = 0;
+				colvarMltgkd.AutoIncrement = false;
+				colvarMltgkd.IsNullable = true;
+				colvarMltgkd.IsPrimaryKey = false;
+				colvarMltgkd.IsForeignKey = false;
+				colvarMltgkd.IsReadOnly = false;
+				colvarMltgkd.DefaultSetting = @"";
+				colvarMltgkd.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarMltgkd);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -324,6 +350,22 @@ namespace Model
 			get { return GetColumnValue<int?>(Columns.FlagDelete); }
 			set { SetColumnValue(Columns.FlagDelete, value); }
 		}
+		  
+		[XmlAttribute("Tg")]
+		[Bindable(true)]
+		public string Tg 
+		{
+			get { return GetColumnValue<string>(Columns.Tg); }
+			set { SetColumnValue(Columns.Tg, value); }
+		}
+		  
+		[XmlAttribute("Mltgkd")]
+		[Bindable(true)]
+		public decimal? Mltgkd 
+		{
+			get { return GetColumnValue<decimal?>(Columns.Mltgkd); }
+			set { SetColumnValue(Columns.Mltgkd, value); }
+		}
 		
 		#endregion
 		
@@ -344,7 +386,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int? varMxid,string varOrderid,string varKhdh,string varYlbm,string varMtml,string varYllx,string varYllxmc,int? varFlagDelete)
+		public static void Insert(int? varMxid,string varOrderid,string varKhdh,string varYlbm,string varMtml,string varYllx,string varYllxmc,int? varFlagDelete,string varTg,decimal? varMltgkd)
 		{
 			TBLDataMflxx item = new TBLDataMflxx();
 			
@@ -364,6 +406,10 @@ namespace Model
 			
 			item.FlagDelete = varFlagDelete;
 			
+			item.Tg = varTg;
+			
+			item.Mltgkd = varMltgkd;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -374,7 +420,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varMflxxid,int? varMxid,string varOrderid,string varKhdh,string varYlbm,string varMtml,string varYllx,string varYllxmc,int? varFlagDelete)
+		public static void Update(int varMflxxid,int? varMxid,string varOrderid,string varKhdh,string varYlbm,string varMtml,string varYllx,string varYllxmc,int? varFlagDelete,string varTg,decimal? varMltgkd)
 		{
 			TBLDataMflxx item = new TBLDataMflxx();
 			
@@ -395,6 +441,10 @@ namespace Model
 				item.Yllxmc = varYllxmc;
 			
 				item.FlagDelete = varFlagDelete;
+			
+				item.Tg = varTg;
+			
+				item.Mltgkd = varMltgkd;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -472,6 +522,20 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn TgColumn
+        {
+            get { return Schema.Columns[9]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn MltgkdColumn
+        {
+            get { return Schema.Columns[10]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -485,6 +549,8 @@ namespace Model
 			 public static string Yllx = @"yllx";
 			 public static string Yllxmc = @"yllxmc";
 			 public static string FlagDelete = @"flagDelete";
+			 public static string Tg = @"tg";
+			 public static string Mltgkd = @"mltgkd";
 						
 		}
 		#endregion

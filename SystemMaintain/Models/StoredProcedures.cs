@@ -200,16 +200,6 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_GeneratePlanCode_MTM Procedure
-        /// </summary>
-        public static StoredProcedure ProcGeneratePlanCodeMtm()
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GeneratePlanCode_MTM", DataService.GetInstance("Nowthwin"), "");
-        	
-            return sp;
-        }
-        
-        /// <summary>
         /// Creates an object wrapper for the Proc_GeneratePlanCode_New Procedure
         /// </summary>
         public static StoredProcedure ProcGeneratePlanCodeNew(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount, DateTime? benginTime)
@@ -230,11 +220,11 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_GeneratePlanCode_停用 Procedure
+        /// Creates an object wrapper for the Proc_GeneratePlanCode_新 Procedure
         /// </summary>
-        public static StoredProcedure ProcGeneratePlanCode停用(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount, DateTime? benginTime)
+        public static StoredProcedure ProcGeneratePlanCode新(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount, DateTime? benginTime)
         {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GeneratePlanCode_停用", DataService.GetInstance("Nowthwin"), "dbo");
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GeneratePlanCode_新", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
         	
@@ -360,11 +350,11 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_MTMJH Procedure
+        /// Creates an object wrapper for the Proc_MTMJH_backup_2017-11-30 Procedure
         /// </summary>
-        public static StoredProcedure ProcMtmjh(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount)
+        public static StoredProcedure ProcMtmjhBackup20171130(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount)
         {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_MTMJH", DataService.GetInstance("Nowthwin"), "dbo");
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_MTMJH_backup_2017-11-30", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
         	
@@ -383,6 +373,24 @@ namespace Model{
         public static StoredProcedure ProcMtmjhNew(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount)
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_MTMJH_New", DataService.GetInstance("Nowthwin"), "dbo");
+        	
+            sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
+        	
+            sp.Command.AddParameter("@GzxkCount", GzxkCount, DbType.Int32, 0, 10);
+        	
+            sp.Command.AddParameter("@xfCount", xfCount, DbType.Int32, 0, 10);
+        	
+            sp.Command.AddParameter("@xkCount", xkCount, DbType.Int32, 0, 10);
+        	
+            return sp;
+        }
+        
+        /// <summary>
+        /// Creates an object wrapper for the Proc_MTMJH_新 Procedure
+        /// </summary>
+        public static StoredProcedure ProcMtmjh新(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_MTMJH_新", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
         	

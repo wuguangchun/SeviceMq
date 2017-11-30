@@ -23,4 +23,11 @@ F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.WebService.Form_Ne
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.WebService.Form_New_DlData.resources
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.ServiceLog.Form_Log_ServiceError.resources
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.ServiceLog.Form_Log_ServiceAuto.resources
+F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\NPOI.dll
+F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\NPOI.OOXML.dll
+F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\NPOI.OpenXml4Net.dll
+F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\NPOI.OpenXmlFormats.dll
+F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\NPOI.xml
+F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.Improt.Form_Improt_Excel.resources
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.csprojResolveAssemblyReference.cache

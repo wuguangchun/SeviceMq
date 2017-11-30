@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemMaintain.DailyQuery.Basicdata;
+using SystemMaintain.Improt;
 using SystemMaintain.ServiceLog;
 using SystemMaintain.WebService;
 
@@ -152,6 +153,22 @@ namespace SystemMaintain
         }
         #endregion
 
+        #region 数据导入
+        //西服排程结果推送到BL
+        private void Excel_To_Db_Click(object sender, EventArgs e)
+        {
+            /* 数据走向
+             * CAD排程完成后的输出数据 → BL数据库
+             * 实现过程： Asprova 排程结束 调用客户端通知 → WebService接口准备数据到MQ  →  Handle将队列数据推送到BL接口
+             */
+            //新增TAB页面 
+            TabPage tabPage = AddTabPage(@"Excle数据导入", "Tab_Excel_To_Db");
+
+            var form = new Form_Improt_Excel { TopLevel = false, Parent = tabPage };
+            form.Show();
+        }
+        #endregion
+
         #region 日志处理
         private void log_serviceError_Click(object sender, EventArgs e)
         {
@@ -254,6 +271,7 @@ namespace SystemMaintain
 
 
         #endregion
+
 
     }
 }

@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int? Mxid,string Orderid,string Khdh,string Ylbm,string Mtml,string Yllx,string Yllxmc,int? FlagDelete)
+	    public void Insert(int? Mxid,string Orderid,string Khdh,string Ylbm,string Mtml,string Yllx,string Yllxmc,int? FlagDelete,string Tg,decimal? Mltgkd)
 	    {
 		    TBLDataMflxx item = new TBLDataMflxx();
 		    
@@ -100,6 +100,10 @@ namespace Model
             
             item.FlagDelete = FlagDelete;
             
+            item.Tg = Tg;
+            
+            item.Mltgkd = Mltgkd;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -108,7 +112,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Mflxxid,int? Mxid,string Orderid,string Khdh,string Ylbm,string Mtml,string Yllx,string Yllxmc,int? FlagDelete)
+	    public void Update(int Mflxxid,int? Mxid,string Orderid,string Khdh,string Ylbm,string Mtml,string Yllx,string Yllxmc,int? FlagDelete,string Tg,decimal? Mltgkd)
 	    {
 		    TBLDataMflxx item = new TBLDataMflxx();
 	        item.MarkOld();
@@ -131,6 +135,10 @@ namespace Model
 			item.Yllxmc = Yllxmc;
 				
 			item.FlagDelete = FlagDelete;
+				
+			item.Tg = Tg;
+				
+			item.Mltgkd = Mltgkd;
 				
 	        item.Save(UserName);
 	    }

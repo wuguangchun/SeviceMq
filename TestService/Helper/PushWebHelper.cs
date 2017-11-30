@@ -60,8 +60,9 @@ namespace ServiceHandle.Helper
                 requestScore.ContentLength = data.Length;
                 requestScore.KeepAlive = true;
                 requestScore.Date = DateTime.Now;
-               
-                Stream stream = requestScore.GetRequestStream();
+                requestScore.Timeout = 1000 * 60;
+
+                 Stream stream = requestScore.GetRequestStream();
                 stream.Write(data, 0, data.Length);
                 stream.Close();
 

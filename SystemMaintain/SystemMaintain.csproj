@@ -35,11 +35,26 @@
     <ApplicationIcon>favicon1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=5.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\SubSonic.Scaffold.2.2.0.0\lib\net20\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="SubSonic, Version=2.2.0.0, Culture=neutral, PublicKeyToken=eadb47849839a332, processorArchitecture=MSIL">
       <HintPath>..\packages\SubSonic.Scaffold.2.2.0.0\lib\net20\SubSonic.dll</HintPath>
@@ -96,6 +111,12 @@
       <DependentUpon>Defaut.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpler\DbHelper.cs" />
+    <Compile Include="Improt\Form_Improt_Excel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Improt\Form_Improt_Excel.Designer.cs">
+      <DependentUpon>Form_Improt_Excel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModelsOther\BLDate.cs" />
     <Compile Include="ModelsOther\CadBlModel.cs" />
     <Compile Include="ModelsOther\Completion.cs" />
@@ -138,6 +159,8 @@
     <Compile Include="Models\SCM06Controller.cs" />
     <Compile Include="Models\SCM13.cs" />
     <Compile Include="Models\SCM13Controller.cs" />
+    <Compile Include="Models\SCT02.cs" />
+    <Compile Include="Models\SCT02Controller.cs" />
     <Compile Include="Models\SCT12.cs" />
     <Compile Include="Models\SCT12Controller.cs" />
     <Compile Include="Models\SCT26.cs" />
@@ -229,10 +252,14 @@
     <Compile Include="Models\TBasisOrderStatusController.cs" />
     <Compile Include="Models\TBasisResource.cs" />
     <Compile Include="Models\TBasisResourceController.cs" />
+    <Compile Include="Models\TBasisSewingProcess.cs" />
+    <Compile Include="Models\TBasisSewingProcessController.cs" />
     <Compile Include="Models\TBasisSpecialList.cs" />
     <Compile Include="Models\TBasisSpecialListController.cs" />
     <Compile Include="Models\TBasisSystemInfo.cs" />
     <Compile Include="Models\TBasisSystemInfoController.cs" />
+    <Compile Include="Models\TBasisTechnique.cs" />
+    <Compile Include="Models\TBasisTechniqueController.cs" />
     <Compile Include="Models\TBlankingDetaile.cs" />
     <Compile Include="Models\TBlankingDetaileController.cs" />
     <Compile Include="Models\TBLCADTemp.cs" />
@@ -456,6 +483,9 @@
     <EmbeddedResource Include="Defaut.resx">
       <DependentUpon>Defaut.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Improt\Form_Improt_Excel.resx">
+      <DependentUpon>Form_Improt_Excel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -578,5 +608,6 @@
   <ItemGroup>
     <Content Include="favicon1.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
