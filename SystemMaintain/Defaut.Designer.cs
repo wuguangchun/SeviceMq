@@ -59,9 +59,11 @@
             this.log_serviceError = new System.Windows.Forms.ToolStripMenuItem();
             this.老接口日志log_serviceOld = new System.Windows.Forms.ToolStripMenuItem();
             this.log_serviceErrorOld = new System.Windows.Forms.ToolStripMenuItem();
+            this.log_serviceAuto = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPageDefault = new System.Windows.Forms.TabPage();
             this.tab_box = new System.Windows.Forms.TabControl();
             this.tabBoxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.tool_menu.SuspendLayout();
             this.tab_box.SuspendLayout();
             this.SuspendLayout();
@@ -194,7 +196,7 @@
             // Push_BlToAps
             // 
             this.Push_BlToAps.Name = "Push_BlToAps";
-            this.Push_BlToAps.Size = new System.Drawing.Size(152, 22);
+            this.Push_BlToAps.Size = new System.Drawing.Size(149, 22);
             this.Push_BlToAps.Text = "BL订单推送";
             this.Push_BlToAps.Click += new System.EventHandler(this.Push_BlToAps_Click);
             // 
@@ -204,7 +206,7 @@
             this.Push_CadToBlXf,
             this.Push_CadToBlCy});
             this.Push_CadToBl.Name = "Push_CadToBl";
-            this.Push_CadToBl.Size = new System.Drawing.Size(152, 22);
+            this.Push_CadToBl.Size = new System.Drawing.Size(149, 22);
             this.Push_CadToBl.Text = "排程CAD推送";
             // 
             // Push_CadToBlXf
@@ -224,7 +226,7 @@
             // Push_Completion
             // 
             this.Push_Completion.Name = "Push_Completion";
-            this.Push_Completion.Size = new System.Drawing.Size(152, 22);
+            this.Push_Completion.Size = new System.Drawing.Size(149, 22);
             this.Push_Completion.Text = "完工汇报";
             this.Push_Completion.Click += new System.EventHandler(this.Push_Completion_Click);
             // 
@@ -235,26 +237,26 @@
             this.New_CjData,
             this.New_DlData});
             this.生成CAD数据ToolStripMenuItem.Name = "生成CAD数据ToolStripMenuItem";
-            this.生成CAD数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.生成CAD数据ToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.生成CAD数据ToolStripMenuItem.Text = "生成数据";
             // 
             // New_CadData
             // 
             this.New_CadData.Name = "New_CadData";
-            this.New_CadData.Size = new System.Drawing.Size(152, 22);
+            this.New_CadData.Size = new System.Drawing.Size(101, 22);
             this.New_CadData.Text = "CAD";
             // 
             // New_CjData
             // 
             this.New_CjData.Name = "New_CjData";
-            this.New_CjData.Size = new System.Drawing.Size(152, 22);
+            this.New_CjData.Size = new System.Drawing.Size(101, 22);
             this.New_CjData.Text = "裁剪";
             this.New_CjData.Click += new System.EventHandler(this.New_CjData_Click);
             // 
             // New_DlData
             // 
             this.New_DlData.Name = "New_DlData";
-            this.New_DlData.Size = new System.Drawing.Size(152, 22);
+            this.New_DlData.Size = new System.Drawing.Size(101, 22);
             this.New_DlData.Text = "段料";
             this.New_DlData.Click += new System.EventHandler(this.New_DlData_Click);
             // 
@@ -265,7 +267,8 @@
             this.log_Service,
             this.log_serviceError,
             this.老接口日志log_serviceOld,
-            this.log_serviceErrorOld});
+            this.log_serviceErrorOld,
+            this.log_serviceAuto});
             this.toolStripSplitButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton2.Image")));
             this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton2.Name = "toolStripSplitButton2";
@@ -297,12 +300,19 @@
             this.log_serviceErrorOld.Size = new System.Drawing.Size(160, 22);
             this.log_serviceErrorOld.Text = "老接口异常日志";
             // 
+            // log_serviceAuto
+            // 
+            this.log_serviceAuto.Name = "log_serviceAuto";
+            this.log_serviceAuto.Size = new System.Drawing.Size(160, 22);
+            this.log_serviceAuto.Text = "日志标识处理";
+            this.log_serviceAuto.Click += new System.EventHandler(this.log_serviceAuto_Click);
+            // 
             // tabPageDefault
             // 
             this.tabPageDefault.Location = new System.Drawing.Point(4, 22);
             this.tabPageDefault.Name = "tabPageDefault";
             this.tabPageDefault.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDefault.Size = new System.Drawing.Size(839, 285);
+            this.tabPageDefault.Size = new System.Drawing.Size(839, 307);
             this.tabPageDefault.TabIndex = 0;
             this.tabPageDefault.Text = "操作须知";
             this.tabPageDefault.UseVisualStyleBackColor = true;
@@ -315,7 +325,7 @@
             this.tab_box.Location = new System.Drawing.Point(0, 25);
             this.tab_box.Name = "tab_box";
             this.tab_box.SelectedIndex = 0;
-            this.tab_box.Size = new System.Drawing.Size(847, 311);
+            this.tab_box.Size = new System.Drawing.Size(847, 333);
             this.tab_box.TabIndex = 1;
             // 
             // tabBoxMenu
@@ -324,11 +334,18 @@
             this.tabBoxMenu.Size = new System.Drawing.Size(61, 4);
             this.tabBoxMenu.Text = "关闭TAB";
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "异常快速处理程序";
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
+            // 
             // Defaut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 336);
+            this.ClientSize = new System.Drawing.Size(847, 358);
             this.Controls.Add(this.tab_box);
             this.Controls.Add(this.tool_menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -337,6 +354,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "APS 系统维护";
+            this.SizeChanged += new System.EventHandler(this.Defaut_SizeChanged);
             this.tool_menu.ResumeLayout(false);
             this.tool_menu.PerformLayout();
             this.tab_box.ResumeLayout(false);
@@ -379,6 +397,8 @@
         private System.Windows.Forms.ContextMenuStrip tabBoxMenu;
         private System.Windows.Forms.ToolStripMenuItem Push_CadToBlXf;
         private System.Windows.Forms.ToolStripMenuItem Push_CadToBlCy;
+        private System.Windows.Forms.ToolStripMenuItem log_serviceAuto;
+        public System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }
 

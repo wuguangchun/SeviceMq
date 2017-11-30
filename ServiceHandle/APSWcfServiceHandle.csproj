@@ -121,6 +121,7 @@
     <Compile Include="Handle\CompletionHandle.cs" />
     <Compile Include="Handle\CreateCadOrderHandle.cs" />
     <Compile Include="Handle\ErrorAutoHandle.cs" />
+    <Compile Include="Handle\IntelligentLogHandle.cs" />
     <Compile Include="Handle\KillOrderHandle.cs" />
     <Compile Include="Handle\LogHandleHandle.cs" />
     <Compile Include="Handle\NewCaiJianOrderHandle.cs" />

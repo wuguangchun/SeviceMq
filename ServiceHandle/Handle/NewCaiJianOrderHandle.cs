@@ -102,11 +102,16 @@ namespace ServiceHandle.Handle
                 var obj = query.ExecuteTypedList<TAnalysisOrderList>().FirstOrDefault();
                 if (null != obj)
                 {
+                    if (obj.OrderType != "BLMTM")
+                    {
+                        json.RetCode = "success";
+                        json.RetMessage = "非MTM大类，不需要生成。事由：智能排程中不考虑";
+                        return JsonHelper.GetJsonO(json);
+                    }
+
                     if (ExistsData(obj.CustomerId) > 0)
                     {
-                        json.RetCode = "error";
-                        json.RetMessage = "数据已存在";
-                        return JsonHelper.GetJsonO(json);
+                        throw new Exception("数据已存在");
                     }
 
                     string type = "", tgcode = "", flagMl = "", pbcd = "", fgml = "", sccjjq = "", sctcrq = "";
@@ -154,8 +159,7 @@ namespace ServiceHandle.Handle
                     orderListByCf.Save();
                     if (string.IsNullOrWhiteSpace(orderListByCf.OrderId) || orderListByCf.OrderId == "0")
                     {
-                        json.RetCode = "error";
-                        json.RetMessage = "存储失败,";
+                        throw new Exception("生成成功，但存储失败");
                     }
                     else
                     {
@@ -165,8 +169,7 @@ namespace ServiceHandle.Handle
                 }
                 else
                 {
-                    json.RetCode = "error";
-                    json.RetMessage = $"存储失败,OrderList表没有{order}该数据";
+                    throw new Exception($"OrderList表没有{order}该数据");
                 }
 
             }

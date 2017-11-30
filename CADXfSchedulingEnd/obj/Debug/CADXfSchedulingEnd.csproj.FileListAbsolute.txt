@@ -8,7 +8,6 @@ F:\ApsService\APSWcfService\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.pdb
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\bin\Debug\CADXfSchedulingEnd.exe.config
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\bin\Debug\CADXfSchedulingEnd.exe
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\bin\Debug\CADXfSchedulingEnd.pdb
-F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csprojResolveAssemblyReference.cache
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csproj.CoreCompileInputs.cache
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.exe
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.pdb

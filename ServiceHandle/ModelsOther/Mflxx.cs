@@ -12,5 +12,6 @@ namespace WcfService1.OrderModel
         public string Mtml { get; set; }
         public string Yllxmc { get; set; }
         public string Tg { get; set; }
+        public string Mltgkd { get; set; }
     }
 }

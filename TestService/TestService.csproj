@@ -66,6 +66,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ServiceOld\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceTest\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,8 +81,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Helper\PushWebHelper.cs" />
     <Compile Include="ModelsOther\BLDate.cs" />
     <Compile Include="ModelsOther\Completion.cs" />
+    <Compile Include="ModelsOther\MesGerHourModel.cs" />
     <Compile Include="ModelsOther\Mflxx.cs" />
     <Compile Include="ModelsOther\Order.cs" />
     <Compile Include="ModelsOther\Ordermx.cs" />
@@ -391,6 +398,13 @@
     <None Include="Connected Services\APSService\NewMessageQueues1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceOld\NewMessageQueues.wsdl" />
+    <None Include="Connected Services\ServiceOld\NewMessageQueues.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceOld\NewMessageQueues1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceTest\NewMassgeService.wsdl" />
     <None Include="Connected Services\ServiceTest\NewMassgeService.xsd">
       <SubType>Designer</SubType>
@@ -412,6 +426,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\APSService\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceOld\" />
     <WCFMetadataStorage Include="Connected Services\ServiceTest\" />
     <WCFMetadataStorage Include="Connected Services\TestApsService\" />
   </ItemGroup>
@@ -453,6 +468,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\APSService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceOld\NewMessageQueues.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceOld\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceOld\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceOld\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

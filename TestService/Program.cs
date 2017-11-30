@@ -10,8 +10,10 @@ using System.Timers;
 using APSWcfService.Helper;
 using Model;
 using Newtonsoft.Json;
+using ServiceHandle.Helper;
 using ServiceHandle.ModelsOther;
 using SubSonic;
+using TestService.ModelsOther;
 
 namespace TestService
 {
@@ -20,15 +22,60 @@ namespace TestService
         static void Main(string[] args)
         {
 
+            //var comp = new Completion
+            //{
+            //    CustmerId = "SAE417110077",
+            //    CallingParty = "MES",
+            //    OrderSrate = "302"
+            //};
 
-            while (true)
+            //var service=new ServiceOld.NewMessageQueuesClient();
+            //var result=service.DoWork("Completion", JsonConvert.SerializeObject(comp));
+
+            //while (true)
+            //{
+            //    TestMethod();
+            //    Console.ReadLine();
+            //}
+
+            string result = string.Empty;
+            string sysCode = "EU1607280212";
+            MesModels mesM = new MesModels()
             {
-                TestMethod();
-                Console.ReadLine();
-            }
+                sysCode = "",
+                listModelSort = new List<ModelSort>() {
+                    new ModelSort
+                {
+                    strSort = "string",
+                    listStepCode = new List<ListStepCodes>
+                    {
+                        new ListStepCodes{StepCode = "3020",StepHour = 0},
+                        new ListStepCodes{StepCode = "3101",StepHour = 0},
+                        new ListStepCodes{StepCode = "3421",StepHour = 0},
+                        new ListStepCodes{StepCode = "3346",StepHour = 0},
+                        new ListStepCodes{StepCode = "3423",StepHour = 0},
+                        new ListStepCodes{StepCode = "3533",StepHour = 0},
+                        new ListStepCodes{StepCode = "320G",StepHour = 0},
+                        new ListStepCodes{StepCode = "3417",StepHour = 0},
+                        new ListStepCodes{StepCode = "3181",StepHour = 0},
+                        new ListStepCodes{StepCode = "350D",StepHour = 0},
+                        new ListStepCodes{StepCode = "345G",StepHour = 0},
+                        new ListStepCodes{StepCode = "345J",StepHour = 0},
+                        new ListStepCodes{StepCode = "3454",StepHour = 0},
+                        new ListStepCodes{StepCode = "3X07",StepHour = 0}
+                    }
+                }}
+            };
 
-
+            PushWebHelper.PostToPost($"http://172.16.8.23:9003/api/QueryEstimateSalary", JsonConvert.SerializeObject(mesM), ref result);
+            var obj = (MesModels) JsonConvert.DeserializeObject(result, typeof(MesModels));
+            Console.WriteLine(result);
+            Console.ReadLine();
         }
+
+
+        
+
 
         public static void New201()
         {
@@ -69,8 +116,8 @@ namespace TestService
             //Thread thread103 = new Thread(ServiceHelper.CompletionTest103) { IsBackground = true };
             //thread103.Start();
 
-            Thread thread201 = new Thread(ServiceHelper.CompletionTest201) { IsBackground = true };
-            thread201.Start();
+            //Thread thread201 = new Thread(ServiceHelper.CompletionTest201) { IsBackground = true };
+            //thread201.Start();
 
             //Thread thread300 = new Thread(ServiceHelper.CompletionTest300) { IsBackground = true };
             //thread300.Start();

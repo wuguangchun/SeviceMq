@@ -119,15 +119,12 @@ namespace ServiceHandle.Handle
                     var query = new Select().From<TBLDataOrder>()
                         .Where(TBLDataOrder.KhdhColumn).IsEqualTo(blDate.order.Khdh)
                         .ExecuteTypedList<TBLDataOrder>();
+
+                    //返回数据带入KHDH
+                    json.RetObj = blDate.order.Khdh;
+
                     if (query.Count > 0)
                     {
-                        ////队列执行撤单命令
-                        //var serviceKill = new ApsMessageService.NewMassgeServiceClient();
-                        //serviceKill.InsertMessage("KillOrder", "KillOrder", blDate.order.Khdh, null);
-
-                        ////重新队列此命令
-                        //var serviceReset = new ApsMessageService.NewMassgeServiceClient();
-                        //serviceReset.InsertMessage("NewOrderData", "BlPutData ", order, null);
 
                         //执行撤单操作后在添加
                         var killJson = KillOrderHelper.KillOrder(blDate.order.Khdh);
@@ -200,7 +197,10 @@ namespace ServiceHandle.Handle
                                         Ylbm = mflxx.Ylbm,
                                         Mtml = mflxx.Mtml,
                                         Yllx = mflxx.Yllx,
-                                        Yllxmc = mflxx.Yllxmc
+                                        Yllxmc = mflxx.Yllxmc,
+                                        Tg = mflxx.Tg,
+                                        Mltgkd = decimal.Parse(mflxx.Mltgkd)
+
                                     };
                                     tblDataMflxx.Save();
 

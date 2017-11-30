@@ -10,6 +10,7 @@ namespace ServiceHandle.Helper
 {
     public class AutoStart
     {
+        private static List<Thread> threads = new List<Thread>();
         public static void AutoStartHandle()
         {
             /*******************************
@@ -40,9 +41,9 @@ namespace ServiceHandle.Helper
             Thread threadBlanking = new Thread(BlankingHandle.GetMessageQueues) { IsBackground = true };
             threadBlanking.Start();
 
-            //处理结果回调
-            Thread threadCallBack = new Thread(CallBackHandle.GetMessageQueues) { IsBackground = true };
-            threadCallBack.Start();
+            //处理结果回调(需要下一版本优化，效率太慢)
+            //Thread threadCallBack = new Thread(CallBackHandle.GetMessageQueues) { IsBackground = true };
+            //threadCallBack.Start();
 
             //数据重复撤单
             Thread threadKillOrder = new Thread(KillOrderHandle.GetMessageQueues) { IsBackground = true };
@@ -52,19 +53,38 @@ namespace ServiceHandle.Helper
             Thread threadPushBl = new Thread(PutCadHandle.GetMessageQueues) { IsBackground = true };
             threadPushBl.Start();
 
+            //智能解析日志添加标识
+            Thread threadAutoLog = new Thread(new IntelligentLogHandle().LogParsing) { IsBackground = true };
+            threadAutoLog.Start();
+
+            //线程集合
+            threads = new List<Thread>
+            {
+                threadLog,
+                threadNewOrder,
+                threadComp,
+                threadNewCadOrder,
+                threadNewCaiJianOrder,
+                threadBlanking,
+                threadKillOrder,
+                threadPushBl,
+                threadAutoLog
+            };
+
             //检测以上自启动线程状态
-            /*TestThread(new List<Thread> { threadLog, threadNewOrder, threadComp, threadNewCadOrder, threadNewCaiJianOrder, threadBlanking, threadCallBack, threadKillOrder, threadPushBl });*/
+            Thread threadTestThread = new Thread(TestThread) { IsBackground = true };
+            threadTestThread.Start();
 
 
         }
 
-        public static void TestThread(List<Thread> list)
+        public static void TestThread()
         {
             try
             {
                 while (true)
                 {
-                    foreach (var thread in list)
+                    foreach (var thread in threads)
                     {
                         if (thread.ThreadState != ThreadState.Running)
                         {
@@ -73,7 +93,8 @@ namespace ServiceHandle.Helper
                     }
 
                     //系统每分钟检测一次 多线程任务是否有效
-                    Thread.Sleep(1000 * 60 * 60);
+                    Thread.Sleep(1000 * 60);
+
                 }
             }
             catch (Exception e)

@@ -7,9 +7,11 @@ using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using Model;
 using SubSonic;
+using Timer = System.Timers.Timer;
 
 namespace SystemMaintain.ServiceLog
 {
@@ -18,23 +20,38 @@ namespace SystemMaintain.ServiceLog
         public Form_Log_ServiceError()
         {
             InitializeComponent();
-            LoadData();
+            TimerTest();
+            LoadData(null, null);
         }
 
         //加载错误日志的数据
-        private void LoadData()
+        private void LoadData(object sender, ElapsedEventArgs e)
         {
             try
             {
                 var errList = new Select().From<TLogError>().ExecuteTypedList<TLogError>();
                 Grid_ErrList.AutoGenerateColumns = false;
 
-                Grid_ErrList.DataSource = errList;
+                if (Grid_ErrList.InvokeRequired)
+                {
+                    Action actionDelegate = () =>
+                    {
+                        Grid_ErrList.DataSource = errList;
+                    };
+                    Grid_ErrList.Invoke(actionDelegate);
+                }
+                else
+                {
 
+                    Grid_ErrList.DataSource = errList;
+                }
+
+                if (errList.Count > 0)
+                    Defaut.Notify.ShowBalloonTip(30, "错误日志提示", $"现有有错误日志{errList.Count}条,请处理。以免影响生产", ToolTipIcon.Info);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -45,8 +62,10 @@ namespace SystemMaintain.ServiceLog
             {
                 if (Grid_ErrList.SelectedRows.Count < 1)
                     return;
+                var log = new Select().From<TLogService>().Where(TLogService.MessageIDColumn)
+                    .IsEqualTo(Grid_ErrList.SelectedRows[0].Cells["MessageId"].Value.ToString()).ExecuteTypedList<TLogService>().FirstOrDefault();
 
-                var result = MessageBox.Show(Grid_ErrList.SelectedRows[0].Cells["Message"].Value.ToString(), @"错误日志提示明细", MessageBoxButtons.RetryCancel);
+                var result = MessageBox.Show($"路径：{log?.MessagePath} \r  标签：{log?.Lable} \r {log?.Context}", @"错误日志提示明细", MessageBoxButtons.RetryCancel);
 
                 if (result == DialogResult.Retry)
                 {
@@ -54,6 +73,17 @@ namespace SystemMaintain.ServiceLog
                     if (yes == DialogResult.OK)
                     {
                         ResetMessage(Grid_ErrList.SelectedRows[0].Cells["MessageId"].Value.ToString());
+                    }
+                }
+                else
+                {
+                    var yes = MessageBox.Show(@"放弃操作将清除此条错误日志！", @"继续操作提示", MessageBoxButtons.OKCancel);
+                    if (yes == DialogResult.OK)
+                    {
+                        new Delete().From<TLogError>().Where(TLogError.MessageIdColumn)
+                            .IsEqualTo(Grid_ErrList.SelectedRows[0].Cells["MessageId"].Value.ToString())
+                            .Execute();
+                        LoadData(null, null);
                     }
                 }
             }
@@ -93,12 +123,20 @@ namespace SystemMaintain.ServiceLog
                 }
 
                 MessageBox.Show($@"将{logList.Count}条消息重新处理，{ok}条处理成功！");
-                LoadData();
+                LoadData(null, null);
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
         }
+
+        private void TimerTest()
+        {
+            Timer timer = new Timer(1000 * 60);
+            timer.Elapsed += LoadData;
+            timer.Start();
+        }
+
     }
 }

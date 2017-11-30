@@ -48,6 +48,8 @@ namespace Model
         
 		public static readonly string SCM13 = @"SCM13";
         
+		public static readonly string SCT02 = @"SCT02";
+        
 		public static readonly string SCT12 = @"SCT12";
         
 		public static readonly string SCT26 = @"SCT26";
@@ -68,9 +70,15 @@ namespace Model
         
 		public static readonly string SCT32 = @"SCT32";
         
+		public static readonly string SCT33 = @"SCT33";
+        
 		public static readonly string SCT51 = @"SCT51";
         
 		public static readonly string SCT52 = @"SCT52";
+        
+		public static readonly string SCT55 = @"SCT55";
+        
+		public static readonly string SCT56 = @"SCT56";
         
 		public static readonly string TAnalysisCyMTMJh = @"T_Analysis_CyMTMJh";
         
@@ -86,15 +94,13 @@ namespace Model
         
 		public static readonly string TAnalysisOrderList = @"T_Analysis_OrderList";
         
-		public static readonly string TAnalysisOrderListDel = @"T_Analysis_OrderList_Del";
+		public static readonly string TAnalysisOrderList1706 = @"T_Analysis_OrderList@1706";
         
 		public static readonly string TAnalysisOrderListByCF = @"T_Analysis_OrderListByCF";
         
 		public static readonly string TAnalysisOrderListByDH = @"T_Analysis_OrderListByDH";
         
 		public static readonly string TAnalysisOutputList = @"T_Analysis_OutputList";
-        
-		public static readonly string TAnalysisOutputListBack = @"T_Analysis_OutputListBack";
         
 		public static readonly string TAnalysisOutPutListByCF = @"T_Analysis_OutPutListByCF";
         
@@ -115,6 +121,10 @@ namespace Model
 		public static readonly string TAnalysisOutputListWithCodeL = @"T_Analysis_OutputListWithCodeLS";
         
 		public static readonly string TApsClientLog = @"T_ApsClientLog";
+        
+		public static readonly string TApsClientLog1706 = @"T_ApsClientLog@1706";
+        
+		public static readonly string TApsClientLog1712 = @"T_ApsClientLog@1712";
         
 		public static readonly string TAPSCount = @"T_APSCount";
         
@@ -200,13 +210,9 @@ namespace Model
         
 		public static readonly string TOldApsByCf = @"T_OldApsByCf";
         
-		public static readonly string TOldApsByCf1 = @"T_OldApsByCf_1";
+		public static readonly string TOldApsByCf1706 = @"T_OldApsByCf@1706";
         
-		public static readonly string TOldApsByCf3 = @"T_OldApsByCf_3";
-        
-		public static readonly string TOldApsByCfBk = @"T_OldApsByCf_Bk";
-        
-		public static readonly string TOldApsByCfTest = @"T_OldApsByCf_test";
+		public static readonly string TOldApsByCf1712 = @"T_OldApsByCf@1712";
         
 		public static readonly string TOperationLog = @"T_Operation_Log";
         
@@ -344,6 +350,11 @@ namespace Model
             get { return DataService.GetSchema("SCM13", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table SCT02
+		{
+            get { return DataService.GetSchema("SCT02", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table SCT12
 		{
             get { return DataService.GetSchema("SCT12", "Nowthwin"); }
@@ -394,6 +405,11 @@ namespace Model
             get { return DataService.GetSchema("SCT32", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table SCT33
+		{
+            get { return DataService.GetSchema("SCT33", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table SCT51
 		{
             get { return DataService.GetSchema("SCT51", "Nowthwin"); }
@@ -402,6 +418,16 @@ namespace Model
 		public static TableSchema.Table SCT52
 		{
             get { return DataService.GetSchema("SCT52", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT55
+		{
+            get { return DataService.GetSchema("SCT55", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT56
+		{
+            get { return DataService.GetSchema("SCT56", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisCyMTMJh
@@ -439,9 +465,9 @@ namespace Model
             get { return DataService.GetSchema("T_Analysis_OrderList", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisOrderListDel
+		public static TableSchema.Table TAnalysisOrderList1706
 		{
-            get { return DataService.GetSchema("T_Analysis_OrderList_Del", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Analysis_OrderList@1706", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOrderListByCF
@@ -457,11 +483,6 @@ namespace Model
 		public static TableSchema.Table TAnalysisOutputList
 		{
             get { return DataService.GetSchema("T_Analysis_OutputList", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TAnalysisOutputListBack
-		{
-            get { return DataService.GetSchema("T_Analysis_OutputListBack", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOutPutListByCF
@@ -512,6 +533,16 @@ namespace Model
 		public static TableSchema.Table TApsClientLog
 		{
             get { return DataService.GetSchema("T_ApsClientLog", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TApsClientLog1706
+		{
+            get { return DataService.GetSchema("T_ApsClientLog@1706", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TApsClientLog1712
+		{
+            get { return DataService.GetSchema("T_ApsClientLog@1712", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAPSCount
@@ -724,24 +755,14 @@ namespace Model
             get { return DataService.GetSchema("T_OldApsByCf", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TOldApsByCf1
+		public static TableSchema.Table TOldApsByCf1706
 		{
-            get { return DataService.GetSchema("T_OldApsByCf_1", "Nowthwin"); }
+            get { return DataService.GetSchema("T_OldApsByCf@1706", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TOldApsByCf3
+		public static TableSchema.Table TOldApsByCf1712
 		{
-            get { return DataService.GetSchema("T_OldApsByCf_3", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TOldApsByCfBk
-		{
-            get { return DataService.GetSchema("T_OldApsByCf_Bk", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TOldApsByCfTest
-		{
-            get { return DataService.GetSchema("T_OldApsByCf_test", "Nowthwin"); }
+            get { return DataService.GetSchema("T_OldApsByCf@1712", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TOperationLog
@@ -908,6 +929,10 @@ namespace Model
 		public static readonly string VBlankingOut = @"V_BlankingOut";
         
 		public static readonly string VCadOrderlist = @"V_CAD_ORDERLIST";
+        
+		public static readonly string VCadOrderlistCy = @"V_CAD_ORDERLIST_CY";
+        
+		public static readonly string VCadOrderlistXf = @"V_CAD_ORDERLIST_XF";
         
 		public static readonly string VCADResourceNum = @"V_CADResourceNum";
         

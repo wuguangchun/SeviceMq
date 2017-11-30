@@ -15,10 +15,15 @@ namespace SystemMaintain
 {
     public partial class Defaut : Form
     {
+        public static NotifyIcon Notify;
         public Defaut()
         {
             InitializeComponent();
+            Notify = notifyIcon;
+            notifyIcon.ContextMenu = new ContextMenu();
+            notifyIcon.BalloonTipClicked += notifyIcon_DoubleClick;
         }
+
 
         #region 基础数据查询
 
@@ -131,6 +136,20 @@ namespace SystemMaintain
             form.Show();
 
         }
+
+        //智能解析日志的客户单号，更新
+        private void log_serviceAuto_Click(object sender, EventArgs e)
+        {
+            /* 数据走向
+            * 读取没有解析的日志，解析日志，添入客户单号
+            */
+
+            //新增TAB页面 
+            TabPage tabPage = AddTabPage(@"日志标识", "Tab_log_serviceAuto");
+
+            var form = new Form_Log_ServiceAuto() { TopLevel = false, Parent = tabPage };
+            form.Show();
+        }
         #endregion
 
         #region 日志处理
@@ -144,7 +163,7 @@ namespace SystemMaintain
                 TopLevel = false,
                 Parent = tabPage
             };
-            
+
             fromBasicdata.Show();
         }
         #endregion
@@ -210,8 +229,31 @@ namespace SystemMaintain
 
 
 
+
         #endregion
 
+        #region 窗口大小改变时监听
+
+        private void Defaut_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                this.notifyIcon.Visible = true;
+            }
+        }
+
+        //双击托盘图标时事件
+        private void notifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            this.Visible = true;
+            this.WindowState = FormWindowState.Normal;
+            this.notifyIcon.Visible = false;
+
+        }
+
+
+        #endregion
 
     }
 }

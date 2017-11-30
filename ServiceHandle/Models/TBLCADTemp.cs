@@ -279,7 +279,7 @@ namespace Model
 				colvarState.IsForeignKey = false;
 				colvarState.IsReadOnly = false;
 				
-						colvarState.DefaultSetting = @"((0))";
+						colvarState.DefaultSetting = @"((666))";
 				colvarState.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarState);
 				

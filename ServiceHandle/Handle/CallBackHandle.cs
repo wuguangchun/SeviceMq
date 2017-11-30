@@ -47,7 +47,7 @@ namespace ServiceHandle.Handle
                 //根据消息标签执行相应的命令
                 if (message.Label.ToLower().Trim() == "Message".ToLower())
                 {
-                    //接收BL传入数据源
+                    //需要回传的Message信息
                     reMeg = CallBackHelper.CallBackGet(message.Body.ToString());
                 }
                 else
@@ -86,6 +86,7 @@ namespace ServiceHandle.Handle
             JsonHelper jsons = new JsonHelper();
             try
             {
+                
                 var callBack = (JsonHelper)JsonHelper.ReturnObject(json, typeof(JsonHelper));
                 var logService = new TLogService(TLogService.Columns.MessageID, callBack.RetObj);
 

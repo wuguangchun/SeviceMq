@@ -37,8 +37,6 @@ namespace ServiceHandle.Handle
 
                     new Delete().From<TLogError>().Where(TLogError.MessageIdColumn).IsEqualTo(logError.MessageId).Execute();
                 }
-
-
             }
             catch (Exception ex)
             {
