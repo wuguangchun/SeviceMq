@@ -42,6 +42,56 @@ namespace ServiceHandle.Helper
         }
 
         /// <summary>
+        ///  .net 模拟发送PUT请求
+        /// </summary>
+        /// <param name="postUrl">请求地址</param>
+        /// <param name="postdata">参数</param>
+        /// <param name="result">请求返回/回调结果</param>
+        public static void PostToPut(string postUrl, string postdata, ref string result)
+        {
+            try
+            {
+                HttpWebRequest requestScore = (HttpWebRequest)WebRequest.Create(postUrl);
+                //ASCIIEncoding encoding = new ASCIIEncoding();
+                Encoding u8 = Encoding.UTF8;
+                byte[] data = u8.GetBytes(postdata); //encoding.GetBytes(postdata);
+                requestScore.Method = "PUT";
+                requestScore.ContentType = "application/x-www-form-urlencoded";
+                requestScore.ContentLength = data.Length;
+                requestScore.KeepAlive = true;
+                requestScore.Date = DateTime.Now;
+
+                Stream stream = requestScore.GetRequestStream();
+                stream.Write(data, 0, data.Length);
+                stream.Close();
+
+                HttpWebResponse responseSorce;
+                try
+                {
+                    responseSorce = (HttpWebResponse)requestScore.GetResponse();
+                }
+                catch (WebException ex)
+                {
+                    responseSorce = (HttpWebResponse)ex.Response;//得到请求网站的详细错误提示  
+                }
+                StreamReader reader = new StreamReader(responseSorce.GetResponseStream(), Encoding.UTF8);
+                result = reader.ReadToEnd();
+
+                requestScore.Abort();
+                responseSorce.Close();
+                responseSorce.Close();
+                reader.Dispose();
+                stream.Dispose();
+            }
+            catch (Exception e)
+            {
+                e.StackTrace.ToString();
+                System.Diagnostics.Trace.WriteLine(e.Message);
+                throw;
+            }
+        }
+
+        /// <summary>
         ///  .net 模拟发送Post请求
         /// </summary>
         /// <param name="postUrl">请求地址</param>
@@ -55,11 +105,12 @@ namespace ServiceHandle.Helper
                 //ASCIIEncoding encoding = new ASCIIEncoding();
                 Encoding u8 = Encoding.UTF8;
                 byte[] data = u8.GetBytes(postdata); //encoding.GetBytes(postdata);
-                requestScore.Method = "PUT";
-                requestScore.ContentType = "application/x-www-form-urlencoded";
+                requestScore.Method = "Post";
+                requestScore.ContentType = "application/json";
                 requestScore.ContentLength = data.Length;
                 requestScore.KeepAlive = true;
                 requestScore.Date = DateTime.Now;
+                requestScore.Timeout = 1000 * 60;
 
                 Stream stream = requestScore.GetRequestStream();
                 stream.Write(data, 0, data.Length);

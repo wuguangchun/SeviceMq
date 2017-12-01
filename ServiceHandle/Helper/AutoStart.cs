@@ -38,14 +38,14 @@ namespace ServiceHandle.Helper
             threadNewCaiJianOrder.Start();
 
             //生成段料所需数据
-            Thread threadBlanking = new Thread(BlankingHandle.GetMessageQueues) { IsBackground = true };
-            threadBlanking.Start();
+            //Thread threadBlanking = new Thread(BlankingHandle.GetMessageQueues) { IsBackground = true };
+            //threadBlanking.Start();
 
             //处理结果回调(需要下一版本优化，效率太慢)
             //Thread threadCallBack = new Thread(CallBackHandle.GetMessageQueues) { IsBackground = true };
             //threadCallBack.Start();
 
-            //数据重复撤单
+            //数据重复/撤单
             Thread threadKillOrder = new Thread(KillOrderHandle.GetMessageQueues) { IsBackground = true };
             threadKillOrder.Start();
 
@@ -65,7 +65,7 @@ namespace ServiceHandle.Helper
                 threadComp,
                 threadNewCadOrder,
                 threadNewCaiJianOrder,
-                threadBlanking,
+                //threadBlanking,
                 threadKillOrder,
                 threadPushBl,
                 threadAutoLog

@@ -7,8 +7,8 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Timers;
+using APSData;
 using APSWcfService.Helper;
-using Model;
 using Newtonsoft.Json;
 using ServiceHandle.Helper;
 using ServiceHandle.ModelsOther;
@@ -38,7 +38,7 @@ namespace TestService
             //    Console.ReadLine();
             //}
 
-            string result = string.Empty; 
+            string result = string.Empty;
             MesModels mesM = new MesModels
             {
                 SysCode = "EUR711230043",//系统单号
@@ -46,30 +46,17 @@ namespace TestService
                 FabricType = "素色",//面料外观  Tg
                 ReturnState = "",
                 FailureReason = "",
-                ListOrderArts = new List<string> { "000B", "0001", "00B1", "0521", "0101", "0531", "0541", "0300", "0310", "05A1", "0234", "0851", "085A", "0671", "0012", "0301", "00W5", "0313", "0320", "0640", "0643", "0571", "0648", "064A", "06M1", "04N2", "064C", "05C1", "0621", "06C1", "0638", "0597", "05D1", "0702", "05X1", "057A", "0601", "0731", "0714", "060K", "0724", "0742", "0801", "0612", "0862", "0619", "086A", "061B", "0875", "087H", "087A", "0891", "088D", "0881", "087P", "06S1", "055K", "066A", "0569", "08U2", "09L9", "086Z", "XL25", "XB30", "0728", "XD05", "X016", "X018", "0855", "X02L", "00G3", "00F7", "0X0K", "0413", "0X0Z", "0X10", "0X11", "0X15", "073D", "0X16", "0X17", "00JS", "0X1A", "00V4", "XX0A", "XXX01", "XXX02", "XXX03", "XXX04", "XXX06", "0X23", "XX0B", "0A23", "0X26" },
+                ListOrderArts = new List<string> { "000B" },
                 listStepCode = new List<ListStepCodes>
                 {//工序 工时集合
-                    new ListStepCodes{StepCode = "182",StepHour = 0},
-                    new ListStepCodes{StepCode = "187",StepHour = 0},
-                    new ListStepCodes{StepCode = "175",StepHour = 0},
-                    new ListStepCodes{StepCode = "171",StepHour = 0},
-                    new ListStepCodes{StepCode = "148",StepHour = 0},
-                    new ListStepCodes{StepCode = "132",StepHour = 0},
-                    new ListStepCodes{StepCode = "217",StepHour = 0},
-                    new ListStepCodes{StepCode = "117",StepHour = 0},
-                    new ListStepCodes{StepCode = "75",StepHour = 0},
-                    new ListStepCodes{StepCode = "82",StepHour = 0},
-                    new ListStepCodes{StepCode = "80",StepHour = 0},
-                    new ListStepCodes{StepCode = "959",StepHour = 0},
-                    new ListStepCodes{StepCode = "68",StepHour = 0},
-                    new ListStepCodes{StepCode = "63",StepHour = 0}
+                    new ListStepCodes{StepCode = "182",StepHour = 0}
                 }
             };
-            List<MesModels> list=new List<MesModels>{ mesM };
+            List<MesModels> list = new List<MesModels> { mesM };
             var json = JsonConvert.SerializeObject(list);
 
-            PushWebHelper.PostToPost($"http://172.16.7.3:10010//api/QueryEstimateSalary", json, ref result);
-            var obj = (MesModels)JsonConvert.DeserializeObject(result, typeof(MesModels));
+            PushWebHelper.PostToPost($"http://172.16.7.3:10010/api/QueryEstimateSalary", json, ref result);
+            var obj = (List<MesModels>)JsonConvert.DeserializeObject(result, typeof(List<MesModels>));
             Console.WriteLine(result);
             Console.ReadLine();
         }
@@ -77,7 +64,7 @@ namespace TestService
 
 
 
-        
+
         public static void New201()
         {
             try

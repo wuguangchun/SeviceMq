@@ -102,7 +102,7 @@ namespace ServiceHandle.Handle
                 //PushWebHelper.PostToPost("http://172.16.7.124:8083/rest/aps/apspcsj", jsonBody, ref s);
 
                 //正式接口
-                PushWebHelper.PostToPost("http://172.16.7.127:8000/rest/aps/apspcsj", jsonBody, ref s);
+                PushWebHelper.PostToPut("http://172.16.7.127:8000/rest/aps/apspcsj", jsonBody, ref s);
 
                 var blObj = (BlReturnMsg)JsonHelper.ReturnObject(s, typeof(BlReturnMsg));
 

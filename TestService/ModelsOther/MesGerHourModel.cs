@@ -19,11 +19,12 @@ namespace TestService.ModelsOther
 
 
     }
-     
+
     public class ListStepCodes
     {
         public string StepCode { get; set; }
         public int StepHour { get; set; }
+        public List<String> ListOrderArts { get; set; }
 
     }
 

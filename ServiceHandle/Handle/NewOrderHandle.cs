@@ -235,12 +235,18 @@ namespace ServiceHandle.Handle
                     #endregion
 
                     #region 生成OrderList表队列命令
-
                     //生成OrderList表队列接口
                     var service = new ApsMessageService.NewMassgeServiceClient();
                     service.InsertMessage("CadOrder", "NewOrder", JsonHelper.GetJsonO(blDate), null);
-
                     #endregion
+
+                    #region 生成OrderList表队列命令
+                    //新订单获取MES工时
+                    var serviceMes = new ApsMessageService.NewMassgeServiceClient();
+                    serviceMes.InsertMessage("OrderGetMesHour", "NewOrder", JsonHelper.GetJsonO(blDate), null);
+                    #endregion
+
+
                 }
             }
             catch (Exception e)

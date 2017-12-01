@@ -121,14 +121,11 @@ namespace ServiceHandle.Handle
                     //如果完工汇报是计划审核下达则触发新消息队列NewByCF获取排版长度及生成表OrderListByCF
                     if (objCompletion.OrderSrate == "201")
                     {
-
-                        ////测试用
-                        //objCompletion.CustmerId = "C2MW17110183";
-
                         //初始化接口
                         var service = new ApsMessageService.NewMassgeServiceClient();
                         service.InsertMessage("CaiJianOrder", "NewOrder", objCompletion.CustmerId, null);
                     }
+
                     //如果完工汇报是裁床排程成功则出发新消息队列BlankingData生成断料数据(老APS给的完工汇报)
                     else if (objCompletion.OrderSrate == "300")
                     {

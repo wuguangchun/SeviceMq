@@ -23,4 +23,3 @@ F:\ServiceMq\SeviceMq\APSWcfService\bin\Newtonsoft.Json.xml
 F:\ServiceMq\SeviceMq\APSWcfService\obj\Debug\APSWcfService.csproj.CoreCompileInputs.cache
 F:\ServiceMq\SeviceMq\APSWcfService\obj\Debug\APSWcfService.dll
 F:\ServiceMq\SeviceMq\APSWcfService\obj\Debug\APSWcfService.pdb
-F:\ServiceMq\SeviceMq\APSWcfService\obj\Debug\APSWcfService.csprojResolveAssemblyReference.cache

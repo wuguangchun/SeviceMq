@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Defaut));
             this.tool_menu = new System.Windows.Forms.ToolStrip();
-            this.tabPageDefault = new System.Windows.Forms.TabPage();
-            this.tab_box = new System.Windows.Forms.TabControl();
-            this.tabBoxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.select = new System.Windows.Forms.ToolStripSplitButton();
             this.Select_Basicdata = new System.Windows.Forms.ToolStripMenuItem();
             this.Select_CADData = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +62,10 @@
             this.log_serviceAuto = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
             this.Excel_To_Db = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPageDefault = new System.Windows.Forms.TabPage();
+            this.tab_box = new System.Windows.Forms.TabControl();
+            this.tabBoxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.tool_menu.SuspendLayout();
             this.tab_box.SuspendLayout();
             this.SuspendLayout();
@@ -75,47 +75,13 @@
             this.tool_menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.select,
             this.toolStripSplitButton1,
-            this.toolStripSplitButton2,
-            this.toolStripSplitButton3});
+            this.toolStripSplitButton3,
+            this.toolStripSplitButton2});
             this.tool_menu.Location = new System.Drawing.Point(0, 0);
             this.tool_menu.Name = "tool_menu";
             this.tool_menu.Size = new System.Drawing.Size(847, 25);
             this.tool_menu.TabIndex = 0;
             this.tool_menu.Text = "toolStrip1";
-            // 
-            // tabPageDefault
-            // 
-            this.tabPageDefault.Location = new System.Drawing.Point(4, 22);
-            this.tabPageDefault.Name = "tabPageDefault";
-            this.tabPageDefault.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDefault.Size = new System.Drawing.Size(839, 307);
-            this.tabPageDefault.TabIndex = 0;
-            this.tabPageDefault.Text = "操作须知";
-            this.tabPageDefault.UseVisualStyleBackColor = true;
-            // 
-            // tab_box
-            // 
-            this.tab_box.ContextMenuStrip = this.tabBoxMenu;
-            this.tab_box.Controls.Add(this.tabPageDefault);
-            this.tab_box.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tab_box.Location = new System.Drawing.Point(0, 25);
-            this.tab_box.Name = "tab_box";
-            this.tab_box.SelectedIndex = 0;
-            this.tab_box.Size = new System.Drawing.Size(847, 333);
-            this.tab_box.TabIndex = 1;
-            // 
-            // tabBoxMenu
-            // 
-            this.tabBoxMenu.Name = "tabBoxMenu";
-            this.tabBoxMenu.Size = new System.Drawing.Size(61, 4);
-            this.tabBoxMenu.Text = "关闭TAB";
-            // 
-            // notifyIcon
-            // 
-            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "异常快速处理程序";
-            this.notifyIcon.Visible = true;
-            this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
             // select
             // 
@@ -358,9 +324,43 @@
             // Excel_To_Db
             // 
             this.Excel_To_Db.Name = "Excel_To_Db";
-            this.Excel_To_Db.Size = new System.Drawing.Size(152, 22);
+            this.Excel_To_Db.Size = new System.Drawing.Size(136, 22);
             this.Excel_To_Db.Text = "EXCEL导入";
             this.Excel_To_Db.Click += new System.EventHandler(this.Excel_To_Db_Click);
+            // 
+            // tabPageDefault
+            // 
+            this.tabPageDefault.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDefault.Name = "tabPageDefault";
+            this.tabPageDefault.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDefault.Size = new System.Drawing.Size(839, 307);
+            this.tabPageDefault.TabIndex = 0;
+            this.tabPageDefault.Text = "操作须知";
+            this.tabPageDefault.UseVisualStyleBackColor = true;
+            // 
+            // tab_box
+            // 
+            this.tab_box.ContextMenuStrip = this.tabBoxMenu;
+            this.tab_box.Controls.Add(this.tabPageDefault);
+            this.tab_box.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tab_box.Location = new System.Drawing.Point(0, 25);
+            this.tab_box.Name = "tab_box";
+            this.tab_box.SelectedIndex = 0;
+            this.tab_box.Size = new System.Drawing.Size(847, 333);
+            this.tab_box.TabIndex = 1;
+            // 
+            // tabBoxMenu
+            // 
+            this.tabBoxMenu.Name = "tabBoxMenu";
+            this.tabBoxMenu.Size = new System.Drawing.Size(61, 4);
+            this.tabBoxMenu.Text = "关闭TAB";
+            // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "异常快速处理程序";
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
             // Defaut
             // 
