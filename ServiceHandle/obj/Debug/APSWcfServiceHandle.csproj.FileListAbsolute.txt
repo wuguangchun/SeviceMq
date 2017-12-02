@@ -44,3 +44,4 @@ F:\ServiceMq\SeviceMq\ServiceHandle\bin\Newtonsoft.Json.xml
 F:\ServiceMq\SeviceMq\ServiceHandle\obj\Debug\APSWcfServiceHandle.csproj.CoreCompileInputs.cache
 F:\ServiceMq\SeviceMq\ServiceHandle\obj\Debug\ServiceHandle.dll
 F:\ServiceMq\SeviceMq\ServiceHandle\obj\Debug\ServiceHandle.pdb
+F:\ServiceMq\SeviceMq\ServiceHandle\obj\Debug\APSWcfServiceHandle.csprojResolveAssemblyReference.cache

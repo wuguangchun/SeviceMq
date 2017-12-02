@@ -7,7 +7,7 @@
     <ProjectGuid>{06E48536-546A-4676-A766-7D2DD5D73068}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SystemMaintain</RootNamespace>
-    <AssemblyName>SystemMaintain</AssemblyName>
+    <AssemblyName>APS系统维护</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

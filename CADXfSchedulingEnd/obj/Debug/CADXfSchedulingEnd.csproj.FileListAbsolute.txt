@@ -14,3 +14,4 @@ F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.pdb
 F:\Release\CADXFPush\CADXfSchedulingEnd.exe.config
 F:\Release\CADXFPush\CADXfSchedulingEnd.exe
 F:\Release\CADXFPush\CADXfSchedulingEnd.pdb
+F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csprojResolveAssemblyReference.cache

@@ -110,7 +110,14 @@ namespace ServiceHandle.Handle
                 //查询数据是否已存在
                 if (ExistsDate(blanking.OrderID))
                 {
-                    throw new Exception("Blanking表数据已存在");
+
+                    //T_BlankingDetailes
+                    var rowCount = new Delete().From<TBlankingDetaile>()
+                        .Where(TBlankingDetaile.CustumerIdColumn).IsEqualTo(blanking.OrderID).Execute();
+                    if (rowCount > 0)
+                    {
+
+                    }
                 }
 
                 //没有裁床号的订单跳过
