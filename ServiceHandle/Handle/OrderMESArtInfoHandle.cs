@@ -84,6 +84,7 @@ namespace ServiceHandle.Handle
 
     public class ArtInfo
     {
+        //根据客户单号获取订单基础信息后，调用MES接口获取工序的工时
         public static string GetMesArtInfo(string khdh)
         {
             try
@@ -144,15 +145,15 @@ namespace ServiceHandle.Handle
                         {
                             MxId = order.Mxid,
                             Code = stepCodese.StepCode,
-                            Hour = stepCodese.StepHour.ToString(),
+                            Hour = stepCodese.StepHour,
                             OrderArtslist = string.Join(",", stepCodese.OrderArtslist.ToArray()),
                             IsNew = true
                         };
-                        listart.Add(artInfo); 
+                        listart.Add(artInfo);
                     }
 
                     //保存到数据库
-                    listart.ForEach(x=> x.Clone().Save());
+                    listart.ForEach(x => x.Clone().Save());
 
                 }
                 return JsonHelper.GetJsonO(new JsonHelper { RetCode = "success", RetMessage = "获取成功" });
@@ -162,5 +163,7 @@ namespace ServiceHandle.Handle
                 throw;
             }
         }
+
+        //计算每个订单关键工序之间的工时
     }
 }

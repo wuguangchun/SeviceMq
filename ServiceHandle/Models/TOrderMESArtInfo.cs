@@ -154,8 +154,8 @@ namespace Model
 				
 				TableSchema.TableColumn colvarHour = new TableSchema.TableColumn(schema);
 				colvarHour.ColumnName = "Hour";
-				colvarHour.DataType = DbType.String;
-				colvarHour.MaxLength = 8;
+				colvarHour.DataType = DbType.Int32;
+				colvarHour.MaxLength = 0;
 				colvarHour.AutoIncrement = false;
 				colvarHour.IsNullable = true;
 				colvarHour.IsPrimaryKey = false;
@@ -206,9 +206,9 @@ namespace Model
 		  
 		[XmlAttribute("Hour")]
 		[Bindable(true)]
-		public string Hour 
+		public int? Hour 
 		{
-			get { return GetColumnValue<string>(Columns.Hour); }
+			get { return GetColumnValue<int?>(Columns.Hour); }
 			set { SetColumnValue(Columns.Hour, value); }
 		}
 		  
@@ -239,7 +239,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int varMxId,string varCode,string varHour,string varOrderArtslist)
+		public static void Insert(int varMxId,string varCode,int? varHour,string varOrderArtslist)
 		{
 			TOrderMESArtInfo item = new TOrderMESArtInfo();
 			
@@ -261,7 +261,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varMxId,string varCode,string varHour,string varOrderArtslist)
+		public static void Update(int varMxId,string varCode,int? varHour,string varOrderArtslist)
 		{
 			TOrderMESArtInfo item = new TOrderMESArtInfo();
 			

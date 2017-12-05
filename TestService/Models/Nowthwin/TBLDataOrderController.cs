@@ -80,7 +80,7 @@ namespace APSData
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Khdh,DateTime? Trantime,DateTime? Jhrq,DateTime? Createtime,string Sldl,string Customername,string Txtz,string XhSyKh,string Pbcd,DateTime? Audittime,string Tzecode,string Scggdh,int? FlagDelete)
+	    public void Insert(string Khdh,DateTime? Trantime,DateTime? Jhrq,DateTime? Createtime,string Sldl,string Customername,string Txtz,string XhSyKh,string Pbcd,DateTime? Audittime,string Tzecode,string Scggdh,int? FlagDelete,int? OrderType)
 	    {
 		    TBLDataOrder item = new TBLDataOrder();
 		    
@@ -110,6 +110,8 @@ namespace APSData
             
             item.FlagDelete = FlagDelete;
             
+            item.OrderType = OrderType;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -118,7 +120,7 @@ namespace APSData
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Orderid,string Khdh,DateTime? Trantime,DateTime? Jhrq,DateTime? Createtime,string Sldl,string Customername,string Txtz,string XhSyKh,string Pbcd,DateTime? Audittime,string Tzecode,string Scggdh,int? FlagDelete)
+	    public void Update(int Orderid,string Khdh,DateTime? Trantime,DateTime? Jhrq,DateTime? Createtime,string Sldl,string Customername,string Txtz,string XhSyKh,string Pbcd,DateTime? Audittime,string Tzecode,string Scggdh,int? FlagDelete,int? OrderType)
 	    {
 		    TBLDataOrder item = new TBLDataOrder();
 	        item.MarkOld();
@@ -151,6 +153,8 @@ namespace APSData
 			item.Scggdh = Scggdh;
 				
 			item.FlagDelete = FlagDelete;
+				
+			item.OrderType = OrderType;
 				
 	        item.Save(UserName);
 	    }

@@ -297,6 +297,10 @@
     <Compile Include="Models\Nowthwin\TOldApsByCfController.cs" />
     <Compile Include="Models\Nowthwin\TOperationLog.cs" />
     <Compile Include="Models\Nowthwin\TOperationLogController.cs" />
+    <Compile Include="Models\Nowthwin\TOrderKeyProcess.cs" />
+    <Compile Include="Models\Nowthwin\TOrderKeyProcessController.cs" />
+    <Compile Include="Models\Nowthwin\TOrderMESArtInfo.cs" />
+    <Compile Include="Models\Nowthwin\TOrderMESArtInfoController.cs" />
     <Compile Include="Models\Nowthwin\TOrderMesHour.cs" />
     <Compile Include="Models\Nowthwin\TOrderMesHourController.cs" />
     <Compile Include="Models\Nowthwin\TOrderProcessHour.cs" />
@@ -357,6 +361,7 @@
     <Compile Include="Models\Nowthwin\ViewFzCoatlist.cs" />
     <Compile Include="Models\Nowthwin\ViewFzerpCoatlist.cs" />
     <Compile Include="Models\Nowthwin\ViewLookOutPutTable.cs" />
+    <Compile Include="Models\Nowthwin\ViewOderArtHour.cs" />
     <Compile Include="Models\Nowthwin\ViewOrderList.cs" />
     <Compile Include="Models\Nowthwin\ViewOrderListWithoutmflxx.cs" />
     <Compile Include="Models\Nowthwin\ViewOutPutListByCF.cs" />

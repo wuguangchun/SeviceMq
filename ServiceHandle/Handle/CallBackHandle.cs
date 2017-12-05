@@ -104,7 +104,7 @@ namespace ServiceHandle.Handle
                     //多线程去通知请求的系统
                     if (ListThreads.FindAll(x => x.ThreadState == ThreadState.Running).Count > 10)
                     {
-                        Thread.Sleep(1000 * 10);
+                        //Thread.Sleep(1000 * 10);  存在异常，暂停
                         goto start;
                     }
                     else

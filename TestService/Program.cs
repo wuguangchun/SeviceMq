@@ -33,65 +33,36 @@ namespace TestService
             //var service=new ServiceOld.NewMessageQueuesClient();
             //var result=service.DoWork("Completion", JsonConvert.SerializeObject(comp));
 
-            while (true)
+            //while (true)
+            //{
+            //    TestMethod();
+            //    Console.ReadLine();
+            //}
+
+            string mxId = "2598879";
+
+            //订单明细信息
+            var oderArtHour = new Select().From<ViewOderArtHour>().Where(ViewOderArtHour.Columns.Mxid).IsEqualTo(mxId)
+                .ExecuteTypedList<ViewOderArtHour>();
+
+            //时间记录  到每个关键工序的时间差
+            List<TOrderKeyProcess> keyProcess = new List<TOrderKeyProcess>();
+
+            //从开始工序到最后的累计
+            int hours = 0;
+            foreach (var orderArt in oderArtHour.OrderBy(x => x.ShortX))
             {
-                TestMethod();
-                Console.ReadLine();
+                hours += int.Parse(orderArt.Hour.ToString());
+                if (orderArt.IsCrux != null && orderArt.IsCrux == 1)
+                {
+                    keyProcess.Add(new TOrderKeyProcess { Mxid = Int32.Parse(mxId), ProcessNum = "", Hours = hours });
+                }
             }
 
-
-            //string khdh = "ETA425JH";
-            //var orders = new TBLDataOrder(TBLDataOrder.KhdhColumn.ToString(), khdh);
-            //var ordermx = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.OrderidColumn).IsEqualTo(orders.Orderid).ExecuteTypedList<TBLDataOrdermx>();
-
-            //List<MesModels> list = new List<MesModels>();
-            //foreach (var order in ordermx)
-            //{
-            //    var mfl = new Select().From<TBLDataMflxx>().Where(TBLDataMflxx.MxidColumn).IsEqualTo(order.Mxid).And(TBLDataMflxx.YllxColumn).IsEqualTo("ML").ExecuteTypedList<TBLDataMflxx>().FirstOrDefault();
-
-            //    //实例化参数对象
-            //    MesModels mesM = new MesModels
-            //    {
-            //        SysCode = orders.Scggdh,//系统单号
-            //        Sort = order.Fzfl,//大类
-            //        FabricType = mfl.Tg,//面料外观  Tg
-            //        ReturnState = "",
-            //        FailureReason = "",
-            //        ListOrderArts = order.Gyxx.Split(',').ToList(),
-            //        listStepCode = new List<ListStepCodes>
-            //        {//工序 工时集合
-            //            new ListStepCodes{StepCode = "182",StepHour = 0}
-            //        }
-            //    };
-
-            //    //实例化参数所需的工序工时对象
-            //    var listStepCodes = new List<ListStepCodes>();
-            //    var gxList = new Select().From<TBasisSewingProcess>().Where(TBasisSewingProcess.CodeTypeColumn).IsEqualTo(order.Fzfl).ExecuteTypedList<TBasisSewingProcess>();
-            //    foreach (var sewing in gxList)
-            //    {
-            //        listStepCodes.Add(new ListStepCodes { StepCode = sewing.Procedure, StepHour = 0 });
-            //    }
-
-            //    mesM.listStepCode = listStepCodes;
-            //    list.Add(mesM);
-            //}
+            //遍历信息存到数据库
+            keyProcess.ForEach(x => x.Clone().Save());
 
 
-            //var json = JsonConvert.SerializeObject(list);
-
-            //PushWebHelper.PostToPost($"http://172.16.7.3:10010/api/QueryEstimateSalary", json, ref result);
-            //var obj = (List<MesModels>)JsonConvert.DeserializeObject(result, typeof(List<MesModels>));
-
-            //foreach (var mesModelse in obj)
-            //{
-            //    foreach (var stepCode in mesModelse.listStepCode)
-            //    {
-
-            //    }
-            //}
-
-            //var service =new LocalService.NewMassgeServiceClient();
-            //result=service.InsertMessage("OrderGetMesHour", "NewOrder", "CAF17110041", null);
 
             Console.WriteLine(result);
             Console.ReadLine();

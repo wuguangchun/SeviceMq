@@ -308,6 +308,19 @@ namespace APSData
 				colvarFlagDelete.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarFlagDelete);
 				
+				TableSchema.TableColumn colvarOrderType = new TableSchema.TableColumn(schema);
+				colvarOrderType.ColumnName = "orderType";
+				colvarOrderType.DataType = DbType.Int32;
+				colvarOrderType.MaxLength = 0;
+				colvarOrderType.AutoIncrement = false;
+				colvarOrderType.IsNullable = true;
+				colvarOrderType.IsPrimaryKey = false;
+				colvarOrderType.IsForeignKey = false;
+				colvarOrderType.IsReadOnly = false;
+				colvarOrderType.DefaultSetting = @"";
+				colvarOrderType.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarOrderType);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -429,6 +442,14 @@ namespace APSData
 			get { return GetColumnValue<int?>(Columns.FlagDelete); }
 			set { SetColumnValue(Columns.FlagDelete, value); }
 		}
+		  
+		[XmlAttribute("OrderType")]
+		[Bindable(true)]
+		public int? OrderType 
+		{
+			get { return GetColumnValue<int?>(Columns.OrderType); }
+			set { SetColumnValue(Columns.OrderType, value); }
+		}
 		
 		#endregion
 		
@@ -449,7 +470,7 @@ namespace APSData
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete)
+		public static void Insert(string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType)
 		{
 			TBLDataOrder item = new TBLDataOrder();
 			
@@ -479,6 +500,8 @@ namespace APSData
 			
 			item.FlagDelete = varFlagDelete;
 			
+			item.OrderType = varOrderType;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -489,7 +512,7 @@ namespace APSData
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varOrderid,string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete)
+		public static void Update(int varOrderid,string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType)
 		{
 			TBLDataOrder item = new TBLDataOrder();
 			
@@ -520,6 +543,8 @@ namespace APSData
 				item.Scggdh = varScggdh;
 			
 				item.FlagDelete = varFlagDelete;
+			
+				item.OrderType = varOrderType;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -632,6 +657,13 @@ namespace APSData
         
         
         
+        public static TableSchema.TableColumn OrderTypeColumn
+        {
+            get { return Schema.Columns[14]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -650,6 +682,7 @@ namespace APSData
 			 public static string Tzecode = @"tzecode";
 			 public static string Scggdh = @"SCGGDH";
 			 public static string FlagDelete = @"flagDelete";
+			 public static string OrderType = @"orderType";
 						
 		}
 		#endregion

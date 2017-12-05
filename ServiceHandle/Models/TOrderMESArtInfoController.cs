@@ -92,7 +92,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int MxId,string Code,string Hour,string OrderArtslist)
+	    public void Insert(int MxId,string Code,int? Hour,string OrderArtslist)
 	    {
 		    TOrderMESArtInfo item = new TOrderMESArtInfo();
 		    
@@ -112,7 +112,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int MxId,string Code,string Hour,string OrderArtslist)
+	    public void Update(int MxId,string Code,int? Hour,string OrderArtslist)
 	    {
 		    TOrderMESArtInfo item = new TOrderMESArtInfo();
 	        item.MarkOld();

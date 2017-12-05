@@ -220,6 +220,26 @@ namespace APSData{
         }
         
         /// <summary>
+        /// Creates an object wrapper for the Proc_GeneratePlanCode_test_tsh Procedure
+        /// </summary>
+        public static StoredProcedure ProcGeneratePlanCodeTestTsh(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount, DateTime? benginTime)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GeneratePlanCode_test_tsh", DataService.GetInstance("Nowthwin"), "dbo");
+        	
+            sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
+        	
+            sp.Command.AddParameter("@GzxkCount", GzxkCount, DbType.Int32, 0, 10);
+        	
+            sp.Command.AddParameter("@xfCount", xfCount, DbType.Int32, 0, 10);
+        	
+            sp.Command.AddParameter("@xkCount", xkCount, DbType.Int32, 0, 10);
+        	
+            sp.Command.AddParameter("@benginTime", benginTime, DbType.DateTime, null, null);
+        	
+            return sp;
+        }
+        
+        /// <summary>
         /// Creates an object wrapper for the Proc_GeneratePlanCode_新 Procedure
         /// </summary>
         public static StoredProcedure ProcGeneratePlanCode新(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount, DateTime? benginTime)

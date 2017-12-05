@@ -57,17 +57,17 @@ namespace Model{
                 schema.SchemaName = @"dbo";
                 //columns
                 
-                TableSchema.TableColumn colvarOrderStatus = new TableSchema.TableColumn(schema);
-                colvarOrderStatus.ColumnName = "orderStatus";
-                colvarOrderStatus.DataType = DbType.String;
-                colvarOrderStatus.MaxLength = 100;
-                colvarOrderStatus.AutoIncrement = false;
-                colvarOrderStatus.IsNullable = true;
-                colvarOrderStatus.IsPrimaryKey = false;
-                colvarOrderStatus.IsForeignKey = false;
-                colvarOrderStatus.IsReadOnly = false;
+                TableSchema.TableColumn colvarMxid = new TableSchema.TableColumn(schema);
+                colvarMxid.ColumnName = "mxid";
+                colvarMxid.DataType = DbType.Int32;
+                colvarMxid.MaxLength = 0;
+                colvarMxid.AutoIncrement = false;
+                colvarMxid.IsNullable = false;
+                colvarMxid.IsPrimaryKey = false;
+                colvarMxid.IsForeignKey = false;
+                colvarMxid.IsReadOnly = false;
                 
-                schema.Columns.Add(colvarOrderStatus);
+                schema.Columns.Add(colvarMxid);
                 
                 TableSchema.TableColumn colvarKhdh = new TableSchema.TableColumn(schema);
                 colvarKhdh.ColumnName = "khdh";
@@ -80,6 +80,30 @@ namespace Model{
                 colvarKhdh.IsReadOnly = false;
                 
                 schema.Columns.Add(colvarKhdh);
+                
+                TableSchema.TableColumn colvarFzfl = new TableSchema.TableColumn(schema);
+                colvarFzfl.ColumnName = "fzfl";
+                colvarFzfl.DataType = DbType.String;
+                colvarFzfl.MaxLength = 250;
+                colvarFzfl.AutoIncrement = false;
+                colvarFzfl.IsNullable = true;
+                colvarFzfl.IsPrimaryKey = false;
+                colvarFzfl.IsForeignKey = false;
+                colvarFzfl.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarFzfl);
+                
+                TableSchema.TableColumn colvarDdsl = new TableSchema.TableColumn(schema);
+                colvarDdsl.ColumnName = "ddsl";
+                colvarDdsl.DataType = DbType.Int32;
+                colvarDdsl.MaxLength = 0;
+                colvarDdsl.AutoIncrement = false;
+                colvarDdsl.IsNullable = true;
+                colvarDdsl.IsPrimaryKey = false;
+                colvarDdsl.IsForeignKey = false;
+                colvarDdsl.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarDdsl);
                 
                 TableSchema.TableColumn colvarJhrq = new TableSchema.TableColumn(schema);
                 colvarJhrq.ColumnName = "jhrq";
@@ -117,42 +141,6 @@ namespace Model{
                 
                 schema.Columns.Add(colvarScggdh);
                 
-                TableSchema.TableColumn colvarFzfl = new TableSchema.TableColumn(schema);
-                colvarFzfl.ColumnName = "fzfl";
-                colvarFzfl.DataType = DbType.String;
-                colvarFzfl.MaxLength = 250;
-                colvarFzfl.AutoIncrement = false;
-                colvarFzfl.IsNullable = true;
-                colvarFzfl.IsPrimaryKey = false;
-                colvarFzfl.IsForeignKey = false;
-                colvarFzfl.IsReadOnly = false;
-                
-                schema.Columns.Add(colvarFzfl);
-                
-                TableSchema.TableColumn colvarDdsl = new TableSchema.TableColumn(schema);
-                colvarDdsl.ColumnName = "ddsl";
-                colvarDdsl.DataType = DbType.Int32;
-                colvarDdsl.MaxLength = 0;
-                colvarDdsl.AutoIncrement = false;
-                colvarDdsl.IsNullable = true;
-                colvarDdsl.IsPrimaryKey = false;
-                colvarDdsl.IsForeignKey = false;
-                colvarDdsl.IsReadOnly = false;
-                
-                schema.Columns.Add(colvarDdsl);
-                
-                TableSchema.TableColumn colvarMxid = new TableSchema.TableColumn(schema);
-                colvarMxid.ColumnName = "mxid";
-                colvarMxid.DataType = DbType.Int32;
-                colvarMxid.MaxLength = 0;
-                colvarMxid.AutoIncrement = false;
-                colvarMxid.IsNullable = false;
-                colvarMxid.IsPrimaryKey = false;
-                colvarMxid.IsForeignKey = false;
-                colvarMxid.IsReadOnly = false;
-                
-                schema.Columns.Add(colvarMxid);
-                
                 TableSchema.TableColumn colvarCustomername = new TableSchema.TableColumn(schema);
                 colvarCustomername.ColumnName = "customername";
                 colvarCustomername.DataType = DbType.String;
@@ -188,6 +176,42 @@ namespace Model{
                 colvarXh.IsReadOnly = false;
                 
                 schema.Columns.Add(colvarXh);
+                
+                TableSchema.TableColumn colvarGylx = new TableSchema.TableColumn(schema);
+                colvarGylx.ColumnName = "gylx";
+                colvarGylx.DataType = DbType.String;
+                colvarGylx.MaxLength = 250;
+                colvarGylx.AutoIncrement = false;
+                colvarGylx.IsNullable = true;
+                colvarGylx.IsPrimaryKey = false;
+                colvarGylx.IsForeignKey = false;
+                colvarGylx.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarGylx);
+                
+                TableSchema.TableColumn colvarGyxx = new TableSchema.TableColumn(schema);
+                colvarGyxx.ColumnName = "gyxx";
+                colvarGyxx.DataType = DbType.AnsiString;
+                colvarGyxx.MaxLength = 2147483647;
+                colvarGyxx.AutoIncrement = false;
+                colvarGyxx.IsNullable = true;
+                colvarGyxx.IsPrimaryKey = false;
+                colvarGyxx.IsForeignKey = false;
+                colvarGyxx.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarGyxx);
+                
+                TableSchema.TableColumn colvarOrderStatus = new TableSchema.TableColumn(schema);
+                colvarOrderStatus.ColumnName = "orderStatus";
+                colvarOrderStatus.DataType = DbType.String;
+                colvarOrderStatus.MaxLength = 100;
+                colvarOrderStatus.AutoIncrement = false;
+                colvarOrderStatus.IsNullable = true;
+                colvarOrderStatus.IsPrimaryKey = false;
+                colvarOrderStatus.IsForeignKey = false;
+                colvarOrderStatus.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarOrderStatus);
                 
                 
                 BaseSchema = schema;
@@ -239,17 +263,17 @@ namespace Model{
 	    #region Props
 	    
           
-        [XmlAttribute("OrderStatus")]
+        [XmlAttribute("Mxid")]
         [Bindable(true)]
-        public string OrderStatus 
+        public int Mxid 
 	    {
 		    get
 		    {
-			    return GetColumnValue<string>("orderStatus");
+			    return GetColumnValue<int>("mxid");
 		    }
             set 
 		    {
-			    SetColumnValue("orderStatus", value);
+			    SetColumnValue("mxid", value);
             }
         }
 	      
@@ -264,6 +288,34 @@ namespace Model{
             set 
 		    {
 			    SetColumnValue("khdh", value);
+            }
+        }
+	      
+        [XmlAttribute("Fzfl")]
+        [Bindable(true)]
+        public string Fzfl 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("fzfl");
+		    }
+            set 
+		    {
+			    SetColumnValue("fzfl", value);
+            }
+        }
+	      
+        [XmlAttribute("Ddsl")]
+        [Bindable(true)]
+        public int? Ddsl 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("ddsl");
+		    }
+            set 
+		    {
+			    SetColumnValue("ddsl", value);
             }
         }
 	      
@@ -309,48 +361,6 @@ namespace Model{
             }
         }
 	      
-        [XmlAttribute("Fzfl")]
-        [Bindable(true)]
-        public string Fzfl 
-	    {
-		    get
-		    {
-			    return GetColumnValue<string>("fzfl");
-		    }
-            set 
-		    {
-			    SetColumnValue("fzfl", value);
-            }
-        }
-	      
-        [XmlAttribute("Ddsl")]
-        [Bindable(true)]
-        public int? Ddsl 
-	    {
-		    get
-		    {
-			    return GetColumnValue<int?>("ddsl");
-		    }
-            set 
-		    {
-			    SetColumnValue("ddsl", value);
-            }
-        }
-	      
-        [XmlAttribute("Mxid")]
-        [Bindable(true)]
-        public int Mxid 
-	    {
-		    get
-		    {
-			    return GetColumnValue<int>("mxid");
-		    }
-            set 
-		    {
-			    SetColumnValue("mxid", value);
-            }
-        }
-	      
         [XmlAttribute("Customername")]
         [Bindable(true)]
         public string Customername 
@@ -392,6 +402,48 @@ namespace Model{
 			    SetColumnValue("xh", value);
             }
         }
+	      
+        [XmlAttribute("Gylx")]
+        [Bindable(true)]
+        public string Gylx 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("gylx");
+		    }
+            set 
+		    {
+			    SetColumnValue("gylx", value);
+            }
+        }
+	      
+        [XmlAttribute("Gyxx")]
+        [Bindable(true)]
+        public string Gyxx 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("gyxx");
+		    }
+            set 
+		    {
+			    SetColumnValue("gyxx", value);
+            }
+        }
+	      
+        [XmlAttribute("OrderStatus")]
+        [Bindable(true)]
+        public string OrderStatus 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("orderStatus");
+		    }
+            set 
+		    {
+			    SetColumnValue("orderStatus", value);
+            }
+        }
 	    
 	    #endregion
     
@@ -400,9 +452,13 @@ namespace Model{
 	    {
 		    
 		    
-            public static string OrderStatus = @"orderStatus";
+            public static string Mxid = @"mxid";
             
             public static string Khdh = @"khdh";
+            
+            public static string Fzfl = @"fzfl";
+            
+            public static string Ddsl = @"ddsl";
             
             public static string Jhrq = @"jhrq";
             
@@ -410,17 +466,17 @@ namespace Model{
             
             public static string Scggdh = @"SCGGDH";
             
-            public static string Fzfl = @"fzfl";
-            
-            public static string Ddsl = @"ddsl";
-            
-            public static string Mxid = @"mxid";
-            
             public static string Customername = @"customername";
             
             public static string Mlbm = @"mlbm";
             
             public static string Xh = @"xh";
+            
+            public static string Gylx = @"gylx";
+            
+            public static string Gyxx = @"gyxx";
+            
+            public static string OrderStatus = @"orderStatus";
             
 	    }
 	    #endregion
