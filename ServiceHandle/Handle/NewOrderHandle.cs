@@ -160,7 +160,8 @@ namespace ServiceHandle.Handle
                         Pbcd = blDate.order.Pbcd,
                         Audittime = blDate.order.Audittime == null ? DateTime.Now : DateTime.Parse(blDate.order.Audittime),
                         Tzecode = blDate.order.Tzecode,
-                        Scggdh = blDate.order.Ecode
+                        Scggdh = blDate.order.Ecode,
+                        OrderType = int.Parse(blDate.order.OrderType)
                     };
                     tblDataOrder.Save();
                     if (tblDataOrder.Orderid > 0)
@@ -243,7 +244,7 @@ namespace ServiceHandle.Handle
                     #region 生成OrderList表队列命令
                     //新订单获取MES工时
                     var serviceMes = new ApsMessageService.NewMassgeServiceClient();
-                    serviceMes.InsertMessage("OrderGetMesHour", "NewOrder", JsonHelper.GetJsonO(blDate), null);
+                    serviceMes.InsertMessage("OrderGetMesHour", "NewOrder", blDate.order.Khdh, null);
                     #endregion
 
 

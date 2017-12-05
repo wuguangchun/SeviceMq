@@ -7,8 +7,7 @@ using APSWcfService.Helper;
 using Kute.Helper;
 using Model;
 using ServiceHandle.Helper;
-using SubSonic;
-using WcfService1.OrderModel;
+using SubSonic; 
 
 namespace ServiceHandle.Handle
 {

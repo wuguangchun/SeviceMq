@@ -148,11 +148,19 @@ namespace Model
         
 		public static readonly string TBasisResource = @"T_Basis_resource";
         
+		public static readonly string TBasisSewingProcess = @"T_Basis_SewingProcess";
+        
 		public static readonly string TBasisSpecialList = @"T_Basis_SpecialList";
         
 		public static readonly string TBasisSystemInfo = @"T_Basis_SystemInfo";
         
+		public static readonly string TBasisTechnique = @"T_Basis_Technique";
+        
 		public static readonly string TBlankingDetaile = @"T_BlankingDetailes";
+        
+		public static readonly string TBlankingDetailes1706 = @"T_BlankingDetailes@1706";
+        
+		public static readonly string TBlankingDetailes1712 = @"T_BlankingDetailes@1712";
         
 		public static readonly string TBLCADTemp = @"T_BLCADTemp";
         
@@ -215,6 +223,8 @@ namespace Model
 		public static readonly string TOldApsByCf1712 = @"T_OldApsByCf@1712";
         
 		public static readonly string TOperationLog = @"T_Operation_Log";
+        
+		public static readonly string TOrderMESArtInfo = @"T_OrderMESArtInfo";
         
 		public static readonly string TOrderProcessHour = @"T_OrderProcessHour";
         
@@ -600,6 +610,11 @@ namespace Model
             get { return DataService.GetSchema("T_Basis_resource", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBasisSewingProcess
+		{
+            get { return DataService.GetSchema("T_Basis_SewingProcess", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBasisSpecialList
 		{
             get { return DataService.GetSchema("T_Basis_SpecialList", "Nowthwin"); }
@@ -610,9 +625,24 @@ namespace Model
             get { return DataService.GetSchema("T_Basis_SystemInfo", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBasisTechnique
+		{
+            get { return DataService.GetSchema("T_Basis_Technique", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBlankingDetaile
 		{
             get { return DataService.GetSchema("T_BlankingDetailes", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TBlankingDetailes1706
+		{
+            get { return DataService.GetSchema("T_BlankingDetailes@1706", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TBlankingDetailes1712
+		{
+            get { return DataService.GetSchema("T_BlankingDetailes@1712", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBLCADTemp
@@ -768,6 +798,11 @@ namespace Model
 		public static TableSchema.Table TOperationLog
 		{
             get { return DataService.GetSchema("T_Operation_Log", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TOrderMESArtInfo
+		{
+            get { return DataService.GetSchema("T_OrderMESArtInfo", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TOrderProcessHour
@@ -930,10 +965,6 @@ namespace Model
         
 		public static readonly string VCadOrderlist = @"V_CAD_ORDERLIST";
         
-		public static readonly string VCadOrderlistCy = @"V_CAD_ORDERLIST_CY";
-        
-		public static readonly string VCadOrderlistXf = @"V_CAD_ORDERLIST_XF";
-        
 		public static readonly string VCADResourceNum = @"V_CADResourceNum";
         
 		public static readonly string VCyjh = @"V_CYJH";
@@ -943,6 +974,12 @@ namespace Model
 		public static readonly string VFzScjh = @"V_FZ_SCJH";
         
 		public static readonly string VJh = @"V_JH";
+        
+		public static readonly string VOrderListCadCy = @"V_OrderList_CAD_CY";
+        
+		public static readonly string VOrderListCadXf = @"V_OrderList_CAD_XF";
+        
+		public static readonly string VOrderListFzXf = @"V_OrderList_FZ_XF";
         
 		public static readonly string VOutPutByCAD = @"V_OutPutByCAD";
         

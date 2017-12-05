@@ -117,6 +117,9 @@ namespace ServiceHandle.Handle
                     if (rowCount > 0)
                     {
 
+                        //添加到服务日志队列（异常报备）
+                        var log = new TLogService { Lable = "error", Context = blanking.OrderID, CallBackUrl = null, MessageID = null, MessagePath = "error", CreateTime = DateTime.Now };
+                        new ApsMessageService.NewMassgeServiceClient().InsertMessage($".\\private$\\LogService", "AddLog", JsonHelper.GetJsonO(log), null);
                     }
                 }
 

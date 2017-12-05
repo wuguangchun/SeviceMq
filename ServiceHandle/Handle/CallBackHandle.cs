@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Messaging;
+using System.Threading;
 using System.Web;
 using Kute.Helper;
 using Model;
@@ -81,12 +82,16 @@ namespace ServiceHandle.Handle
 
     public class CallBackHelper
     {
+        public static List<Thread> ListThreads = new List<Thread>();
+
+        public delegate void PostEventHandler(string uri, ref string ret);
+
         public static string CallBackGet(string json)
         {
             JsonHelper jsons = new JsonHelper();
             try
             {
-                
+
                 var callBack = (JsonHelper)JsonHelper.ReturnObject(json, typeof(JsonHelper));
                 var logService = new TLogService(TLogService.Columns.MessageID, callBack.RetObj);
 
@@ -94,8 +99,29 @@ namespace ServiceHandle.Handle
                 if (!string.IsNullOrWhiteSpace(logService.CallBackUrl))
                 {
                     var url = $"{logService.CallBackUrl}?RetCode={callBack.RetCode}&MessageID={callBack.RetObj}&dt={DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")}";
-                    string result = string.Empty;
-                    PushWebHelper.PostToGet(url, ref result);
+                    start: string result = string.Empty;
+
+                    //多线程去通知请求的系统
+                    if (ListThreads.FindAll(x => x.ThreadState == ThreadState.Running).Count > 10)
+                    {
+                        Thread.Sleep(1000 * 10);
+                        goto start;
+                    }
+                    else
+                    {
+                        //线程记录器中删除已停止的线程
+                        ListThreads.RemoveAll(x => x.ThreadState == ThreadState.Stopped || x.ThreadState == ThreadState.Aborted);
+
+                        Thread thread = new Thread(delegate ()
+                        {
+                            PushWebHelper.PostToGet(url, ref result);
+                        })
+                        { IsBackground = true };
+                        thread.Start();
+
+                        //线程记录器 追加记录的新线程
+                        ListThreads.Add(thread);
+                    }
 
                     //回调后写入回调日志
                     var service = new ApsMessageService.NewMassgeServiceClient();

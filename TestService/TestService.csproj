@@ -66,17 +66,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\LocalService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceOld\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\ServiceTest\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\TestApsService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -446,6 +446,13 @@
     <None Include="Connected Services\APSService\NewMessageQueues1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\LocalService\NewMassgeService.wsdl" />
+    <None Include="Connected Services\LocalService\NewMassgeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LocalService\NewMassgeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceOld\NewMessageQueues.wsdl" />
     <None Include="Connected Services\ServiceOld\NewMessageQueues.xsd">
       <SubType>Designer</SubType>
@@ -460,13 +467,6 @@
     <None Include="Connected Services\ServiceTest\NewMassgeService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\TestApsService\NewMessageQueues.wsdl" />
-    <None Include="Connected Services\TestApsService\NewMessageQueues.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\TestApsService\NewMessageQueues1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -474,24 +474,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\APSService\" />
+    <WCFMetadataStorage Include="Connected Services\LocalService\" />
     <WCFMetadataStorage Include="Connected Services\ServiceOld\" />
     <WCFMetadataStorage Include="Connected Services\ServiceTest\" />
-    <WCFMetadataStorage Include="Connected Services\TestApsService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\TestApsService\NewMessageQueues.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\TestApsService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\TestApsService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\TestApsService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceTest\configuration91.svcinfo" />
@@ -531,6 +516,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceOld\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LocalService\NewMassgeService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LocalService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LocalService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LocalService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

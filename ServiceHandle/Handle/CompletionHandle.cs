@@ -7,6 +7,7 @@ using Kute.Helper;
 using Model;
 using ServiceHandle.ModelsOther;
 using SubSonic;
+using SubSonic.Linq.Structure;
 
 namespace ServiceHandle.Handle
 {
@@ -100,13 +101,17 @@ namespace ServiceHandle.Handle
                 //反序列化生成对象--Completion
                 var objCompletion = (Completion)JsonHelper.ReturnObject(json, typeof(Completion));
 
-                SqlQuery q = new Update(TAnalysisOrderList.Schema)
-                    .Set(TAnalysisOrderList.Columns.OrderStatus).EqualTo(objCompletion.OrderSrate)
-                    .Where(TAnalysisOrderList.Columns.CustomerId).IsEqualTo(objCompletion.CustmerId);
-                int row = q.Execute();
+                var data = new Select("count(*)").From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn)
+                    .IsEqualTo(objCompletion.CustmerId).ExecuteScalar();
 
-                if (row > 0)
+
+                if (int.Parse(data.ToString()) > 0)
                 {
+                    new Update(TAnalysisOrderList.Schema)
+                        .Set(TAnalysisOrderList.Columns.OrderStatus).EqualTo(objCompletion.OrderSrate)
+                        .Where(TAnalysisOrderList.Columns.CustomerId).IsEqualTo(objCompletion.CustmerId)
+                        .Execute();
+
                     //过渡过程需要同时在新/旧表中更新状态
                     var orderStatus = new TBasisOrderStatus(objCompletion.CustmerId)
                     {
@@ -115,8 +120,6 @@ namespace ServiceHandle.Handle
                         OrderStatus = objCompletion.OrderSrate
                     };
                     orderStatus.Save();
-
-
 
                     //如果完工汇报是计划审核下达则触发新消息队列NewByCF获取排版长度及生成表OrderListByCF
                     if (objCompletion.OrderSrate == "201")
@@ -140,10 +143,8 @@ namespace ServiceHandle.Handle
                 }
                 else
                 {
-                    Json.RetMessage = $@"操作失败，返回行数为{row}！{objCompletion.CustmerId}";
-                    Json.RetCode = "error";
+                    throw new Exception($@"操作失败，APS无基础订单信息！{objCompletion.CustmerId}");
                 }
-
             }
             catch (Exception exception)
             {

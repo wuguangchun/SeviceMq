@@ -38,12 +38,12 @@ namespace ServiceHandle.Helper
             threadNewCaiJianOrder.Start();
 
             //生成段料所需数据
-            //Thread threadBlanking = new Thread(BlankingHandle.GetMessageQueues) { IsBackground = true };
-            //threadBlanking.Start();
+            Thread threadBlanking = new Thread(BlankingHandle.GetMessageQueues) { IsBackground = true };
+            threadBlanking.Start();
 
             //处理结果回调(需要下一版本优化，效率太慢)
-            //Thread threadCallBack = new Thread(CallBackHandle.GetMessageQueues) { IsBackground = true };
-            //threadCallBack.Start();
+            Thread threadCallBack = new Thread(CallBackHandle.GetMessageQueues) { IsBackground = true };
+            threadCallBack.Start();
 
             //数据重复/撤单
             Thread threadKillOrder = new Thread(KillOrderHandle.GetMessageQueues) { IsBackground = true };
@@ -57,25 +57,21 @@ namespace ServiceHandle.Helper
             Thread threadAutoLog = new Thread(new IntelligentLogHandle().LogParsing) { IsBackground = true };
             threadAutoLog.Start();
 
+            //获取MES工时
+            Thread threadArtHour = new Thread(OrderMESArtInfoHandle.GetMessageQueues) { IsBackground = true };
+            threadArtHour.Start();
+
+
             //线程集合
             threads = new List<Thread>
             {
-                threadLog,
-                threadNewOrder,
-                threadComp,
-                threadNewCadOrder,
-                threadNewCaiJianOrder,
-                //threadBlanking,
-                threadKillOrder,
-                threadPushBl,
-                threadAutoLog
+                threadLog,threadNewOrder,threadComp,threadNewCadOrder,threadNewCaiJianOrder,threadBlanking,
+                threadKillOrder,threadPushBl,threadAutoLog,threadArtHour,threadCallBack
             };
 
             //检测以上自启动线程状态
             Thread threadTestThread = new Thread(TestThread) { IsBackground = true };
             threadTestThread.Start();
-
-
         }
 
         public static void TestThread()
