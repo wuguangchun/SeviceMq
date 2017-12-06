@@ -39,30 +39,12 @@ namespace TestService
             //    Console.ReadLine();
             //}
 
-            string mxId = "2598879";
-
-            //订单明细信息
-            var oderArtHour = new Select().From<ViewOderArtHour>().Where(ViewOderArtHour.Columns.Mxid).IsEqualTo(mxId)
-                .ExecuteTypedList<ViewOderArtHour>();
-
-            //时间记录  到每个关键工序的时间差
-            List<TOrderKeyProcess> keyProcess = new List<TOrderKeyProcess>();
-
-            //从开始工序到最后的累计
-            int hours = 0;
-            foreach (var orderArt in oderArtHour.OrderBy(x => x.ShortX))
+            var list = new Select().From<VNoKeyProcess>().ExecuteTypedList<VNoKeyProcess>();
+            foreach (var keyProcess in list)
             {
-                hours += int.Parse(orderArt.Hour.ToString());
-                if (orderArt.IsCrux != null && orderArt.IsCrux == 1)
-                {
-                    keyProcess.Add(new TOrderKeyProcess { Mxid = Int32.Parse(mxId), ProcessNum = "", Hours = hours });
-                }
+                var service = new ServiceTest.NewMassgeServiceClient();
+                service.InsertMessage("OrderGetMesHour", "KeyProcess", keyProcess.MxId.ToString(), null); 
             }
-
-            //遍历信息存到数据库
-            keyProcess.ForEach(x => x.Clone().Save());
-
-
 
             Console.WriteLine(result);
             Console.ReadLine();

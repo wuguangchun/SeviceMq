@@ -1189,6 +1189,8 @@ namespace APSData
         
 		public static readonly string VCadOrderlist = @"V_CAD_ORDERLIST";
         
+		public static readonly string VCadOrderlistBackup = @"V_CAD_ORDERLIST_backup";
+        
 		public static readonly string VCADResourceNum = @"V_CADResourceNum";
         
 		public static readonly string VCyjh = @"V_CYJH";
@@ -1199,15 +1201,17 @@ namespace APSData
         
 		public static readonly string VJh = @"V_JH";
         
-		public static readonly string VOrderListCadCy = @"V_OrderList_CAD_CY";
+		public static readonly string VNoKeyProcess = @"V_NoKeyProcess";
         
-		public static readonly string VOrderListCadXf = @"V_OrderList_CAD_XF";
+		public static readonly string VOderArtHour = @"V_OderArtHour";
         
-		public static readonly string VOrderListFzXf = @"V_OrderList_FZ_XF";
+		public static readonly string VOrderListCJAll = @"V_OrderListCJ_ALL";
+        
+		public static readonly string VOrderListFZXf = @"V_OrderListFZ_XF";
         
 		public static readonly string VOutPutByCAD = @"V_OutPutByCAD";
         
-		public static readonly string VOutPutListByCF = @"V_outPutListByCF";
+		public static readonly string VOutPutListByCFBackup = @"V_outPutListByCF_Backup";
         
 		public static readonly string VPlanDetail = @"V_Plan_Detail";
         
@@ -1247,15 +1251,13 @@ namespace APSData
         
 		public static readonly string ViewLookOutPutTable = @"View_LookOutPutTable";
         
-		public static readonly string ViewOderArtHour = @"View_OderArtHour";
-        
 		public static readonly string ViewOrderList = @"View_orderList";
         
 		public static readonly string ViewOrderListWithoutmflxx = @"View_orderListWithoutmflxx";
         
 		public static readonly string ViewOutPutListByCF = @"View_outPutListByCF";
         
-		public static readonly string ViewOutputListCF = @"View_outputListCF";
+		public static readonly string ViewOutputListCFBackup = @"View_outputListCF_Backup";
         
 		public static readonly string ViewUsersList = @"View_UsersList";
         

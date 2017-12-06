@@ -50,6 +50,10 @@ namespace ServiceHandle.Handle
                 {//接收BL传入数据源
                     reMeg = ArtInfo.GetMesArtInfo(message.Body.ToString());
                 }
+                else if (message.Label.ToLower().Trim() == "KeyProcess".ToLower())
+                {//接收BL传入数据源
+                    reMeg = ArtInfo.SmartKeyProcess(message.Body.ToString());
+                }
                 else
                 {//无法识别标签内容
                     throw new Exception("无法识别标签内容");
@@ -155,6 +159,11 @@ namespace ServiceHandle.Handle
                     //保存到数据库
                     listart.ForEach(x => x.Clone().Save());
 
+                    #region 生成 新订单获取MES工时 队列命令
+                    //新订单获取MES工时
+                    var serviceMes = new ApsMessageService.NewMassgeServiceClient();
+                    serviceMes.InsertMessage("OrderGetMesHour", "KeyProcess", order.Mxid.ToString(), null);
+                    #endregion
                 }
                 return JsonHelper.GetJsonO(new JsonHelper { RetCode = "success", RetMessage = "获取成功" });
             }
@@ -165,5 +174,47 @@ namespace ServiceHandle.Handle
         }
 
         //计算每个订单关键工序之间的工时
+        public static string SmartKeyProcess(string mxId)
+        {
+            try
+            {
+
+                //订单明细信息
+                var oderArtHour = new Select().From<VOderArtHour>().Where(VOderArtHour.Columns.Mxid).IsEqualTo(mxId)
+                    .OrderAsc(VOderArtHour.Columns.ShortBy)
+                    .ExecuteTypedList<VOderArtHour>();
+
+                //时间记录  到每个关键工序的时间差
+                List<TOrderKeyProcess> keyProcess = new List<TOrderKeyProcess>();
+
+                //从开始工序到最后的累计
+                int hours = 0;
+
+                //关键工序记录器
+                int keyNum = 1;
+                foreach (var orderArt in oderArtHour)
+                {
+                    hours += int.Parse(orderArt.Hour.ToString());
+                    if (orderArt.IsCrux != null && orderArt.IsCrux == 1)
+                    {
+                        keyProcess.Add(new TOrderKeyProcess { Mxid = Int32.Parse(mxId), ProcessNum = $"key{keyNum++}", Hours = hours });
+                    }
+
+                }
+
+                //清空已有历史信息
+                new Delete().From<TOrderKeyProcess>().Where(TOrderKeyProcess.MxidColumn).IsEqualTo(mxId).Execute();
+
+                //遍历信息存到数据库
+                keyProcess.ForEach(x => x.Clone().Save());
+
+
+                return JsonHelper.GetJsonO(new JsonHelper { RetCode = "success", RetMessage = "计算成功" });
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
 }

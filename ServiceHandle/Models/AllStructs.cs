@@ -224,6 +224,8 @@ namespace Model
         
 		public static readonly string TOperationLog = @"T_Operation_Log";
         
+		public static readonly string TOrderKeyProcess = @"T_OrderKeyProcess";
+        
 		public static readonly string TOrderMESArtInfo = @"T_OrderMESArtInfo";
         
 		public static readonly string TOrderProcessHour = @"T_OrderProcessHour";
@@ -800,6 +802,11 @@ namespace Model
             get { return DataService.GetSchema("T_Operation_Log", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TOrderKeyProcess
+		{
+            get { return DataService.GetSchema("T_OrderKeyProcess", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TOrderMESArtInfo
 		{
             get { return DataService.GetSchema("T_OrderMESArtInfo", "Nowthwin"); }
@@ -965,6 +972,8 @@ namespace Model
         
 		public static readonly string VCadOrderlist = @"V_CAD_ORDERLIST";
         
+		public static readonly string VCadOrderlistBackup = @"V_CAD_ORDERLIST_backup";
+        
 		public static readonly string VCADResourceNum = @"V_CADResourceNum";
         
 		public static readonly string VCyjh = @"V_CYJH";
@@ -975,15 +984,15 @@ namespace Model
         
 		public static readonly string VJh = @"V_JH";
         
-		public static readonly string VOrderListCadCy = @"V_OrderList_CAD_CY";
+		public static readonly string VOderArtHour = @"V_OderArtHour";
         
-		public static readonly string VOrderListCadXf = @"V_OrderList_CAD_XF";
+		public static readonly string VOrderListCJAll = @"V_OrderListCJ_ALL";
         
-		public static readonly string VOrderListFzXf = @"V_OrderList_FZ_XF";
+		public static readonly string VOrderListFZXf = @"V_OrderListFZ_XF";
         
 		public static readonly string VOutPutByCAD = @"V_OutPutByCAD";
         
-		public static readonly string VOutPutListByCF = @"V_outPutListByCF";
+		public static readonly string VOutPutListByCFBackup = @"V_outPutListByCF_Backup";
         
 		public static readonly string VPlanDetail = @"V_Plan_Detail";
         
@@ -1029,7 +1038,7 @@ namespace Model
         
 		public static readonly string ViewOutPutListByCF = @"View_outPutListByCF";
         
-		public static readonly string ViewOutputListCF = @"View_outputListCF";
+		public static readonly string ViewOutputListCFBackup = @"View_outputListCF_Backup";
         
 		public static readonly string ViewUsersList = @"View_UsersList";
         

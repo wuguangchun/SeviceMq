@@ -134,7 +134,7 @@
     <Compile Include="Helper\PushWebHelper.cs" />
     <Compile Include="IActivationService.cs" />
     <Compile Include="ModelsOther\BlBlanking.cs" />
-    <Compile Include="ModelsOther\BLDate.cs" />
+    <Compile Include="ModelsOther\BLData.cs" />
     <Compile Include="ModelsOther\BlPbcd.cs" />
     <Compile Include="ModelsOther\Completion.cs" />
     <Compile Include="ModelsOther\MesGerHourModel.cs" />
@@ -372,6 +372,8 @@
     <Compile Include="Models\TOperationLogController.cs" />
     <Compile Include="Models\TOrderArtInfo.cs" />
     <Compile Include="Models\TOrderArtInfoController.cs" />
+    <Compile Include="Models\TOrderKeyProcess.cs" />
+    <Compile Include="Models\TOrderKeyProcessController.cs" />
     <Compile Include="Models\TOrderMESArtInfo.cs" />
     <Compile Include="Models\TOrderMESArtInfoController.cs" />
     <Compile Include="Models\TOrderMesHour.cs" />
@@ -449,8 +451,10 @@
     <Compile Include="Models\VJh.cs" />
     <Compile Include="Models\VManageListNoRead.cs" />
     <Compile Include="Models\VManageListRead.cs" />
+    <Compile Include="Models\VOderArtHour.cs" />
     <Compile Include="Models\VOrderListCadCy.cs" />
     <Compile Include="Models\VOrderListCadXf.cs" />
+    <Compile Include="Models\VOrderListCJAll.cs" />
     <Compile Include="Models\VOrderListFzXf.cs" />
     <Compile Include="Models\VOutPutByCAD.cs" />
     <Compile Include="Models\VOutPutListByCF.cs" />

@@ -100,7 +100,7 @@ namespace ServiceHandle.Handle
             try
             {
                 //Json反序列化生成对象
-                List<BLDate> blDateList = (List<BLDate>)JsonHelper.ReturnObject(order, typeof(List<BLDate>));
+                List<BLData> blDateList = (List<BLData>)JsonHelper.ReturnObject(order, typeof(List<BLData>));
 
                 //判断对象长度
                 if (blDateList.Count < 0)
@@ -181,7 +181,8 @@ namespace ServiceHandle.Handle
                                 Ksjg = ordermx.Ksjg,
                                 Gylx = ordermx.Gylx,
                                 Sfbcpsy = ordermx.Sfbcpsy,
-                                Gyxx = ordermx.Gyxx
+                                Gyxx = ordermx.Gyxx,
+                                Xh = ordermx.Xh
                             };
 
 
@@ -241,12 +242,15 @@ namespace ServiceHandle.Handle
                     service.InsertMessage("CadOrder", "NewOrder", JsonHelper.GetJsonO(blDate), null);
                     #endregion
 
-                    #region 生成OrderList表队列命令
-                    //新订单获取MES工时
-                    var serviceMes = new ApsMessageService.NewMassgeServiceClient();
-                    serviceMes.InsertMessage("OrderGetMesHour", "NewOrder", blDate.order.Khdh, null);
-                    #endregion
+                    #region 生成 新订单获取MES工时 队列命令
+                    //现在只计算西服的
+                    if (!blDate.ordermx.First().Fzfl.ToLower().Contains("cy"))
+                    {
+                        var serviceMes = new ApsMessageService.NewMassgeServiceClient();
+                        serviceMes.InsertMessage("OrderGetMesHour", "NewOrder", blDate.order.Khdh, null);
+                    }
 
+                    #endregion
 
                 }
             }

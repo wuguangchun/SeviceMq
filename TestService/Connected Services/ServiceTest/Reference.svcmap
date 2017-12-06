@@ -22,9 +22,9 @@
     <MetadataSource Address="http://localhost:8888/Service/NewMassgeService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="NewMassgeService.wsdl" MetadataType="Wsdl" ID="3547f7f3-ab47-4ca0-a210-7c0eb93a5c2b" SourceId="1" SourceUrl="http://localhost:8888/Service/NewMassgeService.svc?wsdl" />
-    <MetadataFile FileName="NewMassgeService.xsd" MetadataType="Schema" ID="a6f04d9e-0974-4da9-bc74-4a95af5f6626" SourceId="1" SourceUrl="http://localhost:8888/Service/NewMassgeService.svc?xsd=xsd0" />
-    <MetadataFile FileName="NewMassgeService1.xsd" MetadataType="Schema" ID="226879db-7554-426b-bcb5-a8d0784697a7" SourceId="1" SourceUrl="http://localhost:8888/Service/NewMassgeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="NewMassgeService.wsdl" MetadataType="Wsdl" ID="4c4dd5b6-5504-433e-a5ba-cccdbf0be34a" SourceId="1" SourceUrl="http://localhost:8888/Service/NewMassgeService.svc?wsdl" />
+    <MetadataFile FileName="NewMassgeService.xsd" MetadataType="Schema" ID="ea69958f-92b0-4138-9a29-7f72a9d01222" SourceId="1" SourceUrl="http://localhost:8888/Service/NewMassgeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="NewMassgeService1.xsd" MetadataType="Schema" ID="644fba6d-4194-4e58-96b8-dfc435ef4c67" SourceId="1" SourceUrl="http://localhost:8888/Service/NewMassgeService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

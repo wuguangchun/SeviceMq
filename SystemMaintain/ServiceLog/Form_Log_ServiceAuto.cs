@@ -141,6 +141,16 @@ namespace SystemMaintain.ServiceLog
                     {
                         //无效，不需要解析，不包含所需要的关键索引
                     }
+                    //获取MES工时日志
+                    else if (logService.MessagePath == "OrderGetMesHour" && logService.Lable == "NewOrder")
+                    {
+                        okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
+                    }
+                    //计算关键工序时间日志
+                    else if (logService.MessagePath == "OrderGetMesHour" && logService.Lable == "KeyProcess")
+                    {
+                        okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
+                    }
 
                     //执行后删除日志信息
                     logList.Remove(logService);

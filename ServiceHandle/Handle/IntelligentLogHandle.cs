@@ -44,13 +44,13 @@ namespace ServiceHandle.Handle
                     //BL主动推送的订单数据
                     if (logService.MessagePath == "NewOrderData" && logService.Lable == "BlPutData")
                     {
-                        var obj = (List<BLDate>)JsonConvert.DeserializeObject(logService.Context, typeof(List<BLDate>));
+                        var obj = (List<BLData>)JsonConvert.DeserializeObject(logService.Context, typeof(List<BLData>));
                         okRow += UpdateLogs(logService.Id, obj?.First().order.Khdh) ? 1 : 0;
                     }
                     //新订单数据生成CAD排程数据
                     else if (logService.MessagePath == "CadOrder" && logService.Lable == "NewOrder")
                     {
-                        var obj = (BLDate)JsonConvert.DeserializeObject(logService.Context, typeof(BLDate));
+                        var obj = (BLData)JsonConvert.DeserializeObject(logService.Context, typeof(BLData));
                         okRow += UpdateLogs(logService.Id, obj.order.Khdh) ? 1 : 0;
                     }
                     //CAD排程数据准备推送给BL

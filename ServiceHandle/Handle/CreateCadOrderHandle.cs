@@ -102,7 +102,7 @@ namespace ServiceHandle.Handle
         {
             try
             {
-                var blDate = (BLDate)JsonHelper.ReturnObject(blDateJson, typeof(BLDate));
+                var blDate = (BLData)JsonHelper.ReturnObject(blDateJson, typeof(BLData));
 
                 string coatType = blDate.order.OrderType == "1" ? "BLMTM" : "BL团装";
                 int specialTime = 0;
