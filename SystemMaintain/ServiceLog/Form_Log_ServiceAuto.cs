@@ -149,7 +149,7 @@ namespace SystemMaintain.ServiceLog
                     //计算关键工序时间日志
                     else if (logService.MessagePath == "OrderGetMesHour" && logService.Lable == "KeyProcess")
                     {
-                        okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
+                        okRow += UpdateLogs(logService.Id, new TBLDataOrdermx(TBLDataOrdermx.MxidColumn.ColumnName, logService.Context).Khdh) ? 1 : 0;
                     }
 
                     //执行后删除日志信息
