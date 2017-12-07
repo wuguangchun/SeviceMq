@@ -57,18 +57,6 @@ namespace Model{
                 schema.SchemaName = @"dbo";
                 //columns
                 
-                TableSchema.TableColumn colvarMxid = new TableSchema.TableColumn(schema);
-                colvarMxid.ColumnName = "mxid";
-                colvarMxid.DataType = DbType.Int32;
-                colvarMxid.MaxLength = 0;
-                colvarMxid.AutoIncrement = false;
-                colvarMxid.IsNullable = false;
-                colvarMxid.IsPrimaryKey = false;
-                colvarMxid.IsForeignKey = false;
-                colvarMxid.IsReadOnly = false;
-                
-                schema.Columns.Add(colvarMxid);
-                
                 TableSchema.TableColumn colvarKhdh = new TableSchema.TableColumn(schema);
                 colvarKhdh.ColumnName = "khdh";
                 colvarKhdh.DataType = DbType.String;
@@ -81,17 +69,17 @@ namespace Model{
                 
                 schema.Columns.Add(colvarKhdh);
                 
-                TableSchema.TableColumn colvarFzfl = new TableSchema.TableColumn(schema);
-                colvarFzfl.ColumnName = "fzfl";
-                colvarFzfl.DataType = DbType.String;
-                colvarFzfl.MaxLength = 250;
-                colvarFzfl.AutoIncrement = false;
-                colvarFzfl.IsNullable = true;
-                colvarFzfl.IsPrimaryKey = false;
-                colvarFzfl.IsForeignKey = false;
-                colvarFzfl.IsReadOnly = false;
+                TableSchema.TableColumn colvarOrderType = new TableSchema.TableColumn(schema);
+                colvarOrderType.ColumnName = "orderType";
+                colvarOrderType.DataType = DbType.String;
+                colvarOrderType.MaxLength = 256;
+                colvarOrderType.AutoIncrement = false;
+                colvarOrderType.IsNullable = true;
+                colvarOrderType.IsPrimaryKey = false;
+                colvarOrderType.IsForeignKey = false;
+                colvarOrderType.IsReadOnly = false;
                 
-                schema.Columns.Add(colvarFzfl);
+                schema.Columns.Add(colvarOrderType);
                 
                 TableSchema.TableColumn colvarDdsl = new TableSchema.TableColumn(schema);
                 colvarDdsl.ColumnName = "ddsl";
@@ -189,18 +177,6 @@ namespace Model{
                 
                 schema.Columns.Add(colvarGylx);
                 
-                TableSchema.TableColumn colvarGyxx = new TableSchema.TableColumn(schema);
-                colvarGyxx.ColumnName = "gyxx";
-                colvarGyxx.DataType = DbType.AnsiString;
-                colvarGyxx.MaxLength = 2147483647;
-                colvarGyxx.AutoIncrement = false;
-                colvarGyxx.IsNullable = true;
-                colvarGyxx.IsPrimaryKey = false;
-                colvarGyxx.IsForeignKey = false;
-                colvarGyxx.IsReadOnly = false;
-                
-                schema.Columns.Add(colvarGyxx);
-                
                 TableSchema.TableColumn colvarOrderStatus = new TableSchema.TableColumn(schema);
                 colvarOrderStatus.ColumnName = "orderStatus";
                 colvarOrderStatus.DataType = DbType.String;
@@ -212,6 +188,378 @@ namespace Model{
                 colvarOrderStatus.IsReadOnly = false;
                 
                 schema.Columns.Add(colvarOrderStatus);
+                
+                TableSchema.TableColumn colvarMxid = new TableSchema.TableColumn(schema);
+                colvarMxid.ColumnName = "mxid";
+                colvarMxid.DataType = DbType.Int32;
+                colvarMxid.MaxLength = 0;
+                colvarMxid.AutoIncrement = false;
+                colvarMxid.IsNullable = false;
+                colvarMxid.IsPrimaryKey = false;
+                colvarMxid.IsForeignKey = false;
+                colvarMxid.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarMxid);
+                
+                TableSchema.TableColumn colvarKey1 = new TableSchema.TableColumn(schema);
+                colvarKey1.ColumnName = "key1";
+                colvarKey1.DataType = DbType.Int32;
+                colvarKey1.MaxLength = 0;
+                colvarKey1.AutoIncrement = false;
+                colvarKey1.IsNullable = true;
+                colvarKey1.IsPrimaryKey = false;
+                colvarKey1.IsForeignKey = false;
+                colvarKey1.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey1);
+                
+                TableSchema.TableColumn colvarKey2 = new TableSchema.TableColumn(schema);
+                colvarKey2.ColumnName = "key2";
+                colvarKey2.DataType = DbType.Int32;
+                colvarKey2.MaxLength = 0;
+                colvarKey2.AutoIncrement = false;
+                colvarKey2.IsNullable = true;
+                colvarKey2.IsPrimaryKey = false;
+                colvarKey2.IsForeignKey = false;
+                colvarKey2.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey2);
+                
+                TableSchema.TableColumn colvarKey3 = new TableSchema.TableColumn(schema);
+                colvarKey3.ColumnName = "key3";
+                colvarKey3.DataType = DbType.Int32;
+                colvarKey3.MaxLength = 0;
+                colvarKey3.AutoIncrement = false;
+                colvarKey3.IsNullable = true;
+                colvarKey3.IsPrimaryKey = false;
+                colvarKey3.IsForeignKey = false;
+                colvarKey3.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey3);
+                
+                TableSchema.TableColumn colvarKey4 = new TableSchema.TableColumn(schema);
+                colvarKey4.ColumnName = "key4";
+                colvarKey4.DataType = DbType.Int32;
+                colvarKey4.MaxLength = 0;
+                colvarKey4.AutoIncrement = false;
+                colvarKey4.IsNullable = true;
+                colvarKey4.IsPrimaryKey = false;
+                colvarKey4.IsForeignKey = false;
+                colvarKey4.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey4);
+                
+                TableSchema.TableColumn colvarKey5 = new TableSchema.TableColumn(schema);
+                colvarKey5.ColumnName = "key5";
+                colvarKey5.DataType = DbType.Int32;
+                colvarKey5.MaxLength = 0;
+                colvarKey5.AutoIncrement = false;
+                colvarKey5.IsNullable = true;
+                colvarKey5.IsPrimaryKey = false;
+                colvarKey5.IsForeignKey = false;
+                colvarKey5.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey5);
+                
+                TableSchema.TableColumn colvarKey6 = new TableSchema.TableColumn(schema);
+                colvarKey6.ColumnName = "key6";
+                colvarKey6.DataType = DbType.Int32;
+                colvarKey6.MaxLength = 0;
+                colvarKey6.AutoIncrement = false;
+                colvarKey6.IsNullable = true;
+                colvarKey6.IsPrimaryKey = false;
+                colvarKey6.IsForeignKey = false;
+                colvarKey6.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey6);
+                
+                TableSchema.TableColumn colvarKey7 = new TableSchema.TableColumn(schema);
+                colvarKey7.ColumnName = "key7";
+                colvarKey7.DataType = DbType.Int32;
+                colvarKey7.MaxLength = 0;
+                colvarKey7.AutoIncrement = false;
+                colvarKey7.IsNullable = true;
+                colvarKey7.IsPrimaryKey = false;
+                colvarKey7.IsForeignKey = false;
+                colvarKey7.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey7);
+                
+                TableSchema.TableColumn colvarKey8 = new TableSchema.TableColumn(schema);
+                colvarKey8.ColumnName = "key8";
+                colvarKey8.DataType = DbType.Int32;
+                colvarKey8.MaxLength = 0;
+                colvarKey8.AutoIncrement = false;
+                colvarKey8.IsNullable = true;
+                colvarKey8.IsPrimaryKey = false;
+                colvarKey8.IsForeignKey = false;
+                colvarKey8.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey8);
+                
+                TableSchema.TableColumn colvarKey9 = new TableSchema.TableColumn(schema);
+                colvarKey9.ColumnName = "key9";
+                colvarKey9.DataType = DbType.Int32;
+                colvarKey9.MaxLength = 0;
+                colvarKey9.AutoIncrement = false;
+                colvarKey9.IsNullable = true;
+                colvarKey9.IsPrimaryKey = false;
+                colvarKey9.IsForeignKey = false;
+                colvarKey9.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey9);
+                
+                TableSchema.TableColumn colvarKey10 = new TableSchema.TableColumn(schema);
+                colvarKey10.ColumnName = "key10";
+                colvarKey10.DataType = DbType.Int32;
+                colvarKey10.MaxLength = 0;
+                colvarKey10.AutoIncrement = false;
+                colvarKey10.IsNullable = true;
+                colvarKey10.IsPrimaryKey = false;
+                colvarKey10.IsForeignKey = false;
+                colvarKey10.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey10);
+                
+                TableSchema.TableColumn colvarKey11 = new TableSchema.TableColumn(schema);
+                colvarKey11.ColumnName = "key11";
+                colvarKey11.DataType = DbType.Int32;
+                colvarKey11.MaxLength = 0;
+                colvarKey11.AutoIncrement = false;
+                colvarKey11.IsNullable = true;
+                colvarKey11.IsPrimaryKey = false;
+                colvarKey11.IsForeignKey = false;
+                colvarKey11.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey11);
+                
+                TableSchema.TableColumn colvarKey12 = new TableSchema.TableColumn(schema);
+                colvarKey12.ColumnName = "key12";
+                colvarKey12.DataType = DbType.Int32;
+                colvarKey12.MaxLength = 0;
+                colvarKey12.AutoIncrement = false;
+                colvarKey12.IsNullable = true;
+                colvarKey12.IsPrimaryKey = false;
+                colvarKey12.IsForeignKey = false;
+                colvarKey12.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey12);
+                
+                TableSchema.TableColumn colvarKey13 = new TableSchema.TableColumn(schema);
+                colvarKey13.ColumnName = "key13";
+                colvarKey13.DataType = DbType.Int32;
+                colvarKey13.MaxLength = 0;
+                colvarKey13.AutoIncrement = false;
+                colvarKey13.IsNullable = true;
+                colvarKey13.IsPrimaryKey = false;
+                colvarKey13.IsForeignKey = false;
+                colvarKey13.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey13);
+                
+                TableSchema.TableColumn colvarKey14 = new TableSchema.TableColumn(schema);
+                colvarKey14.ColumnName = "key14";
+                colvarKey14.DataType = DbType.Int32;
+                colvarKey14.MaxLength = 0;
+                colvarKey14.AutoIncrement = false;
+                colvarKey14.IsNullable = true;
+                colvarKey14.IsPrimaryKey = false;
+                colvarKey14.IsForeignKey = false;
+                colvarKey14.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey14);
+                
+                TableSchema.TableColumn colvarKey15 = new TableSchema.TableColumn(schema);
+                colvarKey15.ColumnName = "key15";
+                colvarKey15.DataType = DbType.Int32;
+                colvarKey15.MaxLength = 0;
+                colvarKey15.AutoIncrement = false;
+                colvarKey15.IsNullable = true;
+                colvarKey15.IsPrimaryKey = false;
+                colvarKey15.IsForeignKey = false;
+                colvarKey15.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey15);
+                
+                TableSchema.TableColumn colvarKey16 = new TableSchema.TableColumn(schema);
+                colvarKey16.ColumnName = "key16";
+                colvarKey16.DataType = DbType.Int32;
+                colvarKey16.MaxLength = 0;
+                colvarKey16.AutoIncrement = false;
+                colvarKey16.IsNullable = true;
+                colvarKey16.IsPrimaryKey = false;
+                colvarKey16.IsForeignKey = false;
+                colvarKey16.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey16);
+                
+                TableSchema.TableColumn colvarKey17 = new TableSchema.TableColumn(schema);
+                colvarKey17.ColumnName = "key17";
+                colvarKey17.DataType = DbType.Int32;
+                colvarKey17.MaxLength = 0;
+                colvarKey17.AutoIncrement = false;
+                colvarKey17.IsNullable = true;
+                colvarKey17.IsPrimaryKey = false;
+                colvarKey17.IsForeignKey = false;
+                colvarKey17.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey17);
+                
+                TableSchema.TableColumn colvarKey18 = new TableSchema.TableColumn(schema);
+                colvarKey18.ColumnName = "key18";
+                colvarKey18.DataType = DbType.Int32;
+                colvarKey18.MaxLength = 0;
+                colvarKey18.AutoIncrement = false;
+                colvarKey18.IsNullable = true;
+                colvarKey18.IsPrimaryKey = false;
+                colvarKey18.IsForeignKey = false;
+                colvarKey18.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey18);
+                
+                TableSchema.TableColumn colvarKey19 = new TableSchema.TableColumn(schema);
+                colvarKey19.ColumnName = "key19";
+                colvarKey19.DataType = DbType.Int32;
+                colvarKey19.MaxLength = 0;
+                colvarKey19.AutoIncrement = false;
+                colvarKey19.IsNullable = true;
+                colvarKey19.IsPrimaryKey = false;
+                colvarKey19.IsForeignKey = false;
+                colvarKey19.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey19);
+                
+                TableSchema.TableColumn colvarKey20 = new TableSchema.TableColumn(schema);
+                colvarKey20.ColumnName = "key20";
+                colvarKey20.DataType = DbType.Int32;
+                colvarKey20.MaxLength = 0;
+                colvarKey20.AutoIncrement = false;
+                colvarKey20.IsNullable = true;
+                colvarKey20.IsPrimaryKey = false;
+                colvarKey20.IsForeignKey = false;
+                colvarKey20.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey20);
+                
+                TableSchema.TableColumn colvarKey21 = new TableSchema.TableColumn(schema);
+                colvarKey21.ColumnName = "key21";
+                colvarKey21.DataType = DbType.Int32;
+                colvarKey21.MaxLength = 0;
+                colvarKey21.AutoIncrement = false;
+                colvarKey21.IsNullable = true;
+                colvarKey21.IsPrimaryKey = false;
+                colvarKey21.IsForeignKey = false;
+                colvarKey21.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey21);
+                
+                TableSchema.TableColumn colvarKey22 = new TableSchema.TableColumn(schema);
+                colvarKey22.ColumnName = "key22";
+                colvarKey22.DataType = DbType.Int32;
+                colvarKey22.MaxLength = 0;
+                colvarKey22.AutoIncrement = false;
+                colvarKey22.IsNullable = true;
+                colvarKey22.IsPrimaryKey = false;
+                colvarKey22.IsForeignKey = false;
+                colvarKey22.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey22);
+                
+                TableSchema.TableColumn colvarKey23 = new TableSchema.TableColumn(schema);
+                colvarKey23.ColumnName = "key23";
+                colvarKey23.DataType = DbType.Int32;
+                colvarKey23.MaxLength = 0;
+                colvarKey23.AutoIncrement = false;
+                colvarKey23.IsNullable = true;
+                colvarKey23.IsPrimaryKey = false;
+                colvarKey23.IsForeignKey = false;
+                colvarKey23.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey23);
+                
+                TableSchema.TableColumn colvarKey24 = new TableSchema.TableColumn(schema);
+                colvarKey24.ColumnName = "key24";
+                colvarKey24.DataType = DbType.Int32;
+                colvarKey24.MaxLength = 0;
+                colvarKey24.AutoIncrement = false;
+                colvarKey24.IsNullable = true;
+                colvarKey24.IsPrimaryKey = false;
+                colvarKey24.IsForeignKey = false;
+                colvarKey24.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey24);
+                
+                TableSchema.TableColumn colvarKey25 = new TableSchema.TableColumn(schema);
+                colvarKey25.ColumnName = "key25";
+                colvarKey25.DataType = DbType.Int32;
+                colvarKey25.MaxLength = 0;
+                colvarKey25.AutoIncrement = false;
+                colvarKey25.IsNullable = true;
+                colvarKey25.IsPrimaryKey = false;
+                colvarKey25.IsForeignKey = false;
+                colvarKey25.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey25);
+                
+                TableSchema.TableColumn colvarKey26 = new TableSchema.TableColumn(schema);
+                colvarKey26.ColumnName = "key26";
+                colvarKey26.DataType = DbType.Int32;
+                colvarKey26.MaxLength = 0;
+                colvarKey26.AutoIncrement = false;
+                colvarKey26.IsNullable = true;
+                colvarKey26.IsPrimaryKey = false;
+                colvarKey26.IsForeignKey = false;
+                colvarKey26.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey26);
+                
+                TableSchema.TableColumn colvarKey27 = new TableSchema.TableColumn(schema);
+                colvarKey27.ColumnName = "key27";
+                colvarKey27.DataType = DbType.Int32;
+                colvarKey27.MaxLength = 0;
+                colvarKey27.AutoIncrement = false;
+                colvarKey27.IsNullable = true;
+                colvarKey27.IsPrimaryKey = false;
+                colvarKey27.IsForeignKey = false;
+                colvarKey27.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey27);
+                
+                TableSchema.TableColumn colvarKey28 = new TableSchema.TableColumn(schema);
+                colvarKey28.ColumnName = "key28";
+                colvarKey28.DataType = DbType.Int32;
+                colvarKey28.MaxLength = 0;
+                colvarKey28.AutoIncrement = false;
+                colvarKey28.IsNullable = true;
+                colvarKey28.IsPrimaryKey = false;
+                colvarKey28.IsForeignKey = false;
+                colvarKey28.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey28);
+                
+                TableSchema.TableColumn colvarKey29 = new TableSchema.TableColumn(schema);
+                colvarKey29.ColumnName = "key29";
+                colvarKey29.DataType = DbType.Int32;
+                colvarKey29.MaxLength = 0;
+                colvarKey29.AutoIncrement = false;
+                colvarKey29.IsNullable = true;
+                colvarKey29.IsPrimaryKey = false;
+                colvarKey29.IsForeignKey = false;
+                colvarKey29.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey29);
+                
+                TableSchema.TableColumn colvarKey30 = new TableSchema.TableColumn(schema);
+                colvarKey30.ColumnName = "key30";
+                colvarKey30.DataType = DbType.Int32;
+                colvarKey30.MaxLength = 0;
+                colvarKey30.AutoIncrement = false;
+                colvarKey30.IsNullable = true;
+                colvarKey30.IsPrimaryKey = false;
+                colvarKey30.IsForeignKey = false;
+                colvarKey30.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKey30);
                 
                 
                 BaseSchema = schema;
@@ -263,20 +611,6 @@ namespace Model{
 	    #region Props
 	    
           
-        [XmlAttribute("Mxid")]
-        [Bindable(true)]
-        public int Mxid 
-	    {
-		    get
-		    {
-			    return GetColumnValue<int>("mxid");
-		    }
-            set 
-		    {
-			    SetColumnValue("mxid", value);
-            }
-        }
-	      
         [XmlAttribute("Khdh")]
         [Bindable(true)]
         public string Khdh 
@@ -291,17 +625,17 @@ namespace Model{
             }
         }
 	      
-        [XmlAttribute("Fzfl")]
+        [XmlAttribute("OrderType")]
         [Bindable(true)]
-        public string Fzfl 
+        public string OrderType 
 	    {
 		    get
 		    {
-			    return GetColumnValue<string>("fzfl");
+			    return GetColumnValue<string>("orderType");
 		    }
             set 
 		    {
-			    SetColumnValue("fzfl", value);
+			    SetColumnValue("orderType", value);
             }
         }
 	      
@@ -417,20 +751,6 @@ namespace Model{
             }
         }
 	      
-        [XmlAttribute("Gyxx")]
-        [Bindable(true)]
-        public string Gyxx 
-	    {
-		    get
-		    {
-			    return GetColumnValue<string>("gyxx");
-		    }
-            set 
-		    {
-			    SetColumnValue("gyxx", value);
-            }
-        }
-	      
         [XmlAttribute("OrderStatus")]
         [Bindable(true)]
         public string OrderStatus 
@@ -444,6 +764,440 @@ namespace Model{
 			    SetColumnValue("orderStatus", value);
             }
         }
+	      
+        [XmlAttribute("Mxid")]
+        [Bindable(true)]
+        public int Mxid 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int>("mxid");
+		    }
+            set 
+		    {
+			    SetColumnValue("mxid", value);
+            }
+        }
+	      
+        [XmlAttribute("Key1")]
+        [Bindable(true)]
+        public int? Key1 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key1");
+		    }
+            set 
+		    {
+			    SetColumnValue("key1", value);
+            }
+        }
+	      
+        [XmlAttribute("Key2")]
+        [Bindable(true)]
+        public int? Key2 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key2");
+		    }
+            set 
+		    {
+			    SetColumnValue("key2", value);
+            }
+        }
+	      
+        [XmlAttribute("Key3")]
+        [Bindable(true)]
+        public int? Key3 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key3");
+		    }
+            set 
+		    {
+			    SetColumnValue("key3", value);
+            }
+        }
+	      
+        [XmlAttribute("Key4")]
+        [Bindable(true)]
+        public int? Key4 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key4");
+		    }
+            set 
+		    {
+			    SetColumnValue("key4", value);
+            }
+        }
+	      
+        [XmlAttribute("Key5")]
+        [Bindable(true)]
+        public int? Key5 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key5");
+		    }
+            set 
+		    {
+			    SetColumnValue("key5", value);
+            }
+        }
+	      
+        [XmlAttribute("Key6")]
+        [Bindable(true)]
+        public int? Key6 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key6");
+		    }
+            set 
+		    {
+			    SetColumnValue("key6", value);
+            }
+        }
+	      
+        [XmlAttribute("Key7")]
+        [Bindable(true)]
+        public int? Key7 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key7");
+		    }
+            set 
+		    {
+			    SetColumnValue("key7", value);
+            }
+        }
+	      
+        [XmlAttribute("Key8")]
+        [Bindable(true)]
+        public int? Key8 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key8");
+		    }
+            set 
+		    {
+			    SetColumnValue("key8", value);
+            }
+        }
+	      
+        [XmlAttribute("Key9")]
+        [Bindable(true)]
+        public int? Key9 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key9");
+		    }
+            set 
+		    {
+			    SetColumnValue("key9", value);
+            }
+        }
+	      
+        [XmlAttribute("Key10")]
+        [Bindable(true)]
+        public int? Key10 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key10");
+		    }
+            set 
+		    {
+			    SetColumnValue("key10", value);
+            }
+        }
+	      
+        [XmlAttribute("Key11")]
+        [Bindable(true)]
+        public int? Key11 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key11");
+		    }
+            set 
+		    {
+			    SetColumnValue("key11", value);
+            }
+        }
+	      
+        [XmlAttribute("Key12")]
+        [Bindable(true)]
+        public int? Key12 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key12");
+		    }
+            set 
+		    {
+			    SetColumnValue("key12", value);
+            }
+        }
+	      
+        [XmlAttribute("Key13")]
+        [Bindable(true)]
+        public int? Key13 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key13");
+		    }
+            set 
+		    {
+			    SetColumnValue("key13", value);
+            }
+        }
+	      
+        [XmlAttribute("Key14")]
+        [Bindable(true)]
+        public int? Key14 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key14");
+		    }
+            set 
+		    {
+			    SetColumnValue("key14", value);
+            }
+        }
+	      
+        [XmlAttribute("Key15")]
+        [Bindable(true)]
+        public int? Key15 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key15");
+		    }
+            set 
+		    {
+			    SetColumnValue("key15", value);
+            }
+        }
+	      
+        [XmlAttribute("Key16")]
+        [Bindable(true)]
+        public int? Key16 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key16");
+		    }
+            set 
+		    {
+			    SetColumnValue("key16", value);
+            }
+        }
+	      
+        [XmlAttribute("Key17")]
+        [Bindable(true)]
+        public int? Key17 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key17");
+		    }
+            set 
+		    {
+			    SetColumnValue("key17", value);
+            }
+        }
+	      
+        [XmlAttribute("Key18")]
+        [Bindable(true)]
+        public int? Key18 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key18");
+		    }
+            set 
+		    {
+			    SetColumnValue("key18", value);
+            }
+        }
+	      
+        [XmlAttribute("Key19")]
+        [Bindable(true)]
+        public int? Key19 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key19");
+		    }
+            set 
+		    {
+			    SetColumnValue("key19", value);
+            }
+        }
+	      
+        [XmlAttribute("Key20")]
+        [Bindable(true)]
+        public int? Key20 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key20");
+		    }
+            set 
+		    {
+			    SetColumnValue("key20", value);
+            }
+        }
+	      
+        [XmlAttribute("Key21")]
+        [Bindable(true)]
+        public int? Key21 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key21");
+		    }
+            set 
+		    {
+			    SetColumnValue("key21", value);
+            }
+        }
+	      
+        [XmlAttribute("Key22")]
+        [Bindable(true)]
+        public int? Key22 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key22");
+		    }
+            set 
+		    {
+			    SetColumnValue("key22", value);
+            }
+        }
+	      
+        [XmlAttribute("Key23")]
+        [Bindable(true)]
+        public int? Key23 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key23");
+		    }
+            set 
+		    {
+			    SetColumnValue("key23", value);
+            }
+        }
+	      
+        [XmlAttribute("Key24")]
+        [Bindable(true)]
+        public int? Key24 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key24");
+		    }
+            set 
+		    {
+			    SetColumnValue("key24", value);
+            }
+        }
+	      
+        [XmlAttribute("Key25")]
+        [Bindable(true)]
+        public int? Key25 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key25");
+		    }
+            set 
+		    {
+			    SetColumnValue("key25", value);
+            }
+        }
+	      
+        [XmlAttribute("Key26")]
+        [Bindable(true)]
+        public int? Key26 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key26");
+		    }
+            set 
+		    {
+			    SetColumnValue("key26", value);
+            }
+        }
+	      
+        [XmlAttribute("Key27")]
+        [Bindable(true)]
+        public int? Key27 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key27");
+		    }
+            set 
+		    {
+			    SetColumnValue("key27", value);
+            }
+        }
+	      
+        [XmlAttribute("Key28")]
+        [Bindable(true)]
+        public int? Key28 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key28");
+		    }
+            set 
+		    {
+			    SetColumnValue("key28", value);
+            }
+        }
+	      
+        [XmlAttribute("Key29")]
+        [Bindable(true)]
+        public int? Key29 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key29");
+		    }
+            set 
+		    {
+			    SetColumnValue("key29", value);
+            }
+        }
+	      
+        [XmlAttribute("Key30")]
+        [Bindable(true)]
+        public int? Key30 
+	    {
+		    get
+		    {
+			    return GetColumnValue<int?>("key30");
+		    }
+            set 
+		    {
+			    SetColumnValue("key30", value);
+            }
+        }
 	    
 	    #endregion
     
@@ -452,11 +1206,9 @@ namespace Model{
 	    {
 		    
 		    
-            public static string Mxid = @"mxid";
-            
             public static string Khdh = @"khdh";
             
-            public static string Fzfl = @"fzfl";
+            public static string OrderType = @"orderType";
             
             public static string Ddsl = @"ddsl";
             
@@ -474,9 +1226,69 @@ namespace Model{
             
             public static string Gylx = @"gylx";
             
-            public static string Gyxx = @"gyxx";
-            
             public static string OrderStatus = @"orderStatus";
+            
+            public static string Mxid = @"mxid";
+            
+            public static string Key1 = @"key1";
+            
+            public static string Key2 = @"key2";
+            
+            public static string Key3 = @"key3";
+            
+            public static string Key4 = @"key4";
+            
+            public static string Key5 = @"key5";
+            
+            public static string Key6 = @"key6";
+            
+            public static string Key7 = @"key7";
+            
+            public static string Key8 = @"key8";
+            
+            public static string Key9 = @"key9";
+            
+            public static string Key10 = @"key10";
+            
+            public static string Key11 = @"key11";
+            
+            public static string Key12 = @"key12";
+            
+            public static string Key13 = @"key13";
+            
+            public static string Key14 = @"key14";
+            
+            public static string Key15 = @"key15";
+            
+            public static string Key16 = @"key16";
+            
+            public static string Key17 = @"key17";
+            
+            public static string Key18 = @"key18";
+            
+            public static string Key19 = @"key19";
+            
+            public static string Key20 = @"key20";
+            
+            public static string Key21 = @"key21";
+            
+            public static string Key22 = @"key22";
+            
+            public static string Key23 = @"key23";
+            
+            public static string Key24 = @"key24";
+            
+            public static string Key25 = @"key25";
+            
+            public static string Key26 = @"key26";
+            
+            public static string Key27 = @"key27";
+            
+            public static string Key28 = @"key28";
+            
+            public static string Key29 = @"key29";
+            
+            public static string Key30 = @"key30";
             
 	    }
 	    #endregion

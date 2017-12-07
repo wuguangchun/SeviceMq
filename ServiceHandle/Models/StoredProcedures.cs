@@ -178,11 +178,11 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_ClickCount Procedure
+        /// Creates an object wrapper for the Proc_ClickCount_delete Procedure
         /// </summary>
-        public static StoredProcedure ProcClickCount(int? ClickCount)
+        public static StoredProcedure ProcClickCountDelete(int? ClickCount)
         {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_ClickCount", DataService.GetInstance("Nowthwin"), "dbo");
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_ClickCount_delete", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@ClickCount", ClickCount, DbType.Int32, 0, 10);
         	
@@ -190,11 +190,11 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_CreateBlankingData Procedure
+        /// Creates an object wrapper for the Proc_CreateBlankingData_delete Procedure
         /// </summary>
-        public static StoredProcedure ProcCreateBlankingData()
+        public static StoredProcedure ProcCreateBlankingDataDelete()
         {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_CreateBlankingData", DataService.GetInstance("Nowthwin"), "");
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_CreateBlankingData_delete", DataService.GetInstance("Nowthwin"), "");
         	
             return sp;
         }
@@ -220,11 +220,11 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_GeneratePlanCode_test_tsh Procedure
+        /// Creates an object wrapper for the Proc_GeneratePlanCode_test_tsh_delete Procedure
         /// </summary>
-        public static StoredProcedure ProcGeneratePlanCodeTestTsh(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount, DateTime? benginTime)
+        public static StoredProcedure ProcGeneratePlanCodeTestTshDelete(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount, DateTime? benginTime)
         {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GeneratePlanCode_test_tsh", DataService.GetInstance("Nowthwin"), "dbo");
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GeneratePlanCode_test_tsh_delete", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
         	
@@ -270,11 +270,11 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_GetClientClickCount Procedure
+        /// Creates an object wrapper for the Proc_GetClientClickCount_delete Procedure
         /// </summary>
-        public static StoredProcedure ProcGetClientClickCount(string type)
+        public static StoredProcedure ProcGetClientClickCountDelete(string type)
         {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetClientClickCount", DataService.GetInstance("Nowthwin"), "dbo");
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetClientClickCount_delete", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@type", type, DbType.String, null, null);
         	
@@ -314,6 +314,18 @@ namespace Model{
         }
         
         /// <summary>
+        /// Creates an object wrapper for the Proc_GetPlansDataCY_delete Procedure
+        /// </summary>
+        public static StoredProcedure ProcGetPlansDataCYDelete(DateTime? BeginTime)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetPlansDataCY_delete", DataService.GetInstance("Nowthwin"), "dbo");
+        	
+            sp.Command.AddParameter("@BeginTime", BeginTime, DbType.DateTime, null, null);
+        	
+            return sp;
+        }
+        
+        /// <summary>
         /// Creates an object wrapper for the Proc_GetPlansDataCY_New Procedure
         /// </summary>
         public static StoredProcedure ProcGetPlansDataCYNew(DateTime? BeginTime)
@@ -326,23 +338,11 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_GetPlansDataCY_New_copy Procedure
+        /// Creates an object wrapper for the Proc_GetPlansDataCY_New_delete Procedure
         /// </summary>
-        public static StoredProcedure ProcGetPlansDataCYNewCopy(DateTime? BeginTime)
+        public static StoredProcedure ProcGetPlansDataCYNewDelete(DateTime? BeginTime)
         {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetPlansDataCY_New_copy", DataService.GetInstance("Nowthwin"), "dbo");
-        	
-            sp.Command.AddParameter("@BeginTime", BeginTime, DbType.DateTime, null, null);
-        	
-            return sp;
-        }
-        
-        /// <summary>
-        /// Creates an object wrapper for the Proc_GetPlansDataCY_停用 Procedure
-        /// </summary>
-        public static StoredProcedure ProcGetPlansDataCY停用(DateTime? BeginTime)
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetPlansDataCY_停用", DataService.GetInstance("Nowthwin"), "dbo");
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetPlansDataCY_New_delete", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@BeginTime", BeginTime, DbType.DateTime, null, null);
         	
@@ -370,11 +370,11 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_MTMJH_backup_2017-11-30 Procedure
+        /// Creates an object wrapper for the Proc_MTMJH_delete Procedure
         /// </summary>
-        public static StoredProcedure ProcMtmjhBackup20171130(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount)
+        public static StoredProcedure ProcMtmjhDelete(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount)
         {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_MTMJH_backup_2017-11-30", DataService.GetInstance("Nowthwin"), "dbo");
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_MTMJH_delete", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
         	
@@ -434,11 +434,11 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the PROC_PlanTypeGnw Procedure
+        /// Creates an object wrapper for the PROC_PlanTypeGnw_delete Procedure
         /// </summary>
-        public static StoredProcedure ProcPlanTypeGnw()
+        public static StoredProcedure ProcPlanTypeGnwDelete()
         {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("PROC_PlanTypeGnw", DataService.GetInstance("Nowthwin"), "");
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("PROC_PlanTypeGnw_delete", DataService.GetInstance("Nowthwin"), "");
         	
             return sp;
         }
@@ -456,16 +456,6 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the proc_tongbucheyi Procedure
-        /// </summary>
-        public static StoredProcedure ProcTongbucheyi()
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("proc_tongbucheyi", DataService.GetInstance("Nowthwin"), "");
-        	
-            return sp;
-        }
-        
-        /// <summary>
         /// Creates an object wrapper for the Proc_TzXfPlan Procedure
         /// </summary>
         public static StoredProcedure ProcTzXfPlan()
@@ -476,11 +466,11 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_TzXfPlan_copy Procedure
+        /// Creates an object wrapper for the Proc_TzXfPlan_delete Procedure
         /// </summary>
-        public static StoredProcedure ProcTzXfPlanCopy()
+        public static StoredProcedure ProcTzXfPlanDelete()
         {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_TzXfPlan_copy", DataService.GetInstance("Nowthwin"), "");
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_TzXfPlan_delete", DataService.GetInstance("Nowthwin"), "");
         	
             return sp;
         }
@@ -496,11 +486,11 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the test_wgc Procedure
+        /// Creates an object wrapper for the test_wgc_delete Procedure
         /// </summary>
-        public static StoredProcedure TestWgc()
+        public static StoredProcedure TestWgcDelete()
         {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("test_wgc", DataService.GetInstance("Nowthwin"), "");
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("test_wgc_delete", DataService.GetInstance("Nowthwin"), "");
         	
             return sp;
         }
@@ -516,11 +506,11 @@ namespace Model{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the YwyPdDZ Procedure
+        /// Creates an object wrapper for the YwyPdDZ_delete Procedure
         /// </summary>
-        public static StoredProcedure YwyPdDZ()
+        public static StoredProcedure YwyPdDZDelete()
         {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("YwyPdDZ", DataService.GetInstance("Nowthwin"), "");
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("YwyPdDZ_delete", DataService.GetInstance("Nowthwin"), "");
         	
             return sp;
         }

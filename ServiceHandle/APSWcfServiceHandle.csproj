@@ -124,6 +124,7 @@
     <Compile Include="Handle\IntelligentLogHandle.cs" />
     <Compile Include="Handle\KillOrderHandle.cs" />
     <Compile Include="Handle\LogHandleHandle.cs" />
+    <Compile Include="Handle\NewAnalysisOrderHandle.cs" />
     <Compile Include="Handle\NewCaiJianOrderHandle.cs" />
     <Compile Include="Handle\NewOrderHandle.cs" />
     <Compile Include="Handle\OrderMESArtInfoHandle.cs" />
@@ -224,6 +225,8 @@
     <Compile Include="Models\TAnalysisErpOrderListController.cs" />
     <Compile Include="Models\TAnalysisMTMXFJh.cs" />
     <Compile Include="Models\TAnalysisMTMXFJhController.cs" />
+    <Compile Include="Models\TAnalysisOrder.cs" />
+    <Compile Include="Models\TAnalysisOrderController.cs" />
     <Compile Include="Models\TAnalysisOrderList.cs" />
     <Compile Include="Models\TAnalysisOrderList1706.cs" />
     <Compile Include="Models\TAnalysisOrderList1706Controller.cs" />

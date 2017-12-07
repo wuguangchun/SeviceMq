@@ -242,6 +242,12 @@ namespace ServiceHandle.Handle
                     service.InsertMessage("CadOrder", "NewOrder", JsonHelper.GetJsonO(blDate), null);
                     #endregion
 
+                    #region 生成APS所需字段的基础数据表（新增优化排程所需数据时的计算及数据使用逻辑）
+                    //生成OrderList表队列接口
+                    var serviceAnalysisOrder = new ApsMessageService.NewMassgeServiceClient();
+                    serviceAnalysisOrder.InsertMessage("AnalysisOrder", "NewOrder", JsonHelper.GetJsonO(blDate), null);
+                    #endregion
+
                     #region 生成 新订单获取MES工时 队列命令
                     //现在只计算西服的
                     if (!blDate.ordermx.First().Fzfl.ToLower().Contains("cy"))
@@ -249,7 +255,6 @@ namespace ServiceHandle.Handle
                         var serviceMes = new ApsMessageService.NewMassgeServiceClient();
                         serviceMes.InsertMessage("OrderGetMesHour", "NewOrder", blDate.order.Khdh, null);
                     }
-
                     #endregion
 
                 }

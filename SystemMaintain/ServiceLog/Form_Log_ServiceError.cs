@@ -122,7 +122,7 @@ namespace SystemMaintain.ServiceLog
                     }
                 }
 
-                MessageBox.Show($@"将{logList.Count}条消息重新处理，{ok}条处理成功！");
+                //MessageBox.Show($@"将{logList.Count}条消息重新处理，{ok}条处理成功！");
                 LoadData(null, null);
             }
             catch (Exception e)
@@ -138,5 +138,43 @@ namespace SystemMaintain.ServiceLog
             timer.Start();
         }
 
+        private void btn_resetAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                while (true)
+                {
+                    var row = Grid_ErrList.SelectedRows[0];
+                    if (row == null)
+                    {
+                        break;
+                    }
+                    var messageId = row.Cells[0].Value.ToString();
+                    ResetMessage(messageId);
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void btn_delAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var list = Grid_ErrList.SelectedRows;
+                foreach (DataGridViewRow row in list)
+                {
+                    new Delete().From<TLogError>().Where(TLogError.MessageIdColumn).IsEqualTo(row.Cells["MessageId"].ToString()).Execute();
+                }
+
+                LoadData(null, null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

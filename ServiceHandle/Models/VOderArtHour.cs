@@ -302,7 +302,7 @@ namespace Model{
                 colvarCode.DataType = DbType.String;
                 colvarCode.MaxLength = 32;
                 colvarCode.AutoIncrement = false;
-                colvarCode.IsNullable = true;
+                colvarCode.IsNullable = false;
                 colvarCode.IsPrimaryKey = false;
                 colvarCode.IsForeignKey = false;
                 colvarCode.IsReadOnly = false;

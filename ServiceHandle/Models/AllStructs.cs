@@ -92,6 +92,8 @@ namespace Model
         
 		public static readonly string TAnalysisMTMXFJh = @"T_Analysis_MTMXFJh";
         
+		public static readonly string TAnalysisOrder = @"T_Analysis_Order";
+        
 		public static readonly string TAnalysisOrderList = @"T_Analysis_OrderList";
         
 		public static readonly string TAnalysisOrderList1706 = @"T_Analysis_OrderList@1706";
@@ -470,6 +472,11 @@ namespace Model
 		public static TableSchema.Table TAnalysisMTMXFJh
 		{
             get { return DataService.GetSchema("T_Analysis_MTMXFJh", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TAnalysisOrder
+		{
+            get { return DataService.GetSchema("T_Analysis_Order", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOrderList
@@ -984,7 +991,11 @@ namespace Model
         
 		public static readonly string VJh = @"V_JH";
         
+		public static readonly string VNoKeyProcess = @"V_NoKeyProcess";
+        
 		public static readonly string VOderArtHour = @"V_OderArtHour";
+        
+		public static readonly string VOrderKeyProcessRow = @"V_OrderKeyProcessRow";
         
 		public static readonly string VOrderListCJAll = @"V_OrderListCJ_ALL";
         
