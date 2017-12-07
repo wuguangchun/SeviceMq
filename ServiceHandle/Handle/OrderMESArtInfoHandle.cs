@@ -140,10 +140,6 @@ namespace ServiceHandle.Handle
                     List<TOrderMESArtInfo> listart = new List<TOrderMESArtInfo>();
                     foreach (var stepCodese in listStepCode ?? new List<ListStepCodes>())
                     {
-                        //先清空下该条明细的工时信息（预防重复）
-                        new Delete().From<TOrderMESArtInfo>()
-                            .Where(TOrderMESArtInfo.MxIdColumn).IsEqualTo(order.Mxid)
-                            .Execute();
 
                         TOrderMESArtInfo artInfo = new TOrderMESArtInfo
                         {
@@ -155,6 +151,11 @@ namespace ServiceHandle.Handle
                         };
                         listart.Add(artInfo);
                     }
+
+                    //先清空下该条明细的工时信息（预防重复）
+                    new Delete().From<TOrderMESArtInfo>()
+                        .Where(TOrderMESArtInfo.MxIdColumn).IsEqualTo(order.Mxid)
+                        .Execute();
 
                     //保存到数据库
                     listart.ForEach(x => x.Clone().Save());

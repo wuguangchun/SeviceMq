@@ -34,6 +34,7 @@
             this.CreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_resetAll = new System.Windows.Forms.Button();
             this.btn_delAll = new System.Windows.Forms.Button();
+            this.btn_reset_local = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_ErrList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,11 +96,22 @@
             this.btn_delAll.UseVisualStyleBackColor = true;
             this.btn_delAll.Click += new System.EventHandler(this.btn_delAll_Click);
             // 
+            // btn_reset_local
+            // 
+            this.btn_reset_local.Location = new System.Drawing.Point(265, 2);
+            this.btn_reset_local.Name = "btn_reset_local";
+            this.btn_reset_local.Size = new System.Drawing.Size(186, 23);
+            this.btn_reset_local.TabIndex = 2;
+            this.btn_reset_local.Text = "重新处理已选数据(本地调试)";
+            this.btn_reset_local.UseVisualStyleBackColor = true;
+            this.btn_reset_local.Click += new System.EventHandler(this.btn_reset_local_Click);
+            // 
             // Form_Log_ServiceError
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 285);
+            this.Controls.Add(this.btn_reset_local);
             this.Controls.Add(this.btn_delAll);
             this.Controls.Add(this.btn_resetAll);
             this.Controls.Add(this.Grid_ErrList);
@@ -119,5 +131,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateTime;
         private System.Windows.Forms.Button btn_resetAll;
         private System.Windows.Forms.Button btn_delAll;
+        private System.Windows.Forms.Button btn_reset_local;
     }
 }

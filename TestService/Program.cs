@@ -39,12 +39,17 @@ namespace TestService
             //    Console.ReadLine();
             //}
 
-            var list = new Select().From<VNoKeyProcess>().ExecuteTypedList<VNoKeyProcess>();
-            foreach (var keyProcess in list)
-            {
-                var service = new ServiceTest.NewMassgeServiceClient();
-                service.InsertMessage("OrderGetMesHour", "KeyProcess", keyProcess.MxId.ToString(), null); 
-            }
+            //var list = new Select().From<VNoKeyProcess>().ExecuteTypedList<VNoKeyProcess>();
+            //foreach (var keyProcess in list)
+            //{
+            //    var service = new ServiceTest.NewMassgeServiceClient();
+            //    service.InsertMessage("OrderGetMesHour", "KeyProcess", keyProcess.MxId.ToString(), null); 
+            //}
+
+
+
+            //    var service = new ServiceTest.NewMassgeServiceClient();
+            //    service.InsertMessage("OrderGetMesHour", "KeyProcess", keyProcess.MxId.ToString(), null); 
 
             Console.WriteLine(result);
             Console.ReadLine();

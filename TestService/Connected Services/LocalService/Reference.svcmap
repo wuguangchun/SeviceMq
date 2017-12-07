@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:53700/Service/NewMassgeService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8888/Service/NewMassgeService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="NewMassgeService.disco" MetadataType="Disco" ID="a8af6121-45de-429b-ba25-fe3eba607c31" SourceId="1" SourceUrl="http://localhost:53700/Service/NewMassgeService.svc?disco" />
-    <MetadataFile FileName="NewMassgeService.xsd" MetadataType="Schema" ID="5bc8f717-c15d-4107-858d-c0c6a214a4b9" SourceId="1" SourceUrl="http://localhost:53700/Service/NewMassgeService.svc?xsd=xsd0" />
-    <MetadataFile FileName="NewMassgeService1.xsd" MetadataType="Schema" ID="2f1746f8-db73-40c2-b80a-22bade97c65e" SourceId="1" SourceUrl="http://localhost:53700/Service/NewMassgeService.svc?xsd=xsd1" />
-    <MetadataFile FileName="NewMassgeService.wsdl" MetadataType="Wsdl" ID="68b11119-55f0-4819-bcf1-b700ea72f09b" SourceId="1" SourceUrl="http://localhost:53700/Service/NewMassgeService.svc?wsdl" />
+    <MetadataFile FileName="NewMassgeService1.disco" MetadataType="Disco" ID="87134e3e-29c6-4b8f-90c9-ef1d4ca347bd" SourceId="1" SourceUrl="http://localhost:8888/Service/NewMassgeService.svc?disco" />
+    <MetadataFile FileName="NewMassgeService2.xsd" MetadataType="Schema" ID="2d594e96-6a2e-4b52-b898-a223c2cf005e" SourceId="1" SourceUrl="http://localhost:8888/Service/NewMassgeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="NewMassgeService1.wsdl" MetadataType="Wsdl" ID="0b6778a7-9b8e-4ea9-a454-15be0dd949f1" SourceId="1" SourceUrl="http://localhost:8888/Service/NewMassgeService.svc?wsdl" />
+    <MetadataFile FileName="NewMassgeService21.xsd" MetadataType="Schema" ID="cc8f2abc-8eb0-41bc-9cba-9a25c1abef97" SourceId="1" SourceUrl="http://localhost:8888/Service/NewMassgeService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

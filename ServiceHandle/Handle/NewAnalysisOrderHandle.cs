@@ -48,7 +48,7 @@ namespace ServiceHandle.Handle
                 if (message.Label.ToLower().Trim() == "NewOrder".ToLower())
                 {//收到新订单命令
 
-                    NewAnalysisOrder.NewData(message.Body.ToString());
+                    reMeg = NewAnalysisOrder.NewData(message.Body.ToString());
                 }
                 else
                 {//无法识别标签内容
@@ -118,6 +118,10 @@ namespace ServiceHandle.Handle
                     SpecialCode = specialCode,
                     Sfbcpsy = string.IsNullOrWhiteSpace(blData.ordermx.First().Sfbcpsy) ? "0" : blData.ordermx.First().Sfbcpsy,
                 };
+
+                //避免数据重复先删除
+                new Delete().From<TAnalysisOrder>().Where(TAnalysisOrder.CustomerIdColumn)
+                    .IsEqualTo(tAnalysisOrderList.CustomerId).Execute();
 
                 tAnalysisOrderList.Save();
 

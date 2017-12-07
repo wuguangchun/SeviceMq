@@ -176,5 +176,35 @@ namespace SystemMaintain.ServiceLog
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btn_reset_local_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var messageId = Grid_ErrList.SelectedRows[0].Cells["MessageId"].Value.ToString();
+
+                var logList = new Select().From<TLogService>()
+                    .Where(TLogService.MessageIDColumn).IsEqualTo(messageId).ExecuteTypedList<TLogService>();
+
+                int ok = 0;
+                foreach (var log in logList)
+                {
+                    var service = new ServiceMqLocal.NewMassgeServiceClient();
+                    var result = service.InsertMessage(log.MessagePath, log.Lable, log.Context, null);
+                    if (result.ToLower().Contains("success"))
+                    {
+                        new Delete().From<TLogError>().Where(TLogError.MessageIdColumn).IsEqualTo(log.MessageID).Execute();
+                        ok += 1;
+                    }
+                }
+
+                LoadData(null, null);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
     }
 }

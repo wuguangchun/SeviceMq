@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="XKUz40Yo51sqaanFWzGvjOIKDlg=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="bq9qVkgpes8/tcZ5QvUyGwP9unw=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_INewMassgeService1">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_INewMassgeService1" contract="LocalService.INewMassgeService" bindingType="basicHttpBinding" address="http://localhost:53700/Service/NewMassgeService.svc" bindingConfiguration="BasicHttpBinding_INewMassgeService1">
+    <endpoint name="BasicHttpBinding_INewMassgeService1" contract="LocalService.INewMassgeService" bindingType="basicHttpBinding" address="http://localhost:8888/Service/NewMassgeService.svc" bindingConfiguration="BasicHttpBinding_INewMassgeService1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:53700/Service/NewMassgeService.svc</serializedValue>
+          <serializedValue>http://localhost:8888/Service/NewMassgeService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

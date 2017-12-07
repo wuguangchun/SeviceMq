@@ -61,17 +61,21 @@ namespace ServiceHandle.Helper
             Thread threadArtHour = new Thread(OrderMESArtInfoHandle.GetMessageQueues) { IsBackground = true };
             threadArtHour.Start();
 
+            //计算订单APS所需数据
+            Thread threadAnalysisLis = new Thread(NewAnalysisOrderHandle.GetMessageQueues) { IsBackground = true };
+            threadAnalysisLis.Start();
+
 
             //线程集合
             threads = new List<Thread>
             {
                 threadLog,threadNewOrder,threadComp,threadNewCadOrder,threadNewCaiJianOrder,threadBlanking,
-                threadKillOrder,threadPushBl,threadAutoLog,threadArtHour//,threadCallBack
+                threadKillOrder,threadPushBl,threadAutoLog,threadArtHour,threadAnalysisLis//,threadCallBack
             };
 
             ////检测以上自启动线程状态
-            //Thread threadTestThread = new Thread(TestThread) { IsBackground = true };
-            //threadTestThread.Start();
+            Thread threadTestThread = new Thread(TestThread) { IsBackground = true };
+            threadTestThread.Start();
         }
 
         public static void TestThread()
