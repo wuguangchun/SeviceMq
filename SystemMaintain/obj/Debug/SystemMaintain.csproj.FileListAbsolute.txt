@@ -13,7 +13,9 @@ F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\SubSonic.Core.dll
 F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\SubSonic.Migrations.dll
 F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\Newtonsoft.Json.xml
 F:\ServiceMq\SeviceMq\SystemMaintain\bin\Debug\NPOI.xml
-F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.csprojResolveAssemblyReference.cache
+F:\Release\SystemMaintain\APS系统维护.exe.config
+F:\Release\SystemMaintain\APS系统维护.exe
+F:\Release\SystemMaintain\APS系统维护.pdb
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.DailyQuery.Basicdata.From_Basicdata.resources
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.Defaut.resources
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.Improt.Form_Improt_Excel.resources
@@ -31,6 +33,3 @@ F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.csproj.GenerateRes
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.csproj.CoreCompileInputs.cache
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\APS系统维护.exe
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\APS系统维护.pdb
-F:\Release\SystemMaintain\APS系统维护.exe.config
-F:\Release\SystemMaintain\APS系统维护.exe
-F:\Release\SystemMaintain\APS系统维护.pdb

@@ -1,10 +1,9 @@
 F:\ServiceMq\SeviceMq\CADCySchedulingEnd\bin\Debug\CADCySchedulingEnd.exe.config
 F:\ServiceMq\SeviceMq\CADCySchedulingEnd\bin\Debug\CADCySchedulingEnd.exe
 F:\ServiceMq\SeviceMq\CADCySchedulingEnd\bin\Debug\CADCySchedulingEnd.pdb
-F:\ServiceMq\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.csproj.CoreCompileInputs.cache
-F:\ServiceMq\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.exe
-F:\ServiceMq\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.pdb
 F:\Release\CADCYPush\CADCySchedulingEnd.exe.config
 F:\Release\CADCYPush\CADCySchedulingEnd.exe
 F:\Release\CADCYPush\CADCySchedulingEnd.pdb
-F:\ServiceMq\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.csprojResolveAssemblyReference.cache
+F:\ServiceMq\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.csproj.CoreCompileInputs.cache
+F:\ServiceMq\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.exe
+F:\ServiceMq\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.pdb

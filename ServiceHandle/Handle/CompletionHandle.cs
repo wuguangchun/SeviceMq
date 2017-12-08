@@ -101,11 +101,11 @@ namespace ServiceHandle.Handle
                 //反序列化生成对象--Completion
                 var objCompletion = (Completion)JsonHelper.ReturnObject(json, typeof(Completion));
 
-                // var data = new Select("count(*)").From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn)
-                //    .IsEqualTo(objCompletion.CustmerId).ExecuteScalar();
+                var data = new Select("count(*)").From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn)
+                   .IsEqualTo(objCompletion.CustmerId).ExecuteScalar();
 
 
-                if (1 > 0)
+                if (int.Parse(data.ToString()) > 0)
                 {
                     new Update(TAnalysisOrderList.Schema)
                         .Set(TAnalysisOrderList.Columns.OrderStatus).EqualTo(objCompletion.OrderSrate)

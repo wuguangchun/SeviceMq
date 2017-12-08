@@ -88,8 +88,8 @@ namespace SystemMaintain.ServiceLog
                         var obj = (List<BLDate>)JsonConvert.DeserializeObject(logService.Context, typeof(List<BLDate>));
                         okRow += UpdateLogs(logService.Id, obj?.First().order.Khdh) ? 1 : 0;
                     }
-                    //新订单数据生成CAD排程数据
-                    else if (logService.MessagePath == "CadOrder" && logService.Lable == "NewOrder")
+                    //新订单数据生成CAD排程数据/生成APS基础数据
+                    else if ((logService.MessagePath == "CadOrder" || logService.MessagePath == "AnalysisOrder") && logService.Lable == "NewOrder")
                     {
                         var obj = (BLDate)JsonConvert.DeserializeObject(logService.Context, typeof(BLDate));
                         okRow += UpdateLogs(logService.Id, obj.order.Khdh) ? 1 : 0;

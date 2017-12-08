@@ -42,8 +42,8 @@ namespace ServiceHandle.Helper
             threadBlanking.Start();
 
             //处理结果回调(需要下一版本优化，效率太慢)
-            //Thread threadCallBack = new Thread(CallBackHandle.GetMessageQueues) { IsBackground = true };
-            //threadCallBack.Start();
+            Thread threadCallBack = new Thread(CallBackHandle.GetMessageQueues) { IsBackground = true };
+            threadCallBack.Start();
 
             //数据重复/撤单
             Thread threadKillOrder = new Thread(KillOrderHandle.GetMessageQueues) { IsBackground = true };

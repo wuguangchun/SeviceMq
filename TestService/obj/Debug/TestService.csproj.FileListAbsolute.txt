@@ -20,7 +20,6 @@ F:\ServiceMq\SeviceMq\TestService\bin\Debug\SubSonic.Core.dll
 F:\ServiceMq\SeviceMq\TestService\bin\Debug\SubSonic.dll
 F:\ServiceMq\SeviceMq\TestService\bin\Debug\SubSonic.Migrations.dll
 F:\ServiceMq\SeviceMq\TestService\bin\Debug\Newtonsoft.Json.xml
-F:\ServiceMq\SeviceMq\TestService\obj\Debug\TestService.csprojResolveAssemblyReference.cache
 F:\ServiceMq\SeviceMq\TestService\obj\Debug\TestService.csproj.CoreCompileInputs.cache
 F:\ServiceMq\SeviceMq\TestService\obj\Debug\TestService.exe
 F:\ServiceMq\SeviceMq\TestService\obj\Debug\TestService.pdb

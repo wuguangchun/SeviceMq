@@ -24,6 +24,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CADCySchedulingEnd", "CADCy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMaintain", "SystemMaintain\SystemMaintain.csproj", "{06E48536-546A-4676-A766-7D2DD5D73068}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{9341A8E6-B32D-428E-9582-3FD9FA60A512}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Asprova_EXE", "Asprova_EXE", "{C9DB65ED-E422-4703-BF2E-C4D87B748568}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{912F776A-1FC0-4D42-B549-11BC347A0ED7} = {9341A8E6-B32D-428E-9582-3FD9FA60A512}
+		{55E5DD76-EF63-4161-BADC-5B12CA972D4C} = {9341A8E6-B32D-428E-9582-3FD9FA60A512}
+		{E046FF2F-5226-449C-8456-8F402B01250C} = {C9DB65ED-E422-4703-BF2E-C4D87B748568}
+		{947E6F31-25ED-45AD-A751-C7F6D348F810} = {C9DB65ED-E422-4703-BF2E-C4D87B748568}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61257557-64D4-4F01-A113-48322816BCC1}
