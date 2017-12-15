@@ -127,6 +127,7 @@ namespace ServiceHandle.Handle
                         //初始化接口
                         var service = new ApsMessageService.NewMassgeServiceClient();
                         service.InsertMessage("CaiJianOrder", "NewOrder", objCompletion.CustmerId, null);
+                        service.InsertMessage("PlanInfo", "NewPlan", objCompletion.CustmerId, null);
                     }
 
                     //如果完工汇报是裁床排程成功则出发新消息队列BlankingData生成断料数据(老APS给的完工汇报)

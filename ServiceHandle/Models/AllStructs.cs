@@ -18,31 +18,31 @@ namespace Model
 	public partial struct Tables
 	{
 		
-		public static readonly string BCutterSet = @"B_CutterSet";
+		public static readonly string BCutterSetDelete = @"B_CutterSet_delete";
         
-		public static readonly string BISOFileSet = @"B_ISOFileSet";
+		public static readonly string BISOFileSetDelete = @"B_ISOFileSet_delete";
         
-		public static readonly string BWorkTimeSet = @"B_WorkTimeSet";
+		public static readonly string BWorkTimeSetDelete = @"B_WorkTimeSet_delete";
         
-		public static readonly string BWorkTimeSetCopy = @"B_WorkTimeSetCopy";
+		public static readonly string BWorkTimeSetCopyDelete = @"B_WorkTimeSetCopy_delete";
         
-		public static readonly string BPMOrder = @"BPMOrders";
+		public static readonly string BPMOrdersDelete = @"BPMOrders_delete";
         
 		public static readonly string Dictionary = @"Dictionaries";
         
-		public static readonly string Factory = @"Factory";
+		public static readonly string FactoryDelete = @"Factory_delete";
         
-		public static readonly string FactoryOrderTran = @"FactoryOrderTrans";
+		public static readonly string FactoryOrderTransDelete = @"FactoryOrderTrans_delete";
         
-		public static readonly string HljtExecuteProc = @"HLJT_ExecuteProc";
+		public static readonly string HljtExecuteProcDelete = @"HLJT_ExecuteProc_delete";
         
-		public static readonly string HljtTaskList = @"HLJT_TaskList";
+		public static readonly string HljtTaskListDelete = @"HLJT_TaskList_delete";
         
-		public static readonly string Isypb = @"ISYPB";
+		public static readonly string IsypbDelete = @"ISYPB_delete";
         
-		public static readonly string OrderTest = @"OrderTest";
+		public static readonly string OrderTestDelete = @"OrderTest_delete";
         
-		public static readonly string ProcessedOrder = @"ProcessedOrder";
+		public static readonly string ProcessedOrderDelete = @"ProcessedOrder_delete";
         
 		public static readonly string SCM06 = @"SCM06";
         
@@ -86,11 +86,11 @@ namespace Model
         
 		public static readonly string TAnalysisDelivery = @"T_Analysis_Delivery";
         
-		public static readonly string TAnalysisErpList = @"T_Analysis_ErpList";
+		public static readonly string TAnalysisErpListDelete = @"T_Analysis_ErpList_delete";
         
-		public static readonly string TAnalysisErpOrderList = @"T_Analysis_ErpOrderList";
+		public static readonly string TAnalysisErpOrderListDelete = @"T_Analysis_ErpOrderList_delete";
         
-		public static readonly string TAnalysisMTMXFJh = @"T_Analysis_MTMXFJh";
+		public static readonly string TAnalysisMTMXFJhDelete = @"T_Analysis_MTMXFJh_delete";
         
 		public static readonly string TAnalysisOrder = @"T_Analysis_Order";
         
@@ -110,17 +110,17 @@ namespace Model
         
 		public static readonly string TAnalysisOutputListTzWithCode = @"T_Analysis_OutputListTzWithCode";
         
-		public static readonly string TAnalysisOutputListWithCode = @"T_Analysis_OutputListWithCode";
-        
 		public static readonly string TAnalysisOutputListWithCodeCopy = @"T_Analysis_OutputListWithCode_copy";
         
-		public static readonly string TAnalysisOutputListWithCodeCopyTest = @"T_Analysis_OutputListWithCode_copyTest";
+		public static readonly string TAnalysisOutputListWithCodeCopyTestDelete = @"T_Analysis_OutputListWithCode_copyTest_delete";
+        
+		public static readonly string TAnalysisOutputListWithCodeDelete = @"T_Analysis_OutputListWithCode_delete";
         
 		public static readonly string TAnalysisOutputListWithCodeShirt = @"T_Analysis_OutputListWithCode_Shirt";
         
 		public static readonly string TAnalysisOutputListWithCodeTZShirt = @"T_Analysis_OutputListWithCode_TZShirt";
         
-		public static readonly string TAnalysisOutputListWithCodeL = @"T_Analysis_OutputListWithCodeLS";
+		public static readonly string TAnalysisOutputListWithCodeLSDelete = @"T_Analysis_OutputListWithCodeLS_delete";
         
 		public static readonly string TApsClientLog = @"T_ApsClientLog";
         
@@ -142,7 +142,7 @@ namespace Model
         
 		public static readonly string TBasisCoatType = @"T_Basis_CoatType";
         
-		public static readonly string TBasisGetDataSet = @"T_Basis_GetDataSet";
+		public static readonly string TBasisGetDataSetDelete = @"T_Basis_GetDataSet_delete";
         
 		public static readonly string TBasisLinerType = @"T_Basis_LinerType";
         
@@ -186,25 +186,25 @@ namespace Model
         
 		public static readonly string TCutterME = @"T_CutterMES";
         
-		public static readonly string TErpOrder = @"T_ERP_Order";
+		public static readonly string TErpOrderDelete = @"T_ERP_Order_delete";
         
-		public static readonly string TERPDataOrder = @"T_ERPData_Order";
+		public static readonly string TERPDataOrderDelete = @"T_ERPData_Order_delete";
         
 		public static readonly string TErrorLog = @"T_ErrorLog";
         
-		public static readonly string TFZfirstOrder = @"T_FZfirstOrder";
+		public static readonly string TFZfirstOrderDelete = @"T_FZfirstOrder_delete";
         
-		public static readonly string TFZfirstOut = @"T_FZfirstOut";
+		public static readonly string TFZfirstOutDelete = @"T_FZfirstOut_delete";
         
-		public static readonly string TFZOver = @"T_FZOver";
+		public static readonly string TFZOverDelete = @"T_FZOver_delete";
         
-		public static readonly string TFZsecondOrder = @"T_FZsecondOrder";
+		public static readonly string TFZsecondOrderDelete = @"T_FZsecondOrder_delete";
         
-		public static readonly string TFZsecondOut = @"T_FZsecondOut";
+		public static readonly string TFZsecondOutDelete = @"T_FZsecondOut_delete";
         
-		public static readonly string TFzthirdOrder = @"T_fzthirdOrder";
+		public static readonly string TFzthirdOrderDelete = @"T_fzthirdOrder_delete";
         
-		public static readonly string TGetUrl = @"T_getUrl";
+		public static readonly string TGetUrlDelete = @"T_getUrl_delete";
         
 		public static readonly string TLog = @"T_Log";
         
@@ -216,7 +216,7 @@ namespace Model
         
 		public static readonly string TMflSearch = @"T_Mfl_search";
         
-		public static readonly string TMLCodeList = @"T_MLCodeList";
+		public static readonly string TMLCodeListDelete = @"T_MLCodeList_delete";
         
 		public static readonly string TOldApsByCf = @"T_OldApsByCf";
         
@@ -224,7 +224,7 @@ namespace Model
         
 		public static readonly string TOldApsByCf1712 = @"T_OldApsByCf@1712";
         
-		public static readonly string TOperationLog = @"T_Operation_Log";
+		public static readonly string TOperationLogDelete = @"T_Operation_Log_delete";
         
 		public static readonly string TOrderKeyProcess = @"T_OrderKeyProcess";
         
@@ -232,31 +232,31 @@ namespace Model
         
 		public static readonly string TOrderProcessHour = @"T_OrderProcessHour";
         
-		public static readonly string TPlanM = @"T_PlanM";
+		public static readonly string TPlanMAddDelete = @"T_PlanM_Add_delete";
         
-		public static readonly string TPlanMAdd = @"T_PlanM_Add";
+		public static readonly string TPlanMDelete = @"T_PlanM_delete";
         
-		public static readonly string TPlan = @"T_PlanS";
+		public static readonly string TPlanSAddDelete = @"T_PlanS_Add_delete";
         
-		public static readonly string TPlanSAdd = @"T_PlanS_Add";
+		public static readonly string TPlanSDelete = @"T_PlanS_delete";
         
-		public static readonly string TPushBlOutputList = @"T_PushBlOutputList";
+		public static readonly string TPushBlOutputListDelete = @"T_PushBlOutputList_delete";
         
 		public static readonly string TResultMsg = @"T_ResultMsg";
         
-		public static readonly string TSendLog = @"T_sendLog";
+		public static readonly string TSendLogDelete = @"T_sendLog_delete";
         
-		public static readonly string TSql = @"T_SQL";
+		public static readonly string TSqlDelete = @"T_SQL_delete";
         
-		public static readonly string TTemp = @"T_Temp";
+		public static readonly string TTempDelete = @"T_Temp_delete";
         
-		public static readonly string TTempInfo = @"T_TempInfo";
+		public static readonly string TTempInfoDelete = @"T_TempInfo_delete";
         
-		public static readonly string TTempME = @"T_TempMES";
+		public static readonly string TTempMESDelete = @"T_TempMES_delete";
         
 		public static readonly string TTsgy = @"T_TSGY";
         
-		public static readonly string TTzwf = @"T_TZWF";
+		public static readonly string TTzwfDelete = @"T_TZWF_delete";
         
 		public static readonly string TUsersGroup = @"T_UsersGroup";
         
@@ -268,11 +268,11 @@ namespace Model
         
 		public static readonly string TWorkTimeShirt = @"T_WorkTimeShirt";
         
-		public static readonly string WmsSyncCutterAP = @"WMS_SYNC_CutterAPS";
+		public static readonly string WmsSyncCutterAPSDelete = @"WMS_SYNC_CutterAPS_delete";
         
-		public static readonly string WmsSyncPlanm = @"WMS_SYNC_planm";
+		public static readonly string WmsSyncPlanmDelete = @"WMS_SYNC_planm_delete";
         
-		public static readonly string WmsSyncPlan = @"WMS_SYNC_plans";
+		public static readonly string WmsSyncPlansDelete = @"WMS_SYNC_plans_delete";
         
 		public static readonly string XTM12 = @"XTM12";
         
@@ -289,29 +289,29 @@ namespace Model
     #region Schemas
     public partial class Schemas {
 		
-		public static TableSchema.Table BCutterSet
+		public static TableSchema.Table BCutterSetDelete
 		{
-            get { return DataService.GetSchema("B_CutterSet", "Nowthwin"); }
+            get { return DataService.GetSchema("B_CutterSet_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table BISOFileSet
+		public static TableSchema.Table BISOFileSetDelete
 		{
-            get { return DataService.GetSchema("B_ISOFileSet", "Nowthwin"); }
+            get { return DataService.GetSchema("B_ISOFileSet_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table BWorkTimeSet
+		public static TableSchema.Table BWorkTimeSetDelete
 		{
-            get { return DataService.GetSchema("B_WorkTimeSet", "Nowthwin"); }
+            get { return DataService.GetSchema("B_WorkTimeSet_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table BWorkTimeSetCopy
+		public static TableSchema.Table BWorkTimeSetCopyDelete
 		{
-            get { return DataService.GetSchema("B_WorkTimeSetCopy", "Nowthwin"); }
+            get { return DataService.GetSchema("B_WorkTimeSetCopy_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table BPMOrder
+		public static TableSchema.Table BPMOrdersDelete
 		{
-            get { return DataService.GetSchema("BPMOrders", "Nowthwin"); }
+            get { return DataService.GetSchema("BPMOrders_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table Dictionary
@@ -319,39 +319,39 @@ namespace Model
             get { return DataService.GetSchema("Dictionaries", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table Factory
+		public static TableSchema.Table FactoryDelete
 		{
-            get { return DataService.GetSchema("Factory", "Nowthwin"); }
+            get { return DataService.GetSchema("Factory_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table FactoryOrderTran
+		public static TableSchema.Table FactoryOrderTransDelete
 		{
-            get { return DataService.GetSchema("FactoryOrderTrans", "Nowthwin"); }
+            get { return DataService.GetSchema("FactoryOrderTrans_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table HljtExecuteProc
+		public static TableSchema.Table HljtExecuteProcDelete
 		{
-            get { return DataService.GetSchema("HLJT_ExecuteProc", "Nowthwin"); }
+            get { return DataService.GetSchema("HLJT_ExecuteProc_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table HljtTaskList
+		public static TableSchema.Table HljtTaskListDelete
 		{
-            get { return DataService.GetSchema("HLJT_TaskList", "Nowthwin"); }
+            get { return DataService.GetSchema("HLJT_TaskList_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table Isypb
+		public static TableSchema.Table IsypbDelete
 		{
-            get { return DataService.GetSchema("ISYPB", "Nowthwin"); }
+            get { return DataService.GetSchema("ISYPB_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table OrderTest
+		public static TableSchema.Table OrderTestDelete
 		{
-            get { return DataService.GetSchema("OrderTest", "Nowthwin"); }
+            get { return DataService.GetSchema("OrderTest_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table ProcessedOrder
+		public static TableSchema.Table ProcessedOrderDelete
 		{
-            get { return DataService.GetSchema("ProcessedOrder", "Nowthwin"); }
+            get { return DataService.GetSchema("ProcessedOrder_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table SCM06
@@ -459,19 +459,19 @@ namespace Model
             get { return DataService.GetSchema("T_Analysis_Delivery", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisErpList
+		public static TableSchema.Table TAnalysisErpListDelete
 		{
-            get { return DataService.GetSchema("T_Analysis_ErpList", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Analysis_ErpList_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisErpOrderList
+		public static TableSchema.Table TAnalysisErpOrderListDelete
 		{
-            get { return DataService.GetSchema("T_Analysis_ErpOrderList", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Analysis_ErpOrderList_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisMTMXFJh
+		public static TableSchema.Table TAnalysisMTMXFJhDelete
 		{
-            get { return DataService.GetSchema("T_Analysis_MTMXFJh", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Analysis_MTMXFJh_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOrder
@@ -519,19 +519,19 @@ namespace Model
             get { return DataService.GetSchema("T_Analysis_OutputListTzWithCode", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisOutputListWithCode
-		{
-            get { return DataService.GetSchema("T_Analysis_OutputListWithCode", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table TAnalysisOutputListWithCodeCopy
 		{
             get { return DataService.GetSchema("T_Analysis_OutputListWithCode_copy", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisOutputListWithCodeCopyTest
+		public static TableSchema.Table TAnalysisOutputListWithCodeCopyTestDelete
 		{
-            get { return DataService.GetSchema("T_Analysis_OutputListWithCode_copyTest", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Analysis_OutputListWithCode_copyTest_delete", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TAnalysisOutputListWithCodeDelete
+		{
+            get { return DataService.GetSchema("T_Analysis_OutputListWithCode_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOutputListWithCodeShirt
@@ -544,9 +544,9 @@ namespace Model
             get { return DataService.GetSchema("T_Analysis_OutputListWithCode_TZShirt", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisOutputListWithCodeL
+		public static TableSchema.Table TAnalysisOutputListWithCodeLSDelete
 		{
-            get { return DataService.GetSchema("T_Analysis_OutputListWithCodeLS", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Analysis_OutputListWithCodeLS_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TApsClientLog
@@ -599,9 +599,9 @@ namespace Model
             get { return DataService.GetSchema("T_Basis_CoatType", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TBasisGetDataSet
+		public static TableSchema.Table TBasisGetDataSetDelete
 		{
-            get { return DataService.GetSchema("T_Basis_GetDataSet", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Basis_GetDataSet_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBasisLinerType
@@ -709,14 +709,14 @@ namespace Model
             get { return DataService.GetSchema("T_CutterMES", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TErpOrder
+		public static TableSchema.Table TErpOrderDelete
 		{
-            get { return DataService.GetSchema("T_ERP_Order", "Nowthwin"); }
+            get { return DataService.GetSchema("T_ERP_Order_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TERPDataOrder
+		public static TableSchema.Table TERPDataOrderDelete
 		{
-            get { return DataService.GetSchema("T_ERPData_Order", "Nowthwin"); }
+            get { return DataService.GetSchema("T_ERPData_Order_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TErrorLog
@@ -724,39 +724,39 @@ namespace Model
             get { return DataService.GetSchema("T_ErrorLog", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TFZfirstOrder
+		public static TableSchema.Table TFZfirstOrderDelete
 		{
-            get { return DataService.GetSchema("T_FZfirstOrder", "Nowthwin"); }
+            get { return DataService.GetSchema("T_FZfirstOrder_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TFZfirstOut
+		public static TableSchema.Table TFZfirstOutDelete
 		{
-            get { return DataService.GetSchema("T_FZfirstOut", "Nowthwin"); }
+            get { return DataService.GetSchema("T_FZfirstOut_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TFZOver
+		public static TableSchema.Table TFZOverDelete
 		{
-            get { return DataService.GetSchema("T_FZOver", "Nowthwin"); }
+            get { return DataService.GetSchema("T_FZOver_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TFZsecondOrder
+		public static TableSchema.Table TFZsecondOrderDelete
 		{
-            get { return DataService.GetSchema("T_FZsecondOrder", "Nowthwin"); }
+            get { return DataService.GetSchema("T_FZsecondOrder_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TFZsecondOut
+		public static TableSchema.Table TFZsecondOutDelete
 		{
-            get { return DataService.GetSchema("T_FZsecondOut", "Nowthwin"); }
+            get { return DataService.GetSchema("T_FZsecondOut_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TFzthirdOrder
+		public static TableSchema.Table TFzthirdOrderDelete
 		{
-            get { return DataService.GetSchema("T_fzthirdOrder", "Nowthwin"); }
+            get { return DataService.GetSchema("T_fzthirdOrder_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TGetUrl
+		public static TableSchema.Table TGetUrlDelete
 		{
-            get { return DataService.GetSchema("T_getUrl", "Nowthwin"); }
+            get { return DataService.GetSchema("T_getUrl_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TLog
@@ -784,9 +784,9 @@ namespace Model
             get { return DataService.GetSchema("T_Mfl_search", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TMLCodeList
+		public static TableSchema.Table TMLCodeListDelete
 		{
-            get { return DataService.GetSchema("T_MLCodeList", "Nowthwin"); }
+            get { return DataService.GetSchema("T_MLCodeList_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TOldApsByCf
@@ -804,9 +804,9 @@ namespace Model
             get { return DataService.GetSchema("T_OldApsByCf@1712", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TOperationLog
+		public static TableSchema.Table TOperationLogDelete
 		{
-            get { return DataService.GetSchema("T_Operation_Log", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Operation_Log_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TOrderKeyProcess
@@ -824,29 +824,29 @@ namespace Model
             get { return DataService.GetSchema("T_OrderProcessHour", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TPlanM
+		public static TableSchema.Table TPlanMAddDelete
 		{
-            get { return DataService.GetSchema("T_PlanM", "Nowthwin"); }
+            get { return DataService.GetSchema("T_PlanM_Add_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TPlanMAdd
+		public static TableSchema.Table TPlanMDelete
 		{
-            get { return DataService.GetSchema("T_PlanM_Add", "Nowthwin"); }
+            get { return DataService.GetSchema("T_PlanM_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TPlan
+		public static TableSchema.Table TPlanSAddDelete
 		{
-            get { return DataService.GetSchema("T_PlanS", "Nowthwin"); }
+            get { return DataService.GetSchema("T_PlanS_Add_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TPlanSAdd
+		public static TableSchema.Table TPlanSDelete
 		{
-            get { return DataService.GetSchema("T_PlanS_Add", "Nowthwin"); }
+            get { return DataService.GetSchema("T_PlanS_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TPushBlOutputList
+		public static TableSchema.Table TPushBlOutputListDelete
 		{
-            get { return DataService.GetSchema("T_PushBlOutputList", "Nowthwin"); }
+            get { return DataService.GetSchema("T_PushBlOutputList_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TResultMsg
@@ -854,29 +854,29 @@ namespace Model
             get { return DataService.GetSchema("T_ResultMsg", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TSendLog
+		public static TableSchema.Table TSendLogDelete
 		{
-            get { return DataService.GetSchema("T_sendLog", "Nowthwin"); }
+            get { return DataService.GetSchema("T_sendLog_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TSql
+		public static TableSchema.Table TSqlDelete
 		{
-            get { return DataService.GetSchema("T_SQL", "Nowthwin"); }
+            get { return DataService.GetSchema("T_SQL_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TTemp
+		public static TableSchema.Table TTempDelete
 		{
-            get { return DataService.GetSchema("T_Temp", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Temp_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TTempInfo
+		public static TableSchema.Table TTempInfoDelete
 		{
-            get { return DataService.GetSchema("T_TempInfo", "Nowthwin"); }
+            get { return DataService.GetSchema("T_TempInfo_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TTempME
+		public static TableSchema.Table TTempMESDelete
 		{
-            get { return DataService.GetSchema("T_TempMES", "Nowthwin"); }
+            get { return DataService.GetSchema("T_TempMES_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TTsgy
@@ -884,9 +884,9 @@ namespace Model
             get { return DataService.GetSchema("T_TSGY", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TTzwf
+		public static TableSchema.Table TTzwfDelete
 		{
-            get { return DataService.GetSchema("T_TZWF", "Nowthwin"); }
+            get { return DataService.GetSchema("T_TZWF_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TUsersGroup
@@ -914,19 +914,19 @@ namespace Model
             get { return DataService.GetSchema("T_WorkTimeShirt", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table WmsSyncCutterAP
+		public static TableSchema.Table WmsSyncCutterAPSDelete
 		{
-            get { return DataService.GetSchema("WMS_SYNC_CutterAPS", "Nowthwin"); }
+            get { return DataService.GetSchema("WMS_SYNC_CutterAPS_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table WmsSyncPlanm
+		public static TableSchema.Table WmsSyncPlanmDelete
 		{
-            get { return DataService.GetSchema("WMS_SYNC_planm", "Nowthwin"); }
+            get { return DataService.GetSchema("WMS_SYNC_planm_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table WmsSyncPlan
+		public static TableSchema.Table WmsSyncPlansDelete
 		{
-            get { return DataService.GetSchema("WMS_SYNC_plans", "Nowthwin"); }
+            get { return DataService.GetSchema("WMS_SYNC_plans_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table XTM12

@@ -33,3 +33,4 @@ F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.csproj.GenerateRes
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.csproj.CoreCompileInputs.cache
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\APS系统维护.exe
 F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\APS系统维护.pdb
+F:\ServiceMq\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.csprojResolveAssemblyReference.cache

@@ -177,6 +177,18 @@ namespace Model{
                 
                 schema.Columns.Add(colvarGylx);
                 
+                TableSchema.TableColumn colvarGyxx = new TableSchema.TableColumn(schema);
+                colvarGyxx.ColumnName = "gyxx";
+                colvarGyxx.DataType = DbType.AnsiString;
+                colvarGyxx.MaxLength = 2147483647;
+                colvarGyxx.AutoIncrement = false;
+                colvarGyxx.IsNullable = true;
+                colvarGyxx.IsPrimaryKey = false;
+                colvarGyxx.IsForeignKey = false;
+                colvarGyxx.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarGyxx);
+                
                 TableSchema.TableColumn colvarOrderStatus = new TableSchema.TableColumn(schema);
                 colvarOrderStatus.ColumnName = "orderStatus";
                 colvarOrderStatus.DataType = DbType.String;
@@ -751,6 +763,20 @@ namespace Model{
             }
         }
 	      
+        [XmlAttribute("Gyxx")]
+        [Bindable(true)]
+        public string Gyxx 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("gyxx");
+		    }
+            set 
+		    {
+			    SetColumnValue("gyxx", value);
+            }
+        }
+	      
         [XmlAttribute("OrderStatus")]
         [Bindable(true)]
         public string OrderStatus 
@@ -1225,6 +1251,8 @@ namespace Model{
             public static string Xh = @"xh";
             
             public static string Gylx = @"gylx";
+            
+            public static string Gyxx = @"gyxx";
             
             public static string OrderStatus = @"orderStatus";
             

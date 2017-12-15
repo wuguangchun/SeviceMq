@@ -187,6 +187,11 @@ namespace SystemMaintain.ServiceLog
         {
             try
             {
+                if (string.IsNullOrEmpty(khdh))
+                {
+                    return false;
+                }
+
                 var row = new Update(TLogService.Schema)
                     .Set(TLogService.KhdhColumn).EqualTo(khdh)
                     .Where(TLogService.IdColumn).IsEqualTo(logId).Execute();

@@ -97,9 +97,9 @@ namespace ServiceHandle.Handle
                 var ordermx = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.OrderidColumn).IsEqualTo(orders.Orderid).ExecuteTypedList<TBLDataOrdermx>();
 
 
-                List<MesModels> list = new List<MesModels>();
                 foreach (var order in ordermx)
                 {
+                    List<MesModels> list = new List<MesModels>();
                     var mfl = new Select().From<TBLDataMflxx>().Where(TBLDataMflxx.MxidColumn).IsEqualTo(order.Mxid).And(TBLDataMflxx.YllxColumn).IsEqualTo("ML").ExecuteTypedList<TBLDataMflxx>().FirstOrDefault();
 
                     //实例化参数对象

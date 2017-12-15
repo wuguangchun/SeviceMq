@@ -65,12 +65,17 @@ namespace ServiceHandle.Helper
             Thread threadAnalysisLis = new Thread(NewAnalysisOrderHandle.GetMessageQueues) { IsBackground = true };
             threadAnalysisLis.Start();
 
+            //计划下达后获取计划的信息
+            Thread threadPlan = new Thread(NewPlanInfoHandle.GetMessageQueues) { IsBackground = true };
+            threadPlan.Start();
+
 
             //线程集合
             threads = new List<Thread>
             {
                 threadLog,threadNewOrder,threadComp,threadNewCadOrder,threadNewCaiJianOrder,threadBlanking,
-                threadKillOrder,threadPushBl,threadAutoLog,threadArtHour,threadAnalysisLis//,threadCallBack
+                threadKillOrder,threadPushBl,threadAutoLog,threadArtHour,threadAnalysisLis,threadCallBack
+                ,threadPlan
             };
 
             ////检测以上自启动线程状态

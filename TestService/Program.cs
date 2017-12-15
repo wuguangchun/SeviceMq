@@ -46,10 +46,21 @@ namespace TestService
             //    service.InsertMessage("OrderGetMesHour", "KeyProcess", keyProcess.MxId.ToString(), null); 
             //}
 
+            var list=new Select().From<VOrderListFZXf>().ExecuteTypedList<VOrderListFZXf>();
 
+            foreach (var artInfo in list)
+            {
+                try
+                { 
+                        var service = new ServiceTest.NewMassgeServiceClient();
+                        service.InsertMessage("PlanInfo", "NewPlan", artInfo.Khdh, null); 
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e); 
+                }
+            }
 
-            //    var service = new ServiceTest.NewMassgeServiceClient();
-            //    service.InsertMessage("OrderGetMesHour", "KeyProcess", keyProcess.MxId.ToString(), null); 
 
             Console.WriteLine(result);
             Console.ReadLine();
