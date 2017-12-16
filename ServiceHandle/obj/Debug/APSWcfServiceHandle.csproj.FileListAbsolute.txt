@@ -45,3 +45,5 @@ F:\ServiceMq\SeviceMq\ServiceHandle\obj\Debug\APSWcfServiceHandle.csproj.CoreCom
 F:\ServiceMq\SeviceMq\ServiceHandle\obj\Debug\ServiceHandle.dll
 F:\ServiceMq\SeviceMq\ServiceHandle\obj\Debug\ServiceHandle.pdb
 F:\ServiceMq\SeviceMq\ServiceHandle\obj\Debug\APSWcfServiceHandle.csprojResolveAssemblyReference.cache
+F:\ServiceMq\SeviceMq\ServiceHandle\bin\DataModels.dll
+F:\ServiceMq\SeviceMq\ServiceHandle\bin\DataModels.pdb

@@ -1,0 +1,2 @@
+F:\ServiceMq\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.csprojResolveAssemblyReference.cache
+F:\ServiceMq\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.csproj.CoreCompileInputs.cache

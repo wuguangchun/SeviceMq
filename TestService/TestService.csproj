@@ -179,6 +179,8 @@
     <Compile Include="Models\TAnalysisOrderListByDH.cs" />
     <Compile Include="Models\TAnalysisOrderListByDHController.cs" />
     <Compile Include="Models\TAnalysisOrderListController.cs" />
+    <Compile Include="Models\TAnalysisOrderMx.cs" />
+    <Compile Include="Models\TAnalysisOrderMxController.cs" />
     <Compile Include="Models\TAnalysisOutputList.cs" />
     <Compile Include="Models\TAnalysisOutPutListByCF.cs" />
     <Compile Include="Models\TAnalysisOutPutListByCFController.cs" />
@@ -229,6 +231,8 @@
     <Compile Include="Models\TBasisResourceController.cs" />
     <Compile Include="Models\TBasisSewingProcess.cs" />
     <Compile Include="Models\TBasisSewingProcessController.cs" />
+    <Compile Include="Models\TBasisSpecialCode.cs" />
+    <Compile Include="Models\TBasisSpecialCodeController.cs" />
     <Compile Include="Models\TBasisSpecialList.cs" />
     <Compile Include="Models\TBasisSpecialListController.cs" />
     <Compile Include="Models\TBasisSystemInfo.cs" />

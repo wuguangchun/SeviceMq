@@ -271,8 +271,8 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarGyxx = new TableSchema.TableColumn(schema);
 				colvarGyxx.ColumnName = "gyxx";
-				colvarGyxx.DataType = DbType.AnsiString;
-				colvarGyxx.MaxLength = 2147483647;
+				colvarGyxx.DataType = DbType.String;
+				colvarGyxx.MaxLength = -1;
 				colvarGyxx.AutoIncrement = false;
 				colvarGyxx.IsNullable = true;
 				colvarGyxx.IsPrimaryKey = false;

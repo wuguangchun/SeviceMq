@@ -1,0 +1,9 @@
+F:\ServiceMq\SeviceMq\DataModels\bin\Debug\DataModels.dll
+F:\ServiceMq\SeviceMq\DataModels\bin\Debug\DataModels.pdb
+F:\ServiceMq\SeviceMq\DataModels\bin\Debug\MySql.Data.dll
+F:\ServiceMq\SeviceMq\DataModels\bin\Debug\SubSonic.Core.dll
+F:\ServiceMq\SeviceMq\DataModels\bin\Debug\SubSonic.dll
+F:\ServiceMq\SeviceMq\DataModels\bin\Debug\SubSonic.Migrations.dll
+F:\ServiceMq\SeviceMq\DataModels\obj\Debug\DataModels.csproj.CoreCompileInputs.cache
+F:\ServiceMq\SeviceMq\DataModels\obj\Debug\DataModels.dll
+F:\ServiceMq\SeviceMq\DataModels\obj\Debug\DataModels.pdb

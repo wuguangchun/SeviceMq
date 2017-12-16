@@ -72,7 +72,7 @@ namespace APSData{
                 TableSchema.TableColumn colvarOrderType = new TableSchema.TableColumn(schema);
                 colvarOrderType.ColumnName = "orderType";
                 colvarOrderType.DataType = DbType.String;
-                colvarOrderType.MaxLength = 256;
+                colvarOrderType.MaxLength = 257;
                 colvarOrderType.AutoIncrement = false;
                 colvarOrderType.IsNullable = true;
                 colvarOrderType.IsPrimaryKey = false;
@@ -179,8 +179,8 @@ namespace APSData{
                 
                 TableSchema.TableColumn colvarGyxx = new TableSchema.TableColumn(schema);
                 colvarGyxx.ColumnName = "gyxx";
-                colvarGyxx.DataType = DbType.AnsiString;
-                colvarGyxx.MaxLength = 2147483647;
+                colvarGyxx.DataType = DbType.String;
+                colvarGyxx.MaxLength = -1;
                 colvarGyxx.AutoIncrement = false;
                 colvarGyxx.IsNullable = true;
                 colvarGyxx.IsPrimaryKey = false;
@@ -572,6 +572,54 @@ namespace APSData{
                 colvarKey30.IsReadOnly = false;
                 
                 schema.Columns.Add(colvarKey30);
+                
+                TableSchema.TableColumn colvarScfzjq = new TableSchema.TableColumn(schema);
+                colvarScfzjq.ColumnName = "SCFZJQ";
+                colvarScfzjq.DataType = DbType.DateTime;
+                colvarScfzjq.MaxLength = 0;
+                colvarScfzjq.AutoIncrement = false;
+                colvarScfzjq.IsNullable = true;
+                colvarScfzjq.IsPrimaryKey = false;
+                colvarScfzjq.IsForeignKey = false;
+                colvarScfzjq.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarScfzjq);
+                
+                TableSchema.TableColumn colvarSctcrq = new TableSchema.TableColumn(schema);
+                colvarSctcrq.ColumnName = "SCTCRQ";
+                colvarSctcrq.DataType = DbType.DateTime;
+                colvarSctcrq.MaxLength = 0;
+                colvarSctcrq.AutoIncrement = false;
+                colvarSctcrq.IsNullable = true;
+                colvarSctcrq.IsPrimaryKey = false;
+                colvarSctcrq.IsForeignKey = false;
+                colvarSctcrq.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarSctcrq);
+                
+                TableSchema.TableColumn colvarSczsbz = new TableSchema.TableColumn(schema);
+                colvarSczsbz.ColumnName = "SCZSBZ";
+                colvarSczsbz.DataType = DbType.AnsiString;
+                colvarSczsbz.MaxLength = 255;
+                colvarSczsbz.AutoIncrement = false;
+                colvarSczsbz.IsNullable = true;
+                colvarSczsbz.IsPrimaryKey = false;
+                colvarSczsbz.IsForeignKey = false;
+                colvarSczsbz.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarSczsbz);
+                
+                TableSchema.TableColumn colvarSpecialCode = new TableSchema.TableColumn(schema);
+                colvarSpecialCode.ColumnName = "SpecialCode";
+                colvarSpecialCode.DataType = DbType.String;
+                colvarSpecialCode.MaxLength = -1;
+                colvarSpecialCode.AutoIncrement = false;
+                colvarSpecialCode.IsNullable = true;
+                colvarSpecialCode.IsPrimaryKey = false;
+                colvarSpecialCode.IsForeignKey = false;
+                colvarSpecialCode.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarSpecialCode);
                 
                 
                 BaseSchema = schema;
@@ -1224,6 +1272,62 @@ namespace APSData{
 			    SetColumnValue("key30", value);
             }
         }
+	      
+        [XmlAttribute("Scfzjq")]
+        [Bindable(true)]
+        public DateTime? Scfzjq 
+	    {
+		    get
+		    {
+			    return GetColumnValue<DateTime?>("SCFZJQ");
+		    }
+            set 
+		    {
+			    SetColumnValue("SCFZJQ", value);
+            }
+        }
+	      
+        [XmlAttribute("Sctcrq")]
+        [Bindable(true)]
+        public DateTime? Sctcrq 
+	    {
+		    get
+		    {
+			    return GetColumnValue<DateTime?>("SCTCRQ");
+		    }
+            set 
+		    {
+			    SetColumnValue("SCTCRQ", value);
+            }
+        }
+	      
+        [XmlAttribute("Sczsbz")]
+        [Bindable(true)]
+        public string Sczsbz 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("SCZSBZ");
+		    }
+            set 
+		    {
+			    SetColumnValue("SCZSBZ", value);
+            }
+        }
+	      
+        [XmlAttribute("SpecialCode")]
+        [Bindable(true)]
+        public string SpecialCode 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("SpecialCode");
+		    }
+            set 
+		    {
+			    SetColumnValue("SpecialCode", value);
+            }
+        }
 	    
 	    #endregion
     
@@ -1317,6 +1421,14 @@ namespace APSData{
             public static string Key29 = @"key29";
             
             public static string Key30 = @"key30";
+            
+            public static string Scfzjq = @"SCFZJQ";
+            
+            public static string Sctcrq = @"SCTCRQ";
+            
+            public static string Sczsbz = @"SCZSBZ";
+            
+            public static string SpecialCode = @"SpecialCode";
             
 	    }
 	    #endregion

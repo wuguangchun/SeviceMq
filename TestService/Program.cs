@@ -46,20 +46,45 @@ namespace TestService
             //    service.InsertMessage("OrderGetMesHour", "KeyProcess", keyProcess.MxId.ToString(), null); 
             //}
 
-            var list=new Select().From<VOrderListFZXf>().ExecuteTypedList<VOrderListFZXf>();
+            //var list=new Select().From<VOrderListFZXf>().ExecuteTypedList<VOrderListFZXf>();
 
-            foreach (var artInfo in list)
+            //foreach (var artInfo in list)
+            //{
+            //    try
+            //    { 
+            //            var service = new ServiceTest.NewMassgeServiceClient();
+            //            service.InsertMessage("PlanInfo", "NewPlan", artInfo.Khdh, null); 
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        Console.WriteLine(e); 
+            //    }
+            //}
+
+            var list = new Select().From<VOrderListFZXf>().ExecuteTypedList<VOrderListFZXf>();
+
+            //生成订单数据字表
+            var ordermxList = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).In(list.ConvertAll(x => x.Khdh))
+                .ExecuteTypedList<TBLDataOrdermx>();
+
+            var mxList = new List<TAnalysisOrderMx>();
+            foreach (var ordermx in ordermxList)
             {
-                try
-                { 
-                        var service = new ServiceTest.NewMassgeServiceClient();
-                        service.InsertMessage("PlanInfo", "NewPlan", artInfo.Khdh, null); 
-                }
-                catch (Exception e)
+                var orderMx = new TAnalysisOrderMx
                 {
-                    Console.WriteLine(e); 
-                }
+                    Khdh = ordermx.Khdh,
+                    Fzfl = ordermx.Fzfl,
+                    SpecialCode = GetFZSpecialCode(ordermx.Gyxx.Split(','), ordermx.Fzfl).Replace("[", "").Replace("]", "").Replace("\"", "")
+                };
+
+                mxList.Add(orderMx);
             }
+
+            //避免数据重复先删除
+            new Delete().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn)
+                .In(mxList.ConvertAll(x => x.Khdh)).Execute();
+
+            mxList.ForEach(x => x.Save());
 
 
             Console.WriteLine(result);
@@ -67,6 +92,26 @@ namespace TestService
         }
 
 
+        //生成FzSpecial字段 缝制特殊工艺订单
+        public static string GetFZSpecialCode(string[] gyxx, string sType)
+        {
+            try
+            {
+                var specials = new Select().From<TBasisSpecialCode>()
+                    .Where(TBasisSpecialCode.ModelColumn).IsEqualTo("缝制")
+                    .And(TBasisSpecialCode.SpecialTypeColumn).IsEqualTo(sType)
+                    .And(TBasisSpecialCode.SpecialCodeColumn).In(gyxx)
+                    .ExecuteTypedList<TBasisSpecialCode>();
+
+                var listcode = specials.ConvertAll(x => x.SpecialCode);
+                return JsonConvert.SerializeObject(listcode);
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
 
 
 

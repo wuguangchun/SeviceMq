@@ -54,9 +54,13 @@ namespace APSData
         
 		public static readonly string SCT26 = @"SCT26";
         
+		public static readonly string SCT26Test = @"SCT26_test";
+        
 		public static readonly string SCT262 = @"SCT262";
         
 		public static readonly string SCT27 = @"SCT27";
+        
+		public static readonly string SCT27Test = @"SCT27_test";
         
 		public static readonly string SCT271 = @"SCT271";
         
@@ -101,6 +105,8 @@ namespace APSData
 		public static readonly string TAnalysisOrderListByCF = @"T_Analysis_OrderListByCF";
         
 		public static readonly string TAnalysisOrderListByDH = @"T_Analysis_OrderListByDH";
+        
+		public static readonly string TAnalysisOrderMx = @"T_Analysis_OrderMx";
         
 		public static readonly string TAnalysisOutputList = @"T_Analysis_OutputList";
         
@@ -152,6 +158,8 @@ namespace APSData
         
 		public static readonly string TBasisSewingProcess = @"T_Basis_SewingProcess";
         
+		public static readonly string TBasisSpecialCode = @"T_Basis_SpecialCode";
+        
 		public static readonly string TBasisSpecialList = @"T_Basis_SpecialList";
         
 		public static readonly string TBasisSystemInfo = @"T_Basis_SystemInfo";
@@ -192,9 +200,9 @@ namespace APSData
         
 		public static readonly string TErrorLog = @"T_ErrorLog";
         
-		public static readonly string TFZfirstOrderDelete = @"T_FZfirstOrder_delete";
+		public static readonly string TFZfirstOrder = @"T_FZfirstOrder";
         
-		public static readonly string TFZfirstOutDelete = @"T_FZfirstOut_delete";
+		public static readonly string TFZfirstOut = @"T_FZfirstOut";
         
 		public static readonly string TFZOverDelete = @"T_FZOver_delete";
         
@@ -211,6 +219,8 @@ namespace APSData
 		public static readonly string TLogError = @"T_Log_Error";
         
 		public static readonly string TLogService = @"T_Log_Service";
+        
+		public static readonly string TLogAPSToSAP = @"T_LogAPSToSAP";
         
 		public static readonly string TMessage = @"T_Message";
         
@@ -254,7 +264,7 @@ namespace APSData
         
 		public static readonly string TTempMESDelete = @"T_TempMES_delete";
         
-		public static readonly string TTsgyDelete = @"T_TSGY_delete";
+		public static readonly string TTsgy = @"T_TSGY";
         
 		public static readonly string TTzwfDelete = @"T_TZWF_delete";
         
@@ -379,6 +389,11 @@ namespace APSData
             get { return DataService.GetSchema("SCT26", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table SCT26Test
+		{
+            get { return DataService.GetSchema("SCT26_test", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table SCT262
 		{
             get { return DataService.GetSchema("SCT262", "Nowthwin"); }
@@ -387,6 +402,11 @@ namespace APSData
 		public static TableSchema.Table SCT27
 		{
             get { return DataService.GetSchema("SCT27", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT27Test
+		{
+            get { return DataService.GetSchema("SCT27_test", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table SCT271
@@ -497,6 +517,11 @@ namespace APSData
 		public static TableSchema.Table TAnalysisOrderListByDH
 		{
             get { return DataService.GetSchema("T_Analysis_OrderListByDH", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TAnalysisOrderMx
+		{
+            get { return DataService.GetSchema("T_Analysis_OrderMx", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOutputList
@@ -624,6 +649,11 @@ namespace APSData
             get { return DataService.GetSchema("T_Basis_SewingProcess", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBasisSpecialCode
+		{
+            get { return DataService.GetSchema("T_Basis_SpecialCode", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBasisSpecialList
 		{
             get { return DataService.GetSchema("T_Basis_SpecialList", "Nowthwin"); }
@@ -724,14 +754,14 @@ namespace APSData
             get { return DataService.GetSchema("T_ErrorLog", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TFZfirstOrderDelete
+		public static TableSchema.Table TFZfirstOrder
 		{
-            get { return DataService.GetSchema("T_FZfirstOrder_delete", "Nowthwin"); }
+            get { return DataService.GetSchema("T_FZfirstOrder", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TFZfirstOutDelete
+		public static TableSchema.Table TFZfirstOut
 		{
-            get { return DataService.GetSchema("T_FZfirstOut_delete", "Nowthwin"); }
+            get { return DataService.GetSchema("T_FZfirstOut", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TFZOverDelete
@@ -772,6 +802,11 @@ namespace APSData
 		public static TableSchema.Table TLogService
 		{
             get { return DataService.GetSchema("T_Log_Service", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TLogAPSToSAP
+		{
+            get { return DataService.GetSchema("T_LogAPSToSAP", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TMessage
@@ -879,9 +914,9 @@ namespace APSData
             get { return DataService.GetSchema("T_TempMES_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TTsgyDelete
+		public static TableSchema.Table TTsgy
 		{
-            get { return DataService.GetSchema("T_TSGY_delete", "Nowthwin"); }
+            get { return DataService.GetSchema("T_TSGY", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TTzwfDelete

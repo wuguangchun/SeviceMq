@@ -106,6 +106,7 @@ namespace ServiceHandle.Handle
                     tstx = "TSTX";
                 }
 
+                //生成订单数据主表
                 TAnalysisOrder tAnalysisOrderList = new TAnalysisOrder
                 {
                     OrderId = tstx + Helper.DataHelper.GenerateOrderNumber(),
@@ -116,7 +117,7 @@ namespace ServiceHandle.Handle
                     CoatType = coatType + "-" + GetCoatType(blData.ordermx),
                     SpecialTime = specialTime,
                     SpecialCode = specialCode,
-                    Sfbcpsy = string.IsNullOrWhiteSpace(blData.ordermx.First().Sfbcpsy) ? "0" : blData.ordermx.First().Sfbcpsy,
+                    Sfbcpsy = string.IsNullOrWhiteSpace(blData.ordermx.First().Sfbcpsy) ? "0" : blData.ordermx.First().Sfbcpsy
                 };
 
                 //避免数据重复先删除
@@ -125,6 +126,27 @@ namespace ServiceHandle.Handle
 
                 tAnalysisOrderList.Save();
 
+
+
+                //生成订单数据字表
+                var mxList = new List<TAnalysisOrderMx>();
+                foreach (var ordermx in blData.ordermx)
+                {
+                    var orderMx = new TAnalysisOrderMx
+                    {
+                        Khdh = blData.order.Khdh,
+                        Fzfl = ordermx.Fzfl,
+                        SpecialCode = GetFZSpecialCode(ordermx.Gyxx.Split(','), ordermx.Fzfl).Replace("[", "").Replace("]", "").Replace("\"", "")
+                    };
+
+                    mxList.Add(orderMx);
+                }
+
+                //避免数据重复先删除
+                new Delete().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn)
+                    .IsEqualTo(blData.order.Khdh).Execute();
+
+                mxList.ForEach(x => x.Save());
                 return JsonConvert.SerializeObject(new JsonHelper { RetCode = "success", RetMessage = "保存成功" });
             }
             catch (Exception e)
@@ -311,5 +333,27 @@ namespace ServiceHandle.Handle
                 throw;
             }
         }
+
+        //生成FzSpecial字段 缝制特殊工艺订单
+        public static string GetFZSpecialCode(string[] gyxx, string sType)
+        {
+            try
+            {
+                var specials = new Select().From<TBasisSpecialCode>()
+                     .Where(TBasisSpecialCode.ModelColumn).IsEqualTo("缝制")
+                     .And(TBasisSpecialCode.SpecialTypeColumn).IsEqualTo(sType)
+                     .And(TBasisSpecialCode.SpecialCodeColumn).In(gyxx)
+                     .ExecuteTypedList<TBasisSpecialCode>();
+
+                var listcode = specials.ConvertAll(x => x.SpecialCode);
+                return JsonConvert.SerializeObject(listcode);
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
     }
 }

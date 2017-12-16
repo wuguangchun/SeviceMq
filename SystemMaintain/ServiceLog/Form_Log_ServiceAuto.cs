@@ -151,6 +151,11 @@ namespace SystemMaintain.ServiceLog
                     {
                         okRow += UpdateLogs(logService.Id, new TBLDataOrdermx(TBLDataOrdermx.MxidColumn.ColumnName, logService.Context).Khdh) ? 1 : 0;
                     }
+                    //从ERP获取计划数据
+                    else if (logService.MessagePath == "PlanInfo" && (logService.Lable == "NewPlan"|| logService.Lable == "NewPlanMain"))
+                    {
+                        okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
+                    }
 
                     //执行后删除日志信息
                     logList.Remove(logService);
