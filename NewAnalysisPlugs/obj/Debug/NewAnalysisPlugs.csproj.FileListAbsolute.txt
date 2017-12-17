@@ -1,0 +1,17 @@
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.csproj.CoreCompileInputs.cache
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\NewAnalysisPlugs.dll.config
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\NewAnalysisPlugs.dll
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\NewAnalysisPlugs.pdb
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\DataModels.dll
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\MySql.Data.dll
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\ServiceHelper.dll
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\SubSonic.Core.dll
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\SubSonic.dll
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\SubSonic.Migrations.dll
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\Newtonsoft.Json.dll
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\DataModels.pdb
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\ServiceHelper.pdb
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\ServiceHelper.dll.config
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\bin\Debug\Newtonsoft.Json.xml
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.dll
+F:\Projects\ServiceMq\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.pdb

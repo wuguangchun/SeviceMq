@@ -24,3 +24,15 @@ F:\ServiceMq\SeviceMq\TestService\obj\Debug\TestService.csproj.CoreCompileInputs
 F:\ServiceMq\SeviceMq\TestService\obj\Debug\TestService.exe
 F:\ServiceMq\SeviceMq\TestService\obj\Debug\TestService.pdb
 F:\ServiceMq\SeviceMq\TestService\obj\Debug\TestService.csprojResolveAssemblyReference.cache
+F:\Projects\ServiceMq\SeviceMq\TestService\bin\Debug\TestService.exe.config
+F:\Projects\ServiceMq\SeviceMq\TestService\bin\Debug\TestService.exe
+F:\Projects\ServiceMq\SeviceMq\TestService\bin\Debug\TestService.pdb
+F:\Projects\ServiceMq\SeviceMq\TestService\bin\Debug\MySql.Data.dll
+F:\Projects\ServiceMq\SeviceMq\TestService\bin\Debug\Newtonsoft.Json.dll
+F:\Projects\ServiceMq\SeviceMq\TestService\bin\Debug\SubSonic.Core.dll
+F:\Projects\ServiceMq\SeviceMq\TestService\bin\Debug\SubSonic.dll
+F:\Projects\ServiceMq\SeviceMq\TestService\bin\Debug\SubSonic.Migrations.dll
+F:\Projects\ServiceMq\SeviceMq\TestService\bin\Debug\Newtonsoft.Json.xml
+F:\Projects\ServiceMq\SeviceMq\TestService\obj\Debug\TestService.csproj.CoreCompileInputs.cache
+F:\Projects\ServiceMq\SeviceMq\TestService\obj\Debug\TestService.exe
+F:\Projects\ServiceMq\SeviceMq\TestService\obj\Debug\TestService.pdb

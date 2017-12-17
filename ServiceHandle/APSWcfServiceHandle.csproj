@@ -131,9 +131,6 @@
     <Compile Include="Handle\OrderMESArtInfoHandle.cs" />
     <Compile Include="Handle\PutCadHandle.cs" />
     <Compile Include="Helper\AutoStart.cs" />
-    <Compile Include="Helper\DataHelper.cs" />
-    <Compile Include="Helper\JsonHelper.cs" />
-    <Compile Include="Helper\PushWebHelper.cs" />
     <Compile Include="IActivationService.cs" />
     <Compile Include="ModelsOther\BlBlanking.cs" />
     <Compile Include="ModelsOther\BLData.cs" />
@@ -163,9 +160,25 @@
     <WCFMetadataStorage Include="Connected Services\ApsMessageService\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BlankingPlugs\BlankingPlugs.csproj">
+      <Project>{60eb2da7-5d06-41ef-9364-6c203e12d42c}</Project>
+      <Name>BlankingPlugs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CallBackPlugs\CallBackPlugs.csproj">
+      <Project>{79a07737-79f6-4fc9-bed7-792f837ef399}</Project>
+      <Name>CallBackPlugs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataModels\DataModels.csproj">
       <Project>{fc11b119-2974-4750-bc01-0b56b4b630ee}</Project>
       <Name>DataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewAnalysisPlugs\NewAnalysisPlugs.csproj">
+      <Project>{b32b06cc-919a-4283-b0f3-624dd610e35d}</Project>
+      <Name>NewAnalysisPlugs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceHelper\ServiceHelper.csproj">
+      <Project>{1cbb637c-428f-492a-940f-701ec0494dbf}</Project>
+      <Name>ServiceHelper</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

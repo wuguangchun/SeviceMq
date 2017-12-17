@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelsOther\BlBlanking.cs" />
+    <Compile Include="ModelsOther\BLData.cs" />
+    <Compile Include="ModelsOther\BlPbcd.cs" />
+    <Compile Include="ModelsOther\Completion.cs" />
+    <Compile Include="ModelsOther\MesGerHourModel.cs" />
+    <Compile Include="ModelsOther\ServiceLog.cs" />
     <Compile Include="Models\AllStructs.cs" />
     <Compile Include="Models\BCutterSetDelete.cs" />
     <Compile Include="Models\BCutterSetDeleteController.cs" />

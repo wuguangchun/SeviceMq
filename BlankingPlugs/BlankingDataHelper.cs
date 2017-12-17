@@ -7,16 +7,18 @@ using System.Text;
 using Kute.Helper;
 using Model;
 using ServiceHandle.Helper;
+using ServiceHandle.ModelsOther;
+using ServiceHelper.Helper;
 using SubSonic;
 
 namespace BlankingPlugs
 {
-    class BlankingDataHelper
+   public class BlankingDataHelper
     {
-        private static JsonHelper json = new JsonHelper();
+        private JsonHelper json = new JsonHelper();
 
         //生成Blanking表数据
-        public static string CreateBlankingData(string customerId)
+        public  string CreateBlankingData(string customerId)
         {
             try
             {
@@ -29,16 +31,9 @@ namespace BlankingPlugs
                 if (ExistsDate(blanking.OrderID))
                 {
 
-                    //T_BlankingDetailes
+                    //T_BlankingDetailes  如果存在就删除
                     var rowCount = new Delete().From<TBlankingDetaile>()
                         .Where(TBlankingDetaile.CustumerIdColumn).IsEqualTo(blanking.OrderID).Execute();
-                    if (rowCount > 0)
-                    {
-
-                        //添加到服务日志队列（异常报备）
-                        var log = new TLogService { Lable = "error", Context = blanking.OrderID, CallBackUrl = null, MessageID = null, MessagePath = "error", CreateTime = DateTime.Now };
-                        new ApsMessageService.NewMassgeServiceClient().InsertMessage($".\\private$\\LogService", "AddLog", JsonHelper.GetJsonO(log), null);
-                    }
                 }
 
                 //没有裁床号的订单跳过
@@ -54,13 +49,13 @@ namespace BlankingPlugs
                     $@"select a.sczsbh,b.sccjjq ,b.scgcdm from aps_sct27 a
                                 left join SCT26 b on a.sczsbh = b.sczsbh
                                 where a.scyspd = ''{blanking.OrderID}''";
-                var datatable = DataHelper.OtherBaseSelect("FYERP", sql);
+                var datatable = new DataHelper().OtherBaseSelect("FYERP", sql);
 
                 if (datatable == null || datatable.Rows.Count < 1)
                 {
                     throw new Exception($"在ERP里没有找到【{blanking.OrderID}数据信息");
                 }
-                var erpTable = DataHelper.OtherBaseSelect("FYERP", sql).Rows[0].ItemArray.ToList();
+                var erpTable = new DataHelper().OtherBaseSelect("FYERP", sql).Rows[0].ItemArray.ToList();
 
                 #endregion
 
@@ -137,7 +132,7 @@ namespace BlankingPlugs
         }
 
         //调用BL接口接收数据
-        private static List<BlBlanking> GetBlSources(string customerId)
+        private  List<BlBlanking> GetBlSources(string customerId)
         {
             try
             {
@@ -162,7 +157,7 @@ namespace BlankingPlugs
         }
 
         //获取该订单的裁床信息
-        private static TOldApsByCf GetOldApsByCfAtOrderId(string customerId)
+        private  TOldApsByCf GetOldApsByCfAtOrderId(string customerId)
         {
             try
             {
@@ -185,7 +180,7 @@ namespace BlankingPlugs
         }
 
         //查询数据是否已存在
-        public static bool ExistsDate(string khdh)
+        public  bool ExistsDate(string khdh)
         {
             try
             {

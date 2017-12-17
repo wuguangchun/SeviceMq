@@ -7,3 +7,12 @@ F:\ServiceMq\SeviceMq\DataModels\bin\Debug\SubSonic.Migrations.dll
 F:\ServiceMq\SeviceMq\DataModels\obj\Debug\DataModels.csproj.CoreCompileInputs.cache
 F:\ServiceMq\SeviceMq\DataModels\obj\Debug\DataModels.dll
 F:\ServiceMq\SeviceMq\DataModels\obj\Debug\DataModels.pdb
+F:\Projects\ServiceMq\SeviceMq\DataModels\bin\Debug\DataModels.dll
+F:\Projects\ServiceMq\SeviceMq\DataModels\bin\Debug\DataModels.pdb
+F:\Projects\ServiceMq\SeviceMq\DataModels\bin\Debug\MySql.Data.dll
+F:\Projects\ServiceMq\SeviceMq\DataModels\bin\Debug\SubSonic.Core.dll
+F:\Projects\ServiceMq\SeviceMq\DataModels\bin\Debug\SubSonic.dll
+F:\Projects\ServiceMq\SeviceMq\DataModels\bin\Debug\SubSonic.Migrations.dll
+F:\Projects\ServiceMq\SeviceMq\DataModels\obj\Debug\DataModels.csproj.CoreCompileInputs.cache
+F:\Projects\ServiceMq\SeviceMq\DataModels\obj\Debug\DataModels.dll
+F:\Projects\ServiceMq\SeviceMq\DataModels\obj\Debug\DataModels.pdb

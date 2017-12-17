@@ -15,3 +15,9 @@ F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csproj.Cor
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.exe
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.pdb
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csprojResolveAssemblyReference.cache
+F:\Projects\Release\CADXFPush\CADXfSchedulingEnd.exe.config
+F:\Projects\Release\CADXFPush\CADXfSchedulingEnd.exe
+F:\Projects\Release\CADXFPush\CADXfSchedulingEnd.pdb
+F:\Projects\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csproj.CoreCompileInputs.cache
+F:\Projects\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.exe
+F:\Projects\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.pdb

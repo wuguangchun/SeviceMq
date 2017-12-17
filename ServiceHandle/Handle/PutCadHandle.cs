@@ -108,16 +108,6 @@ namespace ServiceHandle.Handle
 
                 if (blObj.S == "1")
                 {
-                    ////Json解析，获取客户单号
-                    //var orderId =
-                    //    ((CadBlModelList)JsonHelper.ReturnObject(jsonBody, typeof(CadBlModelList))).ds.First()
-                    //    .customerId;
-
-                    ////更新CAD排程表
-                    //new Update(TBLCADTemp.Schema)
-                    //    .Set(TBLCADTemp.StateColumn).EqualTo(0)
-                    //    .Where(TBLCADTemp.CustomerIDColumn).IsEqualTo(orderId)
-                    //    .Execute();
 
                     json.RetCode = "error";
                     json.RetMessage = blObj.Rs;

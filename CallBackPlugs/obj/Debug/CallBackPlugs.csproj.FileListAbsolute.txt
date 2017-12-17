@@ -1,0 +1,15 @@
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\bin\Debug\CallBackPlugs.dll
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\bin\Debug\CallBackPlugs.pdb
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\bin\Debug\DataModels.dll
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\bin\Debug\ServiceHelper.dll
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\bin\Debug\SubSonic.dll
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\bin\Debug\Newtonsoft.Json.dll
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\bin\Debug\MySql.Data.dll
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\bin\Debug\DataModels.pdb
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\bin\Debug\ServiceHelper.pdb
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\bin\Debug\ServiceHelper.dll.config
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\bin\Debug\Newtonsoft.Json.xml
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.csprojResolveAssemblyReference.cache
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.csproj.CoreCompileInputs.cache
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.dll
+F:\Projects\ServiceMq\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.pdb

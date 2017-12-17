@@ -8,6 +8,7 @@ using Kute.Helper;
 using Model;
 using Newtonsoft.Json;
 using ServiceHandle.Helper;
+using ServiceHelper.Helper;
 using SubSonic;
 
 namespace ServiceHandle.Handle
@@ -109,7 +110,7 @@ namespace ServiceHandle.Handle
                 if (dataOrder == null)
                     throw new Exception("没有找到订单的基础信息");
 
-                var dataTable = DataHelper.OtherBaseSelect("fyerp", $"select * from sct27 where scggdh = ''{dataOrder.Scggdh}''");
+                var dataTable = new DataHelper().OtherBaseSelect("fyerp", $"select * from sct27 where scggdh = ''{dataOrder.Scggdh}''");
 
                 foreach (DataRow row in dataTable.Rows)
                 {
@@ -154,7 +155,7 @@ namespace ServiceHandle.Handle
 
                 if (dataOrder.Count < 1)
                 {
-                    var dataTable = DataHelper.OtherBaseSelect("fyerp", $"select * from sct26 where sczsbh = ''{sczsbh}''");
+                    var dataTable = new DataHelper().OtherBaseSelect("fyerp", $"select * from sct26 where sczsbh = ''{sczsbh}''");
 
                     foreach (DataRow row in dataTable.Rows)
                     {
