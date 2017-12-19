@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using ServiceHandle.Helper;
 using ServiceHandle.ModelsOther;
 using SubSonic;
+using TestService.Helper;
 using TestService.ModelsOther;
 
 namespace TestService
@@ -23,6 +24,7 @@ namespace TestService
         {
             string result = string.Empty;
 
+            new AutoPlanXf().OrderScreen();
             //var comp = new Completion
             //{
             //    CustmerId = "SAE417110077",
@@ -46,45 +48,59 @@ namespace TestService
             //    service.InsertMessage("OrderGetMesHour", "KeyProcess", keyProcess.MxId.ToString(), null); 
             //}
 
-            //var list=new Select().From<VOrderListFZXf>().ExecuteTypedList<VOrderListFZXf>();
+            //var list = new Select().From<VOrderListFZXf>()
+            //    .Where(VOrderListFZXf.Columns.OrderType).Like("%MJ%")
+            //    .ExecuteTypedList<VOrderListFZXf>();
 
-            //foreach (var artInfo in list)
+            //var mjlist = new Select().From<TBasisOrderStatus>()
+            //    .Where(TBasisOrderStatus.OrderStatusColumn).IsEqualTo(201)
+            //    .ExecuteTypedList<TBasisOrderStatus>()
+            //    .FindAll(x => !x.CustomerId.ToLower().Contains("cy"));
+
+            //mjlist.RemoveRange(2000, mjlist.Count - 2000);
+            //var list1 = new Select().From<TBLDataOrdermx>()
+            //    .Where(TBLDataOrdermx.KhdhColumn).In(mjlist.ConvertAll(x => x.CustomerId))
+            //    .ExecuteTypedList<TBLDataOrdermx>();
+
+            //list1.RemoveAll(x => !x.Fzfl.ToLower().Contains("mj"));
+
+            //foreach (var artInfo in list1)
             //{
             //    try
-            //    { 
-            //            var service = new ServiceTest.NewMassgeServiceClient();
-            //            service.InsertMessage("PlanInfo", "NewPlan", artInfo.Khdh, null); 
+            //    {
+            //        var service = new ServiceTest.NewMassgeServiceClient();
+            //        service.InsertMessage("ordergetmeshour", "NewOrder", artInfo.Khdh, null);
             //    }
             //    catch (Exception e)
             //    {
-            //        Console.WriteLine(e); 
+            //        Console.WriteLine(e);
             //    }
             //}
 
-            var list = new Select().From<VOrderListFZXf>().ExecuteTypedList<VOrderListFZXf>();
+            //var list = new Select().From<VOrderListFZXf>().ExecuteTypedList<VOrderListFZXf>();
 
-            //生成订单数据字表
-            var ordermxList = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).In(list.ConvertAll(x => x.Khdh))
-                .ExecuteTypedList<TBLDataOrdermx>();
+            ////生成订单数据字表
+            //var ordermxList = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).In(list.ConvertAll(x => x.Khdh))
+            //    .ExecuteTypedList<TBLDataOrdermx>();
 
-            var mxList = new List<TAnalysisOrderMx>();
-            foreach (var ordermx in ordermxList)
-            {
-                var orderMx = new TAnalysisOrderMx
-                {
-                    Khdh = ordermx.Khdh,
-                    Fzfl = ordermx.Fzfl,
-                    SpecialCode = GetFZSpecialCode(ordermx.Gyxx.Split(','), ordermx.Fzfl).Replace("[", "").Replace("]", "").Replace("\"", "")
-                };
+            //var mxList = new List<TAnalysisOrderMx>();
+            //foreach (var ordermx in ordermxList)
+            //{
+            //    var orderMx = new TAnalysisOrderMx
+            //    {
+            //        Khdh = ordermx.Khdh,
+            //        Fzfl = ordermx.Fzfl,
+            //        SpecialCode = GetFZSpecialCode(ordermx.Gyxx.Split(','), ordermx.Fzfl).Replace("[", "").Replace("]", "").Replace("\"", "")
+            //    };
 
-                mxList.Add(orderMx);
-            }
+            //    mxList.Add(orderMx);
+            //}
 
-            //避免数据重复先删除
-            new Delete().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn)
-                .In(mxList.ConvertAll(x => x.Khdh)).Execute();
+            ////避免数据重复先删除
+            //new Delete().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn)
+            //    .In(mxList.ConvertAll(x => x.Khdh)).Execute();
 
-            mxList.ForEach(x => x.Save());
+            //mxList.ForEach(x => x.Save());
 
 
             Console.WriteLine(result);

@@ -45,11 +45,7 @@ namespace KillOrderPlugs
                 //T_BlankingDetailes
                 var killBlankingDetaile = new Delete().From<TBlankingDetaile>()
                     .Where(TBlankingDetaile.CustumerIdColumn).IsEqualTo(json);
-
-                //T_BLCADTemp
-                var killBLCADTemp = new Delete().From<TBLCADTemp>()
-                    .Where(TBLCADTemp.CustomerIDColumn).IsEqualTo(json);
-
+                
                 //T_BLData_Order
                 var killBLOrder = new Delete().From<TBLDataOrder>()
                     .Where(TBLDataOrder.KhdhColumn).IsEqualTo(json);
@@ -71,8 +67,7 @@ namespace KillOrderPlugs
                 result += $"T_Analysis_OutputList撤回{killOrderListOut.Execute()}条数据，";
                 result += $"T_Analysis_OutPutListByCF撤回{killOrderListOutByCf.Execute()}条数据，";
                 result += $"T_Analysis_OutPutListByFZ撤回{killOrderListOutByfz.Execute()}条数据，";
-                result += $"T_BlankingDetailes撤回{killBlankingDetaile.Execute()}条数据，";
-                result += $"T_BLCADTemp撤回{killBLCADTemp.Execute()}条数据，";
+                result += $"T_BlankingDetailes撤回{killBlankingDetaile.Execute()}条数据，"; 
                 result += $"T_BLData_Order撤回{killBLOrder.Execute()}条数据，";
                 result += $"T_BLData_Ordermx撤回{killBLOrdermx.Execute()}条数据，";
                 result += $"T_BLData_Mflxx撤回{killBLMflxx.Execute()}条数据，";

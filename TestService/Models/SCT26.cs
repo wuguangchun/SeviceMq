@@ -154,7 +154,7 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarScxdrq = new TableSchema.TableColumn(schema);
 				colvarScxdrq.ColumnName = "SCXDRQ";
-				colvarScxdrq.DataType = DbType.DateTime;
+				colvarScxdrq.DataType = DbType.AnsiString;
 				colvarScxdrq.MaxLength = 0;
 				colvarScxdrq.AutoIncrement = false;
 				colvarScxdrq.IsNullable = true;
@@ -167,7 +167,7 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarSccjjq = new TableSchema.TableColumn(schema);
 				colvarSccjjq.ColumnName = "SCCJJQ";
-				colvarSccjjq.DataType = DbType.DateTime;
+				colvarSccjjq.DataType = DbType.AnsiString;
 				colvarSccjjq.MaxLength = 0;
 				colvarSccjjq.AutoIncrement = false;
 				colvarSccjjq.IsNullable = true;
@@ -180,7 +180,7 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarScfzjq = new TableSchema.TableColumn(schema);
 				colvarScfzjq.ColumnName = "SCFZJQ";
-				colvarScfzjq.DataType = DbType.DateTime;
+				colvarScfzjq.DataType = DbType.AnsiString;
 				colvarScfzjq.MaxLength = 0;
 				colvarScfzjq.AutoIncrement = false;
 				colvarScfzjq.IsNullable = true;
@@ -193,7 +193,7 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarScjhrq = new TableSchema.TableColumn(schema);
 				colvarScjhrq.ColumnName = "SCJHRQ";
-				colvarScjhrq.DataType = DbType.DateTime;
+				colvarScjhrq.DataType = DbType.AnsiString;
 				colvarScjhrq.MaxLength = 0;
 				colvarScjhrq.AutoIncrement = false;
 				colvarScjhrq.IsNullable = true;
@@ -258,7 +258,7 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarScjqrq = new TableSchema.TableColumn(schema);
 				colvarScjqrq.ColumnName = "SCJQRQ";
-				colvarScjqrq.DataType = DbType.DateTime;
+				colvarScjqrq.DataType = DbType.AnsiString;
 				colvarScjqrq.MaxLength = 0;
 				colvarScjqrq.AutoIncrement = false;
 				colvarScjqrq.IsNullable = true;
@@ -271,7 +271,7 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarSclrrq = new TableSchema.TableColumn(schema);
 				colvarSclrrq.ColumnName = "SCLRRQ";
-				colvarSclrrq.DataType = DbType.DateTime;
+				colvarSclrrq.DataType = DbType.AnsiString;
 				colvarSclrrq.MaxLength = 0;
 				colvarSclrrq.AutoIncrement = false;
 				colvarSclrrq.IsNullable = true;
@@ -297,7 +297,7 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarScshrq = new TableSchema.TableColumn(schema);
 				colvarScshrq.ColumnName = "SCSHRQ";
-				colvarScshrq.DataType = DbType.DateTime;
+				colvarScshrq.DataType = DbType.AnsiString;
 				colvarScshrq.MaxLength = 0;
 				colvarScshrq.AutoIncrement = false;
 				colvarScshrq.IsNullable = true;
@@ -323,7 +323,7 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarScztjq = new TableSchema.TableColumn(schema);
 				colvarScztjq.ColumnName = "SCZTJQ";
-				colvarScztjq.DataType = DbType.DateTime;
+				colvarScztjq.DataType = DbType.AnsiString;
 				colvarScztjq.MaxLength = 0;
 				colvarScztjq.AutoIncrement = false;
 				colvarScztjq.IsNullable = true;
@@ -336,7 +336,7 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarScbzjq = new TableSchema.TableColumn(schema);
 				colvarScbzjq.ColumnName = "SCBZJQ";
-				colvarScbzjq.DataType = DbType.DateTime;
+				colvarScbzjq.DataType = DbType.AnsiString;
 				colvarScbzjq.MaxLength = 0;
 				colvarScbzjq.AutoIncrement = false;
 				colvarScbzjq.IsNullable = true;
@@ -362,7 +362,7 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarSctcrq = new TableSchema.TableColumn(schema);
 				colvarSctcrq.ColumnName = "SCTCRQ";
-				colvarSctcrq.DataType = DbType.DateTime;
+				colvarSctcrq.DataType = DbType.AnsiString;
 				colvarSctcrq.MaxLength = 0;
 				colvarSctcrq.AutoIncrement = false;
 				colvarSctcrq.IsNullable = true;
@@ -401,33 +401,33 @@ namespace APSData
 		  
 		[XmlAttribute("Scxdrq")]
 		[Bindable(true)]
-		public DateTime? Scxdrq 
+		public string Scxdrq 
 		{
-			get { return GetColumnValue<DateTime?>(Columns.Scxdrq); }
+			get { return GetColumnValue<string>(Columns.Scxdrq); }
 			set { SetColumnValue(Columns.Scxdrq, value); }
 		}
 		  
 		[XmlAttribute("Sccjjq")]
 		[Bindable(true)]
-		public DateTime? Sccjjq 
+		public string Sccjjq 
 		{
-			get { return GetColumnValue<DateTime?>(Columns.Sccjjq); }
+			get { return GetColumnValue<string>(Columns.Sccjjq); }
 			set { SetColumnValue(Columns.Sccjjq, value); }
 		}
 		  
 		[XmlAttribute("Scfzjq")]
 		[Bindable(true)]
-		public DateTime? Scfzjq 
+		public string Scfzjq 
 		{
-			get { return GetColumnValue<DateTime?>(Columns.Scfzjq); }
+			get { return GetColumnValue<string>(Columns.Scfzjq); }
 			set { SetColumnValue(Columns.Scfzjq, value); }
 		}
 		  
 		[XmlAttribute("Scjhrq")]
 		[Bindable(true)]
-		public DateTime? Scjhrq 
+		public string Scjhrq 
 		{
-			get { return GetColumnValue<DateTime?>(Columns.Scjhrq); }
+			get { return GetColumnValue<string>(Columns.Scjhrq); }
 			set { SetColumnValue(Columns.Scjhrq, value); }
 		}
 		  
@@ -465,17 +465,17 @@ namespace APSData
 		  
 		[XmlAttribute("Scjqrq")]
 		[Bindable(true)]
-		public DateTime? Scjqrq 
+		public string Scjqrq 
 		{
-			get { return GetColumnValue<DateTime?>(Columns.Scjqrq); }
+			get { return GetColumnValue<string>(Columns.Scjqrq); }
 			set { SetColumnValue(Columns.Scjqrq, value); }
 		}
 		  
 		[XmlAttribute("Sclrrq")]
 		[Bindable(true)]
-		public DateTime? Sclrrq 
+		public string Sclrrq 
 		{
-			get { return GetColumnValue<DateTime?>(Columns.Sclrrq); }
+			get { return GetColumnValue<string>(Columns.Sclrrq); }
 			set { SetColumnValue(Columns.Sclrrq, value); }
 		}
 		  
@@ -489,9 +489,9 @@ namespace APSData
 		  
 		[XmlAttribute("Scshrq")]
 		[Bindable(true)]
-		public DateTime? Scshrq 
+		public string Scshrq 
 		{
-			get { return GetColumnValue<DateTime?>(Columns.Scshrq); }
+			get { return GetColumnValue<string>(Columns.Scshrq); }
 			set { SetColumnValue(Columns.Scshrq, value); }
 		}
 		  
@@ -505,17 +505,17 @@ namespace APSData
 		  
 		[XmlAttribute("Scztjq")]
 		[Bindable(true)]
-		public DateTime? Scztjq 
+		public string Scztjq 
 		{
-			get { return GetColumnValue<DateTime?>(Columns.Scztjq); }
+			get { return GetColumnValue<string>(Columns.Scztjq); }
 			set { SetColumnValue(Columns.Scztjq, value); }
 		}
 		  
 		[XmlAttribute("Scbzjq")]
 		[Bindable(true)]
-		public DateTime? Scbzjq 
+		public string Scbzjq 
 		{
-			get { return GetColumnValue<DateTime?>(Columns.Scbzjq); }
+			get { return GetColumnValue<string>(Columns.Scbzjq); }
 			set { SetColumnValue(Columns.Scbzjq, value); }
 		}
 		  
@@ -529,9 +529,9 @@ namespace APSData
 		  
 		[XmlAttribute("Sctcrq")]
 		[Bindable(true)]
-		public DateTime? Sctcrq 
+		public string Sctcrq 
 		{
-			get { return GetColumnValue<DateTime?>(Columns.Sctcrq); }
+			get { return GetColumnValue<string>(Columns.Sctcrq); }
 			set { SetColumnValue(Columns.Sctcrq, value); }
 		}
 		
@@ -554,7 +554,7 @@ namespace APSData
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varSczsbh,string varScgcdm,DateTime? varScxdrq,DateTime? varSccjjq,DateTime? varScfzjq,DateTime? varScjhrq,string varScjhry,string varSczsbz,string varSczszt,string varScjqsm,DateTime? varScjqrq,DateTime? varSclrrq,string varSclrry,DateTime? varScshrq,string varScshry,DateTime? varScztjq,DateTime? varScbzjq,string varSchtbh,DateTime? varSctcrq)
+		public static void Insert(string varSczsbh,string varScgcdm,string varScxdrq,string varSccjjq,string varScfzjq,string varScjhrq,string varScjhry,string varSczsbz,string varSczszt,string varScjqsm,string varScjqrq,string varSclrrq,string varSclrry,string varScshrq,string varScshry,string varScztjq,string varScbzjq,string varSchtbh,string varSctcrq)
 		{
 			SCT26 item = new SCT26();
 			
@@ -606,7 +606,7 @@ namespace APSData
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varSczsbh,string varScgcdm,DateTime? varScxdrq,DateTime? varSccjjq,DateTime? varScfzjq,DateTime? varScjhrq,string varScjhry,string varSczsbz,string varSczszt,string varScjqsm,DateTime? varScjqrq,DateTime? varSclrrq,string varSclrry,DateTime? varScshrq,string varScshry,DateTime? varScztjq,DateTime? varScbzjq,string varSchtbh,DateTime? varSctcrq)
+		public static void Update(string varSczsbh,string varScgcdm,string varScxdrq,string varSccjjq,string varScfzjq,string varScjhrq,string varScjhry,string varSczsbz,string varSczszt,string varScjqsm,string varScjqrq,string varSclrrq,string varSclrry,string varScshrq,string varScshry,string varScztjq,string varScbzjq,string varSchtbh,string varSctcrq)
 		{
 			SCT26 item = new SCT26();
 			

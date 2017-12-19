@@ -232,8 +232,8 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarTypeT = new TableSchema.TableColumn(schema);
 				colvarTypeT.ColumnName = "typeT";
-				colvarTypeT.DataType = DbType.Int32;
-				colvarTypeT.MaxLength = 0;
+				colvarTypeT.DataType = DbType.AnsiString;
+				colvarTypeT.MaxLength = 50;
 				colvarTypeT.AutoIncrement = false;
 				colvarTypeT.IsNullable = true;
 				colvarTypeT.IsPrimaryKey = false;
@@ -245,8 +245,8 @@ namespace APSData
 				
 				TableSchema.TableColumn colvarIsmtm = new TableSchema.TableColumn(schema);
 				colvarIsmtm.ColumnName = "ISMTM";
-				colvarIsmtm.DataType = DbType.Int32;
-				colvarIsmtm.MaxLength = 0;
+				colvarIsmtm.DataType = DbType.AnsiString;
+				colvarIsmtm.MaxLength = 50;
 				colvarIsmtm.AutoIncrement = false;
 				colvarIsmtm.IsNullable = true;
 				colvarIsmtm.IsPrimaryKey = false;
@@ -332,17 +332,17 @@ namespace APSData
 		  
 		[XmlAttribute("TypeT")]
 		[Bindable(true)]
-		public int? TypeT 
+		public string TypeT 
 		{
-			get { return GetColumnValue<int?>(Columns.TypeT); }
+			get { return GetColumnValue<string>(Columns.TypeT); }
 			set { SetColumnValue(Columns.TypeT, value); }
 		}
 		  
 		[XmlAttribute("Ismtm")]
 		[Bindable(true)]
-		public int? Ismtm 
+		public string Ismtm 
 		{
-			get { return GetColumnValue<int?>(Columns.Ismtm); }
+			get { return GetColumnValue<string>(Columns.Ismtm); }
 			set { SetColumnValue(Columns.Ismtm, value); }
 		}
 		
@@ -365,7 +365,7 @@ namespace APSData
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int varPkid,string varCustomerId,DateTime? varBeginTime,DateTime? varEndTime,string varGylx,string varCoatCode,string varResoure,int? varNum,int? varTypeT,int? varIsmtm)
+		public static void Insert(int varPkid,string varCustomerId,DateTime? varBeginTime,DateTime? varEndTime,string varGylx,string varCoatCode,string varResoure,int? varNum,string varTypeT,string varIsmtm)
 		{
 			TFZfirstOut item = new TFZfirstOut();
 			
@@ -399,7 +399,7 @@ namespace APSData
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varPkid,string varCustomerId,DateTime? varBeginTime,DateTime? varEndTime,string varGylx,string varCoatCode,string varResoure,int? varNum,int? varTypeT,int? varIsmtm)
+		public static void Update(int varPkid,string varCustomerId,DateTime? varBeginTime,DateTime? varEndTime,string varGylx,string varCoatCode,string varResoure,int? varNum,string varTypeT,string varIsmtm)
 		{
 			TFZfirstOut item = new TFZfirstOut();
 			

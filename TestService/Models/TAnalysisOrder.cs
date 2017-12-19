@@ -207,7 +207,7 @@ namespace APSData
 				TableSchema.TableColumn colvarSpecialCode = new TableSchema.TableColumn(schema);
 				colvarSpecialCode.ColumnName = "specialCode";
 				colvarSpecialCode.DataType = DbType.String;
-				colvarSpecialCode.MaxLength = -1;
+				colvarSpecialCode.MaxLength = 100;
 				colvarSpecialCode.AutoIncrement = false;
 				colvarSpecialCode.IsNullable = true;
 				colvarSpecialCode.IsPrimaryKey = false;

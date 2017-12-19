@@ -80,7 +80,7 @@ namespace APSData
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int Pkid,string CustomerId,DateTime? BeginTime,DateTime? EndTime,string Gylx,string CoatCode,string Resoure,int? Num,int? TypeT,int? Ismtm)
+	    public void Insert(int Pkid,string CustomerId,DateTime? BeginTime,DateTime? EndTime,string Gylx,string CoatCode,string Resoure,int? Num,string TypeT,string Ismtm)
 	    {
 		    TFZfirstOut item = new TFZfirstOut();
 		    
@@ -112,7 +112,7 @@ namespace APSData
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Pkid,string CustomerId,DateTime? BeginTime,DateTime? EndTime,string Gylx,string CoatCode,string Resoure,int? Num,int? TypeT,int? Ismtm)
+	    public void Update(int Pkid,string CustomerId,DateTime? BeginTime,DateTime? EndTime,string Gylx,string CoatCode,string Resoure,int? Num,string TypeT,string Ismtm)
 	    {
 		    TFZfirstOut item = new TFZfirstOut();
 	        item.MarkOld();

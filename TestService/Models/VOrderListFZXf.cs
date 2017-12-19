@@ -575,7 +575,7 @@ namespace APSData{
                 
                 TableSchema.TableColumn colvarScfzjq = new TableSchema.TableColumn(schema);
                 colvarScfzjq.ColumnName = "SCFZJQ";
-                colvarScfzjq.DataType = DbType.DateTime;
+                colvarScfzjq.DataType = DbType.AnsiString;
                 colvarScfzjq.MaxLength = 0;
                 colvarScfzjq.AutoIncrement = false;
                 colvarScfzjq.IsNullable = true;
@@ -587,7 +587,7 @@ namespace APSData{
                 
                 TableSchema.TableColumn colvarSctcrq = new TableSchema.TableColumn(schema);
                 colvarSctcrq.ColumnName = "SCTCRQ";
-                colvarSctcrq.DataType = DbType.DateTime;
+                colvarSctcrq.DataType = DbType.AnsiString;
                 colvarSctcrq.MaxLength = 0;
                 colvarSctcrq.AutoIncrement = false;
                 colvarSctcrq.IsNullable = true;
@@ -1275,11 +1275,11 @@ namespace APSData{
 	      
         [XmlAttribute("Scfzjq")]
         [Bindable(true)]
-        public DateTime? Scfzjq 
+        public string Scfzjq 
 	    {
 		    get
 		    {
-			    return GetColumnValue<DateTime?>("SCFZJQ");
+			    return GetColumnValue<string>("SCFZJQ");
 		    }
             set 
 		    {
@@ -1289,11 +1289,11 @@ namespace APSData{
 	      
         [XmlAttribute("Sctcrq")]
         [Bindable(true)]
-        public DateTime? Sctcrq 
+        public string Sctcrq 
 	    {
 		    get
 		    {
-			    return GetColumnValue<DateTime?>("SCTCRQ");
+			    return GetColumnValue<string>("SCTCRQ");
 		    }
             set 
 		    {
