@@ -99,7 +99,6 @@ namespace ServiceHandle.Handle
 
     public class PlanInfo
     {
-
         public string GetPlanMx(string khdh)
         {
             var obj = new JsonHelper();

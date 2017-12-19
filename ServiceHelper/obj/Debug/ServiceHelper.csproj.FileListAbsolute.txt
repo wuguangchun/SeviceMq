@@ -22,3 +22,16 @@ F:\Projects\ServiceMq\SeviceMq\ServiceHelper\bin\Debug\Newtonsoft.Json.xml
 F:\Projects\ServiceMq\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.csproj.CoreCompileInputs.cache
 F:\Projects\ServiceMq\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.dll
 F:\Projects\ServiceMq\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.pdb
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\bin\Debug\ServiceHelper.dll.config
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\bin\Debug\ServiceHelper.dll
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\bin\Debug\ServiceHelper.pdb
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\bin\Debug\MySql.Data.dll
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\bin\Debug\Newtonsoft.Json.dll
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\bin\Debug\SubSonic.Core.dll
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\bin\Debug\SubSonic.dll
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\bin\Debug\SubSonic.Migrations.dll
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\bin\Debug\Newtonsoft.Json.xml
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.csproj.CoreCompileInputs.cache
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.dll
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.pdb
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.csprojResolveAssemblyReference.cache

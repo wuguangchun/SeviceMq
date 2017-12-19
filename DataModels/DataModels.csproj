@@ -57,6 +57,7 @@
     <Compile Include="ModelsOther\BlPbcd.cs" />
     <Compile Include="ModelsOther\Completion.cs" />
     <Compile Include="ModelsOther\MesGerHourModel.cs" />
+    <Compile Include="ModelsOther\MsmqModel.cs" />
     <Compile Include="ModelsOther\ServiceLog.cs" />
     <Compile Include="Models\AllStructs.cs" />
     <Compile Include="Models\BCutterSetDelete.cs" />

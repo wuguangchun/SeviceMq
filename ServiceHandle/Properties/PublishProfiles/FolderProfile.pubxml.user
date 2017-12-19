@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="ActivationService.svc">
-      <publishTime>11/15/2017 10:19:01</publishTime>
+      <publishTime>12/18/2017 08:06:35</publishTime>
     </File>
     <File Include="bin/activationservice.svc.cdcab7d2.compiled">
       <publishTime>11/07/2017 11:03:14</publishTime>
@@ -21,41 +21,101 @@
     <File Include="bin/App_global.asax.dll">
       <publishTime>11/07/2017 11:03:14</publishTime>
     </File>
+    <File Include="bin/BlankingPlugs.dll">
+      <publishTime>12/18/2017 14:45:58</publishTime>
+    </File>
+    <File Include="bin/BlankingPlugs.dll.config">
+      <publishTime>12/18/2017 14:45:06</publishTime>
+    </File>
+    <File Include="bin/BlankingPlugs.pdb">
+      <publishTime>12/18/2017 14:45:58</publishTime>
+    </File>
+    <File Include="bin/CallBackPlugs.dll">
+      <publishTime>12/18/2017 14:45:58</publishTime>
+    </File>
+    <File Include="bin/CallBackPlugs.dll.config">
+      <publishTime>12/18/2017 14:45:06</publishTime>
+    </File>
+    <File Include="bin/CallBackPlugs.pdb">
+      <publishTime>12/18/2017 14:45:58</publishTime>
+    </File>
+    <File Include="bin/CompletionPlugs.dll">
+      <publishTime>12/18/2017 14:45:58</publishTime>
+    </File>
+    <File Include="bin/CompletionPlugs.dll.config">
+      <publishTime>12/18/2017 14:45:06</publishTime>
+    </File>
+    <File Include="bin/CompletionPlugs.pdb">
+      <publishTime>12/18/2017 14:45:58</publishTime>
+    </File>
+    <File Include="bin/DataModels.dll">
+      <publishTime>12/18/2017 14:45:58</publishTime>
+    </File>
+    <File Include="bin/DataModels.pdb">
+      <publishTime>12/18/2017 14:45:58</publishTime>
+    </File>
+    <File Include="bin/KillOrderPlugs.dll">
+      <publishTime>12/18/2017 14:45:58</publishTime>
+    </File>
+    <File Include="bin/KillOrderPlugs.dll.config">
+      <publishTime>12/18/2017 14:45:06</publishTime>
+    </File>
+    <File Include="bin/KillOrderPlugs.pdb">
+      <publishTime>12/18/2017 14:45:58</publishTime>
+    </File>
     <File Include="bin/Microsoft.Owin.dll">
-      <publishTime>11/15/2017 10:19:02</publishTime>
+      <publishTime>12/18/2017 08:06:36</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
-      <publishTime>11/15/2017 10:19:03</publishTime>
+      <publishTime>12/18/2017 08:06:37</publishTime>
+    </File>
+    <File Include="bin/NewAnalysisPlugs.dll">
+      <publishTime>12/18/2017 14:45:58</publishTime>
+    </File>
+    <File Include="bin/NewAnalysisPlugs.dll.config">
+      <publishTime>12/18/2017 14:45:06</publishTime>
+    </File>
+    <File Include="bin/NewAnalysisPlugs.pdb">
+      <publishTime>12/18/2017 14:45:58</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>11/15/2017 10:19:03</publishTime>
+      <publishTime>12/18/2017 08:06:37</publishTime>
     </File>
     <File Include="bin/Owin.dll">
-      <publishTime>11/15/2017 10:19:03</publishTime>
+      <publishTime>12/18/2017 08:06:37</publishTime>
     </File>
     <File Include="bin/ServiceHandle.dll">
-      <publishTime>12/15/2017 17:39:14</publishTime>
+      <publishTime>12/18/2017 14:45:59</publishTime>
     </File>
     <File Include="bin/ServiceHandle.pdb">
-      <publishTime>12/15/2017 17:39:14</publishTime>
+      <publishTime>12/18/2017 14:45:59</publishTime>
+    </File>
+    <File Include="bin/ServiceHelper.dll">
+      <publishTime>12/18/2017 14:45:56</publishTime>
+    </File>
+    <File Include="bin/ServiceHelper.dll.config">
+      <publishTime>12/18/2017 14:45:06</publishTime>
+    </File>
+    <File Include="bin/ServiceHelper.pdb">
+      <publishTime>12/18/2017 14:45:56</publishTime>
     </File>
     <File Include="bin/SubSonic.Core.dll">
-      <publishTime>11/15/2017 10:19:03</publishTime>
+      <publishTime>12/18/2017 08:06:37</publishTime>
     </File>
     <File Include="bin/SubSonic.dll">
-      <publishTime>11/15/2017 10:19:03</publishTime>
+      <publishTime>12/18/2017 08:06:37</publishTime>
     </File>
     <File Include="bin/SubSonic.Migrations.dll">
-      <publishTime>11/15/2017 10:19:03</publishTime>
+      <publishTime>12/18/2017 08:06:37</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>11/15/2017 10:19:01</publishTime>
+      <publishTime>12/18/2017 08:06:35</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
       <publishTime>11/07/2017 11:03:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/14/2017 13:58:41</publishTime>
+      <publishTime>12/18/2017 14:47:06</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -256,7 +256,10 @@ namespace SystemMaintain
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.Hide();
-                this.notifyIcon.Visible = true;
+                if (this.notifyIcon.Visible != true)
+                {
+                    this.notifyIcon.Visible = true;
+                }
             }
         }
 
@@ -265,7 +268,7 @@ namespace SystemMaintain
         {
             this.Visible = true;
             this.WindowState = FormWindowState.Normal;
-            this.notifyIcon.Visible = false;
+            //this.notifyIcon.Visible = false;
 
         }
 

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Messaging;
 using System.Web;
-using APSWcfService.Helper;
+using DataModels.ModelsOther;
+using KillOrderPlugs;
 using Kute.Helper;
 using Model;
 using SubSonic;
@@ -127,7 +128,7 @@ namespace ServiceHandle.Handle
                     {
 
                         //执行撤单操作后在添加
-                        var killJson = KillOrderHelper.KillOrder(blDate.order.Khdh);
+                        var killJson = new KillOrderHelper().KillOrder(blDate.order.Khdh);
                         var log = new ServiceLog
                         {
                             CallBackUrl = null,

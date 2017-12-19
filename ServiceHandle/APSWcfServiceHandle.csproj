@@ -51,8 +51,8 @@
     <Reference Include="MySql.Data, Version=5.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\SubSonic.Scaffold.2.2.0.0\lib\net20\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -132,12 +132,6 @@
     <Compile Include="Handle\PutCadHandle.cs" />
     <Compile Include="Helper\AutoStart.cs" />
     <Compile Include="IActivationService.cs" />
-    <Compile Include="ModelsOther\BlBlanking.cs" />
-    <Compile Include="ModelsOther\BLData.cs" />
-    <Compile Include="ModelsOther\BlPbcd.cs" />
-    <Compile Include="ModelsOther\Completion.cs" />
-    <Compile Include="ModelsOther\MesGerHourModel.cs" />
-    <Compile Include="ModelsOther\ServiceLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -168,9 +162,17 @@
       <Project>{79a07737-79f6-4fc9-bed7-792f837ef399}</Project>
       <Name>CallBackPlugs</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CompletionPlugs\CompletionPlugs.csproj">
+      <Project>{6f42d8ea-77f7-4109-bbf7-c770802909a4}</Project>
+      <Name>CompletionPlugs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataModels\DataModels.csproj">
       <Project>{fc11b119-2974-4750-bc01-0b56b4b630ee}</Project>
       <Name>DataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KillOrderPlugs\KillOrderPlugs.csproj">
+      <Project>{7604a9f8-7045-4183-b32d-433191df4073}</Project>
+      <Name>KillOrderPlugs</Name>
     </ProjectReference>
     <ProjectReference Include="..\NewAnalysisPlugs\NewAnalysisPlugs.csproj">
       <Project>{b32b06cc-919a-4283-b0f3-624dd610e35d}</Project>

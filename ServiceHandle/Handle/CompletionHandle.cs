@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Messaging;
 using System.Web;
+using DataModels.ModelsOther;
 using Kute.Helper;
 using Model;
+using Newtonsoft.Json;
 using ServiceHandle.ModelsOther;
 using SubSonic;
 using SubSonic.Linq.Structure;
+using CompletionPlugs;
 
 namespace ServiceHandle.Handle
 {
@@ -46,29 +49,38 @@ namespace ServiceHandle.Handle
 
                 //根据消息标签执行相应的命令
                 if (message.Label.ToLower().Trim() == "Completion".ToLower())
-                {//接收BL传入数据源
-                    reMeg = CompletionHelper.EditCompletion(message.Body.ToString());
+                {
+                    //接收所有完工汇报
+                    reMeg = new CompletionHelper().EditCompletion(message.Body.ToString());
                 }
                 else
-                {//无法识别标签内容
+                {
+                    //无法识别标签内容
                     throw new ApplicationException("无法识别标签内容");
                 }
 
                 //程序处理返回的结果
                 json = (JsonHelper)JsonHelper.ReturnObject(reMeg, typeof(JsonHelper));
 
-                if (json.RetCode.ToLower() == "error")//程序处理失败
+                if (json.RetCode.ToLower() == "error") //程序处理失败
                 {
-
                     throw new ApplicationException($"程序处理失败,{json.RetMessage}");
                 }
-                else
+                else if (json.RetCode.ToLower() == "proceed")//投诉异常：需要新增队列通知
                 {
-                    //处理成功，回调URL通知
-                    var service = new ApsMessageService.NewMassgeServiceClient();
-                    json.RetObj = message.Id;
-                    service.InsertMessage("CallBackMsg", "Message", JsonHelper.GetJsonO(json), null);
+                    var msmqList = (List<MsmqModel>)JsonConvert.DeserializeObject(json.RetMessage, typeof(List<MsmqModel>));
+                    foreach (var msmq in msmqList)
+                    {
+                        var service = new ApsMessageService.NewMassgeServiceClient();
+                        service.InsertMessage(msmq.Path, msmq.Label, msmq.Body, msmq.CallBackUrl);
+                        service.Close();
+                    }
                 }
+
+                //处理成功，回调URL通知
+                var serviceCallBack = new ApsMessageService.NewMassgeServiceClient();
+                json.RetObj = message.Id;
+                serviceCallBack.InsertMessage("CallBackMsg", "Message", JsonHelper.GetJsonO(json), null);
             }
             catch (Exception ex)
             {
@@ -78,7 +90,9 @@ namespace ServiceHandle.Handle
 
 
                 //回调URL通知
-                service.InsertMessage("CallBackMsg", "Message", JsonHelper.GetJsonO(new JsonHelper { RetCode = "Error", RetMessage = ex.Message, RetObj = message.Id }), null);
+                service.InsertMessage("CallBackMsg", "Message",
+                    JsonHelper.GetJsonO(
+                        new JsonHelper { RetCode = "Error", RetMessage = ex.Message, RetObj = message.Id }), null);
             }
             finally
             {
@@ -90,70 +104,4 @@ namespace ServiceHandle.Handle
     }
 
 
-    public class CompletionHelper
-    {
-        static JsonHelper Json = new JsonHelper();
-
-        public static string EditCompletion(string json)
-        {
-            try
-            {
-                //反序列化生成对象--Completion
-                var objCompletion = (Completion)JsonHelper.ReturnObject(json, typeof(Completion));
-
-                var data = new Select("count(*)").From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn)
-                   .IsEqualTo(objCompletion.CustmerId).ExecuteScalar();
-
-
-                if (int.Parse(data.ToString()) > 0)
-                {
-                    new Update(TAnalysisOrderList.Schema)
-                        .Set(TAnalysisOrderList.Columns.OrderStatus).EqualTo(objCompletion.OrderSrate)
-                        .Where(TAnalysisOrderList.Columns.CustomerId).IsEqualTo(objCompletion.CustmerId)
-                        .Execute();
-
-                    //过渡过程需要同时在新/旧表中更新状态
-                    var orderStatus = new TBasisOrderStatus(objCompletion.CustmerId)
-                    {
-                        CreateDate = DateTime.Now,
-                        CustomerId = objCompletion.CustmerId,
-                        OrderStatus = objCompletion.OrderSrate
-                    };
-                    orderStatus.Save();
-
-                    //如果完工汇报是计划审核下达则触发新消息队列NewByCF获取排版长度及生成表OrderListByCF
-                    if (objCompletion.OrderSrate == "201")
-                    {
-                        //初始化接口
-                        var service = new ApsMessageService.NewMassgeServiceClient();
-                        service.InsertMessage("CaiJianOrder", "NewOrder", objCompletion.CustmerId, null);
-                        service.InsertMessage("PlanInfo", "NewPlan", objCompletion.CustmerId, null);
-                    }
-
-                    //如果完工汇报是裁床排程成功则出发新消息队列BlankingData生成断料数据(老APS给的完工汇报)
-                    else if (objCompletion.OrderSrate == "300")
-                    {
-                        //初始化接口
-                        var service = new ApsMessageService.NewMassgeServiceClient();
-                        service.InsertMessage("BlankingData", "NewOrder", objCompletion.CustmerId, null);
-                    }
-
-
-                    Json.RetMessage = $@"操作成功！{objCompletion.CustmerId}";
-                    Json.RetCode = "success";
-                }
-                else
-                {
-                    throw new Exception($@"操作失败，APS无基础订单信息！{objCompletion.CustmerId}");
-                }
-            }
-            catch (Exception exception)
-            {
-                Json.RetMessage = exception.Message;
-                Json.RetCode = "error";
-            }
-            return JsonHelper.GetJsonO(Json);
-        }
-
-    }
 }
