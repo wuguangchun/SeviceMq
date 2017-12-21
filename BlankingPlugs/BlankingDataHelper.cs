@@ -46,9 +46,10 @@ namespace BlankingPlugs
 
                 //获取ERP数据
                 string sql =
-                    $@"select a.sczsbh,b.sccjjq ,b.scgcdm from aps_sct27 a
-                                left join SCT26 b on a.sczsbh = b.sczsbh
-                                where a.scyspd = ''{blanking.OrderID}''";
+                    $@" select sct26.sczsbh,sct26.sccjjq,sct26.scgcdm from sct26
+                         inner join sct27 on  sct26.sczsbh=sct27.sczsbh
+                         inner join sct51 on sct27.scggdh=sct51.scggdh
+                         where sct51.scyspd=''{blanking.OrderID}''";
                 var datatable = new DataHelper().OtherBaseSelect("FYERP", sql);
 
                 if (datatable == null || datatable.Rows.Count < 1)

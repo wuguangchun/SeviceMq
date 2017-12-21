@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Sczsbh,string Scgcdm,string Scxdrq,string Sccjjq,string Scfzjq,string Scjhrq,string Scjhry,string Sczsbz,string Sczszt,string Scjqsm,string Scjqrq,string Sclrrq,string Sclrry,string Scshrq,string Scshry,string Scztjq,string Scbzjq,string Schtbh,string Sctcrq)
+	    public void Insert(string Sczsbh,string Scgcdm,DateTime? Scxdrq,DateTime? Sccjjq,DateTime? Scfzjq,DateTime? Scjhrq,string Scjhry,string Sczsbz,string Sczszt,string Scjqsm,DateTime? Scjqrq,DateTime? Sclrrq,string Sclrry,DateTime? Scshrq,string Scshry,DateTime? Scztjq,DateTime? Scbzjq,string Schtbh,DateTime? Sctcrq)
 	    {
 		    SCT26 item = new SCT26();
 		    
@@ -130,7 +130,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string Sczsbh,string Scgcdm,string Scxdrq,string Sccjjq,string Scfzjq,string Scjhrq,string Scjhry,string Sczsbz,string Sczszt,string Scjqsm,string Scjqrq,string Sclrrq,string Sclrry,string Scshrq,string Scshry,string Scztjq,string Scbzjq,string Schtbh,string Sctcrq)
+	    public void Update(string Sczsbh,string Scgcdm,DateTime? Scxdrq,DateTime? Sccjjq,DateTime? Scfzjq,DateTime? Scjhrq,string Scjhry,string Sczsbz,string Sczszt,string Scjqsm,DateTime? Scjqrq,DateTime? Sclrrq,string Sclrry,DateTime? Scshrq,string Scshry,DateTime? Scztjq,DateTime? Scbzjq,string Schtbh,DateTime? Sctcrq)
 	    {
 		    SCT26 item = new SCT26();
 	        item.MarkOld();

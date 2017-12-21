@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string OrderId,string CustomerId,string Project,string OrderType,string CoatType,string BodyType,string Fabric,string Mflxx,DateTime? OrderTime,DateTime? DeliveryTime,int? SpecialTime,string SpecialCode,string Styles,string StylesResult,int? Numbers,string SupportingWay,string Sizes,string Customer,DateTime? CreateTime,string OrderStatus,DateTime? CreateDate,string Pbcd,string Gydm,DateTime? Audittime,string Sfbcpsy,string Tzecode,string Scggdh,DateTime? ModifyTime,string PbcdName,DateTime? EndTime,int? FlagStatus,string Resources,DateTime? Cuttime,string Resourcesnum,string JobId,string TypeT,string Mtxx,string Fzx,DateTime? Onetime,DateTime? Ttime,DateTime? Ftime,DateTime? Fivetime,DateTime? Sixtime,string Res,string ClothType)
+	    public void Insert(string OrderId,string CustomerId,string Project,string CoatType,string BodyType,string Fabric,DateTime? OrderTime,DateTime? DeliveryTime,string SpecialCode,string StylesResult,int? Numbers,string Customer,DateTime? EndTime,string Resources,string JobId,string TypeT,string Fzx,string Res,string ClothType,DateTime? Key1endtime,DateTime? Key2endtime,DateTime? Key3endtime,DateTime? Key4endtime,DateTime? Key5endtime,DateTime? Key6endtime,DateTime? Key7endtime,DateTime? Key8endtime,DateTime? Key9endtime,DateTime? Key10endtime,DateTime? Key11endtime,DateTime? Key12endtime,DateTime? Key13endtime,DateTime? Key14endtime,DateTime? Key15endtime,DateTime? Key16endtime,DateTime? Key17endtime,DateTime? Key18endtime,DateTime? Key19endtime,DateTime? Key20endtime,DateTime? Key21endtime,DateTime? Key22endtime,DateTime? Key23endtime,DateTime? Key24endtime,DateTime? Key25endtime,DateTime? Key26endtime,DateTime? Key27endtime,DateTime? Key28endtime,DateTime? Key29endtime,DateTime? Key30endtime,DateTime? Sctcrq)
 	    {
 		    TAnalysisOutPutListByFZ item = new TAnalysisOutPutListByFZ();
 		    
@@ -90,89 +90,99 @@ namespace Model
             
             item.Project = Project;
             
-            item.OrderType = OrderType;
-            
             item.CoatType = CoatType;
             
             item.BodyType = BodyType;
             
             item.Fabric = Fabric;
             
-            item.Mflxx = Mflxx;
-            
             item.OrderTime = OrderTime;
             
             item.DeliveryTime = DeliveryTime;
             
-            item.SpecialTime = SpecialTime;
-            
             item.SpecialCode = SpecialCode;
-            
-            item.Styles = Styles;
             
             item.StylesResult = StylesResult;
             
             item.Numbers = Numbers;
             
-            item.SupportingWay = SupportingWay;
-            
-            item.Sizes = Sizes;
-            
             item.Customer = Customer;
-            
-            item.CreateTime = CreateTime;
-            
-            item.OrderStatus = OrderStatus;
-            
-            item.CreateDate = CreateDate;
-            
-            item.Pbcd = Pbcd;
-            
-            item.Gydm = Gydm;
-            
-            item.Audittime = Audittime;
-            
-            item.Sfbcpsy = Sfbcpsy;
-            
-            item.Tzecode = Tzecode;
-            
-            item.Scggdh = Scggdh;
-            
-            item.ModifyTime = ModifyTime;
-            
-            item.PbcdName = PbcdName;
             
             item.EndTime = EndTime;
             
-            item.FlagStatus = FlagStatus;
-            
             item.Resources = Resources;
-            
-            item.Cuttime = Cuttime;
-            
-            item.Resourcesnum = Resourcesnum;
             
             item.JobId = JobId;
             
             item.TypeT = TypeT;
             
-            item.Mtxx = Mtxx;
-            
             item.Fzx = Fzx;
-            
-            item.Onetime = Onetime;
-            
-            item.Ttime = Ttime;
-            
-            item.Ftime = Ftime;
-            
-            item.Fivetime = Fivetime;
-            
-            item.Sixtime = Sixtime;
             
             item.Res = Res;
             
             item.ClothType = ClothType;
+            
+            item.Key1endtime = Key1endtime;
+            
+            item.Key2endtime = Key2endtime;
+            
+            item.Key3endtime = Key3endtime;
+            
+            item.Key4endtime = Key4endtime;
+            
+            item.Key5endtime = Key5endtime;
+            
+            item.Key6endtime = Key6endtime;
+            
+            item.Key7endtime = Key7endtime;
+            
+            item.Key8endtime = Key8endtime;
+            
+            item.Key9endtime = Key9endtime;
+            
+            item.Key10endtime = Key10endtime;
+            
+            item.Key11endtime = Key11endtime;
+            
+            item.Key12endtime = Key12endtime;
+            
+            item.Key13endtime = Key13endtime;
+            
+            item.Key14endtime = Key14endtime;
+            
+            item.Key15endtime = Key15endtime;
+            
+            item.Key16endtime = Key16endtime;
+            
+            item.Key17endtime = Key17endtime;
+            
+            item.Key18endtime = Key18endtime;
+            
+            item.Key19endtime = Key19endtime;
+            
+            item.Key20endtime = Key20endtime;
+            
+            item.Key21endtime = Key21endtime;
+            
+            item.Key22endtime = Key22endtime;
+            
+            item.Key23endtime = Key23endtime;
+            
+            item.Key24endtime = Key24endtime;
+            
+            item.Key25endtime = Key25endtime;
+            
+            item.Key26endtime = Key26endtime;
+            
+            item.Key27endtime = Key27endtime;
+            
+            item.Key28endtime = Key28endtime;
+            
+            item.Key29endtime = Key29endtime;
+            
+            item.Key30endtime = Key30endtime;
+            
+            item.Sctcrq = Sctcrq;
             
 	    
 		    item.Save(UserName);
@@ -182,7 +192,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string OrderId,string CustomerId,string Project,string OrderType,string CoatType,string BodyType,string Fabric,string Mflxx,DateTime? OrderTime,DateTime? DeliveryTime,int? SpecialTime,string SpecialCode,string Styles,string StylesResult,int? Numbers,string SupportingWay,string Sizes,string Customer,DateTime? CreateTime,string OrderStatus,DateTime? CreateDate,string Pbcd,string Gydm,DateTime? Audittime,string Sfbcpsy,string Tzecode,string Scggdh,DateTime? ModifyTime,string PbcdName,DateTime? EndTime,int? FlagStatus,string Resources,DateTime? Cuttime,string Resourcesnum,string JobId,string TypeT,string Mtxx,string Fzx,DateTime? Onetime,DateTime? Ttime,DateTime? Ftime,DateTime? Fivetime,DateTime? Sixtime,string Res,string ClothType)
+	    public void Update(string OrderId,string CustomerId,string Project,string CoatType,string BodyType,string Fabric,DateTime? OrderTime,DateTime? DeliveryTime,string SpecialCode,string StylesResult,int? Numbers,string Customer,DateTime? EndTime,string Resources,string JobId,string TypeT,string Fzx,string Res,string ClothType,DateTime? Key1endtime,DateTime? Key2endtime,DateTime? Key3endtime,DateTime? Key4endtime,DateTime? Key5endtime,DateTime? Key6endtime,DateTime? Key7endtime,DateTime? Key8endtime,DateTime? Key9endtime,DateTime? Key10endtime,DateTime? Key11endtime,DateTime? Key12endtime,DateTime? Key13endtime,DateTime? Key14endtime,DateTime? Key15endtime,DateTime? Key16endtime,DateTime? Key17endtime,DateTime? Key18endtime,DateTime? Key19endtime,DateTime? Key20endtime,DateTime? Key21endtime,DateTime? Key22endtime,DateTime? Key23endtime,DateTime? Key24endtime,DateTime? Key25endtime,DateTime? Key26endtime,DateTime? Key27endtime,DateTime? Key28endtime,DateTime? Key29endtime,DateTime? Key30endtime,DateTime? Sctcrq)
 	    {
 		    TAnalysisOutPutListByFZ item = new TAnalysisOutPutListByFZ();
 	        item.MarkOld();
@@ -194,89 +204,99 @@ namespace Model
 				
 			item.Project = Project;
 				
-			item.OrderType = OrderType;
-				
 			item.CoatType = CoatType;
 				
 			item.BodyType = BodyType;
 				
 			item.Fabric = Fabric;
 				
-			item.Mflxx = Mflxx;
-				
 			item.OrderTime = OrderTime;
 				
 			item.DeliveryTime = DeliveryTime;
 				
-			item.SpecialTime = SpecialTime;
-				
 			item.SpecialCode = SpecialCode;
-				
-			item.Styles = Styles;
 				
 			item.StylesResult = StylesResult;
 				
 			item.Numbers = Numbers;
 				
-			item.SupportingWay = SupportingWay;
-				
-			item.Sizes = Sizes;
-				
 			item.Customer = Customer;
-				
-			item.CreateTime = CreateTime;
-				
-			item.OrderStatus = OrderStatus;
-				
-			item.CreateDate = CreateDate;
-				
-			item.Pbcd = Pbcd;
-				
-			item.Gydm = Gydm;
-				
-			item.Audittime = Audittime;
-				
-			item.Sfbcpsy = Sfbcpsy;
-				
-			item.Tzecode = Tzecode;
-				
-			item.Scggdh = Scggdh;
-				
-			item.ModifyTime = ModifyTime;
-				
-			item.PbcdName = PbcdName;
 				
 			item.EndTime = EndTime;
 				
-			item.FlagStatus = FlagStatus;
-				
 			item.Resources = Resources;
-				
-			item.Cuttime = Cuttime;
-				
-			item.Resourcesnum = Resourcesnum;
 				
 			item.JobId = JobId;
 				
 			item.TypeT = TypeT;
 				
-			item.Mtxx = Mtxx;
-				
 			item.Fzx = Fzx;
-				
-			item.Onetime = Onetime;
-				
-			item.Ttime = Ttime;
-				
-			item.Ftime = Ftime;
-				
-			item.Fivetime = Fivetime;
-				
-			item.Sixtime = Sixtime;
 				
 			item.Res = Res;
 				
 			item.ClothType = ClothType;
+				
+			item.Key1endtime = Key1endtime;
+				
+			item.Key2endtime = Key2endtime;
+				
+			item.Key3endtime = Key3endtime;
+				
+			item.Key4endtime = Key4endtime;
+				
+			item.Key5endtime = Key5endtime;
+				
+			item.Key6endtime = Key6endtime;
+				
+			item.Key7endtime = Key7endtime;
+				
+			item.Key8endtime = Key8endtime;
+				
+			item.Key9endtime = Key9endtime;
+				
+			item.Key10endtime = Key10endtime;
+				
+			item.Key11endtime = Key11endtime;
+				
+			item.Key12endtime = Key12endtime;
+				
+			item.Key13endtime = Key13endtime;
+				
+			item.Key14endtime = Key14endtime;
+				
+			item.Key15endtime = Key15endtime;
+				
+			item.Key16endtime = Key16endtime;
+				
+			item.Key17endtime = Key17endtime;
+				
+			item.Key18endtime = Key18endtime;
+				
+			item.Key19endtime = Key19endtime;
+				
+			item.Key20endtime = Key20endtime;
+				
+			item.Key21endtime = Key21endtime;
+				
+			item.Key22endtime = Key22endtime;
+				
+			item.Key23endtime = Key23endtime;
+				
+			item.Key24endtime = Key24endtime;
+				
+			item.Key25endtime = Key25endtime;
+				
+			item.Key26endtime = Key26endtime;
+				
+			item.Key27endtime = Key27endtime;
+				
+			item.Key28endtime = Key28endtime;
+				
+			item.Key29endtime = Key29endtime;
+				
+			item.Key30endtime = Key30endtime;
+				
+			item.Sctcrq = Sctcrq;
 				
 	        item.Save(UserName);
 	    }

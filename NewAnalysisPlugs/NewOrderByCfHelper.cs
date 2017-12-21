@@ -255,12 +255,12 @@ namespace NewAnalysisPlugs
             {
                 //获取ERP数据
                 string sql =
-                    $@"select  a.sczsbh,b.sctcrq, b.sccjjq ,b.scgcdm,scjhbz,b.sczsbz,a.schtbh,scyspd ,a.xtwpks from aps_sct27 a
-                        left join SCT26 b on a.sczsbh = b.sczsbh
-                        left join sct32 on  sct32.schtbh=a.schtbh
-                        where scyspd=''{orderId}''  and scjhbz not like ''%未%''
-                        order by scjhbz";
-                //and scjhbz not like ''%未%''
+                    $@"select  a.sczsbh,b.sctcrq, b.sccjjq ,b.scgcdm,scjhbz,b.sczsbz,a.schtbh,scyspd ,a.xtwpks from sct27 a
+                        inner join SCT26 b on a.sczsbh = b.sczsbh
+                        inner join sct32 on  sct32.schtbh=a.schtbh
+                        inner join  sct51 on a.scggdh=sct51.scggdh
+                        where sct51.scyspd=''{orderId}''  and scjhbz not like ''%未%''
+                        order by scjhbz"; 
                 var erpTable = new DataHelper().OtherBaseSelect("FYERP", sql).Rows[0].ItemArray.ToList();
 
                 if (orderId.ToLower().Contains("jjj") || orderId.ToLower().Contains("test") ||

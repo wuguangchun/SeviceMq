@@ -38,8 +38,9 @@ namespace SystemMaintain.ServiceLog
                     .Where(TLogService.KhdhColumn).IsEqualTo("")
                     .And(TLogService.MessagePathColumn).IsNotEqualTo("CallBackMsg")
                     .And(TLogService.MessagePathColumn).IsNotEqualTo("LogService")
+                    .And(TLogService.MessagePathColumn).IsNotEqualTo("computejq")
                     .And(TLogService.LableColumn).IsNotEqualTo("SchedulingReady")
-                    .And(TLogService.LableColumn).IsNotEqualTo("AutoKill")
+                    .And(TLogService.LableColumn).IsNotEqualTo("AutoKill") 
                     .ExecuteTypedList<TLogService>();
 
                 if (this.InvokeRequired)

@@ -218,6 +218,32 @@ namespace Model
 				colvarGylx.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarGylx);
 				
+				TableSchema.TableColumn colvarOrder = new TableSchema.TableColumn(schema);
+				colvarOrder.ColumnName = "order";
+				colvarOrder.DataType = DbType.Int32;
+				colvarOrder.MaxLength = 0;
+				colvarOrder.AutoIncrement = false;
+				colvarOrder.IsNullable = true;
+				colvarOrder.IsPrimaryKey = false;
+				colvarOrder.IsForeignKey = false;
+				colvarOrder.IsReadOnly = false;
+				colvarOrder.DefaultSetting = @"";
+				colvarOrder.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarOrder);
+				
+				TableSchema.TableColumn colvarResource = new TableSchema.TableColumn(schema);
+				colvarResource.ColumnName = "resource";
+				colvarResource.DataType = DbType.AnsiString;
+				colvarResource.MaxLength = 50;
+				colvarResource.AutoIncrement = false;
+				colvarResource.IsNullable = true;
+				colvarResource.IsPrimaryKey = false;
+				colvarResource.IsForeignKey = false;
+				colvarResource.IsReadOnly = false;
+				colvarResource.DefaultSetting = @"";
+				colvarResource.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarResource);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -283,6 +309,22 @@ namespace Model
 			get { return GetColumnValue<string>(Columns.Gylx); }
 			set { SetColumnValue(Columns.Gylx, value); }
 		}
+		  
+		[XmlAttribute("Order")]
+		[Bindable(true)]
+		public int? Order 
+		{
+			get { return GetColumnValue<int?>(Columns.Order); }
+			set { SetColumnValue(Columns.Order, value); }
+		}
+		  
+		[XmlAttribute("Resource")]
+		[Bindable(true)]
+		public string Resource 
+		{
+			get { return GetColumnValue<string>(Columns.Resource); }
+			set { SetColumnValue(Columns.Resource, value); }
+		}
 		
 		#endregion
 		
@@ -303,7 +345,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int varPkid,string varCustomerId,DateTime? varBeginTime,string varCoatCode,string varNum,int? varTypeT,string varGylx)
+		public static void Insert(int varPkid,string varCustomerId,DateTime? varBeginTime,string varCoatCode,string varNum,int? varTypeT,string varGylx,int? varOrder,string varResource)
 		{
 			TFZfirstOrder item = new TFZfirstOrder();
 			
@@ -321,6 +363,10 @@ namespace Model
 			
 			item.Gylx = varGylx;
 			
+			item.Order = varOrder;
+			
+			item.Resource = varResource;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -331,7 +377,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varPkid,string varCustomerId,DateTime? varBeginTime,string varCoatCode,string varNum,int? varTypeT,string varGylx)
+		public static void Update(int varPkid,string varCustomerId,DateTime? varBeginTime,string varCoatCode,string varNum,int? varTypeT,string varGylx,int? varOrder,string varResource)
 		{
 			TFZfirstOrder item = new TFZfirstOrder();
 			
@@ -348,6 +394,10 @@ namespace Model
 				item.TypeT = varTypeT;
 			
 				item.Gylx = varGylx;
+			
+				item.Order = varOrder;
+			
+				item.Resource = varResource;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -411,6 +461,20 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn OrderColumn
+        {
+            get { return Schema.Columns[7]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn ResourceColumn
+        {
+            get { return Schema.Columns[8]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -422,6 +486,8 @@ namespace Model
 			 public static string Num = @"num";
 			 public static string TypeT = @"typeT";
 			 public static string Gylx = @"gylx";
+			 public static string Order = @"order";
+			 public static string Resource = @"resource";
 						
 		}
 		#endregion

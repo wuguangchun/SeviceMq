@@ -232,8 +232,8 @@ namespace Model
 				
 				TableSchema.TableColumn colvarTypeT = new TableSchema.TableColumn(schema);
 				colvarTypeT.ColumnName = "typeT";
-				colvarTypeT.DataType = DbType.Int32;
-				colvarTypeT.MaxLength = 0;
+				colvarTypeT.DataType = DbType.AnsiString;
+				colvarTypeT.MaxLength = 50;
 				colvarTypeT.AutoIncrement = false;
 				colvarTypeT.IsNullable = true;
 				colvarTypeT.IsPrimaryKey = false;
@@ -242,6 +242,19 @@ namespace Model
 				colvarTypeT.DefaultSetting = @"";
 				colvarTypeT.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarTypeT);
+				
+				TableSchema.TableColumn colvarIsmtm = new TableSchema.TableColumn(schema);
+				colvarIsmtm.ColumnName = "ISMTM";
+				colvarIsmtm.DataType = DbType.AnsiString;
+				colvarIsmtm.MaxLength = 50;
+				colvarIsmtm.AutoIncrement = false;
+				colvarIsmtm.IsNullable = true;
+				colvarIsmtm.IsPrimaryKey = false;
+				colvarIsmtm.IsForeignKey = false;
+				colvarIsmtm.IsReadOnly = false;
+				colvarIsmtm.DefaultSetting = @"";
+				colvarIsmtm.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarIsmtm);
 				
 				BaseSchema = schema;
 				//add this schema to the provider
@@ -319,10 +332,18 @@ namespace Model
 		  
 		[XmlAttribute("TypeT")]
 		[Bindable(true)]
-		public int? TypeT 
+		public string TypeT 
 		{
-			get { return GetColumnValue<int?>(Columns.TypeT); }
+			get { return GetColumnValue<string>(Columns.TypeT); }
 			set { SetColumnValue(Columns.TypeT, value); }
+		}
+		  
+		[XmlAttribute("Ismtm")]
+		[Bindable(true)]
+		public string Ismtm 
+		{
+			get { return GetColumnValue<string>(Columns.Ismtm); }
+			set { SetColumnValue(Columns.Ismtm, value); }
 		}
 		
 		#endregion
@@ -344,7 +365,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int varPkid,string varCustomerId,DateTime? varBeginTime,DateTime? varEndTime,string varGylx,string varCoatCode,string varResoure,int? varNum,int? varTypeT)
+		public static void Insert(int varPkid,string varCustomerId,DateTime? varBeginTime,DateTime? varEndTime,string varGylx,string varCoatCode,string varResoure,int? varNum,string varTypeT,string varIsmtm)
 		{
 			TFZfirstOut item = new TFZfirstOut();
 			
@@ -366,6 +387,8 @@ namespace Model
 			
 			item.TypeT = varTypeT;
 			
+			item.Ismtm = varIsmtm;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -376,7 +399,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varPkid,string varCustomerId,DateTime? varBeginTime,DateTime? varEndTime,string varGylx,string varCoatCode,string varResoure,int? varNum,int? varTypeT)
+		public static void Update(int varPkid,string varCustomerId,DateTime? varBeginTime,DateTime? varEndTime,string varGylx,string varCoatCode,string varResoure,int? varNum,string varTypeT,string varIsmtm)
 		{
 			TFZfirstOut item = new TFZfirstOut();
 			
@@ -397,6 +420,8 @@ namespace Model
 				item.Num = varNum;
 			
 				item.TypeT = varTypeT;
+			
+				item.Ismtm = varIsmtm;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -474,6 +499,13 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn IsmtmColumn
+        {
+            get { return Schema.Columns[9]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -487,6 +519,7 @@ namespace Model
 			 public static string Resoure = @"resoure";
 			 public static string Num = @"num";
 			 public static string TypeT = @"typeT";
+			 public static string Ismtm = @"ISMTM";
 						
 		}
 		#endregion

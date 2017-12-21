@@ -86,6 +86,7 @@
     <Compile Include="Helper\PushWebHelper.cs" />
     <Compile Include="ModelsOther\BLDate.cs" />
     <Compile Include="ModelsOther\Completion.cs" />
+    <Compile Include="ModelsOther\LineOrderPool.cs" />
     <Compile Include="ModelsOther\MesGerHourModel.cs" />
     <Compile Include="ModelsOther\Mflxx.cs" />
     <Compile Include="ModelsOther\Order.cs" />
