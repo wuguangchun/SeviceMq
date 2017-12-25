@@ -178,28 +178,6 @@ namespace APSData{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_ClickCount_delete Procedure
-        /// </summary>
-        public static StoredProcedure ProcClickCountDelete(int? ClickCount)
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_ClickCount_delete", DataService.GetInstance("Nowthwin"), "dbo");
-        	
-            sp.Command.AddParameter("@ClickCount", ClickCount, DbType.Int32, 0, 10);
-        	
-            return sp;
-        }
-        
-        /// <summary>
-        /// Creates an object wrapper for the Proc_CreateBlankingData_delete Procedure
-        /// </summary>
-        public static StoredProcedure ProcCreateBlankingDataDelete()
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_CreateBlankingData_delete", DataService.GetInstance("Nowthwin"), "");
-        	
-            return sp;
-        }
-        
-        /// <summary>
         /// Creates an object wrapper for the Proc_GeneratePlanCode_New Procedure
         /// </summary>
         public static StoredProcedure ProcGeneratePlanCodeNew(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount, DateTime? benginTime)
@@ -220,83 +198,11 @@ namespace APSData{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_GeneratePlanCode_test_tsh Procedure
-        /// </summary>
-        public static StoredProcedure ProcGeneratePlanCodeTestTsh(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount, DateTime? benginTime)
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GeneratePlanCode_test_tsh", DataService.GetInstance("Nowthwin"), "dbo");
-        	
-            sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@GzxkCount", GzxkCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@xfCount", xfCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@xkCount", xkCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@benginTime", benginTime, DbType.DateTime, null, null);
-        	
-            return sp;
-        }
-        
-        /// <summary>
-        /// Creates an object wrapper for the Proc_GeneratePlanCode_test_tsh_delete Procedure
-        /// </summary>
-        public static StoredProcedure ProcGeneratePlanCodeTestTshDelete(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount, DateTime? benginTime)
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GeneratePlanCode_test_tsh_delete", DataService.GetInstance("Nowthwin"), "dbo");
-        	
-            sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@GzxkCount", GzxkCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@xfCount", xfCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@xkCount", xkCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@benginTime", benginTime, DbType.DateTime, null, null);
-        	
-            return sp;
-        }
-        
-        /// <summary>
-        /// Creates an object wrapper for the Proc_GeneratePlanCode_新 Procedure
-        /// </summary>
-        public static StoredProcedure ProcGeneratePlanCode新(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount, DateTime? benginTime)
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GeneratePlanCode_新", DataService.GetInstance("Nowthwin"), "dbo");
-        	
-            sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@GzxkCount", GzxkCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@xfCount", xfCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@xkCount", xkCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@benginTime", benginTime, DbType.DateTime, null, null);
-        	
-            return sp;
-        }
-        
-        /// <summary>
         /// Creates an object wrapper for the Proc_GeneratePlanCodeCY Procedure
         /// </summary>
         public static StoredProcedure ProcGeneratePlanCodeCY()
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GeneratePlanCodeCY", DataService.GetInstance("Nowthwin"), "");
-        	
-            return sp;
-        }
-        
-        /// <summary>
-        /// Creates an object wrapper for the Proc_GetClientClickCount_delete Procedure
-        /// </summary>
-        public static StoredProcedure ProcGetClientClickCountDelete(string type)
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetClientClickCount_delete", DataService.GetInstance("Nowthwin"), "dbo");
-        	
-            sp.Command.AddParameter("@type", type, DbType.String, null, null);
         	
             return sp;
         }
@@ -358,45 +264,11 @@ namespace APSData{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_GetPlansDataCY_New_delete Procedure
-        /// </summary>
-        public static StoredProcedure ProcGetPlansDataCYNewDelete(DateTime? BeginTime)
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetPlansDataCY_New_delete", DataService.GetInstance("Nowthwin"), "dbo");
-        	
-            sp.Command.AddParameter("@BeginTime", BeginTime, DbType.DateTime, null, null);
-        	
-            return sp;
-        }
-        
-        /// <summary>
-        /// Creates an object wrapper for the Proc_GetPlansDataCY_New_test_tsh Procedure
-        /// </summary>
-        public static StoredProcedure ProcGetPlansDataCYNewTestTsh(DateTime? BeginTime)
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetPlansDataCY_New_test_tsh", DataService.GetInstance("Nowthwin"), "dbo");
-        	
-            sp.Command.AddParameter("@BeginTime", BeginTime, DbType.DateTime, null, null);
-        	
-            return sp;
-        }
-        
-        /// <summary>
         /// Creates an object wrapper for the Proc_GetPlansTZDataCy Procedure
         /// </summary>
         public static StoredProcedure ProcGetPlansTZDataCy()
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetPlansTZDataCy", DataService.GetInstance("Nowthwin"), "");
-        	
-            return sp;
-        }
-        
-        /// <summary>
-        /// Creates an object wrapper for the Proc_GetPlansTZDataCy_test_tsh Procedure
-        /// </summary>
-        public static StoredProcedure ProcGetPlansTZDataCyTestTsh()
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_GetPlansTZDataCy_test_tsh", DataService.GetInstance("Nowthwin"), "");
         	
             return sp;
         }
@@ -412,47 +284,11 @@ namespace APSData{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_MTMJH_delete Procedure
-        /// </summary>
-        public static StoredProcedure ProcMtmjhDelete(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount)
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_MTMJH_delete", DataService.GetInstance("Nowthwin"), "dbo");
-        	
-            sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@GzxkCount", GzxkCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@xfCount", xfCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@xkCount", xkCount, DbType.Int32, 0, 10);
-        	
-            return sp;
-        }
-        
-        /// <summary>
         /// Creates an object wrapper for the Proc_MTMJH_New Procedure
         /// </summary>
         public static StoredProcedure ProcMtmjhNew(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount)
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_MTMJH_New", DataService.GetInstance("Nowthwin"), "dbo");
-        	
-            sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@GzxkCount", GzxkCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@xfCount", xfCount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@xkCount", xkCount, DbType.Int32, 0, 10);
-        	
-            return sp;
-        }
-        
-        /// <summary>
-        /// Creates an object wrapper for the Proc_MTMJH_test_tsh Procedure
-        /// </summary>
-        public static StoredProcedure ProcMtmjhTestTsh(int? GzxfCount, int? GzxkCount, int? xfCount, int? xkCount)
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_MTMJH_test_tsh", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@GzxfCount", GzxfCount, DbType.Int32, 0, 10);
         	
@@ -526,26 +362,6 @@ namespace APSData{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the Proc_TzXfPlan_delete Procedure
-        /// </summary>
-        public static StoredProcedure ProcTzXfPlanDelete()
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_TzXfPlan_delete", DataService.GetInstance("Nowthwin"), "");
-        	
-            return sp;
-        }
-        
-        /// <summary>
-        /// Creates an object wrapper for the Proc_TzXfPlan_test_tsh Procedure
-        /// </summary>
-        public static StoredProcedure ProcTzXfPlanTestTsh()
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_TzXfPlan_test_tsh", DataService.GetInstance("Nowthwin"), "");
-        	
-            return sp;
-        }
-        
-        /// <summary>
         /// Creates an object wrapper for the secondP Procedure
         /// </summary>
         public static StoredProcedure SecondP()
@@ -556,31 +372,11 @@ namespace APSData{
         }
         
         /// <summary>
-        /// Creates an object wrapper for the test_wgc_delete Procedure
-        /// </summary>
-        public static StoredProcedure TestWgcDelete()
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("test_wgc_delete", DataService.GetInstance("Nowthwin"), "");
-        	
-            return sp;
-        }
-        
-        /// <summary>
         /// Creates an object wrapper for the UpdateT_APSCount Procedure
         /// </summary>
         public static StoredProcedure UpdateTAPSCount()
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("UpdateT_APSCount", DataService.GetInstance("Nowthwin"), "");
-        	
-            return sp;
-        }
-        
-        /// <summary>
-        /// Creates an object wrapper for the YwyPdDZ_delete Procedure
-        /// </summary>
-        public static StoredProcedure YwyPdDZDelete()
-        {
-            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("YwyPdDZ_delete", DataService.GetInstance("Nowthwin"), "");
         	
             return sp;
         }

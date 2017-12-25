@@ -165,19 +165,6 @@ namespace Model
 				colvarProject.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarProject);
 				
-				TableSchema.TableColumn colvarOrderType = new TableSchema.TableColumn(schema);
-				colvarOrderType.ColumnName = "orderType";
-				colvarOrderType.DataType = DbType.String;
-				colvarOrderType.MaxLength = 20;
-				colvarOrderType.AutoIncrement = false;
-				colvarOrderType.IsNullable = true;
-				colvarOrderType.IsPrimaryKey = false;
-				colvarOrderType.IsForeignKey = false;
-				colvarOrderType.IsReadOnly = false;
-				colvarOrderType.DefaultSetting = @"";
-				colvarOrderType.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarOrderType);
-				
 				TableSchema.TableColumn colvarCoatType = new TableSchema.TableColumn(schema);
 				colvarCoatType.ColumnName = "coatType";
 				colvarCoatType.DataType = DbType.String;
@@ -217,19 +204,6 @@ namespace Model
 				colvarFabric.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarFabric);
 				
-				TableSchema.TableColumn colvarMflxx = new TableSchema.TableColumn(schema);
-				colvarMflxx.ColumnName = "mflxx";
-				colvarMflxx.DataType = DbType.String;
-				colvarMflxx.MaxLength = -1;
-				colvarMflxx.AutoIncrement = false;
-				colvarMflxx.IsNullable = true;
-				colvarMflxx.IsPrimaryKey = false;
-				colvarMflxx.IsForeignKey = false;
-				colvarMflxx.IsReadOnly = false;
-				colvarMflxx.DefaultSetting = @"";
-				colvarMflxx.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarMflxx);
-				
 				TableSchema.TableColumn colvarOrderTime = new TableSchema.TableColumn(schema);
 				colvarOrderTime.ColumnName = "orderTime";
 				colvarOrderTime.DataType = DbType.DateTime;
@@ -256,19 +230,6 @@ namespace Model
 				colvarDeliveryTime.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarDeliveryTime);
 				
-				TableSchema.TableColumn colvarSpecialTime = new TableSchema.TableColumn(schema);
-				colvarSpecialTime.ColumnName = "specialTime";
-				colvarSpecialTime.DataType = DbType.Int32;
-				colvarSpecialTime.MaxLength = 0;
-				colvarSpecialTime.AutoIncrement = false;
-				colvarSpecialTime.IsNullable = true;
-				colvarSpecialTime.IsPrimaryKey = false;
-				colvarSpecialTime.IsForeignKey = false;
-				colvarSpecialTime.IsReadOnly = false;
-				colvarSpecialTime.DefaultSetting = @"";
-				colvarSpecialTime.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarSpecialTime);
-				
 				TableSchema.TableColumn colvarSpecialCode = new TableSchema.TableColumn(schema);
 				colvarSpecialCode.ColumnName = "specialCode";
 				colvarSpecialCode.DataType = DbType.String;
@@ -281,19 +242,6 @@ namespace Model
 				colvarSpecialCode.DefaultSetting = @"";
 				colvarSpecialCode.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarSpecialCode);
-				
-				TableSchema.TableColumn colvarStyles = new TableSchema.TableColumn(schema);
-				colvarStyles.ColumnName = "styles";
-				colvarStyles.DataType = DbType.String;
-				colvarStyles.MaxLength = 100;
-				colvarStyles.AutoIncrement = false;
-				colvarStyles.IsNullable = true;
-				colvarStyles.IsPrimaryKey = false;
-				colvarStyles.IsForeignKey = false;
-				colvarStyles.IsReadOnly = false;
-				colvarStyles.DefaultSetting = @"";
-				colvarStyles.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarStyles);
 				
 				TableSchema.TableColumn colvarStylesResult = new TableSchema.TableColumn(schema);
 				colvarStylesResult.ColumnName = "stylesResult";
@@ -321,32 +269,6 @@ namespace Model
 				colvarNumbers.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarNumbers);
 				
-				TableSchema.TableColumn colvarSupportingWay = new TableSchema.TableColumn(schema);
-				colvarSupportingWay.ColumnName = "supportingWay";
-				colvarSupportingWay.DataType = DbType.String;
-				colvarSupportingWay.MaxLength = 50;
-				colvarSupportingWay.AutoIncrement = false;
-				colvarSupportingWay.IsNullable = true;
-				colvarSupportingWay.IsPrimaryKey = false;
-				colvarSupportingWay.IsForeignKey = false;
-				colvarSupportingWay.IsReadOnly = false;
-				colvarSupportingWay.DefaultSetting = @"";
-				colvarSupportingWay.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarSupportingWay);
-				
-				TableSchema.TableColumn colvarSizes = new TableSchema.TableColumn(schema);
-				colvarSizes.ColumnName = "sizes";
-				colvarSizes.DataType = DbType.String;
-				colvarSizes.MaxLength = 50;
-				colvarSizes.AutoIncrement = false;
-				colvarSizes.IsNullable = true;
-				colvarSizes.IsPrimaryKey = false;
-				colvarSizes.IsForeignKey = false;
-				colvarSizes.IsReadOnly = false;
-				colvarSizes.DefaultSetting = @"";
-				colvarSizes.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarSizes);
-				
 				TableSchema.TableColumn colvarCustomer = new TableSchema.TableColumn(schema);
 				colvarCustomer.ColumnName = "customer";
 				colvarCustomer.DataType = DbType.String;
@@ -359,149 +281,6 @@ namespace Model
 				colvarCustomer.DefaultSetting = @"";
 				colvarCustomer.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarCustomer);
-				
-				TableSchema.TableColumn colvarCreateTime = new TableSchema.TableColumn(schema);
-				colvarCreateTime.ColumnName = "createTime";
-				colvarCreateTime.DataType = DbType.DateTime;
-				colvarCreateTime.MaxLength = 0;
-				colvarCreateTime.AutoIncrement = false;
-				colvarCreateTime.IsNullable = true;
-				colvarCreateTime.IsPrimaryKey = false;
-				colvarCreateTime.IsForeignKey = false;
-				colvarCreateTime.IsReadOnly = false;
-				colvarCreateTime.DefaultSetting = @"";
-				colvarCreateTime.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarCreateTime);
-				
-				TableSchema.TableColumn colvarOrderStatus = new TableSchema.TableColumn(schema);
-				colvarOrderStatus.ColumnName = "orderStatus";
-				colvarOrderStatus.DataType = DbType.String;
-				colvarOrderStatus.MaxLength = 50;
-				colvarOrderStatus.AutoIncrement = false;
-				colvarOrderStatus.IsNullable = true;
-				colvarOrderStatus.IsPrimaryKey = false;
-				colvarOrderStatus.IsForeignKey = false;
-				colvarOrderStatus.IsReadOnly = false;
-				colvarOrderStatus.DefaultSetting = @"";
-				colvarOrderStatus.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarOrderStatus);
-				
-				TableSchema.TableColumn colvarCreateDate = new TableSchema.TableColumn(schema);
-				colvarCreateDate.ColumnName = "createDate";
-				colvarCreateDate.DataType = DbType.DateTime;
-				colvarCreateDate.MaxLength = 0;
-				colvarCreateDate.AutoIncrement = false;
-				colvarCreateDate.IsNullable = true;
-				colvarCreateDate.IsPrimaryKey = false;
-				colvarCreateDate.IsForeignKey = false;
-				colvarCreateDate.IsReadOnly = false;
-				colvarCreateDate.DefaultSetting = @"";
-				colvarCreateDate.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarCreateDate);
-				
-				TableSchema.TableColumn colvarPbcd = new TableSchema.TableColumn(schema);
-				colvarPbcd.ColumnName = "pbcd";
-				colvarPbcd.DataType = DbType.String;
-				colvarPbcd.MaxLength = 50;
-				colvarPbcd.AutoIncrement = false;
-				colvarPbcd.IsNullable = true;
-				colvarPbcd.IsPrimaryKey = false;
-				colvarPbcd.IsForeignKey = false;
-				colvarPbcd.IsReadOnly = false;
-				colvarPbcd.DefaultSetting = @"";
-				colvarPbcd.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarPbcd);
-				
-				TableSchema.TableColumn colvarGydm = new TableSchema.TableColumn(schema);
-				colvarGydm.ColumnName = "gydm";
-				colvarGydm.DataType = DbType.String;
-				colvarGydm.MaxLength = 100;
-				colvarGydm.AutoIncrement = false;
-				colvarGydm.IsNullable = true;
-				colvarGydm.IsPrimaryKey = false;
-				colvarGydm.IsForeignKey = false;
-				colvarGydm.IsReadOnly = false;
-				colvarGydm.DefaultSetting = @"";
-				colvarGydm.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarGydm);
-				
-				TableSchema.TableColumn colvarAudittime = new TableSchema.TableColumn(schema);
-				colvarAudittime.ColumnName = "audittime";
-				colvarAudittime.DataType = DbType.DateTime;
-				colvarAudittime.MaxLength = 0;
-				colvarAudittime.AutoIncrement = false;
-				colvarAudittime.IsNullable = true;
-				colvarAudittime.IsPrimaryKey = false;
-				colvarAudittime.IsForeignKey = false;
-				colvarAudittime.IsReadOnly = false;
-				colvarAudittime.DefaultSetting = @"";
-				colvarAudittime.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarAudittime);
-				
-				TableSchema.TableColumn colvarSfbcpsy = new TableSchema.TableColumn(schema);
-				colvarSfbcpsy.ColumnName = "sfbcpsy";
-				colvarSfbcpsy.DataType = DbType.String;
-				colvarSfbcpsy.MaxLength = 50;
-				colvarSfbcpsy.AutoIncrement = false;
-				colvarSfbcpsy.IsNullable = true;
-				colvarSfbcpsy.IsPrimaryKey = false;
-				colvarSfbcpsy.IsForeignKey = false;
-				colvarSfbcpsy.IsReadOnly = false;
-				colvarSfbcpsy.DefaultSetting = @"";
-				colvarSfbcpsy.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarSfbcpsy);
-				
-				TableSchema.TableColumn colvarTzecode = new TableSchema.TableColumn(schema);
-				colvarTzecode.ColumnName = "tzecode";
-				colvarTzecode.DataType = DbType.String;
-				colvarTzecode.MaxLength = 50;
-				colvarTzecode.AutoIncrement = false;
-				colvarTzecode.IsNullable = true;
-				colvarTzecode.IsPrimaryKey = false;
-				colvarTzecode.IsForeignKey = false;
-				colvarTzecode.IsReadOnly = false;
-				colvarTzecode.DefaultSetting = @"";
-				colvarTzecode.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarTzecode);
-				
-				TableSchema.TableColumn colvarScggdh = new TableSchema.TableColumn(schema);
-				colvarScggdh.ColumnName = "SCGGDH";
-				colvarScggdh.DataType = DbType.String;
-				colvarScggdh.MaxLength = 50;
-				colvarScggdh.AutoIncrement = false;
-				colvarScggdh.IsNullable = true;
-				colvarScggdh.IsPrimaryKey = false;
-				colvarScggdh.IsForeignKey = false;
-				colvarScggdh.IsReadOnly = false;
-				colvarScggdh.DefaultSetting = @"";
-				colvarScggdh.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarScggdh);
-				
-				TableSchema.TableColumn colvarModifyTime = new TableSchema.TableColumn(schema);
-				colvarModifyTime.ColumnName = "modifyTime";
-				colvarModifyTime.DataType = DbType.DateTime;
-				colvarModifyTime.MaxLength = 0;
-				colvarModifyTime.AutoIncrement = false;
-				colvarModifyTime.IsNullable = true;
-				colvarModifyTime.IsPrimaryKey = false;
-				colvarModifyTime.IsForeignKey = false;
-				colvarModifyTime.IsReadOnly = false;
-				colvarModifyTime.DefaultSetting = @"";
-				colvarModifyTime.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarModifyTime);
-				
-				TableSchema.TableColumn colvarPbcdName = new TableSchema.TableColumn(schema);
-				colvarPbcdName.ColumnName = "pbcdName";
-				colvarPbcdName.DataType = DbType.String;
-				colvarPbcdName.MaxLength = 50;
-				colvarPbcdName.AutoIncrement = false;
-				colvarPbcdName.IsNullable = true;
-				colvarPbcdName.IsPrimaryKey = false;
-				colvarPbcdName.IsForeignKey = false;
-				colvarPbcdName.IsReadOnly = false;
-				colvarPbcdName.DefaultSetting = @"";
-				colvarPbcdName.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarPbcdName);
 				
 				TableSchema.TableColumn colvarEndTime = new TableSchema.TableColumn(schema);
 				colvarEndTime.ColumnName = "endTime";
@@ -516,19 +295,6 @@ namespace Model
 				colvarEndTime.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarEndTime);
 				
-				TableSchema.TableColumn colvarFlagStatus = new TableSchema.TableColumn(schema);
-				colvarFlagStatus.ColumnName = "flagStatus";
-				colvarFlagStatus.DataType = DbType.Int32;
-				colvarFlagStatus.MaxLength = 0;
-				colvarFlagStatus.AutoIncrement = false;
-				colvarFlagStatus.IsNullable = true;
-				colvarFlagStatus.IsPrimaryKey = false;
-				colvarFlagStatus.IsForeignKey = false;
-				colvarFlagStatus.IsReadOnly = false;
-				colvarFlagStatus.DefaultSetting = @"";
-				colvarFlagStatus.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarFlagStatus);
-				
 				TableSchema.TableColumn colvarResources = new TableSchema.TableColumn(schema);
 				colvarResources.ColumnName = "resources";
 				colvarResources.DataType = DbType.String;
@@ -541,32 +307,6 @@ namespace Model
 				colvarResources.DefaultSetting = @"";
 				colvarResources.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarResources);
-				
-				TableSchema.TableColumn colvarCuttime = new TableSchema.TableColumn(schema);
-				colvarCuttime.ColumnName = "CUTTIME";
-				colvarCuttime.DataType = DbType.DateTime;
-				colvarCuttime.MaxLength = 0;
-				colvarCuttime.AutoIncrement = false;
-				colvarCuttime.IsNullable = true;
-				colvarCuttime.IsPrimaryKey = false;
-				colvarCuttime.IsForeignKey = false;
-				colvarCuttime.IsReadOnly = false;
-				colvarCuttime.DefaultSetting = @"";
-				colvarCuttime.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarCuttime);
-				
-				TableSchema.TableColumn colvarResourcesnum = new TableSchema.TableColumn(schema);
-				colvarResourcesnum.ColumnName = "resourcesnum";
-				colvarResourcesnum.DataType = DbType.String;
-				colvarResourcesnum.MaxLength = 100;
-				colvarResourcesnum.AutoIncrement = false;
-				colvarResourcesnum.IsNullable = true;
-				colvarResourcesnum.IsPrimaryKey = false;
-				colvarResourcesnum.IsForeignKey = false;
-				colvarResourcesnum.IsReadOnly = false;
-				colvarResourcesnum.DefaultSetting = @"";
-				colvarResourcesnum.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarResourcesnum);
 				
 				TableSchema.TableColumn colvarJobId = new TableSchema.TableColumn(schema);
 				colvarJobId.ColumnName = "jobId";
@@ -594,19 +334,6 @@ namespace Model
 				colvarTypeT.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarTypeT);
 				
-				TableSchema.TableColumn colvarMtxx = new TableSchema.TableColumn(schema);
-				colvarMtxx.ColumnName = "mtxx";
-				colvarMtxx.DataType = DbType.String;
-				colvarMtxx.MaxLength = 50;
-				colvarMtxx.AutoIncrement = false;
-				colvarMtxx.IsNullable = true;
-				colvarMtxx.IsPrimaryKey = false;
-				colvarMtxx.IsForeignKey = false;
-				colvarMtxx.IsReadOnly = false;
-				colvarMtxx.DefaultSetting = @"";
-				colvarMtxx.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarMtxx);
-				
 				TableSchema.TableColumn colvarFzx = new TableSchema.TableColumn(schema);
 				colvarFzx.ColumnName = "fzx";
 				colvarFzx.DataType = DbType.String;
@@ -619,71 +346,6 @@ namespace Model
 				colvarFzx.DefaultSetting = @"";
 				colvarFzx.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarFzx);
-				
-				TableSchema.TableColumn colvarOnetime = new TableSchema.TableColumn(schema);
-				colvarOnetime.ColumnName = "onetime";
-				colvarOnetime.DataType = DbType.DateTime;
-				colvarOnetime.MaxLength = 0;
-				colvarOnetime.AutoIncrement = false;
-				colvarOnetime.IsNullable = true;
-				colvarOnetime.IsPrimaryKey = false;
-				colvarOnetime.IsForeignKey = false;
-				colvarOnetime.IsReadOnly = false;
-				colvarOnetime.DefaultSetting = @"";
-				colvarOnetime.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarOnetime);
-				
-				TableSchema.TableColumn colvarTtime = new TableSchema.TableColumn(schema);
-				colvarTtime.ColumnName = "ttime";
-				colvarTtime.DataType = DbType.DateTime;
-				colvarTtime.MaxLength = 0;
-				colvarTtime.AutoIncrement = false;
-				colvarTtime.IsNullable = true;
-				colvarTtime.IsPrimaryKey = false;
-				colvarTtime.IsForeignKey = false;
-				colvarTtime.IsReadOnly = false;
-				colvarTtime.DefaultSetting = @"";
-				colvarTtime.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarTtime);
-				
-				TableSchema.TableColumn colvarFtime = new TableSchema.TableColumn(schema);
-				colvarFtime.ColumnName = "ftime";
-				colvarFtime.DataType = DbType.DateTime;
-				colvarFtime.MaxLength = 0;
-				colvarFtime.AutoIncrement = false;
-				colvarFtime.IsNullable = true;
-				colvarFtime.IsPrimaryKey = false;
-				colvarFtime.IsForeignKey = false;
-				colvarFtime.IsReadOnly = false;
-				colvarFtime.DefaultSetting = @"";
-				colvarFtime.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarFtime);
-				
-				TableSchema.TableColumn colvarFivetime = new TableSchema.TableColumn(schema);
-				colvarFivetime.ColumnName = "fivetime";
-				colvarFivetime.DataType = DbType.DateTime;
-				colvarFivetime.MaxLength = 0;
-				colvarFivetime.AutoIncrement = false;
-				colvarFivetime.IsNullable = true;
-				colvarFivetime.IsPrimaryKey = false;
-				colvarFivetime.IsForeignKey = false;
-				colvarFivetime.IsReadOnly = false;
-				colvarFivetime.DefaultSetting = @"";
-				colvarFivetime.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarFivetime);
-				
-				TableSchema.TableColumn colvarSixtime = new TableSchema.TableColumn(schema);
-				colvarSixtime.ColumnName = "sixtime";
-				colvarSixtime.DataType = DbType.DateTime;
-				colvarSixtime.MaxLength = 0;
-				colvarSixtime.AutoIncrement = false;
-				colvarSixtime.IsNullable = true;
-				colvarSixtime.IsPrimaryKey = false;
-				colvarSixtime.IsForeignKey = false;
-				colvarSixtime.IsReadOnly = false;
-				colvarSixtime.DefaultSetting = @"";
-				colvarSixtime.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarSixtime);
 				
 				TableSchema.TableColumn colvarRes = new TableSchema.TableColumn(schema);
 				colvarRes.ColumnName = "res";
@@ -710,6 +372,409 @@ namespace Model
 				colvarClothType.DefaultSetting = @"";
 				colvarClothType.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarClothType);
+				
+				TableSchema.TableColumn colvarKey1endtime = new TableSchema.TableColumn(schema);
+				colvarKey1endtime.ColumnName = "key1endtime";
+				colvarKey1endtime.DataType = DbType.DateTime;
+				colvarKey1endtime.MaxLength = 0;
+				colvarKey1endtime.AutoIncrement = false;
+				colvarKey1endtime.IsNullable = true;
+				colvarKey1endtime.IsPrimaryKey = false;
+				colvarKey1endtime.IsForeignKey = false;
+				colvarKey1endtime.IsReadOnly = false;
+				colvarKey1endtime.DefaultSetting = @"";
+				colvarKey1endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey1endtime);
+				
+				TableSchema.TableColumn colvarKey2endtime = new TableSchema.TableColumn(schema);
+				colvarKey2endtime.ColumnName = "key2endtime";
+				colvarKey2endtime.DataType = DbType.DateTime;
+				colvarKey2endtime.MaxLength = 0;
+				colvarKey2endtime.AutoIncrement = false;
+				colvarKey2endtime.IsNullable = true;
+				colvarKey2endtime.IsPrimaryKey = false;
+				colvarKey2endtime.IsForeignKey = false;
+				colvarKey2endtime.IsReadOnly = false;
+				colvarKey2endtime.DefaultSetting = @"";
+				colvarKey2endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey2endtime);
+				
+				TableSchema.TableColumn colvarKey3endtime = new TableSchema.TableColumn(schema);
+				colvarKey3endtime.ColumnName = "key3endtime";
+				colvarKey3endtime.DataType = DbType.DateTime;
+				colvarKey3endtime.MaxLength = 0;
+				colvarKey3endtime.AutoIncrement = false;
+				colvarKey3endtime.IsNullable = true;
+				colvarKey3endtime.IsPrimaryKey = false;
+				colvarKey3endtime.IsForeignKey = false;
+				colvarKey3endtime.IsReadOnly = false;
+				colvarKey3endtime.DefaultSetting = @"";
+				colvarKey3endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey3endtime);
+				
+				TableSchema.TableColumn colvarKey4endtime = new TableSchema.TableColumn(schema);
+				colvarKey4endtime.ColumnName = "key4endtime";
+				colvarKey4endtime.DataType = DbType.DateTime;
+				colvarKey4endtime.MaxLength = 0;
+				colvarKey4endtime.AutoIncrement = false;
+				colvarKey4endtime.IsNullable = true;
+				colvarKey4endtime.IsPrimaryKey = false;
+				colvarKey4endtime.IsForeignKey = false;
+				colvarKey4endtime.IsReadOnly = false;
+				colvarKey4endtime.DefaultSetting = @"";
+				colvarKey4endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey4endtime);
+				
+				TableSchema.TableColumn colvarKey5endtime = new TableSchema.TableColumn(schema);
+				colvarKey5endtime.ColumnName = "key5endtime";
+				colvarKey5endtime.DataType = DbType.DateTime;
+				colvarKey5endtime.MaxLength = 0;
+				colvarKey5endtime.AutoIncrement = false;
+				colvarKey5endtime.IsNullable = true;
+				colvarKey5endtime.IsPrimaryKey = false;
+				colvarKey5endtime.IsForeignKey = false;
+				colvarKey5endtime.IsReadOnly = false;
+				colvarKey5endtime.DefaultSetting = @"";
+				colvarKey5endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey5endtime);
+				
+				TableSchema.TableColumn colvarKey6endtime = new TableSchema.TableColumn(schema);
+				colvarKey6endtime.ColumnName = "key6endtime";
+				colvarKey6endtime.DataType = DbType.DateTime;
+				colvarKey6endtime.MaxLength = 0;
+				colvarKey6endtime.AutoIncrement = false;
+				colvarKey6endtime.IsNullable = true;
+				colvarKey6endtime.IsPrimaryKey = false;
+				colvarKey6endtime.IsForeignKey = false;
+				colvarKey6endtime.IsReadOnly = false;
+				colvarKey6endtime.DefaultSetting = @"";
+				colvarKey6endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey6endtime);
+				
+				TableSchema.TableColumn colvarKey7endtime = new TableSchema.TableColumn(schema);
+				colvarKey7endtime.ColumnName = "key7endtime";
+				colvarKey7endtime.DataType = DbType.DateTime;
+				colvarKey7endtime.MaxLength = 0;
+				colvarKey7endtime.AutoIncrement = false;
+				colvarKey7endtime.IsNullable = true;
+				colvarKey7endtime.IsPrimaryKey = false;
+				colvarKey7endtime.IsForeignKey = false;
+				colvarKey7endtime.IsReadOnly = false;
+				colvarKey7endtime.DefaultSetting = @"";
+				colvarKey7endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey7endtime);
+				
+				TableSchema.TableColumn colvarKey8endtime = new TableSchema.TableColumn(schema);
+				colvarKey8endtime.ColumnName = "key8endtime";
+				colvarKey8endtime.DataType = DbType.DateTime;
+				colvarKey8endtime.MaxLength = 0;
+				colvarKey8endtime.AutoIncrement = false;
+				colvarKey8endtime.IsNullable = true;
+				colvarKey8endtime.IsPrimaryKey = false;
+				colvarKey8endtime.IsForeignKey = false;
+				colvarKey8endtime.IsReadOnly = false;
+				colvarKey8endtime.DefaultSetting = @"";
+				colvarKey8endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey8endtime);
+				
+				TableSchema.TableColumn colvarKey9endtime = new TableSchema.TableColumn(schema);
+				colvarKey9endtime.ColumnName = "key9endtime";
+				colvarKey9endtime.DataType = DbType.DateTime;
+				colvarKey9endtime.MaxLength = 0;
+				colvarKey9endtime.AutoIncrement = false;
+				colvarKey9endtime.IsNullable = true;
+				colvarKey9endtime.IsPrimaryKey = false;
+				colvarKey9endtime.IsForeignKey = false;
+				colvarKey9endtime.IsReadOnly = false;
+				colvarKey9endtime.DefaultSetting = @"";
+				colvarKey9endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey9endtime);
+				
+				TableSchema.TableColumn colvarKey10endtime = new TableSchema.TableColumn(schema);
+				colvarKey10endtime.ColumnName = "key10endtime";
+				colvarKey10endtime.DataType = DbType.DateTime;
+				colvarKey10endtime.MaxLength = 0;
+				colvarKey10endtime.AutoIncrement = false;
+				colvarKey10endtime.IsNullable = true;
+				colvarKey10endtime.IsPrimaryKey = false;
+				colvarKey10endtime.IsForeignKey = false;
+				colvarKey10endtime.IsReadOnly = false;
+				colvarKey10endtime.DefaultSetting = @"";
+				colvarKey10endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey10endtime);
+				
+				TableSchema.TableColumn colvarKey11endtime = new TableSchema.TableColumn(schema);
+				colvarKey11endtime.ColumnName = "key11endtime";
+				colvarKey11endtime.DataType = DbType.DateTime;
+				colvarKey11endtime.MaxLength = 0;
+				colvarKey11endtime.AutoIncrement = false;
+				colvarKey11endtime.IsNullable = true;
+				colvarKey11endtime.IsPrimaryKey = false;
+				colvarKey11endtime.IsForeignKey = false;
+				colvarKey11endtime.IsReadOnly = false;
+				colvarKey11endtime.DefaultSetting = @"";
+				colvarKey11endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey11endtime);
+				
+				TableSchema.TableColumn colvarKey12endtime = new TableSchema.TableColumn(schema);
+				colvarKey12endtime.ColumnName = "key12endtime";
+				colvarKey12endtime.DataType = DbType.DateTime;
+				colvarKey12endtime.MaxLength = 0;
+				colvarKey12endtime.AutoIncrement = false;
+				colvarKey12endtime.IsNullable = true;
+				colvarKey12endtime.IsPrimaryKey = false;
+				colvarKey12endtime.IsForeignKey = false;
+				colvarKey12endtime.IsReadOnly = false;
+				colvarKey12endtime.DefaultSetting = @"";
+				colvarKey12endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey12endtime);
+				
+				TableSchema.TableColumn colvarKey13endtime = new TableSchema.TableColumn(schema);
+				colvarKey13endtime.ColumnName = "key13endtime";
+				colvarKey13endtime.DataType = DbType.DateTime;
+				colvarKey13endtime.MaxLength = 0;
+				colvarKey13endtime.AutoIncrement = false;
+				colvarKey13endtime.IsNullable = true;
+				colvarKey13endtime.IsPrimaryKey = false;
+				colvarKey13endtime.IsForeignKey = false;
+				colvarKey13endtime.IsReadOnly = false;
+				colvarKey13endtime.DefaultSetting = @"";
+				colvarKey13endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey13endtime);
+				
+				TableSchema.TableColumn colvarKey14endtime = new TableSchema.TableColumn(schema);
+				colvarKey14endtime.ColumnName = "key14endtime";
+				colvarKey14endtime.DataType = DbType.DateTime;
+				colvarKey14endtime.MaxLength = 0;
+				colvarKey14endtime.AutoIncrement = false;
+				colvarKey14endtime.IsNullable = true;
+				colvarKey14endtime.IsPrimaryKey = false;
+				colvarKey14endtime.IsForeignKey = false;
+				colvarKey14endtime.IsReadOnly = false;
+				colvarKey14endtime.DefaultSetting = @"";
+				colvarKey14endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey14endtime);
+				
+				TableSchema.TableColumn colvarKey15endtime = new TableSchema.TableColumn(schema);
+				colvarKey15endtime.ColumnName = "key15endtime";
+				colvarKey15endtime.DataType = DbType.DateTime;
+				colvarKey15endtime.MaxLength = 0;
+				colvarKey15endtime.AutoIncrement = false;
+				colvarKey15endtime.IsNullable = true;
+				colvarKey15endtime.IsPrimaryKey = false;
+				colvarKey15endtime.IsForeignKey = false;
+				colvarKey15endtime.IsReadOnly = false;
+				colvarKey15endtime.DefaultSetting = @"";
+				colvarKey15endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey15endtime);
+				
+				TableSchema.TableColumn colvarKey16endtime = new TableSchema.TableColumn(schema);
+				colvarKey16endtime.ColumnName = "key16endtime";
+				colvarKey16endtime.DataType = DbType.DateTime;
+				colvarKey16endtime.MaxLength = 0;
+				colvarKey16endtime.AutoIncrement = false;
+				colvarKey16endtime.IsNullable = true;
+				colvarKey16endtime.IsPrimaryKey = false;
+				colvarKey16endtime.IsForeignKey = false;
+				colvarKey16endtime.IsReadOnly = false;
+				colvarKey16endtime.DefaultSetting = @"";
+				colvarKey16endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey16endtime);
+				
+				TableSchema.TableColumn colvarKey17endtime = new TableSchema.TableColumn(schema);
+				colvarKey17endtime.ColumnName = "key17endtime";
+				colvarKey17endtime.DataType = DbType.DateTime;
+				colvarKey17endtime.MaxLength = 0;
+				colvarKey17endtime.AutoIncrement = false;
+				colvarKey17endtime.IsNullable = true;
+				colvarKey17endtime.IsPrimaryKey = false;
+				colvarKey17endtime.IsForeignKey = false;
+				colvarKey17endtime.IsReadOnly = false;
+				colvarKey17endtime.DefaultSetting = @"";
+				colvarKey17endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey17endtime);
+				
+				TableSchema.TableColumn colvarKey18endtime = new TableSchema.TableColumn(schema);
+				colvarKey18endtime.ColumnName = "key18endtime";
+				colvarKey18endtime.DataType = DbType.DateTime;
+				colvarKey18endtime.MaxLength = 0;
+				colvarKey18endtime.AutoIncrement = false;
+				colvarKey18endtime.IsNullable = true;
+				colvarKey18endtime.IsPrimaryKey = false;
+				colvarKey18endtime.IsForeignKey = false;
+				colvarKey18endtime.IsReadOnly = false;
+				colvarKey18endtime.DefaultSetting = @"";
+				colvarKey18endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey18endtime);
+				
+				TableSchema.TableColumn colvarKey19endtime = new TableSchema.TableColumn(schema);
+				colvarKey19endtime.ColumnName = "key19endtime";
+				colvarKey19endtime.DataType = DbType.DateTime;
+				colvarKey19endtime.MaxLength = 0;
+				colvarKey19endtime.AutoIncrement = false;
+				colvarKey19endtime.IsNullable = true;
+				colvarKey19endtime.IsPrimaryKey = false;
+				colvarKey19endtime.IsForeignKey = false;
+				colvarKey19endtime.IsReadOnly = false;
+				colvarKey19endtime.DefaultSetting = @"";
+				colvarKey19endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey19endtime);
+				
+				TableSchema.TableColumn colvarKey20endtime = new TableSchema.TableColumn(schema);
+				colvarKey20endtime.ColumnName = "key20endtime";
+				colvarKey20endtime.DataType = DbType.DateTime;
+				colvarKey20endtime.MaxLength = 0;
+				colvarKey20endtime.AutoIncrement = false;
+				colvarKey20endtime.IsNullable = true;
+				colvarKey20endtime.IsPrimaryKey = false;
+				colvarKey20endtime.IsForeignKey = false;
+				colvarKey20endtime.IsReadOnly = false;
+				colvarKey20endtime.DefaultSetting = @"";
+				colvarKey20endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey20endtime);
+				
+				TableSchema.TableColumn colvarKey21endtime = new TableSchema.TableColumn(schema);
+				colvarKey21endtime.ColumnName = "key21endtime";
+				colvarKey21endtime.DataType = DbType.DateTime;
+				colvarKey21endtime.MaxLength = 0;
+				colvarKey21endtime.AutoIncrement = false;
+				colvarKey21endtime.IsNullable = true;
+				colvarKey21endtime.IsPrimaryKey = false;
+				colvarKey21endtime.IsForeignKey = false;
+				colvarKey21endtime.IsReadOnly = false;
+				colvarKey21endtime.DefaultSetting = @"";
+				colvarKey21endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey21endtime);
+				
+				TableSchema.TableColumn colvarKey22endtime = new TableSchema.TableColumn(schema);
+				colvarKey22endtime.ColumnName = "key22endtime";
+				colvarKey22endtime.DataType = DbType.DateTime;
+				colvarKey22endtime.MaxLength = 0;
+				colvarKey22endtime.AutoIncrement = false;
+				colvarKey22endtime.IsNullable = true;
+				colvarKey22endtime.IsPrimaryKey = false;
+				colvarKey22endtime.IsForeignKey = false;
+				colvarKey22endtime.IsReadOnly = false;
+				colvarKey22endtime.DefaultSetting = @"";
+				colvarKey22endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey22endtime);
+				
+				TableSchema.TableColumn colvarKey23endtime = new TableSchema.TableColumn(schema);
+				colvarKey23endtime.ColumnName = "key23endtime";
+				colvarKey23endtime.DataType = DbType.DateTime;
+				colvarKey23endtime.MaxLength = 0;
+				colvarKey23endtime.AutoIncrement = false;
+				colvarKey23endtime.IsNullable = true;
+				colvarKey23endtime.IsPrimaryKey = false;
+				colvarKey23endtime.IsForeignKey = false;
+				colvarKey23endtime.IsReadOnly = false;
+				colvarKey23endtime.DefaultSetting = @"";
+				colvarKey23endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey23endtime);
+				
+				TableSchema.TableColumn colvarKey24endtime = new TableSchema.TableColumn(schema);
+				colvarKey24endtime.ColumnName = "key24endtime";
+				colvarKey24endtime.DataType = DbType.DateTime;
+				colvarKey24endtime.MaxLength = 0;
+				colvarKey24endtime.AutoIncrement = false;
+				colvarKey24endtime.IsNullable = true;
+				colvarKey24endtime.IsPrimaryKey = false;
+				colvarKey24endtime.IsForeignKey = false;
+				colvarKey24endtime.IsReadOnly = false;
+				colvarKey24endtime.DefaultSetting = @"";
+				colvarKey24endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey24endtime);
+				
+				TableSchema.TableColumn colvarKey25endtime = new TableSchema.TableColumn(schema);
+				colvarKey25endtime.ColumnName = "key25endtime";
+				colvarKey25endtime.DataType = DbType.DateTime;
+				colvarKey25endtime.MaxLength = 0;
+				colvarKey25endtime.AutoIncrement = false;
+				colvarKey25endtime.IsNullable = true;
+				colvarKey25endtime.IsPrimaryKey = false;
+				colvarKey25endtime.IsForeignKey = false;
+				colvarKey25endtime.IsReadOnly = false;
+				colvarKey25endtime.DefaultSetting = @"";
+				colvarKey25endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey25endtime);
+				
+				TableSchema.TableColumn colvarKey26endtime = new TableSchema.TableColumn(schema);
+				colvarKey26endtime.ColumnName = "key26endtime";
+				colvarKey26endtime.DataType = DbType.DateTime;
+				colvarKey26endtime.MaxLength = 0;
+				colvarKey26endtime.AutoIncrement = false;
+				colvarKey26endtime.IsNullable = true;
+				colvarKey26endtime.IsPrimaryKey = false;
+				colvarKey26endtime.IsForeignKey = false;
+				colvarKey26endtime.IsReadOnly = false;
+				colvarKey26endtime.DefaultSetting = @"";
+				colvarKey26endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey26endtime);
+				
+				TableSchema.TableColumn colvarKey27endtime = new TableSchema.TableColumn(schema);
+				colvarKey27endtime.ColumnName = "key27endtime";
+				colvarKey27endtime.DataType = DbType.DateTime;
+				colvarKey27endtime.MaxLength = 0;
+				colvarKey27endtime.AutoIncrement = false;
+				colvarKey27endtime.IsNullable = true;
+				colvarKey27endtime.IsPrimaryKey = false;
+				colvarKey27endtime.IsForeignKey = false;
+				colvarKey27endtime.IsReadOnly = false;
+				colvarKey27endtime.DefaultSetting = @"";
+				colvarKey27endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey27endtime);
+				
+				TableSchema.TableColumn colvarKey28endtime = new TableSchema.TableColumn(schema);
+				colvarKey28endtime.ColumnName = "key28endtime";
+				colvarKey28endtime.DataType = DbType.DateTime;
+				colvarKey28endtime.MaxLength = 0;
+				colvarKey28endtime.AutoIncrement = false;
+				colvarKey28endtime.IsNullable = true;
+				colvarKey28endtime.IsPrimaryKey = false;
+				colvarKey28endtime.IsForeignKey = false;
+				colvarKey28endtime.IsReadOnly = false;
+				colvarKey28endtime.DefaultSetting = @"";
+				colvarKey28endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey28endtime);
+				
+				TableSchema.TableColumn colvarKey29endtime = new TableSchema.TableColumn(schema);
+				colvarKey29endtime.ColumnName = "key29endtime";
+				colvarKey29endtime.DataType = DbType.DateTime;
+				colvarKey29endtime.MaxLength = 0;
+				colvarKey29endtime.AutoIncrement = false;
+				colvarKey29endtime.IsNullable = true;
+				colvarKey29endtime.IsPrimaryKey = false;
+				colvarKey29endtime.IsForeignKey = false;
+				colvarKey29endtime.IsReadOnly = false;
+				colvarKey29endtime.DefaultSetting = @"";
+				colvarKey29endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey29endtime);
+				
+				TableSchema.TableColumn colvarKey30endtime = new TableSchema.TableColumn(schema);
+				colvarKey30endtime.ColumnName = "key30endtime";
+				colvarKey30endtime.DataType = DbType.DateTime;
+				colvarKey30endtime.MaxLength = 0;
+				colvarKey30endtime.AutoIncrement = false;
+				colvarKey30endtime.IsNullable = true;
+				colvarKey30endtime.IsPrimaryKey = false;
+				colvarKey30endtime.IsForeignKey = false;
+				colvarKey30endtime.IsReadOnly = false;
+				colvarKey30endtime.DefaultSetting = @"";
+				colvarKey30endtime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKey30endtime);
+				
+				TableSchema.TableColumn colvarSctcrq = new TableSchema.TableColumn(schema);
+				colvarSctcrq.ColumnName = "SCTCRQ";
+				colvarSctcrq.DataType = DbType.DateTime;
+				colvarSctcrq.MaxLength = 0;
+				colvarSctcrq.AutoIncrement = false;
+				colvarSctcrq.IsNullable = true;
+				colvarSctcrq.IsPrimaryKey = false;
+				colvarSctcrq.IsForeignKey = false;
+				colvarSctcrq.IsReadOnly = false;
+				colvarSctcrq.DefaultSetting = @"";
+				colvarSctcrq.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarSctcrq);
 				
 				BaseSchema = schema;
 				//add this schema to the provider
@@ -745,14 +810,6 @@ namespace Model
 			set { SetColumnValue(Columns.Project, value); }
 		}
 		  
-		[XmlAttribute("OrderType")]
-		[Bindable(true)]
-		public string OrderType 
-		{
-			get { return GetColumnValue<string>(Columns.OrderType); }
-			set { SetColumnValue(Columns.OrderType, value); }
-		}
-		  
 		[XmlAttribute("CoatType")]
 		[Bindable(true)]
 		public string CoatType 
@@ -777,14 +834,6 @@ namespace Model
 			set { SetColumnValue(Columns.Fabric, value); }
 		}
 		  
-		[XmlAttribute("Mflxx")]
-		[Bindable(true)]
-		public string Mflxx 
-		{
-			get { return GetColumnValue<string>(Columns.Mflxx); }
-			set { SetColumnValue(Columns.Mflxx, value); }
-		}
-		  
 		[XmlAttribute("OrderTime")]
 		[Bindable(true)]
 		public DateTime? OrderTime 
@@ -801,28 +850,12 @@ namespace Model
 			set { SetColumnValue(Columns.DeliveryTime, value); }
 		}
 		  
-		[XmlAttribute("SpecialTime")]
-		[Bindable(true)]
-		public int? SpecialTime 
-		{
-			get { return GetColumnValue<int?>(Columns.SpecialTime); }
-			set { SetColumnValue(Columns.SpecialTime, value); }
-		}
-		  
 		[XmlAttribute("SpecialCode")]
 		[Bindable(true)]
 		public string SpecialCode 
 		{
 			get { return GetColumnValue<string>(Columns.SpecialCode); }
 			set { SetColumnValue(Columns.SpecialCode, value); }
-		}
-		  
-		[XmlAttribute("Styles")]
-		[Bindable(true)]
-		public string Styles 
-		{
-			get { return GetColumnValue<string>(Columns.Styles); }
-			set { SetColumnValue(Columns.Styles, value); }
 		}
 		  
 		[XmlAttribute("StylesResult")]
@@ -841,116 +874,12 @@ namespace Model
 			set { SetColumnValue(Columns.Numbers, value); }
 		}
 		  
-		[XmlAttribute("SupportingWay")]
-		[Bindable(true)]
-		public string SupportingWay 
-		{
-			get { return GetColumnValue<string>(Columns.SupportingWay); }
-			set { SetColumnValue(Columns.SupportingWay, value); }
-		}
-		  
-		[XmlAttribute("Sizes")]
-		[Bindable(true)]
-		public string Sizes 
-		{
-			get { return GetColumnValue<string>(Columns.Sizes); }
-			set { SetColumnValue(Columns.Sizes, value); }
-		}
-		  
 		[XmlAttribute("Customer")]
 		[Bindable(true)]
 		public string Customer 
 		{
 			get { return GetColumnValue<string>(Columns.Customer); }
 			set { SetColumnValue(Columns.Customer, value); }
-		}
-		  
-		[XmlAttribute("CreateTime")]
-		[Bindable(true)]
-		public DateTime? CreateTime 
-		{
-			get { return GetColumnValue<DateTime?>(Columns.CreateTime); }
-			set { SetColumnValue(Columns.CreateTime, value); }
-		}
-		  
-		[XmlAttribute("OrderStatus")]
-		[Bindable(true)]
-		public string OrderStatus 
-		{
-			get { return GetColumnValue<string>(Columns.OrderStatus); }
-			set { SetColumnValue(Columns.OrderStatus, value); }
-		}
-		  
-		[XmlAttribute("CreateDate")]
-		[Bindable(true)]
-		public DateTime? CreateDate 
-		{
-			get { return GetColumnValue<DateTime?>(Columns.CreateDate); }
-			set { SetColumnValue(Columns.CreateDate, value); }
-		}
-		  
-		[XmlAttribute("Pbcd")]
-		[Bindable(true)]
-		public string Pbcd 
-		{
-			get { return GetColumnValue<string>(Columns.Pbcd); }
-			set { SetColumnValue(Columns.Pbcd, value); }
-		}
-		  
-		[XmlAttribute("Gydm")]
-		[Bindable(true)]
-		public string Gydm 
-		{
-			get { return GetColumnValue<string>(Columns.Gydm); }
-			set { SetColumnValue(Columns.Gydm, value); }
-		}
-		  
-		[XmlAttribute("Audittime")]
-		[Bindable(true)]
-		public DateTime? Audittime 
-		{
-			get { return GetColumnValue<DateTime?>(Columns.Audittime); }
-			set { SetColumnValue(Columns.Audittime, value); }
-		}
-		  
-		[XmlAttribute("Sfbcpsy")]
-		[Bindable(true)]
-		public string Sfbcpsy 
-		{
-			get { return GetColumnValue<string>(Columns.Sfbcpsy); }
-			set { SetColumnValue(Columns.Sfbcpsy, value); }
-		}
-		  
-		[XmlAttribute("Tzecode")]
-		[Bindable(true)]
-		public string Tzecode 
-		{
-			get { return GetColumnValue<string>(Columns.Tzecode); }
-			set { SetColumnValue(Columns.Tzecode, value); }
-		}
-		  
-		[XmlAttribute("Scggdh")]
-		[Bindable(true)]
-		public string Scggdh 
-		{
-			get { return GetColumnValue<string>(Columns.Scggdh); }
-			set { SetColumnValue(Columns.Scggdh, value); }
-		}
-		  
-		[XmlAttribute("ModifyTime")]
-		[Bindable(true)]
-		public DateTime? ModifyTime 
-		{
-			get { return GetColumnValue<DateTime?>(Columns.ModifyTime); }
-			set { SetColumnValue(Columns.ModifyTime, value); }
-		}
-		  
-		[XmlAttribute("PbcdName")]
-		[Bindable(true)]
-		public string PbcdName 
-		{
-			get { return GetColumnValue<string>(Columns.PbcdName); }
-			set { SetColumnValue(Columns.PbcdName, value); }
 		}
 		  
 		[XmlAttribute("EndTime")]
@@ -961,36 +890,12 @@ namespace Model
 			set { SetColumnValue(Columns.EndTime, value); }
 		}
 		  
-		[XmlAttribute("FlagStatus")]
-		[Bindable(true)]
-		public int? FlagStatus 
-		{
-			get { return GetColumnValue<int?>(Columns.FlagStatus); }
-			set { SetColumnValue(Columns.FlagStatus, value); }
-		}
-		  
 		[XmlAttribute("Resources")]
 		[Bindable(true)]
 		public string Resources 
 		{
 			get { return GetColumnValue<string>(Columns.Resources); }
 			set { SetColumnValue(Columns.Resources, value); }
-		}
-		  
-		[XmlAttribute("Cuttime")]
-		[Bindable(true)]
-		public DateTime? Cuttime 
-		{
-			get { return GetColumnValue<DateTime?>(Columns.Cuttime); }
-			set { SetColumnValue(Columns.Cuttime, value); }
-		}
-		  
-		[XmlAttribute("Resourcesnum")]
-		[Bindable(true)]
-		public string Resourcesnum 
-		{
-			get { return GetColumnValue<string>(Columns.Resourcesnum); }
-			set { SetColumnValue(Columns.Resourcesnum, value); }
 		}
 		  
 		[XmlAttribute("JobId")]
@@ -1009,60 +914,12 @@ namespace Model
 			set { SetColumnValue(Columns.TypeT, value); }
 		}
 		  
-		[XmlAttribute("Mtxx")]
-		[Bindable(true)]
-		public string Mtxx 
-		{
-			get { return GetColumnValue<string>(Columns.Mtxx); }
-			set { SetColumnValue(Columns.Mtxx, value); }
-		}
-		  
 		[XmlAttribute("Fzx")]
 		[Bindable(true)]
 		public string Fzx 
 		{
 			get { return GetColumnValue<string>(Columns.Fzx); }
 			set { SetColumnValue(Columns.Fzx, value); }
-		}
-		  
-		[XmlAttribute("Onetime")]
-		[Bindable(true)]
-		public DateTime? Onetime 
-		{
-			get { return GetColumnValue<DateTime?>(Columns.Onetime); }
-			set { SetColumnValue(Columns.Onetime, value); }
-		}
-		  
-		[XmlAttribute("Ttime")]
-		[Bindable(true)]
-		public DateTime? Ttime 
-		{
-			get { return GetColumnValue<DateTime?>(Columns.Ttime); }
-			set { SetColumnValue(Columns.Ttime, value); }
-		}
-		  
-		[XmlAttribute("Ftime")]
-		[Bindable(true)]
-		public DateTime? Ftime 
-		{
-			get { return GetColumnValue<DateTime?>(Columns.Ftime); }
-			set { SetColumnValue(Columns.Ftime, value); }
-		}
-		  
-		[XmlAttribute("Fivetime")]
-		[Bindable(true)]
-		public DateTime? Fivetime 
-		{
-			get { return GetColumnValue<DateTime?>(Columns.Fivetime); }
-			set { SetColumnValue(Columns.Fivetime, value); }
-		}
-		  
-		[XmlAttribute("Sixtime")]
-		[Bindable(true)]
-		public DateTime? Sixtime 
-		{
-			get { return GetColumnValue<DateTime?>(Columns.Sixtime); }
-			set { SetColumnValue(Columns.Sixtime, value); }
 		}
 		  
 		[XmlAttribute("Res")]
@@ -1079,6 +936,254 @@ namespace Model
 		{
 			get { return GetColumnValue<string>(Columns.ClothType); }
 			set { SetColumnValue(Columns.ClothType, value); }
+		}
+		  
+		[XmlAttribute("Key1endtime")]
+		[Bindable(true)]
+		public DateTime? Key1endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key1endtime); }
+			set { SetColumnValue(Columns.Key1endtime, value); }
+		}
+		  
+		[XmlAttribute("Key2endtime")]
+		[Bindable(true)]
+		public DateTime? Key2endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key2endtime); }
+			set { SetColumnValue(Columns.Key2endtime, value); }
+		}
+		  
+		[XmlAttribute("Key3endtime")]
+		[Bindable(true)]
+		public DateTime? Key3endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key3endtime); }
+			set { SetColumnValue(Columns.Key3endtime, value); }
+		}
+		  
+		[XmlAttribute("Key4endtime")]
+		[Bindable(true)]
+		public DateTime? Key4endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key4endtime); }
+			set { SetColumnValue(Columns.Key4endtime, value); }
+		}
+		  
+		[XmlAttribute("Key5endtime")]
+		[Bindable(true)]
+		public DateTime? Key5endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key5endtime); }
+			set { SetColumnValue(Columns.Key5endtime, value); }
+		}
+		  
+		[XmlAttribute("Key6endtime")]
+		[Bindable(true)]
+		public DateTime? Key6endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key6endtime); }
+			set { SetColumnValue(Columns.Key6endtime, value); }
+		}
+		  
+		[XmlAttribute("Key7endtime")]
+		[Bindable(true)]
+		public DateTime? Key7endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key7endtime); }
+			set { SetColumnValue(Columns.Key7endtime, value); }
+		}
+		  
+		[XmlAttribute("Key8endtime")]
+		[Bindable(true)]
+		public DateTime? Key8endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key8endtime); }
+			set { SetColumnValue(Columns.Key8endtime, value); }
+		}
+		  
+		[XmlAttribute("Key9endtime")]
+		[Bindable(true)]
+		public DateTime? Key9endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key9endtime); }
+			set { SetColumnValue(Columns.Key9endtime, value); }
+		}
+		  
+		[XmlAttribute("Key10endtime")]
+		[Bindable(true)]
+		public DateTime? Key10endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key10endtime); }
+			set { SetColumnValue(Columns.Key10endtime, value); }
+		}
+		  
+		[XmlAttribute("Key11endtime")]
+		[Bindable(true)]
+		public DateTime? Key11endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key11endtime); }
+			set { SetColumnValue(Columns.Key11endtime, value); }
+		}
+		  
+		[XmlAttribute("Key12endtime")]
+		[Bindable(true)]
+		public DateTime? Key12endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key12endtime); }
+			set { SetColumnValue(Columns.Key12endtime, value); }
+		}
+		  
+		[XmlAttribute("Key13endtime")]
+		[Bindable(true)]
+		public DateTime? Key13endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key13endtime); }
+			set { SetColumnValue(Columns.Key13endtime, value); }
+		}
+		  
+		[XmlAttribute("Key14endtime")]
+		[Bindable(true)]
+		public DateTime? Key14endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key14endtime); }
+			set { SetColumnValue(Columns.Key14endtime, value); }
+		}
+		  
+		[XmlAttribute("Key15endtime")]
+		[Bindable(true)]
+		public DateTime? Key15endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key15endtime); }
+			set { SetColumnValue(Columns.Key15endtime, value); }
+		}
+		  
+		[XmlAttribute("Key16endtime")]
+		[Bindable(true)]
+		public DateTime? Key16endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key16endtime); }
+			set { SetColumnValue(Columns.Key16endtime, value); }
+		}
+		  
+		[XmlAttribute("Key17endtime")]
+		[Bindable(true)]
+		public DateTime? Key17endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key17endtime); }
+			set { SetColumnValue(Columns.Key17endtime, value); }
+		}
+		  
+		[XmlAttribute("Key18endtime")]
+		[Bindable(true)]
+		public DateTime? Key18endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key18endtime); }
+			set { SetColumnValue(Columns.Key18endtime, value); }
+		}
+		  
+		[XmlAttribute("Key19endtime")]
+		[Bindable(true)]
+		public DateTime? Key19endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key19endtime); }
+			set { SetColumnValue(Columns.Key19endtime, value); }
+		}
+		  
+		[XmlAttribute("Key20endtime")]
+		[Bindable(true)]
+		public DateTime? Key20endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key20endtime); }
+			set { SetColumnValue(Columns.Key20endtime, value); }
+		}
+		  
+		[XmlAttribute("Key21endtime")]
+		[Bindable(true)]
+		public DateTime? Key21endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key21endtime); }
+			set { SetColumnValue(Columns.Key21endtime, value); }
+		}
+		  
+		[XmlAttribute("Key22endtime")]
+		[Bindable(true)]
+		public DateTime? Key22endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key22endtime); }
+			set { SetColumnValue(Columns.Key22endtime, value); }
+		}
+		  
+		[XmlAttribute("Key23endtime")]
+		[Bindable(true)]
+		public DateTime? Key23endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key23endtime); }
+			set { SetColumnValue(Columns.Key23endtime, value); }
+		}
+		  
+		[XmlAttribute("Key24endtime")]
+		[Bindable(true)]
+		public DateTime? Key24endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key24endtime); }
+			set { SetColumnValue(Columns.Key24endtime, value); }
+		}
+		  
+		[XmlAttribute("Key25endtime")]
+		[Bindable(true)]
+		public DateTime? Key25endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key25endtime); }
+			set { SetColumnValue(Columns.Key25endtime, value); }
+		}
+		  
+		[XmlAttribute("Key26endtime")]
+		[Bindable(true)]
+		public DateTime? Key26endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key26endtime); }
+			set { SetColumnValue(Columns.Key26endtime, value); }
+		}
+		  
+		[XmlAttribute("Key27endtime")]
+		[Bindable(true)]
+		public DateTime? Key27endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key27endtime); }
+			set { SetColumnValue(Columns.Key27endtime, value); }
+		}
+		  
+		[XmlAttribute("Key28endtime")]
+		[Bindable(true)]
+		public DateTime? Key28endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key28endtime); }
+			set { SetColumnValue(Columns.Key28endtime, value); }
+		}
+		  
+		[XmlAttribute("Key29endtime")]
+		[Bindable(true)]
+		public DateTime? Key29endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key29endtime); }
+			set { SetColumnValue(Columns.Key29endtime, value); }
+		}
+		  
+		[XmlAttribute("Key30endtime")]
+		[Bindable(true)]
+		public DateTime? Key30endtime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Key30endtime); }
+			set { SetColumnValue(Columns.Key30endtime, value); }
+		}
+		  
+		[XmlAttribute("Sctcrq")]
+		[Bindable(true)]
+		public DateTime? Sctcrq 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.Sctcrq); }
+			set { SetColumnValue(Columns.Sctcrq, value); }
 		}
 		
 		#endregion
@@ -1100,7 +1205,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varOrderId,string varCustomerId,string varProject,string varOrderType,string varCoatType,string varBodyType,string varFabric,string varMflxx,DateTime? varOrderTime,DateTime? varDeliveryTime,int? varSpecialTime,string varSpecialCode,string varStyles,string varStylesResult,int? varNumbers,string varSupportingWay,string varSizes,string varCustomer,DateTime? varCreateTime,string varOrderStatus,DateTime? varCreateDate,string varPbcd,string varGydm,DateTime? varAudittime,string varSfbcpsy,string varTzecode,string varScggdh,DateTime? varModifyTime,string varPbcdName,DateTime? varEndTime,int? varFlagStatus,string varResources,DateTime? varCuttime,string varResourcesnum,string varJobId,string varTypeT,string varMtxx,string varFzx,DateTime? varOnetime,DateTime? varTtime,DateTime? varFtime,DateTime? varFivetime,DateTime? varSixtime,string varRes,string varClothType)
+		public static void Insert(string varOrderId,string varCustomerId,string varProject,string varCoatType,string varBodyType,string varFabric,DateTime? varOrderTime,DateTime? varDeliveryTime,string varSpecialCode,string varStylesResult,int? varNumbers,string varCustomer,DateTime? varEndTime,string varResources,string varJobId,string varTypeT,string varFzx,string varRes,string varClothType,DateTime? varKey1endtime,DateTime? varKey2endtime,DateTime? varKey3endtime,DateTime? varKey4endtime,DateTime? varKey5endtime,DateTime? varKey6endtime,DateTime? varKey7endtime,DateTime? varKey8endtime,DateTime? varKey9endtime,DateTime? varKey10endtime,DateTime? varKey11endtime,DateTime? varKey12endtime,DateTime? varKey13endtime,DateTime? varKey14endtime,DateTime? varKey15endtime,DateTime? varKey16endtime,DateTime? varKey17endtime,DateTime? varKey18endtime,DateTime? varKey19endtime,DateTime? varKey20endtime,DateTime? varKey21endtime,DateTime? varKey22endtime,DateTime? varKey23endtime,DateTime? varKey24endtime,DateTime? varKey25endtime,DateTime? varKey26endtime,DateTime? varKey27endtime,DateTime? varKey28endtime,DateTime? varKey29endtime,DateTime? varKey30endtime,DateTime? varSctcrq)
 		{
 			TAnalysisOutPutListByFZ item = new TAnalysisOutPutListByFZ();
 			
@@ -1110,89 +1215,99 @@ namespace Model
 			
 			item.Project = varProject;
 			
-			item.OrderType = varOrderType;
-			
 			item.CoatType = varCoatType;
 			
 			item.BodyType = varBodyType;
 			
 			item.Fabric = varFabric;
 			
-			item.Mflxx = varMflxx;
-			
 			item.OrderTime = varOrderTime;
 			
 			item.DeliveryTime = varDeliveryTime;
 			
-			item.SpecialTime = varSpecialTime;
-			
 			item.SpecialCode = varSpecialCode;
-			
-			item.Styles = varStyles;
 			
 			item.StylesResult = varStylesResult;
 			
 			item.Numbers = varNumbers;
 			
-			item.SupportingWay = varSupportingWay;
-			
-			item.Sizes = varSizes;
-			
 			item.Customer = varCustomer;
-			
-			item.CreateTime = varCreateTime;
-			
-			item.OrderStatus = varOrderStatus;
-			
-			item.CreateDate = varCreateDate;
-			
-			item.Pbcd = varPbcd;
-			
-			item.Gydm = varGydm;
-			
-			item.Audittime = varAudittime;
-			
-			item.Sfbcpsy = varSfbcpsy;
-			
-			item.Tzecode = varTzecode;
-			
-			item.Scggdh = varScggdh;
-			
-			item.ModifyTime = varModifyTime;
-			
-			item.PbcdName = varPbcdName;
 			
 			item.EndTime = varEndTime;
 			
-			item.FlagStatus = varFlagStatus;
-			
 			item.Resources = varResources;
-			
-			item.Cuttime = varCuttime;
-			
-			item.Resourcesnum = varResourcesnum;
 			
 			item.JobId = varJobId;
 			
 			item.TypeT = varTypeT;
 			
-			item.Mtxx = varMtxx;
-			
 			item.Fzx = varFzx;
-			
-			item.Onetime = varOnetime;
-			
-			item.Ttime = varTtime;
-			
-			item.Ftime = varFtime;
-			
-			item.Fivetime = varFivetime;
-			
-			item.Sixtime = varSixtime;
 			
 			item.Res = varRes;
 			
 			item.ClothType = varClothType;
+			
+			item.Key1endtime = varKey1endtime;
+			
+			item.Key2endtime = varKey2endtime;
+			
+			item.Key3endtime = varKey3endtime;
+			
+			item.Key4endtime = varKey4endtime;
+			
+			item.Key5endtime = varKey5endtime;
+			
+			item.Key6endtime = varKey6endtime;
+			
+			item.Key7endtime = varKey7endtime;
+			
+			item.Key8endtime = varKey8endtime;
+			
+			item.Key9endtime = varKey9endtime;
+			
+			item.Key10endtime = varKey10endtime;
+			
+			item.Key11endtime = varKey11endtime;
+			
+			item.Key12endtime = varKey12endtime;
+			
+			item.Key13endtime = varKey13endtime;
+			
+			item.Key14endtime = varKey14endtime;
+			
+			item.Key15endtime = varKey15endtime;
+			
+			item.Key16endtime = varKey16endtime;
+			
+			item.Key17endtime = varKey17endtime;
+			
+			item.Key18endtime = varKey18endtime;
+			
+			item.Key19endtime = varKey19endtime;
+			
+			item.Key20endtime = varKey20endtime;
+			
+			item.Key21endtime = varKey21endtime;
+			
+			item.Key22endtime = varKey22endtime;
+			
+			item.Key23endtime = varKey23endtime;
+			
+			item.Key24endtime = varKey24endtime;
+			
+			item.Key25endtime = varKey25endtime;
+			
+			item.Key26endtime = varKey26endtime;
+			
+			item.Key27endtime = varKey27endtime;
+			
+			item.Key28endtime = varKey28endtime;
+			
+			item.Key29endtime = varKey29endtime;
+			
+			item.Key30endtime = varKey30endtime;
+			
+			item.Sctcrq = varSctcrq;
 			
 		
 			if (System.Web.HttpContext.Current != null)
@@ -1204,7 +1319,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varOrderId,string varCustomerId,string varProject,string varOrderType,string varCoatType,string varBodyType,string varFabric,string varMflxx,DateTime? varOrderTime,DateTime? varDeliveryTime,int? varSpecialTime,string varSpecialCode,string varStyles,string varStylesResult,int? varNumbers,string varSupportingWay,string varSizes,string varCustomer,DateTime? varCreateTime,string varOrderStatus,DateTime? varCreateDate,string varPbcd,string varGydm,DateTime? varAudittime,string varSfbcpsy,string varTzecode,string varScggdh,DateTime? varModifyTime,string varPbcdName,DateTime? varEndTime,int? varFlagStatus,string varResources,DateTime? varCuttime,string varResourcesnum,string varJobId,string varTypeT,string varMtxx,string varFzx,DateTime? varOnetime,DateTime? varTtime,DateTime? varFtime,DateTime? varFivetime,DateTime? varSixtime,string varRes,string varClothType)
+		public static void Update(string varOrderId,string varCustomerId,string varProject,string varCoatType,string varBodyType,string varFabric,DateTime? varOrderTime,DateTime? varDeliveryTime,string varSpecialCode,string varStylesResult,int? varNumbers,string varCustomer,DateTime? varEndTime,string varResources,string varJobId,string varTypeT,string varFzx,string varRes,string varClothType,DateTime? varKey1endtime,DateTime? varKey2endtime,DateTime? varKey3endtime,DateTime? varKey4endtime,DateTime? varKey5endtime,DateTime? varKey6endtime,DateTime? varKey7endtime,DateTime? varKey8endtime,DateTime? varKey9endtime,DateTime? varKey10endtime,DateTime? varKey11endtime,DateTime? varKey12endtime,DateTime? varKey13endtime,DateTime? varKey14endtime,DateTime? varKey15endtime,DateTime? varKey16endtime,DateTime? varKey17endtime,DateTime? varKey18endtime,DateTime? varKey19endtime,DateTime? varKey20endtime,DateTime? varKey21endtime,DateTime? varKey22endtime,DateTime? varKey23endtime,DateTime? varKey24endtime,DateTime? varKey25endtime,DateTime? varKey26endtime,DateTime? varKey27endtime,DateTime? varKey28endtime,DateTime? varKey29endtime,DateTime? varKey30endtime,DateTime? varSctcrq)
 		{
 			TAnalysisOutPutListByFZ item = new TAnalysisOutPutListByFZ();
 			
@@ -1214,89 +1329,99 @@ namespace Model
 			
 				item.Project = varProject;
 			
-				item.OrderType = varOrderType;
-			
 				item.CoatType = varCoatType;
 			
 				item.BodyType = varBodyType;
 			
 				item.Fabric = varFabric;
 			
-				item.Mflxx = varMflxx;
-			
 				item.OrderTime = varOrderTime;
 			
 				item.DeliveryTime = varDeliveryTime;
 			
-				item.SpecialTime = varSpecialTime;
-			
 				item.SpecialCode = varSpecialCode;
-			
-				item.Styles = varStyles;
 			
 				item.StylesResult = varStylesResult;
 			
 				item.Numbers = varNumbers;
 			
-				item.SupportingWay = varSupportingWay;
-			
-				item.Sizes = varSizes;
-			
 				item.Customer = varCustomer;
-			
-				item.CreateTime = varCreateTime;
-			
-				item.OrderStatus = varOrderStatus;
-			
-				item.CreateDate = varCreateDate;
-			
-				item.Pbcd = varPbcd;
-			
-				item.Gydm = varGydm;
-			
-				item.Audittime = varAudittime;
-			
-				item.Sfbcpsy = varSfbcpsy;
-			
-				item.Tzecode = varTzecode;
-			
-				item.Scggdh = varScggdh;
-			
-				item.ModifyTime = varModifyTime;
-			
-				item.PbcdName = varPbcdName;
 			
 				item.EndTime = varEndTime;
 			
-				item.FlagStatus = varFlagStatus;
-			
 				item.Resources = varResources;
-			
-				item.Cuttime = varCuttime;
-			
-				item.Resourcesnum = varResourcesnum;
 			
 				item.JobId = varJobId;
 			
 				item.TypeT = varTypeT;
 			
-				item.Mtxx = varMtxx;
-			
 				item.Fzx = varFzx;
-			
-				item.Onetime = varOnetime;
-			
-				item.Ttime = varTtime;
-			
-				item.Ftime = varFtime;
-			
-				item.Fivetime = varFivetime;
-			
-				item.Sixtime = varSixtime;
 			
 				item.Res = varRes;
 			
 				item.ClothType = varClothType;
+			
+				item.Key1endtime = varKey1endtime;
+			
+				item.Key2endtime = varKey2endtime;
+			
+				item.Key3endtime = varKey3endtime;
+			
+				item.Key4endtime = varKey4endtime;
+			
+				item.Key5endtime = varKey5endtime;
+			
+				item.Key6endtime = varKey6endtime;
+			
+				item.Key7endtime = varKey7endtime;
+			
+				item.Key8endtime = varKey8endtime;
+			
+				item.Key9endtime = varKey9endtime;
+			
+				item.Key10endtime = varKey10endtime;
+			
+				item.Key11endtime = varKey11endtime;
+			
+				item.Key12endtime = varKey12endtime;
+			
+				item.Key13endtime = varKey13endtime;
+			
+				item.Key14endtime = varKey14endtime;
+			
+				item.Key15endtime = varKey15endtime;
+			
+				item.Key16endtime = varKey16endtime;
+			
+				item.Key17endtime = varKey17endtime;
+			
+				item.Key18endtime = varKey18endtime;
+			
+				item.Key19endtime = varKey19endtime;
+			
+				item.Key20endtime = varKey20endtime;
+			
+				item.Key21endtime = varKey21endtime;
+			
+				item.Key22endtime = varKey22endtime;
+			
+				item.Key23endtime = varKey23endtime;
+			
+				item.Key24endtime = varKey24endtime;
+			
+				item.Key25endtime = varKey25endtime;
+			
+				item.Key26endtime = varKey26endtime;
+			
+				item.Key27endtime = varKey27endtime;
+			
+				item.Key28endtime = varKey28endtime;
+			
+				item.Key29endtime = varKey29endtime;
+			
+				item.Key30endtime = varKey30endtime;
+			
+				item.Sctcrq = varSctcrq;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -1332,296 +1457,331 @@ namespace Model
         
         
         
-        public static TableSchema.TableColumn OrderTypeColumn
+        public static TableSchema.TableColumn CoatTypeColumn
         {
             get { return Schema.Columns[3]; }
         }
         
         
         
-        public static TableSchema.TableColumn CoatTypeColumn
+        public static TableSchema.TableColumn BodyTypeColumn
         {
             get { return Schema.Columns[4]; }
         }
         
         
         
-        public static TableSchema.TableColumn BodyTypeColumn
+        public static TableSchema.TableColumn FabricColumn
         {
             get { return Schema.Columns[5]; }
         }
         
         
         
-        public static TableSchema.TableColumn FabricColumn
+        public static TableSchema.TableColumn OrderTimeColumn
         {
             get { return Schema.Columns[6]; }
         }
         
         
         
-        public static TableSchema.TableColumn MflxxColumn
+        public static TableSchema.TableColumn DeliveryTimeColumn
         {
             get { return Schema.Columns[7]; }
         }
         
         
         
-        public static TableSchema.TableColumn OrderTimeColumn
+        public static TableSchema.TableColumn SpecialCodeColumn
         {
             get { return Schema.Columns[8]; }
         }
         
         
         
-        public static TableSchema.TableColumn DeliveryTimeColumn
+        public static TableSchema.TableColumn StylesResultColumn
         {
             get { return Schema.Columns[9]; }
         }
         
         
         
-        public static TableSchema.TableColumn SpecialTimeColumn
+        public static TableSchema.TableColumn NumbersColumn
         {
             get { return Schema.Columns[10]; }
         }
         
         
         
-        public static TableSchema.TableColumn SpecialCodeColumn
+        public static TableSchema.TableColumn CustomerColumn
         {
             get { return Schema.Columns[11]; }
         }
         
         
         
-        public static TableSchema.TableColumn StylesColumn
+        public static TableSchema.TableColumn EndTimeColumn
         {
             get { return Schema.Columns[12]; }
         }
         
         
         
-        public static TableSchema.TableColumn StylesResultColumn
+        public static TableSchema.TableColumn ResourcesColumn
         {
             get { return Schema.Columns[13]; }
         }
         
         
         
-        public static TableSchema.TableColumn NumbersColumn
+        public static TableSchema.TableColumn JobIdColumn
         {
             get { return Schema.Columns[14]; }
         }
         
         
         
-        public static TableSchema.TableColumn SupportingWayColumn
+        public static TableSchema.TableColumn TypeTColumn
         {
             get { return Schema.Columns[15]; }
         }
         
         
         
-        public static TableSchema.TableColumn SizesColumn
+        public static TableSchema.TableColumn FzxColumn
         {
             get { return Schema.Columns[16]; }
         }
         
         
         
-        public static TableSchema.TableColumn CustomerColumn
+        public static TableSchema.TableColumn ResColumn
         {
             get { return Schema.Columns[17]; }
         }
         
         
         
-        public static TableSchema.TableColumn CreateTimeColumn
+        public static TableSchema.TableColumn ClothTypeColumn
         {
             get { return Schema.Columns[18]; }
         }
         
         
         
-        public static TableSchema.TableColumn OrderStatusColumn
+        public static TableSchema.TableColumn Key1endtimeColumn
         {
             get { return Schema.Columns[19]; }
         }
         
         
         
-        public static TableSchema.TableColumn CreateDateColumn
+        public static TableSchema.TableColumn Key2endtimeColumn
         {
             get { return Schema.Columns[20]; }
         }
         
         
         
-        public static TableSchema.TableColumn PbcdColumn
+        public static TableSchema.TableColumn Key3endtimeColumn
         {
             get { return Schema.Columns[21]; }
         }
         
         
         
-        public static TableSchema.TableColumn GydmColumn
+        public static TableSchema.TableColumn Key4endtimeColumn
         {
             get { return Schema.Columns[22]; }
         }
         
         
         
-        public static TableSchema.TableColumn AudittimeColumn
+        public static TableSchema.TableColumn Key5endtimeColumn
         {
             get { return Schema.Columns[23]; }
         }
         
         
         
-        public static TableSchema.TableColumn SfbcpsyColumn
+        public static TableSchema.TableColumn Key6endtimeColumn
         {
             get { return Schema.Columns[24]; }
         }
         
         
         
-        public static TableSchema.TableColumn TzecodeColumn
+        public static TableSchema.TableColumn Key7endtimeColumn
         {
             get { return Schema.Columns[25]; }
         }
         
         
         
-        public static TableSchema.TableColumn ScggdhColumn
+        public static TableSchema.TableColumn Key8endtimeColumn
         {
             get { return Schema.Columns[26]; }
         }
         
         
         
-        public static TableSchema.TableColumn ModifyTimeColumn
+        public static TableSchema.TableColumn Key9endtimeColumn
         {
             get { return Schema.Columns[27]; }
         }
         
         
         
-        public static TableSchema.TableColumn PbcdNameColumn
+        public static TableSchema.TableColumn Key10endtimeColumn
         {
             get { return Schema.Columns[28]; }
         }
         
         
         
-        public static TableSchema.TableColumn EndTimeColumn
+        public static TableSchema.TableColumn Key11endtimeColumn
         {
             get { return Schema.Columns[29]; }
         }
         
         
         
-        public static TableSchema.TableColumn FlagStatusColumn
+        public static TableSchema.TableColumn Key12endtimeColumn
         {
             get { return Schema.Columns[30]; }
         }
         
         
         
-        public static TableSchema.TableColumn ResourcesColumn
+        public static TableSchema.TableColumn Key13endtimeColumn
         {
             get { return Schema.Columns[31]; }
         }
         
         
         
-        public static TableSchema.TableColumn CuttimeColumn
+        public static TableSchema.TableColumn Key14endtimeColumn
         {
             get { return Schema.Columns[32]; }
         }
         
         
         
-        public static TableSchema.TableColumn ResourcesnumColumn
+        public static TableSchema.TableColumn Key15endtimeColumn
         {
             get { return Schema.Columns[33]; }
         }
         
         
         
-        public static TableSchema.TableColumn JobIdColumn
+        public static TableSchema.TableColumn Key16endtimeColumn
         {
             get { return Schema.Columns[34]; }
         }
         
         
         
-        public static TableSchema.TableColumn TypeTColumn
+        public static TableSchema.TableColumn Key17endtimeColumn
         {
             get { return Schema.Columns[35]; }
         }
         
         
         
-        public static TableSchema.TableColumn MtxxColumn
+        public static TableSchema.TableColumn Key18endtimeColumn
         {
             get { return Schema.Columns[36]; }
         }
         
         
         
-        public static TableSchema.TableColumn FzxColumn
+        public static TableSchema.TableColumn Key19endtimeColumn
         {
             get { return Schema.Columns[37]; }
         }
         
         
         
-        public static TableSchema.TableColumn OnetimeColumn
+        public static TableSchema.TableColumn Key20endtimeColumn
         {
             get { return Schema.Columns[38]; }
         }
         
         
         
-        public static TableSchema.TableColumn TtimeColumn
+        public static TableSchema.TableColumn Key21endtimeColumn
         {
             get { return Schema.Columns[39]; }
         }
         
         
         
-        public static TableSchema.TableColumn FtimeColumn
+        public static TableSchema.TableColumn Key22endtimeColumn
         {
             get { return Schema.Columns[40]; }
         }
         
         
         
-        public static TableSchema.TableColumn FivetimeColumn
+        public static TableSchema.TableColumn Key23endtimeColumn
         {
             get { return Schema.Columns[41]; }
         }
         
         
         
-        public static TableSchema.TableColumn SixtimeColumn
+        public static TableSchema.TableColumn Key24endtimeColumn
         {
             get { return Schema.Columns[42]; }
         }
         
         
         
-        public static TableSchema.TableColumn ResColumn
+        public static TableSchema.TableColumn Key25endtimeColumn
         {
             get { return Schema.Columns[43]; }
         }
         
         
         
-        public static TableSchema.TableColumn ClothTypeColumn
+        public static TableSchema.TableColumn Key26endtimeColumn
         {
             get { return Schema.Columns[44]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn Key27endtimeColumn
+        {
+            get { return Schema.Columns[45]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn Key28endtimeColumn
+        {
+            get { return Schema.Columns[46]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn Key29endtimeColumn
+        {
+            get { return Schema.Columns[47]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn Key30endtimeColumn
+        {
+            get { return Schema.Columns[48]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn SctcrqColumn
+        {
+            get { return Schema.Columns[49]; }
         }
         
         
@@ -1633,48 +1793,53 @@ namespace Model
 			 public static string OrderId = @"orderId";
 			 public static string CustomerId = @"customerId";
 			 public static string Project = @"project";
-			 public static string OrderType = @"orderType";
 			 public static string CoatType = @"coatType";
 			 public static string BodyType = @"bodyType";
 			 public static string Fabric = @"fabric";
-			 public static string Mflxx = @"mflxx";
 			 public static string OrderTime = @"orderTime";
 			 public static string DeliveryTime = @"deliveryTime";
-			 public static string SpecialTime = @"specialTime";
 			 public static string SpecialCode = @"specialCode";
-			 public static string Styles = @"styles";
 			 public static string StylesResult = @"stylesResult";
 			 public static string Numbers = @"numbers";
-			 public static string SupportingWay = @"supportingWay";
-			 public static string Sizes = @"sizes";
 			 public static string Customer = @"customer";
-			 public static string CreateTime = @"createTime";
-			 public static string OrderStatus = @"orderStatus";
-			 public static string CreateDate = @"createDate";
-			 public static string Pbcd = @"pbcd";
-			 public static string Gydm = @"gydm";
-			 public static string Audittime = @"audittime";
-			 public static string Sfbcpsy = @"sfbcpsy";
-			 public static string Tzecode = @"tzecode";
-			 public static string Scggdh = @"SCGGDH";
-			 public static string ModifyTime = @"modifyTime";
-			 public static string PbcdName = @"pbcdName";
 			 public static string EndTime = @"endTime";
-			 public static string FlagStatus = @"flagStatus";
 			 public static string Resources = @"resources";
-			 public static string Cuttime = @"CUTTIME";
-			 public static string Resourcesnum = @"resourcesnum";
 			 public static string JobId = @"jobId";
 			 public static string TypeT = @"typeT";
-			 public static string Mtxx = @"mtxx";
 			 public static string Fzx = @"fzx";
-			 public static string Onetime = @"onetime";
-			 public static string Ttime = @"ttime";
-			 public static string Ftime = @"ftime";
-			 public static string Fivetime = @"fivetime";
-			 public static string Sixtime = @"sixtime";
 			 public static string Res = @"res";
 			 public static string ClothType = @"ClothType";
+			 public static string Key1endtime = @"key1endtime";
+			 public static string Key2endtime = @"key2endtime";
+			 public static string Key3endtime = @"key3endtime";
+			 public static string Key4endtime = @"key4endtime";
+			 public static string Key5endtime = @"key5endtime";
+			 public static string Key6endtime = @"key6endtime";
+			 public static string Key7endtime = @"key7endtime";
+			 public static string Key8endtime = @"key8endtime";
+			 public static string Key9endtime = @"key9endtime";
+			 public static string Key10endtime = @"key10endtime";
+			 public static string Key11endtime = @"key11endtime";
+			 public static string Key12endtime = @"key12endtime";
+			 public static string Key13endtime = @"key13endtime";
+			 public static string Key14endtime = @"key14endtime";
+			 public static string Key15endtime = @"key15endtime";
+			 public static string Key16endtime = @"key16endtime";
+			 public static string Key17endtime = @"key17endtime";
+			 public static string Key18endtime = @"key18endtime";
+			 public static string Key19endtime = @"key19endtime";
+			 public static string Key20endtime = @"key20endtime";
+			 public static string Key21endtime = @"key21endtime";
+			 public static string Key22endtime = @"key22endtime";
+			 public static string Key23endtime = @"key23endtime";
+			 public static string Key24endtime = @"key24endtime";
+			 public static string Key25endtime = @"key25endtime";
+			 public static string Key26endtime = @"key26endtime";
+			 public static string Key27endtime = @"key27endtime";
+			 public static string Key28endtime = @"key28endtime";
+			 public static string Key29endtime = @"key29endtime";
+			 public static string Key30endtime = @"key30endtime";
+			 public static string Sctcrq = @"SCTCRQ";
 						
 		}
 		#endregion

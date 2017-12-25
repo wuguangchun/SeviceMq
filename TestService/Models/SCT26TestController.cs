@@ -80,7 +80,7 @@ namespace APSData
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Sczsbh,string Scgcdm,DateTime? Scxdrq,DateTime? Sccjjq,DateTime? Scfzjq,DateTime? Scjhrq,string Scjhry,string Sczsbz,string Sczszt,string Scjqsm,DateTime? Scjqrq,DateTime? Sclrrq,string Sclrry,DateTime? Scshrq,string Scshry,DateTime? Scztjq,DateTime? Scbzjq,string Schtbh,DateTime? Sctcrq)
+	    public void Insert(string Sczsbh,string Scgcdm,DateTime? Scxdrq,DateTime? Sccjjq,DateTime? Scfzjq,DateTime? Scjhrq,string Scjhry,string Sczsbz,string Sczszt,string Scjqsm,DateTime? Scjqrq,DateTime? Sclrrq,string Sclrry,DateTime? Scshrq,string Scshry,DateTime? Scztjq,DateTime? Scbzjq,string Schtbh,DateTime? Sctcrq,bool IsGet)
 	    {
 		    SCT26Test item = new SCT26Test();
 		    
@@ -122,6 +122,8 @@ namespace APSData
             
             item.Sctcrq = Sctcrq;
             
+            item.IsGet = IsGet;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -130,7 +132,7 @@ namespace APSData
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string Sczsbh,string Scgcdm,DateTime? Scxdrq,DateTime? Sccjjq,DateTime? Scfzjq,DateTime? Scjhrq,string Scjhry,string Sczsbz,string Sczszt,string Scjqsm,DateTime? Scjqrq,DateTime? Sclrrq,string Sclrry,DateTime? Scshrq,string Scshry,DateTime? Scztjq,DateTime? Scbzjq,string Schtbh,DateTime? Sctcrq)
+	    public void Update(string Sczsbh,string Scgcdm,DateTime? Scxdrq,DateTime? Sccjjq,DateTime? Scfzjq,DateTime? Scjhrq,string Scjhry,string Sczsbz,string Sczszt,string Scjqsm,DateTime? Scjqrq,DateTime? Sclrrq,string Sclrry,DateTime? Scshrq,string Scshry,DateTime? Scztjq,DateTime? Scbzjq,string Schtbh,DateTime? Sctcrq,bool IsGet)
 	    {
 		    SCT26Test item = new SCT26Test();
 	        item.MarkOld();
@@ -173,6 +175,8 @@ namespace APSData
 			item.Schtbh = Schtbh;
 				
 			item.Sctcrq = Sctcrq;
+				
+			item.IsGet = IsGet;
 				
 	        item.Save(UserName);
 	    }

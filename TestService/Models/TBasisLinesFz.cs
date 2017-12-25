@@ -204,6 +204,19 @@ namespace APSData
 				colvarAbbreviation.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarAbbreviation);
 				
+				TableSchema.TableColumn colvarLineNumber = new TableSchema.TableColumn(schema);
+				colvarLineNumber.ColumnName = "LineNumber";
+				colvarLineNumber.DataType = DbType.Int32;
+				colvarLineNumber.MaxLength = 0;
+				colvarLineNumber.AutoIncrement = false;
+				colvarLineNumber.IsNullable = true;
+				colvarLineNumber.IsPrimaryKey = false;
+				colvarLineNumber.IsForeignKey = false;
+				colvarLineNumber.IsReadOnly = false;
+				colvarLineNumber.DefaultSetting = @"";
+				colvarLineNumber.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarLineNumber);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -261,6 +274,14 @@ namespace APSData
 			get { return GetColumnValue<string>(Columns.Abbreviation); }
 			set { SetColumnValue(Columns.Abbreviation, value); }
 		}
+		  
+		[XmlAttribute("LineNumber")]
+		[Bindable(true)]
+		public int? LineNumber 
+		{
+			get { return GetColumnValue<int?>(Columns.LineNumber); }
+			set { SetColumnValue(Columns.LineNumber, value); }
+		}
 		
 		#endregion
 		
@@ -281,7 +302,7 @@ namespace APSData
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varLineName,string varCategorys,int? varCapacity,string varLineType,string varTimeNodes,string varAbbreviation)
+		public static void Insert(string varLineName,string varCategorys,int? varCapacity,string varLineType,string varTimeNodes,string varAbbreviation,int? varLineNumber)
 		{
 			TBasisLinesFz item = new TBasisLinesFz();
 			
@@ -297,6 +318,8 @@ namespace APSData
 			
 			item.Abbreviation = varAbbreviation;
 			
+			item.LineNumber = varLineNumber;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -307,7 +330,7 @@ namespace APSData
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varLineName,string varCategorys,int? varCapacity,string varLineType,string varTimeNodes,string varAbbreviation)
+		public static void Update(string varLineName,string varCategorys,int? varCapacity,string varLineType,string varTimeNodes,string varAbbreviation,int? varLineNumber)
 		{
 			TBasisLinesFz item = new TBasisLinesFz();
 			
@@ -322,6 +345,8 @@ namespace APSData
 				item.TimeNodes = varTimeNodes;
 			
 				item.Abbreviation = varAbbreviation;
+			
+				item.LineNumber = varLineNumber;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -378,6 +403,13 @@ namespace APSData
         
         
         
+        public static TableSchema.TableColumn LineNumberColumn
+        {
+            get { return Schema.Columns[6]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -388,6 +420,7 @@ namespace APSData
 			 public static string LineType = @"LineType";
 			 public static string TimeNodes = @"TimeNodes";
 			 public static string Abbreviation = @"Abbreviation";
+			 public static string LineNumber = @"LineNumber";
 						
 		}
 		#endregion

@@ -18,31 +18,9 @@ namespace APSData
 	public partial struct Tables
 	{
 		
-		public static readonly string BCutterSet = @"B_CutterSet";
-        
-		public static readonly string BISOFileSet = @"B_ISOFileSet";
-        
-		public static readonly string BWorkTimeSet = @"B_WorkTimeSet";
-        
-		public static readonly string BWorkTimeSetCopy = @"B_WorkTimeSetCopy";
-        
-		public static readonly string BPMOrder = @"BPMOrders";
-        
 		public static readonly string Dictionary = @"Dictionaries";
         
-		public static readonly string Factory = @"Factory";
-        
-		public static readonly string FactoryOrderTran = @"FactoryOrderTrans";
-        
-		public static readonly string HljtExecuteProc = @"HLJT_ExecuteProc";
-        
 		public static readonly string HljtTaskList = @"HLJT_TaskList";
-        
-		public static readonly string Isypb = @"ISYPB";
-        
-		public static readonly string OrderTest = @"OrderTest";
-        
-		public static readonly string ProcessedOrder = @"ProcessedOrder";
         
 		public static readonly string SCM06 = @"SCM06";
         
@@ -54,9 +32,15 @@ namespace APSData
         
 		public static readonly string SCT26 = @"SCT26";
         
+		public static readonly string SCT26Test = @"SCT26_test";
+        
+		public static readonly string SCT26Test1 = @"SCT26_test1";
+        
 		public static readonly string SCT262 = @"SCT262";
         
 		public static readonly string SCT27 = @"SCT27";
+        
+		public static readonly string SCT27Test = @"SCT27_test";
         
 		public static readonly string SCT271 = @"SCT271";
         
@@ -86,12 +70,6 @@ namespace APSData
         
 		public static readonly string TAnalysisDelivery = @"T_Analysis_Delivery";
         
-		public static readonly string TAnalysisErpList = @"T_Analysis_ErpList";
-        
-		public static readonly string TAnalysisErpOrderList = @"T_Analysis_ErpOrderList";
-        
-		public static readonly string TAnalysisMTMXFJh = @"T_Analysis_MTMXFJh";
-        
 		public static readonly string TAnalysisOrder = @"T_Analysis_Order";
         
 		public static readonly string TAnalysisOrderList = @"T_Analysis_OrderList";
@@ -112,17 +90,11 @@ namespace APSData
         
 		public static readonly string TAnalysisOutputListTzWithCode = @"T_Analysis_OutputListTzWithCode";
         
-		public static readonly string TAnalysisOutputListWithCode = @"T_Analysis_OutputListWithCode";
-        
 		public static readonly string TAnalysisOutputListWithCodeCopy = @"T_Analysis_OutputListWithCode_copy";
-        
-		public static readonly string TAnalysisOutputListWithCodeCopyTest = @"T_Analysis_OutputListWithCode_copyTest";
         
 		public static readonly string TAnalysisOutputListWithCodeShirt = @"T_Analysis_OutputListWithCode_Shirt";
         
 		public static readonly string TAnalysisOutputListWithCodeTZShirt = @"T_Analysis_OutputListWithCode_TZShirt";
-        
-		public static readonly string TAnalysisOutputListWithCodeL = @"T_Analysis_OutputListWithCodeLS";
         
 		public static readonly string TApsClientLog = @"T_ApsClientLog";
         
@@ -143,8 +115,6 @@ namespace APSData
 		public static readonly string TBasisCoatList = @"T_Basis_CoatList";
         
 		public static readonly string TBasisCoatType = @"T_Basis_CoatType";
-        
-		public static readonly string TBasisGetDataSet = @"T_Basis_GetDataSet";
         
 		public static readonly string TBasisLinerType = @"T_Basis_LinerType";
         
@@ -192,25 +162,11 @@ namespace APSData
         
 		public static readonly string TCutterME = @"T_CutterMES";
         
-		public static readonly string TErpOrder = @"T_ERP_Order";
-        
-		public static readonly string TERPDataOrder = @"T_ERPData_Order";
-        
 		public static readonly string TErrorLog = @"T_ErrorLog";
         
 		public static readonly string TFZfirstOrder = @"T_FZfirstOrder";
         
 		public static readonly string TFZfirstOut = @"T_FZfirstOut";
-        
-		public static readonly string TFZOver = @"T_FZOver";
-        
-		public static readonly string TFZsecondOrder = @"T_FZsecondOrder";
-        
-		public static readonly string TFZsecondOut = @"T_FZsecondOut";
-        
-		public static readonly string TFzthirdOrder = @"T_fzthirdOrder";
-        
-		public static readonly string TGetUrl = @"T_getUrl";
         
 		public static readonly string TLog = @"T_Log";
         
@@ -218,13 +174,13 @@ namespace APSData
         
 		public static readonly string TLogService = @"T_Log_Service";
         
+		public static readonly string TLogAPSToSAP = @"T_LogAPSToSAP";
+        
 		public static readonly string TMessage = @"T_Message";
         
 		public static readonly string TMflSearch = @"T_Mfl_search";
         
 		public static readonly string TMixedPlan = @"T_Mixed_Plan";
-        
-		public static readonly string TMLCodeList = @"T_MLCodeList";
         
 		public static readonly string TOldApsByCf = @"T_OldApsByCf";
         
@@ -232,59 +188,17 @@ namespace APSData
         
 		public static readonly string TOldApsByCf1712 = @"T_OldApsByCf@1712";
         
-		public static readonly string TOperationLog = @"T_Operation_Log";
-        
 		public static readonly string TOrderKeyProcess = @"T_OrderKeyProcess";
         
 		public static readonly string TOrderMESArtInfo = @"T_OrderMESArtInfo";
         
 		public static readonly string TOrderProcessHour = @"T_OrderProcessHour";
         
-		public static readonly string TPlanM = @"T_PlanM";
-        
-		public static readonly string TPlanMAdd = @"T_PlanM_Add";
-        
-		public static readonly string TPlan = @"T_PlanS";
-        
-		public static readonly string TPlanSAdd = @"T_PlanS_Add";
-        
-		public static readonly string TPushBlOutputList = @"T_PushBlOutputList";
-        
 		public static readonly string TResultMsg = @"T_ResultMsg";
         
-		public static readonly string TSendLog = @"T_sendLog";
-        
-		public static readonly string TSql = @"T_SQL";
-        
-		public static readonly string TTemp = @"T_Temp";
-        
-		public static readonly string TTempInfo = @"T_TempInfo";
-        
-		public static readonly string TTempME = @"T_TempMES";
-        
-		public static readonly string TTestProcGetPlansDataCYNew = @"t_Test_Proc_GetPlansDataCY_New";
-        
-		public static readonly string TTestProcGetPlansDataCYNew1 = @"t_Test_Proc_GetPlansDataCY_New1";
-        
-		public static readonly string TTestProcGetPlansTZDataCy = @"t_Test_Proc_GetPlansTZDataCy";
-        
-		public static readonly string TTestProcGetPlansTZDataCy1 = @"t_Test_Proc_GetPlansTZDataCy1";
-        
-		public static readonly string TTestProcTzXfPlan = @"t_Test_Proc_TzXfPlan";
-        
-		public static readonly string TTestProcTzXfPlan1 = @"t_Test_Proc_TzXfPlan1";
-        
-		public static readonly string TTestVCyjh = @"t_test_V_CYJH";
-        
-		public static readonly string TTestVCymtmjh = @"t_test_V_CYMTMJH";
-        
-		public static readonly string TTestVTzjh = @"t_test_V_TZJH";
-        
-		public static readonly string TTestVXfmtmjh = @"t_test_V_XFMTMJH";
+		public static readonly string TTest = @"t_test";
         
 		public static readonly string TTsgy = @"T_TSGY";
-        
-		public static readonly string TTzwf = @"T_TZWF";
         
 		public static readonly string TUsersGroup = @"T_UsersGroup";
         
@@ -295,12 +209,6 @@ namespace APSData
 		public static readonly string TWorkTime = @"T_WorkTime";
         
 		public static readonly string TWorkTimeShirt = @"T_WorkTimeShirt";
-        
-		public static readonly string WmsSyncCutterAP = @"WMS_SYNC_CutterAPS";
-        
-		public static readonly string WmsSyncPlanm = @"WMS_SYNC_planm";
-        
-		public static readonly string WmsSyncPlan = @"WMS_SYNC_plans";
         
 		public static readonly string XTM12 = @"XTM12";
         
@@ -317,69 +225,14 @@ namespace APSData
     #region Schemas
     public partial class Schemas {
 		
-		public static TableSchema.Table BCutterSet
-		{
-            get { return DataService.GetSchema("B_CutterSet", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table BISOFileSet
-		{
-            get { return DataService.GetSchema("B_ISOFileSet", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table BWorkTimeSet
-		{
-            get { return DataService.GetSchema("B_WorkTimeSet", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table BWorkTimeSetCopy
-		{
-            get { return DataService.GetSchema("B_WorkTimeSetCopy", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table BPMOrder
-		{
-            get { return DataService.GetSchema("BPMOrders", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table Dictionary
 		{
             get { return DataService.GetSchema("Dictionaries", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table Factory
-		{
-            get { return DataService.GetSchema("Factory", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table FactoryOrderTran
-		{
-            get { return DataService.GetSchema("FactoryOrderTrans", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table HljtExecuteProc
-		{
-            get { return DataService.GetSchema("HLJT_ExecuteProc", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table HljtTaskList
 		{
             get { return DataService.GetSchema("HLJT_TaskList", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table Isypb
-		{
-            get { return DataService.GetSchema("ISYPB", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table OrderTest
-		{
-            get { return DataService.GetSchema("OrderTest", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table ProcessedOrder
-		{
-            get { return DataService.GetSchema("ProcessedOrder", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table SCM06
@@ -407,6 +260,16 @@ namespace APSData
             get { return DataService.GetSchema("SCT26", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table SCT26Test
+		{
+            get { return DataService.GetSchema("SCT26_test", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT26Test1
+		{
+            get { return DataService.GetSchema("SCT26_test1", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table SCT262
 		{
             get { return DataService.GetSchema("SCT262", "Nowthwin"); }
@@ -415,6 +278,11 @@ namespace APSData
 		public static TableSchema.Table SCT27
 		{
             get { return DataService.GetSchema("SCT27", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT27Test
+		{
+            get { return DataService.GetSchema("SCT27_test", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table SCT271
@@ -487,21 +355,6 @@ namespace APSData
             get { return DataService.GetSchema("T_Analysis_Delivery", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisErpList
-		{
-            get { return DataService.GetSchema("T_Analysis_ErpList", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TAnalysisErpOrderList
-		{
-            get { return DataService.GetSchema("T_Analysis_ErpOrderList", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TAnalysisMTMXFJh
-		{
-            get { return DataService.GetSchema("T_Analysis_MTMXFJh", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table TAnalysisOrder
 		{
             get { return DataService.GetSchema("T_Analysis_Order", "Nowthwin"); }
@@ -552,19 +405,9 @@ namespace APSData
             get { return DataService.GetSchema("T_Analysis_OutputListTzWithCode", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisOutputListWithCode
-		{
-            get { return DataService.GetSchema("T_Analysis_OutputListWithCode", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table TAnalysisOutputListWithCodeCopy
 		{
             get { return DataService.GetSchema("T_Analysis_OutputListWithCode_copy", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TAnalysisOutputListWithCodeCopyTest
-		{
-            get { return DataService.GetSchema("T_Analysis_OutputListWithCode_copyTest", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOutputListWithCodeShirt
@@ -575,11 +418,6 @@ namespace APSData
 		public static TableSchema.Table TAnalysisOutputListWithCodeTZShirt
 		{
             get { return DataService.GetSchema("T_Analysis_OutputListWithCode_TZShirt", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TAnalysisOutputListWithCodeL
-		{
-            get { return DataService.GetSchema("T_Analysis_OutputListWithCodeLS", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TApsClientLog
@@ -630,11 +468,6 @@ namespace APSData
 		public static TableSchema.Table TBasisCoatType
 		{
             get { return DataService.GetSchema("T_Basis_CoatType", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TBasisGetDataSet
-		{
-            get { return DataService.GetSchema("T_Basis_GetDataSet", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBasisLinerType
@@ -752,16 +585,6 @@ namespace APSData
             get { return DataService.GetSchema("T_CutterMES", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TErpOrder
-		{
-            get { return DataService.GetSchema("T_ERP_Order", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TERPDataOrder
-		{
-            get { return DataService.GetSchema("T_ERPData_Order", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table TErrorLog
 		{
             get { return DataService.GetSchema("T_ErrorLog", "Nowthwin"); }
@@ -775,31 +598,6 @@ namespace APSData
 		public static TableSchema.Table TFZfirstOut
 		{
             get { return DataService.GetSchema("T_FZfirstOut", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TFZOver
-		{
-            get { return DataService.GetSchema("T_FZOver", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TFZsecondOrder
-		{
-            get { return DataService.GetSchema("T_FZsecondOrder", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TFZsecondOut
-		{
-            get { return DataService.GetSchema("T_FZsecondOut", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TFzthirdOrder
-		{
-            get { return DataService.GetSchema("T_fzthirdOrder", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TGetUrl
-		{
-            get { return DataService.GetSchema("T_getUrl", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TLog
@@ -817,6 +615,11 @@ namespace APSData
             get { return DataService.GetSchema("T_Log_Service", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TLogAPSToSAP
+		{
+            get { return DataService.GetSchema("T_LogAPSToSAP", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TMessage
 		{
             get { return DataService.GetSchema("T_Message", "Nowthwin"); }
@@ -830,11 +633,6 @@ namespace APSData
 		public static TableSchema.Table TMixedPlan
 		{
             get { return DataService.GetSchema("T_Mixed_Plan", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TMLCodeList
-		{
-            get { return DataService.GetSchema("T_MLCodeList", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TOldApsByCf
@@ -852,11 +650,6 @@ namespace APSData
             get { return DataService.GetSchema("T_OldApsByCf@1712", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TOperationLog
-		{
-            get { return DataService.GetSchema("T_Operation_Log", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table TOrderKeyProcess
 		{
             get { return DataService.GetSchema("T_OrderKeyProcess", "Nowthwin"); }
@@ -872,119 +665,19 @@ namespace APSData
             get { return DataService.GetSchema("T_OrderProcessHour", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TPlanM
-		{
-            get { return DataService.GetSchema("T_PlanM", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TPlanMAdd
-		{
-            get { return DataService.GetSchema("T_PlanM_Add", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TPlan
-		{
-            get { return DataService.GetSchema("T_PlanS", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TPlanSAdd
-		{
-            get { return DataService.GetSchema("T_PlanS_Add", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TPushBlOutputList
-		{
-            get { return DataService.GetSchema("T_PushBlOutputList", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table TResultMsg
 		{
             get { return DataService.GetSchema("T_ResultMsg", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TSendLog
+		public static TableSchema.Table TTest
 		{
-            get { return DataService.GetSchema("T_sendLog", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TSql
-		{
-            get { return DataService.GetSchema("T_SQL", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTemp
-		{
-            get { return DataService.GetSchema("T_Temp", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTempInfo
-		{
-            get { return DataService.GetSchema("T_TempInfo", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTempME
-		{
-            get { return DataService.GetSchema("T_TempMES", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTestProcGetPlansDataCYNew
-		{
-            get { return DataService.GetSchema("t_Test_Proc_GetPlansDataCY_New", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTestProcGetPlansDataCYNew1
-		{
-            get { return DataService.GetSchema("t_Test_Proc_GetPlansDataCY_New1", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTestProcGetPlansTZDataCy
-		{
-            get { return DataService.GetSchema("t_Test_Proc_GetPlansTZDataCy", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTestProcGetPlansTZDataCy1
-		{
-            get { return DataService.GetSchema("t_Test_Proc_GetPlansTZDataCy1", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTestProcTzXfPlan
-		{
-            get { return DataService.GetSchema("t_Test_Proc_TzXfPlan", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTestProcTzXfPlan1
-		{
-            get { return DataService.GetSchema("t_Test_Proc_TzXfPlan1", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTestVCyjh
-		{
-            get { return DataService.GetSchema("t_test_V_CYJH", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTestVCymtmjh
-		{
-            get { return DataService.GetSchema("t_test_V_CYMTMJH", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTestVTzjh
-		{
-            get { return DataService.GetSchema("t_test_V_TZJH", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTestVXfmtmjh
-		{
-            get { return DataService.GetSchema("t_test_V_XFMTMJH", "Nowthwin"); }
+            get { return DataService.GetSchema("t_test", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TTsgy
 		{
             get { return DataService.GetSchema("T_TSGY", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TTzwf
-		{
-            get { return DataService.GetSchema("T_TZWF", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TUsersGroup
@@ -1010,21 +703,6 @@ namespace APSData
 		public static TableSchema.Table TWorkTimeShirt
 		{
             get { return DataService.GetSchema("T_WorkTimeShirt", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table WmsSyncCutterAP
-		{
-            get { return DataService.GetSchema("WMS_SYNC_CutterAPS", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table WmsSyncPlanm
-		{
-            get { return DataService.GetSchema("WMS_SYNC_planm", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table WmsSyncPlan
-		{
-            get { return DataService.GetSchema("WMS_SYNC_plans", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table XTM12

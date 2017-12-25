@@ -80,7 +80,7 @@ namespace APSData
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string LineName,string Categorys,int? Capacity,string LineType,string TimeNodes,string Abbreviation)
+	    public void Insert(string LineName,string Categorys,int? Capacity,string LineType,string TimeNodes,string Abbreviation,int? LineNumber)
 	    {
 		    TBasisLinesFz item = new TBasisLinesFz();
 		    
@@ -96,6 +96,8 @@ namespace APSData
             
             item.Abbreviation = Abbreviation;
             
+            item.LineNumber = LineNumber;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -104,7 +106,7 @@ namespace APSData
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string LineName,string Categorys,int? Capacity,string LineType,string TimeNodes,string Abbreviation)
+	    public void Update(string LineName,string Categorys,int? Capacity,string LineType,string TimeNodes,string Abbreviation,int? LineNumber)
 	    {
 		    TBasisLinesFz item = new TBasisLinesFz();
 	        item.MarkOld();
@@ -121,6 +123,8 @@ namespace APSData
 			item.TimeNodes = TimeNodes;
 				
 			item.Abbreviation = Abbreviation;
+				
+			item.LineNumber = LineNumber;
 				
 	        item.Save(UserName);
 	    }

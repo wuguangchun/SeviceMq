@@ -30,19 +30,43 @@ namespace CompletionPlugs
 
                 if (int.Parse(data.ToString()) > 0)
                 {
-                    new Update(TAnalysisOrderList.Schema)
-                        .Set(TAnalysisOrderList.Columns.OrderStatus).EqualTo(objCompletion.OrderSrate)
-                        .Where(TAnalysisOrderList.Columns.CustomerId).IsEqualTo(objCompletion.CustmerId)
-                        .Execute();
-
-                    //过渡过程需要同时在新/旧表中更新状态
-                    var orderStatus = new TBasisOrderStatus(objCompletion.CustmerId)
+                    //订单暂停
+                    if (objCompletion.OrderSrate == "7776")
                     {
-                        CreateDate = DateTime.Now,
-                        CustomerId = objCompletion.CustmerId,
-                        OrderStatus = objCompletion.OrderSrate
-                    };
-                    orderStatus.Save();
+                        //过渡过程需要同时在新/旧表中更新状态
+                        var orderStatus = new TBasisOrderStatus(objCompletion.CustmerId)
+                        {
+                            CreateDate = DateTime.Now,
+                            CustomerId = objCompletion.CustmerId
+                        };
+                        orderStatus.OrderStatus += "-P";
+                        orderStatus.Save();
+                    }
+                    //订单恢复
+                    else if (objCompletion.OrderSrate == "7777")
+                    {
+                        //过渡过程需要同时在新/旧表中更新状态
+                        var orderStatus = new TBasisOrderStatus(objCompletion.CustmerId)
+                        {
+                            CreateDate = DateTime.Now,
+                            CustomerId = objCompletion.CustmerId,
+                        };
+                        orderStatus.OrderStatus = orderStatus.OrderStatus.Replace("-P", "");
+                        orderStatus.Save();
+                    }
+                    //订单状态更新
+                    else
+                    {
+
+                        //过渡过程需要同时在新/旧表中更新状态
+                        var orderStatus = new TBasisOrderStatus(objCompletion.CustmerId)
+                        {
+                            CreateDate = DateTime.Now,
+                            CustomerId = objCompletion.CustmerId,
+                            OrderStatus = objCompletion.OrderSrate
+                        };
+                        orderStatus.Save();
+                    }
 
                     //如果完工汇报是计划审核下达则触发新消息队列NewByCF获取排版长度及生成表OrderListByCF
                     if (objCompletion.OrderSrate == "201")

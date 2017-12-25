@@ -112,3 +112,6 @@ F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\KillOrderPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\KillOrderPlugs.pdb
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\KillOrderPlugs.dll.config
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\CallBackPlugs.dll.config
+F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\PlanInfoPlugs.dll
+F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\PlanInfoPlugs.pdb
+F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\PlanInfoPlugs.dll.config

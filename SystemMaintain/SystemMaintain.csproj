@@ -466,6 +466,8 @@
     <Compile Include="Models\TTempMEController.cs" />
     <Compile Include="Models\TTempMESDelete.cs" />
     <Compile Include="Models\TTempMESDeleteController.cs" />
+    <Compile Include="Models\TTest.cs" />
+    <Compile Include="Models\TTestController.cs" />
     <Compile Include="Models\TTsgy.cs" />
     <Compile Include="Models\TTsgyController.cs" />
     <Compile Include="Models\TTzwf.cs" />

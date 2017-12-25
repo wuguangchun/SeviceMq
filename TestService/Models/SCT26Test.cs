@@ -373,6 +373,20 @@ namespace APSData
 				colvarSctcrq.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarSctcrq);
 				
+				TableSchema.TableColumn colvarIsGet = new TableSchema.TableColumn(schema);
+				colvarIsGet.ColumnName = "IsGet";
+				colvarIsGet.DataType = DbType.Boolean;
+				colvarIsGet.MaxLength = 0;
+				colvarIsGet.AutoIncrement = false;
+				colvarIsGet.IsNullable = false;
+				colvarIsGet.IsPrimaryKey = false;
+				colvarIsGet.IsForeignKey = false;
+				colvarIsGet.IsReadOnly = false;
+				
+						colvarIsGet.DefaultSetting = @"((0))";
+				colvarIsGet.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarIsGet);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -534,6 +548,14 @@ namespace APSData
 			get { return GetColumnValue<DateTime?>(Columns.Sctcrq); }
 			set { SetColumnValue(Columns.Sctcrq, value); }
 		}
+		  
+		[XmlAttribute("IsGet")]
+		[Bindable(true)]
+		public bool IsGet 
+		{
+			get { return GetColumnValue<bool>(Columns.IsGet); }
+			set { SetColumnValue(Columns.IsGet, value); }
+		}
 		
 		#endregion
 		
@@ -554,7 +576,7 @@ namespace APSData
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varSczsbh,string varScgcdm,DateTime? varScxdrq,DateTime? varSccjjq,DateTime? varScfzjq,DateTime? varScjhrq,string varScjhry,string varSczsbz,string varSczszt,string varScjqsm,DateTime? varScjqrq,DateTime? varSclrrq,string varSclrry,DateTime? varScshrq,string varScshry,DateTime? varScztjq,DateTime? varScbzjq,string varSchtbh,DateTime? varSctcrq)
+		public static void Insert(string varSczsbh,string varScgcdm,DateTime? varScxdrq,DateTime? varSccjjq,DateTime? varScfzjq,DateTime? varScjhrq,string varScjhry,string varSczsbz,string varSczszt,string varScjqsm,DateTime? varScjqrq,DateTime? varSclrrq,string varSclrry,DateTime? varScshrq,string varScshry,DateTime? varScztjq,DateTime? varScbzjq,string varSchtbh,DateTime? varSctcrq,bool varIsGet)
 		{
 			SCT26Test item = new SCT26Test();
 			
@@ -596,6 +618,8 @@ namespace APSData
 			
 			item.Sctcrq = varSctcrq;
 			
+			item.IsGet = varIsGet;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -606,7 +630,7 @@ namespace APSData
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varSczsbh,string varScgcdm,DateTime? varScxdrq,DateTime? varSccjjq,DateTime? varScfzjq,DateTime? varScjhrq,string varScjhry,string varSczsbz,string varSczszt,string varScjqsm,DateTime? varScjqrq,DateTime? varSclrrq,string varSclrry,DateTime? varScshrq,string varScshry,DateTime? varScztjq,DateTime? varScbzjq,string varSchtbh,DateTime? varSctcrq)
+		public static void Update(string varSczsbh,string varScgcdm,DateTime? varScxdrq,DateTime? varSccjjq,DateTime? varScfzjq,DateTime? varScjhrq,string varScjhry,string varSczsbz,string varSczszt,string varScjqsm,DateTime? varScjqrq,DateTime? varSclrrq,string varSclrry,DateTime? varScshrq,string varScshry,DateTime? varScztjq,DateTime? varScbzjq,string varSchtbh,DateTime? varSctcrq,bool varIsGet)
 		{
 			SCT26Test item = new SCT26Test();
 			
@@ -647,6 +671,8 @@ namespace APSData
 				item.Schtbh = varSchtbh;
 			
 				item.Sctcrq = varSctcrq;
+			
+				item.IsGet = varIsGet;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -794,6 +820,13 @@ namespace APSData
         
         
         
+        public static TableSchema.TableColumn IsGetColumn
+        {
+            get { return Schema.Columns[19]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -817,6 +850,7 @@ namespace APSData
 			 public static string Scbzjq = @"SCBZJQ";
 			 public static string Schtbh = @"SCHTBH";
 			 public static string Sctcrq = @"SCTCRQ";
+			 public static string IsGet = @"IsGet";
 						
 		}
 		#endregion

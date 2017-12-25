@@ -25,6 +25,21 @@ namespace TestService
             string result = string.Empty;
 
             new AutoPlanXf().OrderScreen();
+
+
+            //var orderList = new Select().From<TBLDataOrdermx>()
+            //    .InnerJoin(TBasisOrderStatus.CustomerIdColumn, TBLDataOrdermx.KhdhColumn)
+            //    .Where(TBasisOrderStatus.OrderStatusColumn).IsEqualTo("103")
+            //    .ExecuteTypedList<TBLDataOrdermx>();
+
+            //foreach (var ordermx in orderList)
+            //{
+            //    var service = new ServiceTest.NewMassgeServiceClient();
+            //    service.InsertMessage("PlanInfo", "NewPlan", ordermx.Khdh, null);
+            //    service.Close();
+
+            //}
+
             //var comp = new Completion
             //{
             //    CustmerId = "SAE417110077",
@@ -101,6 +116,8 @@ namespace TestService
             //    .In(mxList.ConvertAll(x => x.Khdh)).Execute();
 
             //mxList.ForEach(x => x.Save());
+
+
 
 
             Console.WriteLine(result);

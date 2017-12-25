@@ -18,6 +18,7 @@ namespace PlanInfoPlugs
 
         public string GetPlanMx(string khdh)
         {
+            var json = new JsonHelper();
             try
             {
                 var dataOrder = new Select().From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn).IsEqualTo(khdh).ExecuteTypedList<TBLDataOrder>().FirstOrDefault();
@@ -44,9 +45,17 @@ namespace PlanInfoPlugs
                         Sczsph = row["SCZSPH"].ToString(),
                         Scgybz = row["SCGYBZ"].ToString(),
                     };
+                    //预防重复，先删再加
+                    new Delete().From<SCT27>().Where(SCT27.ScggdhColumn).IsEqualTo(sct27.Scggdh);
                     sct27.Save();
                 }
+                var msmqList = new List<MsmqModel>
+                {
+                    new MsmqModel{Path = "PlanInfo",Label = "NewPlanMain",Body = dataTable.Rows[0]["SCZSBH"].ToString(),CallBackUrl = null}
+                };
 
+                json.RetMessage = JsonConvert.SerializeObject(msmqList);
+                json.RetCode = "Proceed";
                 return GetPlanInfo(dataTable.Rows[0]["SCZSBH"].ToString());
             }
             catch (Exception e)
