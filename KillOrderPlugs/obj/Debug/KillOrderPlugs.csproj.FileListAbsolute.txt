@@ -15,3 +15,4 @@ F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\bin\Debug\Newtonsoft.Json.xml
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.pdb
+F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.csprojResolveAssemblyReference.cache

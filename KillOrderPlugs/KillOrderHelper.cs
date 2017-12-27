@@ -91,5 +91,59 @@ namespace KillOrderPlugs
             return JsonConvert.SerializeObject(resultJson);
         }
 
+        public string killSingle(string json)
+        {
+            var resultJson = new JsonHelper();
+            try
+            {
+                string result = string.Empty;
+
+                //T_Analysis_OrderListByDH
+                //var killOrderList=new Delete().From<TAnalysisOrderListByDH>()
+                //    .Where(TAnalysisOrderListByDH.CustomerIdColumn).IsEqualTo(json);
+                
+
+                //T_Analysis_OutPutListByFZ
+                var killOrderListOutByfz = new Delete().From<TAnalysisOutPutListByFZ>()
+                    .Where(TAnalysisOutPutListByFZ.CustomerIdColumn).IsEqualTo(json);
+
+                //T_BlankingDetailes
+                var killBlankingDetaile = new Delete().From<TBlankingDetaile>()
+                    .Where(TBlankingDetaile.CustumerIdColumn).IsEqualTo(json);
+                
+
+                //T_BLData_Ordermx
+                var killBLOrdermx = new Delete().From<TBLDataOrdermx>()
+                    .Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(json);
+
+                //T_BLData_Mflxx
+                var killBLMflxx = new Delete().From<TBLDataMflxx>()
+                    .Where(TBLDataMflxx.KhdhColumn).IsEqualTo(json);
+                
+
+                //result += $"T_Analysis_OrderList撤回{killOrderList.Execute()}条数据，";
+                //result += $"T_Analysis_OrderListByCF撤回{killOrderListByCf.Execute()}条数据，";
+                //result += $"T_Analysis_OutputList撤回{killOrderListOut.Execute()}条数据，";
+                //result += $"T_Analysis_OutPutListByCF撤回{killOrderListOutByCf.Execute()}条数据，";
+                //result += $"T_Analysis_OutPutListByFZ撤回{killOrderListOutByfz.Execute()}条数据，";
+                //result += $"T_BlankingDetailes撤回{killBlankingDetaile.Execute()}条数据，";
+                //result += $"T_BLData_Order撤回{killBLOrder.Execute()}条数据，";
+                //result += $"T_BLData_Ordermx撤回{killBLOrdermx.Execute()}条数据，";
+                //result += $"T_BLData_Mflxx撤回{killBLMflxx.Execute()}条数据，";
+                //result += $"T_OldApsByCf撤回{killOldApsByCf.Execute()}条数据。";
+                //result += $"T_Basis_OrderStatus撤回{killOrderStatus.Execute()}条数据。";
+
+                resultJson.RetCode = "success";
+                resultJson.RetMessage = result;
+            }
+            catch (Exception e)
+            {
+                resultJson.RetCode = "error";
+                resultJson.RetMessage = e.Message;
+
+            }
+
+            return JsonConvert.SerializeObject(resultJson);
+        }
     }
 }

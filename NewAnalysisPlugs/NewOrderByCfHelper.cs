@@ -15,9 +15,9 @@ namespace NewAnalysisPlugs
 {
     public class NewOrderByCfHelper
     {
-        private  JsonHelper json = new JsonHelper();
+        private JsonHelper json = new JsonHelper();
 
-        public  string SavaData(string order)
+        public string SavaData(string order)
         {
             try
             {
@@ -80,6 +80,10 @@ namespace NewAnalysisPlugs
                     orderListByCf.Sccjjq = DateTime.Parse(sccjjq);
                     orderListByCf.Sctcrq = DateTime.Parse(sctcrq);
 
+                    //预防重复，先删再增
+                    new Delete().From<TAnalysisOrderListByCF>().Where(TAnalysisOrderListByCF.CustomerIdColumn)
+                        .IsEqualTo(orderListByCf.CustomerId).Execute();
+
                     orderListByCf.Save();
                     if (string.IsNullOrWhiteSpace(orderListByCf.OrderId) || orderListByCf.OrderId == "0")
                     {
@@ -105,7 +109,7 @@ namespace NewAnalysisPlugs
             return JsonHelper.GetJsonO(json);
         }
 
-        public  void GetPbcd(string orderId, ref string type, ref string tgcode, ref string flagMl, ref string pbcd, ref string fgml, string orderType)
+        public void GetPbcd(string orderId, ref string type, ref string tgcode, ref string flagMl, ref string pbcd, ref string fgml, string orderType)
         {
             try
             {
@@ -249,7 +253,7 @@ namespace NewAnalysisPlugs
             }
         }
 
-        public  void GetErpMsg(string orderId, ref string sccjjq, ref string sctcrq, ref string type, ref string tgcode, ref string flagMl)
+        public void GetErpMsg(string orderId, ref string sccjjq, ref string sctcrq, ref string type, ref string tgcode, ref string flagMl)
         {
             try
             {
@@ -260,7 +264,7 @@ namespace NewAnalysisPlugs
                         inner join sct32 on  sct32.schtbh=a.schtbh
                         inner join  sct51 on a.scggdh=sct51.scggdh
                         where sct51.scyspd=''{orderId}''  and scjhbz not like ''%未%''
-                        order by scjhbz"; 
+                        order by sccjjq desc ,scjhbz";
                 var erpTable = new DataHelper().OtherBaseSelect("FYERP", sql).Rows[0].ItemArray.ToList();
 
                 if (orderId.ToLower().Contains("jjj") || orderId.ToLower().Contains("test") ||
@@ -300,7 +304,7 @@ namespace NewAnalysisPlugs
             }
         }
 
-        public  int ExistsData(string id)
+        public int ExistsData(string id)
         {
             try
             {

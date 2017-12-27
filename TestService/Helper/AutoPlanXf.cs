@@ -63,6 +63,7 @@ namespace TestService.Helper
                         .ExecuteTypedList<TBLDataOrdermx>();
                     ListOrder.AddRange(orderList.ConvertAll(x => x.Khdh));
                 }
+
                 //添加的订单明细客户单号去重
                 ListOrder = ListOrder.Distinct<string>().ToList();
 
@@ -75,21 +76,29 @@ namespace TestService.Helper
                 var objlist = lineCapacity.OrderBy(x => x.Value).ToList();
                 objlist.ForEach(x => Lines.AddRange(lines.FindAll(y => y.Abbreviation == x.Key).OrderBy(y => y.Capacity)));
 
-
                 //分配订单算法--初步分配
                 LineOrder = ScheduingOrderUnion(Lines, ListOrder);
+
+                //待分配订单去除已分配订单
+                LineOrder.ForEach(x => ListOrder.RemoveAll(y => y == x.Khdh));
 
                 //订单分配后产能检测,产能不饱和记录List
                 List<TBasisLinesFz> lineUnSaturated = new List<TBasisLinesFz>();
                 foreach (var line in Lines)
                 {
+                    //订单不饱和
                     if (line.Capacity - LineOrder.FindAll(x => x.LineName == line.LineName).Sum(x => x.Num) > 5)
                     {
                         lineUnSaturated.Add(line);
                     }
+                    else
+                    {
+                        //产线产能饱和的需要检测特殊订单
+                        FullScreen(line);
+                    }
                 }
 
-                //如果又产线的产能没有达到饱和
+                //如果有产线的产能没有达到饱和
                 if (lineUnSaturated.Count > 0)
                 {
                     //1.把所有的订单拿出来
@@ -128,6 +137,8 @@ namespace TestService.Helper
                     LineOrder.AddRange(ScheduingOrder(lineUnSaturated, listOrder.ConvertAll(x => x.Khdh)));
                 }
 
+                //---LineOrder订单集合
+
             }
             catch (Exception e)
             {
@@ -151,15 +162,15 @@ namespace TestService.Helper
                     var groupList = lineOrders.GroupBy(x => x.LineName).ToList();
                     var categorysHaving = new List<string>();
 
-                    //当前已分配完产线的品类，
+                    //当前已分配完产线的品类
                     groupList.ForEach(y => categorysHaving.AddRange(lines.Find(x => x.LineName == y.Key).Categorys.Split(',').ToList()));
 
                     //除当前正在分配的产线类型
                     categorys.ForEach(x => categorysHaving.RemoveAll(y => y == x));
                     categorysHaving = categorysHaving.Distinct().ToList();
 
-                    //怎么遍历出已有的订单套装
-                    foreach (var order in lineOrders.FindAll(x => 1 == 1))
+                    //遍历出已有的订单套装
+                    foreach (var order in lineOrders.FindAll(x => true))
                     {
                         //判断产线产能是否饱和
                         if (lineOrders.FindAll(x => x.LineName == line.LineName).Sum(x => x.Num) >= line.Capacity)
@@ -192,8 +203,6 @@ namespace TestService.Helper
                         }
                     }
 
-
-
                     //遍历订单池订单
                     foreach (var order in listOrder.FindAll(x => true))
                     {
@@ -206,7 +215,7 @@ namespace TestService.Helper
                             break;
                         }
 
-                        //如果当前时套装就踢出去，避免超出
+                        //如果当前是套装并且包含已分配完产线的品类就踢出去，避免超出
                         var having = false;
                         ordermx.ForEach(x => having = categorysHaving.FindAll(y => y.ToLower() == x.Fzfl.ToLower()).Count > 0);
                         if (having)
@@ -251,8 +260,6 @@ namespace TestService.Helper
                     //当前产线产能的所有品类
                     var categorys = line.Categorys.ToUpper().Split(',').ToList();
 
-                    //怎么遍历出已有的订单套装？？
-
                     //遍历订单
                     foreach (var order in listOrder.FindAll(x => true))
                     {
@@ -289,11 +296,12 @@ namespace TestService.Helper
             return lineOrders;
         }
 
-        //产线饱和后序算法
-        public void FullScreen()
+        //产线筛选特殊订单 补正常订单后序算法
+        public void FullScreen(TBasisLinesFz line)
         {
             try
             {
+                //---LineOrder
 
             }
             catch (Exception e)
@@ -302,17 +310,5 @@ namespace TestService.Helper
             }
         }
 
-        //产线不饱和后续算法
-        public void NotFullScreen()
-        {
-            try
-            {
-
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-        }
     }
 }
