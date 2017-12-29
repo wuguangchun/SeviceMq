@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Khdh,string SpecialCode,string Fzfl,string Scjhbz)
+	    public void Insert(string Khdh,string SpecialCode,string Fzfl)
 	    {
 		    TAnalysisOrderMx item = new TAnalysisOrderMx();
 		    
@@ -90,8 +90,6 @@ namespace Model
             
             item.Fzfl = Fzfl;
             
-            item.Scjhbz = Scjhbz;
-            
 	    
 		    item.Save(UserName);
 	    }
@@ -100,7 +98,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Id,string Khdh,string SpecialCode,string Fzfl,string Scjhbz)
+	    public void Update(int Id,string Khdh,string SpecialCode,string Fzfl)
 	    {
 		    TAnalysisOrderMx item = new TAnalysisOrderMx();
 	        item.MarkOld();
@@ -113,8 +111,6 @@ namespace Model
 			item.SpecialCode = SpecialCode;
 				
 			item.Fzfl = Fzfl;
-				
-			item.Scjhbz = Scjhbz;
 				
 	        item.Save(UserName);
 	    }

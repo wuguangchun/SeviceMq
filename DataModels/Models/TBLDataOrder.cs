@@ -321,23 +321,10 @@ namespace Model
 				colvarOrderType.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarOrderType);
 				
-				TableSchema.TableColumn colvarMddm = new TableSchema.TableColumn(schema);
-				colvarMddm.ColumnName = "mddm";
-				colvarMddm.DataType = DbType.String;
-				colvarMddm.MaxLength = 50;
-				colvarMddm.AutoIncrement = false;
-				colvarMddm.IsNullable = true;
-				colvarMddm.IsPrimaryKey = false;
-				colvarMddm.IsForeignKey = false;
-				colvarMddm.IsReadOnly = false;
-				colvarMddm.DefaultSetting = @"";
-				colvarMddm.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarMddm);
-				
 				TableSchema.TableColumn colvarMdmc = new TableSchema.TableColumn(schema);
 				colvarMdmc.ColumnName = "mdmc";
 				colvarMdmc.DataType = DbType.String;
-				colvarMdmc.MaxLength = 100;
+				colvarMdmc.MaxLength = 50;
 				colvarMdmc.AutoIncrement = false;
 				colvarMdmc.IsNullable = true;
 				colvarMdmc.IsPrimaryKey = false;
@@ -346,6 +333,19 @@ namespace Model
 				colvarMdmc.DefaultSetting = @"";
 				colvarMdmc.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarMdmc);
+				
+				TableSchema.TableColumn colvarMddm = new TableSchema.TableColumn(schema);
+				colvarMddm.ColumnName = "mddm";
+				colvarMddm.DataType = DbType.String;
+				colvarMddm.MaxLength = 100;
+				colvarMddm.AutoIncrement = false;
+				colvarMddm.IsNullable = true;
+				colvarMddm.IsPrimaryKey = false;
+				colvarMddm.IsForeignKey = false;
+				colvarMddm.IsReadOnly = false;
+				colvarMddm.DefaultSetting = @"";
+				colvarMddm.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarMddm);
 				
 				BaseSchema = schema;
 				//add this schema to the provider
@@ -477,20 +477,20 @@ namespace Model
 			set { SetColumnValue(Columns.OrderType, value); }
 		}
 		  
-		[XmlAttribute("Mddm")]
-		[Bindable(true)]
-		public string Mddm 
-		{
-			get { return GetColumnValue<string>(Columns.Mddm); }
-			set { SetColumnValue(Columns.Mddm, value); }
-		}
-		  
 		[XmlAttribute("Mdmc")]
 		[Bindable(true)]
 		public string Mdmc 
 		{
 			get { return GetColumnValue<string>(Columns.Mdmc); }
 			set { SetColumnValue(Columns.Mdmc, value); }
+		}
+		  
+		[XmlAttribute("Mddm")]
+		[Bindable(true)]
+		public string Mddm 
+		{
+			get { return GetColumnValue<string>(Columns.Mddm); }
+			set { SetColumnValue(Columns.Mddm, value); }
 		}
 		
 		#endregion
@@ -512,7 +512,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType,string varMddm,string varMdmc)
+		public static void Insert(string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType,string varMdmc,string varMddm)
 		{
 			TBLDataOrder item = new TBLDataOrder();
 			
@@ -544,9 +544,9 @@ namespace Model
 			
 			item.OrderType = varOrderType;
 			
-			item.Mddm = varMddm;
-			
 			item.Mdmc = varMdmc;
+			
+			item.Mddm = varMddm;
 			
 		
 			if (System.Web.HttpContext.Current != null)
@@ -558,7 +558,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varOrderid,string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType,string varMddm,string varMdmc)
+		public static void Update(int varOrderid,string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType,string varMdmc,string varMddm)
 		{
 			TBLDataOrder item = new TBLDataOrder();
 			
@@ -592,9 +592,9 @@ namespace Model
 			
 				item.OrderType = varOrderType;
 			
-				item.Mddm = varMddm;
-			
 				item.Mdmc = varMdmc;
+			
+				item.Mddm = varMddm;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -714,14 +714,14 @@ namespace Model
         
         
         
-        public static TableSchema.TableColumn MddmColumn
+        public static TableSchema.TableColumn MdmcColumn
         {
             get { return Schema.Columns[15]; }
         }
         
         
         
-        public static TableSchema.TableColumn MdmcColumn
+        public static TableSchema.TableColumn MddmColumn
         {
             get { return Schema.Columns[16]; }
         }
@@ -747,8 +747,8 @@ namespace Model
 			 public static string Scggdh = @"SCGGDH";
 			 public static string FlagDelete = @"flagDelete";
 			 public static string OrderType = @"orderType";
-			 public static string Mddm = @"mddm";
 			 public static string Mdmc = @"mdmc";
+			 public static string Mddm = @"mddm";
 						
 		}
 		#endregion

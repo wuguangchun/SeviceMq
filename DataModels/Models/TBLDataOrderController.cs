@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Khdh,DateTime? Trantime,DateTime? Jhrq,DateTime? Createtime,string Sldl,string Customername,string Txtz,string XhSyKh,string Pbcd,DateTime? Audittime,string Tzecode,string Scggdh,int? FlagDelete,int? OrderType,string Mddm,string Mdmc)
+	    public void Insert(string Khdh,DateTime? Trantime,DateTime? Jhrq,DateTime? Createtime,string Sldl,string Customername,string Txtz,string XhSyKh,string Pbcd,DateTime? Audittime,string Tzecode,string Scggdh,int? FlagDelete,int? OrderType,string Mdmc,string Mddm)
 	    {
 		    TBLDataOrder item = new TBLDataOrder();
 		    
@@ -112,9 +112,9 @@ namespace Model
             
             item.OrderType = OrderType;
             
-            item.Mddm = Mddm;
-            
             item.Mdmc = Mdmc;
+            
+            item.Mddm = Mddm;
             
 	    
 		    item.Save(UserName);
@@ -124,7 +124,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Orderid,string Khdh,DateTime? Trantime,DateTime? Jhrq,DateTime? Createtime,string Sldl,string Customername,string Txtz,string XhSyKh,string Pbcd,DateTime? Audittime,string Tzecode,string Scggdh,int? FlagDelete,int? OrderType,string Mddm,string Mdmc)
+	    public void Update(int Orderid,string Khdh,DateTime? Trantime,DateTime? Jhrq,DateTime? Createtime,string Sldl,string Customername,string Txtz,string XhSyKh,string Pbcd,DateTime? Audittime,string Tzecode,string Scggdh,int? FlagDelete,int? OrderType,string Mdmc,string Mddm)
 	    {
 		    TBLDataOrder item = new TBLDataOrder();
 	        item.MarkOld();
@@ -160,9 +160,9 @@ namespace Model
 				
 			item.OrderType = OrderType;
 				
-			item.Mddm = Mddm;
-				
 			item.Mdmc = Mdmc;
+				
+			item.Mddm = Mddm;
 				
 	        item.Save(UserName);
 	    }

@@ -178,19 +178,6 @@ namespace Model
 				colvarFzfl.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarFzfl);
 				
-				TableSchema.TableColumn colvarScjhbz = new TableSchema.TableColumn(schema);
-				colvarScjhbz.ColumnName = "SCJHBZ";
-				colvarScjhbz.DataType = DbType.String;
-				colvarScjhbz.MaxLength = 100;
-				colvarScjhbz.AutoIncrement = false;
-				colvarScjhbz.IsNullable = true;
-				colvarScjhbz.IsPrimaryKey = false;
-				colvarScjhbz.IsForeignKey = false;
-				colvarScjhbz.IsReadOnly = false;
-				colvarScjhbz.DefaultSetting = @"";
-				colvarScjhbz.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarScjhbz);
-				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -232,14 +219,6 @@ namespace Model
 			get { return GetColumnValue<string>(Columns.Fzfl); }
 			set { SetColumnValue(Columns.Fzfl, value); }
 		}
-		  
-		[XmlAttribute("Scjhbz")]
-		[Bindable(true)]
-		public string Scjhbz 
-		{
-			get { return GetColumnValue<string>(Columns.Scjhbz); }
-			set { SetColumnValue(Columns.Scjhbz, value); }
-		}
 		
 		#endregion
 		
@@ -260,7 +239,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varKhdh,string varSpecialCode,string varFzfl,string varScjhbz)
+		public static void Insert(string varKhdh,string varSpecialCode,string varFzfl)
 		{
 			TAnalysisOrderMx item = new TAnalysisOrderMx();
 			
@@ -269,8 +248,6 @@ namespace Model
 			item.SpecialCode = varSpecialCode;
 			
 			item.Fzfl = varFzfl;
-			
-			item.Scjhbz = varScjhbz;
 			
 		
 			if (System.Web.HttpContext.Current != null)
@@ -282,7 +259,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varId,string varKhdh,string varSpecialCode,string varFzfl,string varScjhbz)
+		public static void Update(int varId,string varKhdh,string varSpecialCode,string varFzfl)
 		{
 			TAnalysisOrderMx item = new TAnalysisOrderMx();
 			
@@ -293,8 +270,6 @@ namespace Model
 				item.SpecialCode = varSpecialCode;
 			
 				item.Fzfl = varFzfl;
-			
-				item.Scjhbz = varScjhbz;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -337,13 +312,6 @@ namespace Model
         
         
         
-        public static TableSchema.TableColumn ScjhbzColumn
-        {
-            get { return Schema.Columns[4]; }
-        }
-        
-        
-        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -352,7 +320,6 @@ namespace Model
 			 public static string Khdh = @"Khdh";
 			 public static string SpecialCode = @"SpecialCode";
 			 public static string Fzfl = @"Fzfl";
-			 public static string Scjhbz = @"SCJHBZ";
 						
 		}
 		#endregion
