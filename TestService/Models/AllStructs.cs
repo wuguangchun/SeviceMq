@@ -120,6 +120,8 @@ namespace APSData
         
 		public static readonly string TBasisLinesFz = @"T_Basis_LinesFz";
         
+		public static readonly string TBasisLinesRestriction = @"T_Basis_LinesRestriction";
+        
 		public static readonly string TBasisOrderStatus = @"T_Basis_OrderStatus";
         
 		public static readonly string TBasisResource = @"T_Basis_resource";
@@ -196,7 +198,7 @@ namespace APSData
         
 		public static readonly string TResultMsg = @"T_ResultMsg";
         
-		public static readonly string TTest = @"t_test";
+		public static readonly string TTempLineOrderPool = @"T_Temp_LineOrderPool";
         
 		public static readonly string TTsgy = @"T_TSGY";
         
@@ -480,6 +482,11 @@ namespace APSData
             get { return DataService.GetSchema("T_Basis_LinesFz", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBasisLinesRestriction
+		{
+            get { return DataService.GetSchema("T_Basis_LinesRestriction", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBasisOrderStatus
 		{
             get { return DataService.GetSchema("T_Basis_OrderStatus", "Nowthwin"); }
@@ -670,9 +677,9 @@ namespace APSData
             get { return DataService.GetSchema("T_ResultMsg", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TTest
+		public static TableSchema.Table TTempLineOrderPool
 		{
-            get { return DataService.GetSchema("t_test", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Temp_LineOrderPool", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TTsgy

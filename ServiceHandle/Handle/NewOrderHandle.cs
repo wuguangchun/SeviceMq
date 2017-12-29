@@ -162,7 +162,9 @@ namespace ServiceHandle.Handle
                         Audittime = blDate.order.Audittime == null ? DateTime.Now : DateTime.Parse(blDate.order.Audittime),
                         Tzecode = blDate.order.Tzecode,
                         Scggdh = blDate.order.Ecode,
-                        OrderType = int.Parse(blDate.order.OrderType)
+                        OrderType = int.Parse(blDate.order.OrderType),
+                        Mddm = blDate.order.Mddm,
+                        Mdmc = blDate.order.Mdmc
                     };
                     tblDataOrder.Save();
                     if (tblDataOrder.Orderid > 0)

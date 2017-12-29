@@ -321,6 +321,32 @@ namespace Model
 				colvarOrderType.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarOrderType);
 				
+				TableSchema.TableColumn colvarMddm = new TableSchema.TableColumn(schema);
+				colvarMddm.ColumnName = "mddm";
+				colvarMddm.DataType = DbType.String;
+				colvarMddm.MaxLength = 50;
+				colvarMddm.AutoIncrement = false;
+				colvarMddm.IsNullable = true;
+				colvarMddm.IsPrimaryKey = false;
+				colvarMddm.IsForeignKey = false;
+				colvarMddm.IsReadOnly = false;
+				colvarMddm.DefaultSetting = @"";
+				colvarMddm.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarMddm);
+				
+				TableSchema.TableColumn colvarMdmc = new TableSchema.TableColumn(schema);
+				colvarMdmc.ColumnName = "mdmc";
+				colvarMdmc.DataType = DbType.String;
+				colvarMdmc.MaxLength = 100;
+				colvarMdmc.AutoIncrement = false;
+				colvarMdmc.IsNullable = true;
+				colvarMdmc.IsPrimaryKey = false;
+				colvarMdmc.IsForeignKey = false;
+				colvarMdmc.IsReadOnly = false;
+				colvarMdmc.DefaultSetting = @"";
+				colvarMdmc.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarMdmc);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -450,6 +476,22 @@ namespace Model
 			get { return GetColumnValue<int?>(Columns.OrderType); }
 			set { SetColumnValue(Columns.OrderType, value); }
 		}
+		  
+		[XmlAttribute("Mddm")]
+		[Bindable(true)]
+		public string Mddm 
+		{
+			get { return GetColumnValue<string>(Columns.Mddm); }
+			set { SetColumnValue(Columns.Mddm, value); }
+		}
+		  
+		[XmlAttribute("Mdmc")]
+		[Bindable(true)]
+		public string Mdmc 
+		{
+			get { return GetColumnValue<string>(Columns.Mdmc); }
+			set { SetColumnValue(Columns.Mdmc, value); }
+		}
 		
 		#endregion
 		
@@ -470,7 +512,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType)
+		public static void Insert(string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType,string varMddm,string varMdmc)
 		{
 			TBLDataOrder item = new TBLDataOrder();
 			
@@ -502,6 +544,10 @@ namespace Model
 			
 			item.OrderType = varOrderType;
 			
+			item.Mddm = varMddm;
+			
+			item.Mdmc = varMdmc;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -512,7 +558,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varOrderid,string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType)
+		public static void Update(int varOrderid,string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType,string varMddm,string varMdmc)
 		{
 			TBLDataOrder item = new TBLDataOrder();
 			
@@ -545,6 +591,10 @@ namespace Model
 				item.FlagDelete = varFlagDelete;
 			
 				item.OrderType = varOrderType;
+			
+				item.Mddm = varMddm;
+			
+				item.Mdmc = varMdmc;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -664,6 +714,20 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn MddmColumn
+        {
+            get { return Schema.Columns[15]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn MdmcColumn
+        {
+            get { return Schema.Columns[16]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -683,6 +747,8 @@ namespace Model
 			 public static string Scggdh = @"SCGGDH";
 			 public static string FlagDelete = @"flagDelete";
 			 public static string OrderType = @"orderType";
+			 public static string Mddm = @"mddm";
+			 public static string Mdmc = @"mdmc";
 						
 		}
 		#endregion

@@ -200,6 +200,8 @@
     <Compile Include="Models\TBasisLinerTypeController.cs" />
     <Compile Include="Models\TBasisLinesFz.cs" />
     <Compile Include="Models\TBasisLinesFzController.cs" />
+    <Compile Include="Models\TBasisLinesRestriction.cs" />
+    <Compile Include="Models\TBasisLinesRestrictionController.cs" />
     <Compile Include="Models\TBasisOrderStatus.cs" />
     <Compile Include="Models\TBasisOrderStatusController.cs" />
     <Compile Include="Models\TBasisResource.cs" />

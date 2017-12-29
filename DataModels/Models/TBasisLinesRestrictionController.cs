@@ -15,13 +15,13 @@ using SubSonic.Utilities;
 namespace Model
 {
     /// <summary>
-    /// Controller class for HLJT_TaskList_delete
+    /// Controller class for T_Basis_LinesRestriction
     /// </summary>
     [System.ComponentModel.DataObject]
-    public partial class HljtTaskListDeleteController
+    public partial class TBasisLinesRestrictionController
     {
         // Preload our schema..
-        HljtTaskListDelete thisSchemaLoad = new HljtTaskListDelete();
+        TBasisLinesRestriction thisSchemaLoad = new TBasisLinesRestriction();
         private string userName = String.Empty;
         protected string UserName
         {
@@ -42,55 +42,67 @@ namespace Model
             }
         }
         [DataObjectMethod(DataObjectMethodType.Select, true)]
-        public HljtTaskListDeleteCollection FetchAll()
+        public TBasisLinesRestrictionCollection FetchAll()
         {
-            HljtTaskListDeleteCollection coll = new HljtTaskListDeleteCollection();
-            Query qry = new Query(HljtTaskListDelete.Schema);
+            TBasisLinesRestrictionCollection coll = new TBasisLinesRestrictionCollection();
+            Query qry = new Query(TBasisLinesRestriction.Schema);
             coll.LoadAndCloseReader(qry.ExecuteReader());
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public HljtTaskListDeleteCollection FetchByID(object ModelType)
+        public TBasisLinesRestrictionCollection FetchByID(object Restriction)
         {
-            HljtTaskListDeleteCollection coll = new HljtTaskListDeleteCollection().Where("ModelType", ModelType).Load();
+            TBasisLinesRestrictionCollection coll = new TBasisLinesRestrictionCollection().Where("Restriction", Restriction).Load();
             return coll;
         }
 		
 		[DataObjectMethod(DataObjectMethodType.Select, false)]
-        public HljtTaskListDeleteCollection FetchByQuery(Query qry)
+        public TBasisLinesRestrictionCollection FetchByQuery(Query qry)
         {
-            HljtTaskListDeleteCollection coll = new HljtTaskListDeleteCollection();
+            TBasisLinesRestrictionCollection coll = new TBasisLinesRestrictionCollection();
             coll.LoadAndCloseReader(qry.ExecuteReader()); 
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
-        public bool Delete(object ModelType)
+        public bool Delete(object Restriction)
         {
-            return (HljtTaskListDelete.Delete(ModelType) == 1);
+            return (TBasisLinesRestriction.Delete(Restriction) == 1);
         }
         [DataObjectMethod(DataObjectMethodType.Delete, false)]
-        public bool Destroy(object ModelType)
+        public bool Destroy(object Restriction)
         {
-            return (HljtTaskListDelete.Destroy(ModelType) == 1);
+            return (TBasisLinesRestriction.Destroy(Restriction) == 1);
         }
         
         
+        
+        [DataObjectMethod(DataObjectMethodType.Delete, true)]
+        public bool Delete(string Restriction,string Identifies)
+        {
+            Query qry = new Query(TBasisLinesRestriction.Schema);
+            qry.QueryType = QueryType.Delete;
+            qry.AddWhere("Restriction", Restriction).AND("Identifies", Identifies);
+            qry.Execute();
+            return (true);
+        }        
+       
+    	
     	
 	    /// <summary>
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string ModelType,string Flag,string UpdateSource,DateTime? UpdateTime)
+	    public void Insert(string LineName,int? Capacity,string Restriction,string Identifies)
 	    {
-		    HljtTaskListDelete item = new HljtTaskListDelete();
+		    TBasisLinesRestriction item = new TBasisLinesRestriction();
 		    
-            item.ModelType = ModelType;
+            item.LineName = LineName;
             
-            item.Flag = Flag;
+            item.Capacity = Capacity;
             
-            item.UpdateSource = UpdateSource;
+            item.Restriction = Restriction;
             
-            item.UpdateTime = UpdateTime;
+            item.Identifies = Identifies;
             
 	    
 		    item.Save(UserName);
@@ -100,19 +112,19 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string ModelType,string Flag,string UpdateSource,DateTime? UpdateTime)
+	    public void Update(string LineName,int? Capacity,string Restriction,string Identifies)
 	    {
-		    HljtTaskListDelete item = new HljtTaskListDelete();
+		    TBasisLinesRestriction item = new TBasisLinesRestriction();
 	        item.MarkOld();
 	        item.IsLoaded = true;
 		    
-			item.ModelType = ModelType;
+			item.LineName = LineName;
 				
-			item.Flag = Flag;
+			item.Capacity = Capacity;
 				
-			item.UpdateSource = UpdateSource;
+			item.Restriction = Restriction;
 				
-			item.UpdateTime = UpdateTime;
+			item.Identifies = Identifies;
 				
 	        item.Save(UserName);
 	    }

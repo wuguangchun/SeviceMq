@@ -301,7 +301,108 @@ namespace TestService.Helper
         {
             try
             {
+                //--当前筛选条件集合获取
+                var restriction = new Select().From<TBasisLinesRestriction>()
+                    .Where(TBasisLinesRestriction.LineNameColumn).IsEqualTo(line.LineName)
+                    .ExecuteTypedList<TBasisLinesRestriction>();
+
+                //--当前产线分配的订单
+                var nowLineOrder = LineOrder.FindAll(x => x.LineName == line.LineName);
+
+                //当前已有订单明细
+                var mxList = new Select().From<TBLDataOrdermx>()
+                    .Where(TBLDataOrdermx.KhdhColumn).In(nowLineOrder.ConvertAll(x => x.Khdh))
+                    .ExecuteTypedList<TBLDataOrdermx>();
+
+                //--筛选出来的订单集合
+                List<LineOrderPool> outOrders = new List<LineOrderPool>();
+
                 //---LineOrder
+                //根据不同的规则筛选
+                foreach (var linesRestriction in restriction)
+                {
+                    //-- MLWG 面料外观
+                    if (linesRestriction.Identifies == "MLWG")
+                    {
+
+                    }
+
+                    //-- FZFL 服装分类
+                    if (linesRestriction.Identifies == "FZFL")
+                    {
+                        //当前的设限分类类型
+                        var flList = linesRestriction.Restriction.Split(',');
+
+                        //当前的设限分类类型订单
+                        List<TBLDataOrdermx> nowOutOrders = new List<TBLDataOrdermx>();
+
+                        //筛选当前的分类订单
+                        flList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Fzfl == y)));
+
+                        //标准设限，如允许有出入 则修改判断的值就可以了
+                        var outNum = nowOutOrders.Sum(x => x.Ddsl) - linesRestriction.Capacity;
+                        if (outNum > 0)
+                        {
+                            //查询订单信息获取交期排序，筛掉超出的订单
+                            var order = new Select().From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn)
+                                .In(nowOutOrders.ConvertAll(x => x.Khdh))
+                                .ExecuteTypedList<TBLDataOrder>();
+
+                            order = order.OrderByDescending(x => x.Jhrq).ToList();
+                            foreach (var dataOrder in order)
+                            {
+                                outOrders.Add(
+                                    new LineOrderPool
+                                    {
+                                        Khdh = dataOrder.Khdh,
+                                        LineName = line.LineName,
+                                        Num = nowLineOrder.FindAll(x => x.Khdh == dataOrder.Khdh).Sum(x => x.Num)
+                                    });
+                                //如果挑出来的数量和超出的数量一致则结束筛选
+                                if (outOrders.Sum(x => x.Num) == outNum)
+                                {
+                                    break;
+                                }
+                                //如果跳出来的订单大于超出的数量，挑多了，那就去掉上一个订单并结束筛选
+                                else if (outOrders.Sum(x => x.Num) > outNum)
+                                {
+                                    outOrders.RemoveAll(x => x.Khdh == dataOrder.Khdh);
+                                    break;
+                                }
+                            }
+
+                        }
+
+                    }
+
+                    //-- GYXX 工艺信息
+                    if (linesRestriction.Identifies == "GYXX")
+                    {
+
+                    }
+
+                    //-- MLBM 面料编码
+                    if (linesRestriction.Identifies == "MLBM")
+                    {
+
+                    }
+
+                    //-- GYLX 工艺类型
+                    if (linesRestriction.Identifies == "GYLX")
+                    {
+                        //当前的设限分类类型
+                        var gylxList = linesRestriction.Restriction.Split(',');
+
+                        //当前的设限分类类型订单
+                        List<TBLDataOrdermx> nowOutOrders = new List<TBLDataOrdermx>();
+
+                        //筛选当前的工艺订单
+                        gylxList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Gylx == y)));
+
+
+                    }
+
+                }
 
             }
             catch (Exception e)

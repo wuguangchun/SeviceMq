@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 
 namespace DataModels.ModelsOther
 {
@@ -25,6 +25,8 @@ namespace DataModels.ModelsOther
         public string Audittime { get; set; }
         public string OrderType { get; set; }
         public string Tstx { get; set; }
+        public string Mddm { get; set; }
+        public string Mdmc { get; set; }
 
     }
 
