@@ -29,3 +29,5 @@ F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.csproj.CoreComp
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.pdb
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\bin\Debug\CallBackPlugs.dll.config
+F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\bin\Debug\SubSonic.Core.dll
+F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\bin\Debug\SubSonic.Migrations.dll

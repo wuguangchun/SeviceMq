@@ -60,12 +60,17 @@
     <Compile Include="NewAnalysisHelper.cs" />
     <Compile Include="NewCadHelper.cs" />
     <Compile Include="NewOrderByCfHelper.cs" />
+    <Compile Include="NewOrderHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataModels\DataModels.csproj">
       <Project>{fc11b119-2974-4750-bc01-0b56b4b630ee}</Project>
       <Name>DataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KillOrderPlugs\KillOrderPlugs.csproj">
+      <Project>{7604a9f8-7045-4183-b32d-433191df4073}</Project>
+      <Name>KillOrderPlugs</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServiceHelper\ServiceHelper.csproj">
       <Project>{1cbb637c-428f-492a-940f-701ec0494dbf}</Project>

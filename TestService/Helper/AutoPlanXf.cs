@@ -343,34 +343,7 @@ namespace TestService.Helper
                         var outNum = nowOutOrders.Sum(x => x.Ddsl) - linesRestriction.Capacity;
                         if (outNum > 0)
                         {
-                            //查询订单信息获取交期排序，筛掉超出的订单
-                            var order = new Select().From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn)
-                                .In(nowOutOrders.ConvertAll(x => x.Khdh))
-                                .ExecuteTypedList<TBLDataOrder>();
-
-                            order = order.OrderByDescending(x => x.Jhrq).ToList();
-                            foreach (var dataOrder in order)
-                            {
-                                outOrders.Add(
-                                    new LineOrderPool
-                                    {
-                                        Khdh = dataOrder.Khdh,
-                                        LineName = line.LineName,
-                                        Num = nowLineOrder.FindAll(x => x.Khdh == dataOrder.Khdh).Sum(x => x.Num)
-                                    });
-                                //如果挑出来的数量和超出的数量一致则结束筛选
-                                if (outOrders.Sum(x => x.Num) == outNum)
-                                {
-                                    break;
-                                }
-                                //如果跳出来的订单大于超出的数量，挑多了，那就去掉上一个订单并结束筛选
-                                else if (outOrders.Sum(x => x.Num) > outNum)
-                                {
-                                    outOrders.RemoveAll(x => x.Khdh == dataOrder.Khdh);
-                                    break;
-                                }
-                            }
-
+                            RemoveOrder(nowOutOrders, outOrders, line, nowLineOrder, (int)outNum);
                         }
 
                     }
@@ -399,7 +372,10 @@ namespace TestService.Helper
                         //筛选当前的工艺订单
                         gylxList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Gylx == y)));
 
+                        //标准设限，如允许有出入 则修改判断的值就可以了
+                        var outNum = nowOutOrders.Sum(x => x.Ddsl) - linesRestriction.Capacity;
 
+                        RemoveOrder(nowOutOrders, outOrders, line, nowLineOrder, (int)outNum);
                     }
 
                 }
@@ -411,5 +387,55 @@ namespace TestService.Helper
             }
         }
 
+
+
+
+        /// <summary>
+        /// 特殊订单超出后删减订单
+        /// </summary>
+        /// <param name="nowOutOrders">当前的特殊类型订单集合</param>
+        /// <param name="outOrders">超出的订单集合</param>
+        /// <param name="line">当前产线对象</param>
+        /// <param name="nowLineOrder">当前产线已分配的订单</param>
+        /// <param name="outNum">超出的数量</param>
+        public void RemoveOrder(List<TBLDataOrdermx> nowOutOrders, List<LineOrderPool> outOrders, TBasisLinesFz line, List<LineOrderPool> nowLineOrder, int outNum)
+        {
+            try
+            {
+                //查询订单信息获取交期排序，筛掉超出的订单
+                var order = new Select().From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn)
+                    .In(nowOutOrders.ConvertAll(x => x.Khdh))
+                    .ExecuteTypedList<TBLDataOrder>();
+
+                order = order.OrderByDescending(x => x.Jhrq).ToList();
+                foreach (var dataOrder in order)
+                {
+                    outOrders.Add(
+                        new LineOrderPool
+                        {
+                            Khdh = dataOrder.Khdh,
+                            LineName = line.LineName,
+                            Num = nowLineOrder.FindAll(x => x.Khdh == dataOrder.Khdh).Sum(x => x.Num)
+                        });
+                    //如果挑出来的数量和超出的数量一致则结束筛选
+                    if (outOrders.Sum(x => x.Num) == outNum)
+                    {
+                        break;
+                    }
+                    //如果跳出来的订单大于超出的数量，挑多了，那就去掉上一个订单并结束筛选
+                    else if (outOrders.Sum(x => x.Num) > outNum)
+                    {
+                        outOrders.RemoveAll(x => x.Khdh == dataOrder.Khdh);
+                        break;
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
     }
 }

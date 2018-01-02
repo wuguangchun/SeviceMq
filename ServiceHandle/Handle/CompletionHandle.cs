@@ -88,11 +88,8 @@ namespace ServiceHandle.Handle
                 var errLog = new TLogError { CreateTime = DateTime.Now, MessageId = message.Id, Message = ex.Message };
                 service.InsertMessage("LogService", "AddErrLog", JsonHelper.GetJsonO(errLog), null);
 
-
                 //回调URL通知
-                service.InsertMessage("CallBackMsg", "Message",
-                    JsonHelper.GetJsonO(
-                        new JsonHelper { RetCode = "Error", RetMessage = ex.Message, RetObj = message.Id }), null);
+                service.InsertMessage("CallBackMsg", "Message", JsonHelper.GetJsonO(new JsonHelper { RetCode = "Error", RetMessage = ex.Message, RetObj = message.Id }), null);
             }
             finally
             {

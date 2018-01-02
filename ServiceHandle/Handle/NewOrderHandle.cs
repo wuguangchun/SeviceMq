@@ -7,6 +7,8 @@ using DataModels.ModelsOther;
 using KillOrderPlugs;
 using Kute.Helper;
 using Model;
+using NewAnalysisPlugs;
+using Newtonsoft.Json;
 using SubSonic;
 using TestService.ModelsOther;
 
@@ -48,7 +50,7 @@ namespace ServiceHandle.Handle
                 //根据消息标签执行相应的命令
                 if (message.Label.ToLower().Trim() == "BlPutData".ToLower())
                 {//接收BL传入数据源
-                    reMeg = NewBLOrder.SavaData(message.Body.ToString());
+                    reMeg = new NewOrderHelper().SavaData(message.Body.ToString());
                 }
                 else
                 {//无法识别标签内容
@@ -56,19 +58,27 @@ namespace ServiceHandle.Handle
                 }
 
                 //程序处理返回的结果
-                json = (JsonHelper)JsonHelper.ReturnObject(reMeg, typeof(JsonHelper));
+                json = (JsonHelper)JsonConvert.DeserializeObject(reMeg, typeof(JsonHelper));
 
                 if (json.RetCode.ToLower() == "error")//程序处理失败
                 {
-
                     throw new ApplicationException($"程序处理失败,{json.RetMessage}");
                 }
-                else
+                else if (json.RetCode.ToLower() == "proceed")//投诉异常：需要新增队列通知
                 {
-                    //处理成功，回调URL通知
-                    var service = new ApsMessageService.NewMassgeServiceClient();
-                    service.InsertMessage("CallBackMsg", "Message", JsonHelper.GetJsonO(new JsonHelper { RetCode = "Success", RetMessage = "处理成功", RetObj = message.Id }), null);
+                    var msmqList = (List<MsmqModel>)JsonConvert.DeserializeObject(json.RetMessage, typeof(List<MsmqModel>));
+                    foreach (var msmq in msmqList)
+                    {
+                        var service = new ApsMessageService.NewMassgeServiceClient();
+                        service.InsertMessage(msmq.Path, msmq.Label, msmq.Body, msmq.CallBackUrl);
+                        service.Close();
+                    }
                 }
+
+                //处理成功，回调URL通知
+                var serviceCallBack = new ApsMessageService.NewMassgeServiceClient();
+                json.RetObj = message.Id;
+                serviceCallBack.InsertMessage("CallBackMsg", "Message", JsonHelper.GetJsonO(json), null);
             }
             catch (Exception ex)
             {
@@ -136,7 +146,7 @@ namespace ServiceHandle.Handle
                             CreateTime = DateTime.Now,
                             Lable = "AutoKill",
                             MessageID = "NoMessageId",
-                            MessagePath = "none"
+                            MessagePath = blDate.order.Khdh
                         };
 
                         var serviceMq = new ApsMessageService.NewMassgeServiceClient();
