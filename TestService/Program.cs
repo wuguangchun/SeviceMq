@@ -7,8 +7,8 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Timers;
-using APSData;
-using APSWcfService.Helper;
+using DataModels.ModelsOther;
+using Model;
 using Newtonsoft.Json;
 using ServiceHandle.Helper;
 using ServiceHandle.ModelsOther;
@@ -210,14 +210,14 @@ namespace TestService
                         line = sr.ReadToEnd();
                     }
 
-                    List<BLDate> blDateList = (List<BLDate>)JsonConvert.DeserializeObject(line, typeof(List<BLDate>));
+                    List<BLData> blDateList = (List<BLData>)JsonConvert.DeserializeObject(line, typeof(List<BLData>));
 
                     for (int i = 0; i < 100; i++)
                     {
                         blDateList.First().order.Khdh = DataHelper.GenerateOrderNumber();
-                        BLDate bldata = blDateList.First();
+                        BLData bldata = blDateList.First();
 
-                        List<BLDate> list = new List<BLDate>();
+                        List<BLData> list = new List<BLData>();
                         list.Add(bldata);
 
                         var service = new ServiceTest.NewMassgeServiceClient();

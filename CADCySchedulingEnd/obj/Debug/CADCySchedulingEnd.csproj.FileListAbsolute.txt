@@ -18,4 +18,3 @@ F:\Projects\ServiceMq\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.p
 F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.exe
 F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.pdb
-F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.csprojResolveAssemblyReference.cache

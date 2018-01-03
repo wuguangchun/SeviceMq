@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using APSData;
+using Model;
 using SubSonic;
 using SubSonic.Extensions;
 using TestService.ModelsOther;
@@ -139,6 +139,7 @@ namespace TestService.Helper
 
                 //---LineOrder订单集合
 
+
             }
             catch (Exception e)
             {
@@ -198,7 +199,7 @@ namespace TestService.Helper
                             if (categorys.Contains(dataOrdermx.Fzfl.ToUpper()))
                             {
                                 //分配订单 
-                                lineOrders.Add(new LineOrderPool { Khdh = dataOrdermx.Khdh, LineName = line.LineName, Num = int.Parse(dataOrdermx.Ddsl.ToString()) });
+                                lineOrders.Add(new LineOrderPool { Khdh = dataOrdermx.Khdh, LineName = line.LineName, Fzfl = dataOrdermx.Fzfl, Num = int.Parse(dataOrdermx.Ddsl.ToString()) });
                             }
                         }
                     }
@@ -230,7 +231,7 @@ namespace TestService.Helper
                             if (categorys.Contains(dataOrdermx.Fzfl.ToUpper()))
                             {
                                 //分配订单 
-                                lineOrders.Add(new LineOrderPool { Khdh = dataOrdermx.Khdh, LineName = line.LineName, Num = int.Parse(dataOrdermx.Ddsl.ToString()) });
+                                lineOrders.Add(new LineOrderPool { Khdh = dataOrdermx.Khdh, LineName = line.LineName, Fzfl = dataOrdermx.Fzfl, Num = int.Parse(dataOrdermx.Ddsl.ToString()) });
 
                                 //将已分配的数据从主数据中移除
                                 listOrder.RemoveAll(x => x == dataOrdermx.Khdh);
@@ -279,7 +280,7 @@ namespace TestService.Helper
                             if (categorys.Contains(dataOrdermx.Fzfl.ToUpper()))
                             {
                                 //分配订单 
-                                lineOrders.Add(new LineOrderPool { Khdh = dataOrdermx.Khdh, LineName = line.LineName, Num = int.Parse(dataOrdermx.Ddsl.ToString()) });
+                                lineOrders.Add(new LineOrderPool { Khdh = dataOrdermx.Khdh, LineName = line.LineName, Fzfl = dataOrdermx.Fzfl, Num = int.Parse(dataOrdermx.Ddsl.ToString()) });
 
                                 //将已分配的数据从主数据中移除
                                 listOrder.RemoveAll(x => x == dataOrdermx.Khdh);
@@ -321,74 +322,89 @@ namespace TestService.Helper
                 //根据不同的规则筛选
                 foreach (var linesRestriction in restriction)
                 {
+                    //当前的设限分类类型
+                    var sXList = linesRestriction.Restriction.Split(',');
+
+                    //当前的设限分类类型订单
+                    List<TBLDataOrdermx> nowOutOrders = new List<TBLDataOrdermx>();
+
                     //-- MLWG 面料外观
                     if (linesRestriction.Identifies == "MLWG")
                     {
+                        //匹配订单的面料外观
+                        var waiGuanList = new Select(new string[] { TAnalysisOrderMx.KhdhColumn.ColumnName, TAnalysisOrderMx.ScjhbzColumn.ColumnName }).From<TAnalysisOrderMx>()
+                            .Where(TAnalysisOrderMx.KhdhColumn).In(mxList.ConvertAll(x => x.Khdh))
+                            .ExecuteTypedList<TAnalysisOrderMx>();
+
+                        //查找符合当前面料外观的订单
+                        var nowWg = waiGuanList.Distinct().ToList().FindAll(x => x.Scjhbz.ToUpper().Contains(linesRestriction.Restriction.ToUpper()));
+
+                        //筛选当前的分类订单
+                        nowWg.ForEach(x => nowOutOrders.AddRange(mxList.FindAll(y => y.Khdh == x.Khdh)));
 
                     }
 
                     //-- FZFL 服装分类
                     if (linesRestriction.Identifies == "FZFL")
                     {
-                        //当前的设限分类类型
-                        var flList = linesRestriction.Restriction.Split(',');
-
-                        //当前的设限分类类型订单
-                        List<TBLDataOrdermx> nowOutOrders = new List<TBLDataOrdermx>();
-
                         //筛选当前的分类订单
-                        flList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Fzfl == y)));
-
-                        //标准设限，如允许有出入 则修改判断的值就可以了
-                        var outNum = nowOutOrders.Sum(x => x.Ddsl) - linesRestriction.Capacity;
-                        if (outNum > 0)
-                        {
-                            RemoveOrder(nowOutOrders, outOrders, line, nowLineOrder, (int)outNum);
-                        }
-
+                        sXList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Fzfl == y)));
                     }
 
                     //-- GYXX 工艺信息
                     if (linesRestriction.Identifies == "GYXX")
                     {
-
+                        //筛选当前的工艺订单
+                        sXList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Gyxx.ToLower().Contains(y.ToLower()))));
                     }
 
                     //-- MLBM 面料编码
                     if (linesRestriction.Identifies == "MLBM")
                     {
-
+                        //筛选当前的工艺订单
+                        sXList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Mlbm == y)));
                     }
 
                     //-- GYLX 工艺类型
                     if (linesRestriction.Identifies == "GYLX")
                     {
-                        //当前的设限分类类型
-                        var gylxList = linesRestriction.Restriction.Split(',');
+                        sXList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Gylx == y)));
+                    }
 
-                        //当前的设限分类类型订单
-                        List<TBLDataOrdermx> nowOutOrders = new List<TBLDataOrdermx>();
-
-                        //筛选当前的工艺订单
-                        gylxList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Gylx == y)));
-
-                        //标准设限，如允许有出入 则修改判断的值就可以了
-                        var outNum = nowOutOrders.Sum(x => x.Ddsl) - linesRestriction.Capacity;
-
+                    //标准设限，如允许有出入 则修改判断的值就可以了
+                    var outNum = nowOutOrders.Sum(x => x.Ddsl) - linesRestriction.Capacity;
+                    if (outNum > 0)
+                    {
                         RemoveOrder(nowOutOrders, outOrders, line, nowLineOrder, (int)outNum);
                     }
 
                 }
 
+                //将多余的特殊订单替换成正常的订单
+                var replaceOrder = AlternateOrders(outOrders);
+                foreach (var key in replaceOrder)
+                {
+                    //查看订单明细 原先这个品类的订单是分配到了哪些产线上
+                    var lineOrder = LineOrder.FindAll(x => x.Khdh == key.Key);
+
+                    //替补订单的明细
+                    var replaceOrderMx = new Select()
+                        .From<TBLDataOrdermx>()
+                        .Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(key.Value)
+                        .ExecuteTypedList<TBLDataOrdermx>();
+
+                    //查询当前产线的品类
+                    var lines = new Select().From<TBasisLinesFz>().Where(TBasisLinesFz.LineNameColumn).In(lineOrder.ConvertAll(x => x.LineName));
+
+
+
+                }
             }
             catch (Exception e)
             {
                 throw;
             }
         }
-
-
-
 
         /// <summary>
         /// 特殊订单超出后删减订单
@@ -437,5 +453,80 @@ namespace TestService.Helper
                 throw;
             }
         }
+
+        /// <summary>
+        /// 特殊订单超出后，替换正常订单
+        /// </summary>
+        public Dictionary<string, string> AlternateOrders(List<LineOrderPool> outOrders)
+        {
+            try
+            {
+                //订单替换对照  key：被替换  value 替补订单
+                Dictionary<string, string> replaceOrder = new Dictionary<string, string>();
+
+
+                //--ListOrder 订单集合
+                var listOrder = new Select().From<TBLDataOrder>()
+                    .Where(TBLDataOrder.KhdhColumn).In(ListOrder)
+                    .ExecuteTypedList<TBLDataOrder>();
+
+                foreach (var order in outOrders)
+                {
+                    //等待被替换的订单明细
+                    var orderMain = new Select().From<TBLDataOrder>()
+                        .Where(TBLDataOrder.KhdhColumn).IsEqualTo(order.Khdh)
+                        .ExecuteTypedList<TBLDataOrder>()
+                        .FirstOrDefault();
+
+                    //但品类订单集合
+                    var orderOne = new List<TBLDataOrder>();
+
+                    //按照单品类查找订单
+                    orderMain?.Sldl.Split('+').ToList().ForEach(x => orderOne.Add(listOrder.OrderBy(y => y.Jhrq).ToList().Find(y => y.Sldl == orderMain?.Sldl)));
+
+                    //查找配套方式一致的订单
+                    var ptOrder = listOrder.OrderBy(x => x.Jhrq).ToList().Find(x => x.Sldl == orderMain?.Sldl);
+
+                    #region 按照交期 匹配用单品类替换或 配套
+
+                    //多条件 模拟规则挑选优先于那一类筛选
+                    if (orderOne.Count != orderMain?.Sldl.Split('+').Length)
+                    {//如果 单品里替换 匹配不成功 就依照 配套来
+                        replaceOrder.Add(order.Khdh, ptOrder.Khdh);
+                    }
+                    if (ptOrder == null)
+                    {//如果 配套里替换 匹配不成功 就依照单品来
+                        /**可能有问题的  疑问点
+                         * ??????????????????????????????????????????????????????????
+                         * 如果套装替换成单品 那么对应的 产线里分配的订单应该怎么去匹配？？                         * 
+                         * 解决方案 0.0.0.1：
+                         * 已分配订单集合增加服装分类字段，对应替换（嘛来个比，操蛋的规则）
+                         **/
+
+
+                    }
+                    else if (orderOne.OrderBy(x => x.Jhrq).First().Jhrq < ptOrder.Jhrq)
+                    {//比较如果 单品类 交期靠前
+                        //???????????????????
+                        //如果套装替换成单品 那么对应的 产线里分配的订单应该怎么去匹配？？
+                    }
+                    else if (orderOne.OrderBy(x => x.Jhrq).First().Jhrq > ptOrder.Jhrq)
+                    {//比较如果 配套方式一致类 交期靠前
+                        replaceOrder.Add(order.Khdh, ptOrder.Khdh);
+                    }
+                    #endregion
+
+                }
+
+                return replaceOrder;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
     }
 }

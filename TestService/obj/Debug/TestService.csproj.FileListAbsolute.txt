@@ -49,3 +49,5 @@ F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.csproj.CoreCompileI
 F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.exe
 F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.pdb
 F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.csprojResolveAssemblyReference.cache
+F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\DataModels.dll
+F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\DataModels.pdb
