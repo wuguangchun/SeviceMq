@@ -496,25 +496,26 @@ namespace TestService.Helper
                     }
                     if (ptOrder == null)
                     {//如果 配套里替换 匹配不成功 就依照单品来
-                        /**可能有问题的  疑问点
-                         * ??????????????????????????????????????????????????????????
-                         * 如果套装替换成单品 那么对应的 产线里分配的订单应该怎么去匹配？？                         * 
-                         * 解决方案 0.0.0.1：
-                         * 已分配订单集合增加服装分类字段，对应替换（嘛来个比，操蛋的规则）
-                         **/
+                     /**可能有问题的  疑问点
+                      * ??????????????????????????????????????????????????????????
+                      * 如果套装替换成单品 那么对应的 产线里分配的订单应该怎么去匹配？？                         * 
+                      * 解决方案 0.0.0.1：
+                      * 已分配订单集合增加服装分类字段，对应替换（嘛来个比，操蛋的规则）
+                      **/
 
-
+                        orderOne.ForEach(x => replaceOrder.Add(order.Khdh, x.Khdh));
                     }
                     else if (orderOne.OrderBy(x => x.Jhrq).First().Jhrq < ptOrder.Jhrq)
                     {//比较如果 单品类 交期靠前
                         //???????????????????
                         //如果套装替换成单品 那么对应的 产线里分配的订单应该怎么去匹配？？
+                        orderOne.ForEach(x => replaceOrder.Add(order.Khdh, x.Khdh));
                     }
                     else if (orderOne.OrderBy(x => x.Jhrq).First().Jhrq > ptOrder.Jhrq)
                     {//比较如果 配套方式一致类 交期靠前
                         replaceOrder.Add(order.Khdh, ptOrder.Khdh);
                     }
-                    #endregion
+                    #endregion  
 
                 }
 
