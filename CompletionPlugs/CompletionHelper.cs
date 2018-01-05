@@ -92,6 +92,17 @@ namespace CompletionPlugs
 
                         Json.RetMessage = JsonConvert.SerializeObject(msmqList);
                         Json.RetCode = "Proceed";
+                    }//如果完工汇报是CAD提交 则生成计划标注信息
+                    else if (objCompletion.OrderSrate == "103")
+                    {
+
+                        var msmqList = new List<MsmqModel>
+                        {
+                            new MsmqModel{Path = "CreateScjhbz",Label = "NewOrder",Body = objCompletion.CustmerId,CallBackUrl = null}
+                        };
+
+                        Json.RetMessage = JsonConvert.SerializeObject(msmqList);
+                        Json.RetCode = "Proceed";
                     }
                     else
                     {

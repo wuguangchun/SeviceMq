@@ -138,7 +138,39 @@ namespace TestService.Helper
                 }
 
                 //---LineOrder订单集合
+                var linesName = LineOrder.GroupBy(x => x.LineName);
 
+                foreach (var line in linesName)
+                {
+                    var num = LineOrder.FindAll(x => x.LineName == line.Key).Sum(x => x.Num);
+                    Console.WriteLine($"{line.Key}:{num}");
+                }
+
+                var khdhNull = LineOrder.FindAll(x => x.Khdh == null);
+                var numNull = LineOrder.FindAll(x => x.Khdh == null);
+                var fzflNull = LineOrder.FindAll(x => x.Khdh == null);
+                var lineNameNull = LineOrder.FindAll(x => x.Khdh == null);
+
+                foreach (var orderPool in LineOrder)
+                {
+                    try
+                    {
+                        var obj = new TTempLineOrderPool
+                        {
+                            Khdh = orderPool.Khdh,
+                            Fzfl = orderPool.Fzfl,
+                            Num = orderPool.Num,
+                            LineName = orderPool.LineName
+                        };
+                        obj.Save();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                    }
+                }
+                //暂存到数据库
+                LineOrder.ForEach(x => new TTempLineOrderPool { Khdh = x.Khdh, Fzfl = x.Fzfl, Num = x.Num, LineName = x.LineName }.Save());
 
             }
             catch (Exception e)
@@ -380,25 +412,38 @@ namespace TestService.Helper
 
                 }
 
+                if (outOrders.Count < 2)
+                {
+                    return;
+                }
+
                 //将多余的特殊订单替换成正常的订单
                 var replaceOrder = AlternateOrders(outOrders);
                 foreach (var key in replaceOrder)
                 {
-                    //查看订单明细 原先这个品类的订单是分配到了哪些产线上
-                    var lineOrder = LineOrder.FindAll(x => x.Khdh == key.Key);
-
                     //替补订单的明细
                     var replaceOrderMx = new Select()
                         .From<TBLDataOrdermx>()
                         .Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(key.Value)
                         .ExecuteTypedList<TBLDataOrdermx>();
 
-                    //查询当前产线的品类
-                    var lines = new Select().From<TBasisLinesFz>().Where(TBasisLinesFz.LineNameColumn).In(lineOrder.ConvertAll(x => x.LineName));
+                    //循环替补订单信息 替换掉原有的订单
+                    foreach (var ordermx in replaceOrderMx)
+                    {
+                        //根据原有订单的客户单号和现有的服装大类匹配出将要被替换的订单
+                        var order = LineOrder.Find(x => x.Khdh == key.Key && x.Fzfl == ordermx.Fzfl);
 
+                        //将替补订单添加到集合
+                        LineOrder.Add(new LineOrderPool { Fzfl = ordermx.Fzfl, Khdh = ordermx.Khdh, LineName = order.LineName, Num = int.Parse(ordermx.Ddsl.ToString()) });
 
-
+                        //去除原有订单
+                        LineOrder.RemoveAll(x => x.Khdh == key.Key && x.Fzfl == ordermx.Fzfl);
+                    }
                 }
+
+
+                FullScreen(line);
+
             }
             catch (Exception e)
             {
