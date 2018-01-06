@@ -51,3 +51,6 @@ F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.pdb
 F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\DataModels.dll
 F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\DataModels.pdb
+F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\ServiceHelper.dll
+F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\ServiceHelper.pdb
+F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\ServiceHelper.dll.config

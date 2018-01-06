@@ -12,49 +12,49 @@ namespace TestService.APSService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="APSService.INewMessageQueues")]
-    public interface INewMessageQueues {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="APSService.INewMassgeService")]
+    public interface INewMassgeService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewMessageQueues/DoWork", ReplyAction="http://tempuri.org/INewMessageQueues/DoWorkResponse")]
-        string DoWork(string type, string json);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewMassgeService/InsertMessage", ReplyAction="http://tempuri.org/INewMassgeService/InsertMessageResponse")]
+        string InsertMessage(string path, string label, string body, string callBackUrl);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewMessageQueues/DoWork", ReplyAction="http://tempuri.org/INewMessageQueues/DoWorkResponse")]
-        System.Threading.Tasks.Task<string> DoWorkAsync(string type, string json);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewMassgeService/InsertMessage", ReplyAction="http://tempuri.org/INewMassgeService/InsertMessageResponse")]
+        System.Threading.Tasks.Task<string> InsertMessageAsync(string path, string label, string body, string callBackUrl);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface INewMessageQueuesChannel : TestService.APSService.INewMessageQueues, System.ServiceModel.IClientChannel {
+    public interface INewMassgeServiceChannel : TestService.APSService.INewMassgeService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class NewMessageQueuesClient : System.ServiceModel.ClientBase<TestService.APSService.INewMessageQueues>, TestService.APSService.INewMessageQueues {
+    public partial class NewMassgeServiceClient : System.ServiceModel.ClientBase<TestService.APSService.INewMassgeService>, TestService.APSService.INewMassgeService {
         
-        public NewMessageQueuesClient() {
+        public NewMassgeServiceClient() {
         }
         
-        public NewMessageQueuesClient(string endpointConfigurationName) : 
+        public NewMassgeServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public NewMessageQueuesClient(string endpointConfigurationName, string remoteAddress) : 
+        public NewMassgeServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public NewMessageQueuesClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public NewMassgeServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public NewMessageQueuesClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public NewMassgeServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public string DoWork(string type, string json) {
-            return base.Channel.DoWork(type, json);
+        public string InsertMessage(string path, string label, string body, string callBackUrl) {
+            return base.Channel.InsertMessage(path, label, body, callBackUrl);
         }
         
-        public System.Threading.Tasks.Task<string> DoWorkAsync(string type, string json) {
-            return base.Channel.DoWorkAsync(type, json);
+        public System.Threading.Tasks.Task<string> InsertMessageAsync(string path, string label, string body, string callBackUrl) {
+            return base.Channel.InsertMessageAsync(path, label, body, callBackUrl);
         }
     }
 }

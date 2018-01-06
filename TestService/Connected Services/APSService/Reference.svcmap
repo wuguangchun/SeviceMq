@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://172.16.7.44:6666/MessageQueues/NewMessageQueues.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://172.16.7.214:8888/Service/NewMassgeService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="NewMessageQueues.wsdl" MetadataType="Wsdl" ID="f46ae246-2c40-4b20-81f1-7e4c9fe39f06" SourceId="1" SourceUrl="http://172.16.7.44:6666/MessageQueues/NewMessageQueues.svc?wsdl" />
-    <MetadataFile FileName="NewMessageQueues.xsd" MetadataType="Schema" ID="0da32153-86a8-495d-8220-c6feec7d9d32" SourceId="1" SourceUrl="http://172.16.7.44:6666/MessageQueues/NewMessageQueues.svc?xsd=xsd0" />
-    <MetadataFile FileName="NewMessageQueues.disco" MetadataType="Disco" ID="760e6afb-0a27-42b7-b579-179a5657dbcd" SourceId="1" SourceUrl="http://172.16.7.44:6666/MessageQueues/NewMessageQueues.svc?disco" />
-    <MetadataFile FileName="NewMessageQueues1.xsd" MetadataType="Schema" ID="02824704-84df-41fd-8dcd-e29dbec5eda4" SourceId="1" SourceUrl="http://172.16.7.44:6666/MessageQueues/NewMessageQueues.svc?xsd=xsd1" />
+    <MetadataFile FileName="NewMassgeService.xsd" MetadataType="Schema" ID="26beb378-51cb-4cc9-b153-849d7bf00d4f" SourceId="1" SourceUrl="http://172.16.7.214:8888/Service/NewMassgeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="NewMassgeService.disco" MetadataType="Disco" ID="c1d0801d-9223-436d-a324-461753616a50" SourceId="1" SourceUrl="http://172.16.7.214:8888/Service/NewMassgeService.svc?disco" />
+    <MetadataFile FileName="NewMassgeService.wsdl" MetadataType="Wsdl" ID="29679b7f-2d74-4d6c-afbf-fc672d57ec86" SourceId="1" SourceUrl="http://172.16.7.214:8888/Service/NewMassgeService.svc?wsdl" />
+    <MetadataFile FileName="NewMassgeService1.xsd" MetadataType="Schema" ID="c28b3f86-e329-4be2-967f-bb4bfa545905" SourceId="1" SourceUrl="http://172.16.7.214:8888/Service/NewMassgeService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -58,10 +58,12 @@ namespace TestService.Helper
                 {
                     var orderList = new Select().From<TBLDataOrdermx>()
                         .InnerJoin(TBasisOrderStatus.CustomerIdColumn, TBLDataOrdermx.KhdhColumn)
+                        .InnerJoin(TBLDataOrder.KhdhColumn, TBLDataOrdermx.KhdhColumn)
                         .Where(TBasisOrderStatus.OrderStatusColumn).IsEqualTo("103")
-                        .Or(TBLDataOrdermx.FzflColumn).IsEqualTo(category)
-                        .ExecuteTypedList<TBLDataOrdermx>();
-                    ListOrder.AddRange(orderList.ConvertAll(x => x.Khdh));
+                        .Or(TBLDataOrdermx.FzflColumn).IsEqualTo(category);
+                    orderList.Paged(0, 5000);
+                    orderList.OrderAsc(TBLDataOrder.JhrqColumn.ColumnName);
+                    ListOrder.AddRange(orderList.ExecuteTypedList<TBLDataOrdermx>().ConvertAll(x => x.Khdh));
                 }
 
                 //添加的订单明细客户单号去重
@@ -151,6 +153,7 @@ namespace TestService.Helper
                 var fzflNull = LineOrder.FindAll(x => x.Khdh == null);
                 var lineNameNull = LineOrder.FindAll(x => x.Khdh == null);
 
+                //暂存到数据库
                 foreach (var orderPool in LineOrder)
                 {
                     try
@@ -169,8 +172,7 @@ namespace TestService.Helper
                         Console.WriteLine(e);
                     }
                 }
-                //暂存到数据库
-                LineOrder.ForEach(x => new TTempLineOrderPool { Khdh = x.Khdh, Fzfl = x.Fzfl, Num = x.Num, LineName = x.LineName }.Save());
+
 
             }
             catch (Exception e)
@@ -212,14 +214,19 @@ namespace TestService.Helper
                         }
 
                         //如果同品类中已分配则不需要再次分配
+                        bool having = false;
                         foreach (var linesFz in lines.FindAll(x => x.Abbreviation == line.Abbreviation))
                         {
                             if (lineOrders.FindAll(x => x.Khdh == order.Khdh && x.LineName == linesFz.LineName).Count > 0)
                             {
-                                continue;
+                                having = true;
+                                break;
                             }
 
                         }
+
+                        if (having)
+                            continue;
 
                         //获取订单的明细信息（套装信息）
                         var ordermx = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(order.Khdh).ExecuteTypedList<TBLDataOrdermx>();
@@ -230,6 +237,11 @@ namespace TestService.Helper
                             //如果该订单符合该产线的品类
                             if (categorys.Contains(dataOrdermx.Fzfl.ToUpper()))
                             {
+                                if (lineOrders.FindAll(x => x.Khdh == dataOrdermx.Khdh && x.Fzfl == dataOrdermx.Fzfl).Count > 0)
+                                {
+                                    Console.WriteLine($"数据重复,订单已分配。{dataOrdermx.Khdh}");
+                                }
+
                                 //分配订单 
                                 lineOrders.Add(new LineOrderPool { Khdh = dataOrdermx.Khdh, LineName = line.LineName, Fzfl = dataOrdermx.Fzfl, Num = int.Parse(dataOrdermx.Ddsl.ToString()) });
                             }

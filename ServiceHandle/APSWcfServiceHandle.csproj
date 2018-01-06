@@ -128,6 +128,7 @@
     <Compile Include="Handle\NewCaiJianOrderHandle.cs" />
     <Compile Include="Handle\NewOrderHandle.cs" />
     <Compile Include="Handle\NewPlanInfoHandle.cs" />
+    <Compile Include="Handle\OnlineTestHandle.cs" />
     <Compile Include="Handle\OrderMESArtInfoHandle.cs" />
     <Compile Include="Handle\PutCadHandle.cs" />
     <Compile Include="Helper\AutoStart.cs" />

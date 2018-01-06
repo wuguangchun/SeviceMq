@@ -126,6 +126,8 @@ namespace Model
         
 		public static readonly string TBasisResource = @"T_Basis_resource";
         
+		public static readonly string TBasisRTXMsg = @"T_Basis_RTXMsg";
+        
 		public static readonly string TBasisSewingProcess = @"T_Basis_SewingProcess";
         
 		public static readonly string TBasisSpecialCode = @"T_Basis_SpecialCode";
@@ -495,6 +497,11 @@ namespace Model
 		public static TableSchema.Table TBasisResource
 		{
             get { return DataService.GetSchema("T_Basis_resource", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TBasisRTXMsg
+		{
+            get { return DataService.GetSchema("T_Basis_RTXMsg", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBasisSewingProcess

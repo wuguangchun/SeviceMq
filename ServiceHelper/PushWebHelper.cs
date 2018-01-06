@@ -15,7 +15,7 @@ namespace ServiceHandle.Helper
         /// </summary>
         /// <param name="postUrl">请求地址+参数</param>
         /// <param name="result">请求返回/回调结果</param>
-        public static void PostToGet(string postUrl, ref string result)
+        public static void PostToGet(string postUrl, ref string result, Encoding encoding)
         {
             /*使用Get方法进行推送数据*/
             try
@@ -26,7 +26,7 @@ namespace ServiceHandle.Helper
                 req.KeepAlive = true;
                 req.Timeout = 60000;//超时1分钟算失效
                 HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-                StreamReader sr = new StreamReader(resp.GetResponseStream(), Encoding.UTF8);
+                StreamReader sr = new StreamReader(resp.GetResponseStream(), encoding);//Encoding.UTF8
 
                 /*得到返回的值*/
                 result = sr.ReadToEnd().Trim().Replace("null", "\"\"");

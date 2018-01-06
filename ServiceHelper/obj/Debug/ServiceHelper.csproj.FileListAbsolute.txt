@@ -35,3 +35,5 @@ F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.csproj.CoreComp
 F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.dll
 F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.pdb
 F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.csprojResolveAssemblyReference.cache
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\bin\Debug\DataModels.dll
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\bin\Debug\DataModels.pdb

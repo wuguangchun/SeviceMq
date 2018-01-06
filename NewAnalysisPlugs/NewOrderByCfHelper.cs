@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceHelper;
 
 namespace NewAnalysisPlugs
 {
@@ -265,7 +266,15 @@ namespace NewAnalysisPlugs
                         inner join  sct51 on a.scggdh=sct51.scggdh
                         where sct51.scyspd=''{orderId}''  and scjhbz not like ''%未%''
                         order by sccjjq desc ,scjhbz";
-                var erpTable = new DataHelper().OtherBaseSelect("FYERP", sql).Rows[0].ItemArray.ToList();
+                var erpTables = new DataHelper().OtherBaseSelect("FYERP", sql);
+
+                if (erpTables.Rows.Count < 1)
+                {
+                    new RtxSendNotifyHelper().SendNotifyError("Scjhbz", "ERP取计划标注信息异常，ERP无信息返回。请确认计划标注信息及订单信息是否正确。原始凭单：" + orderId);
+                    throw new Exception("ERP取计划标注信息异常，ERP无信息返回。请确认计划标注信息及订单信息是否正确。");
+                }
+
+                var erpTable = erpTables.Rows[0].ItemArray.ToList();
 
                 if (orderId.ToLower().Contains("jjj") || orderId.ToLower().Contains("test") ||
                     erpTable[8].ToString().ToLower().Contains("p0"))

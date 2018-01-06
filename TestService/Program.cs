@@ -10,8 +10,10 @@ using System.Timers;
 using DataModels.ModelsOther;
 using Model;
 using Newtonsoft.Json;
+using RTXSAPILib;
 using ServiceHandle.Helper;
 using ServiceHandle.ModelsOther;
+using ServiceHelper;
 using SubSonic;
 using TestService.Helper;
 using TestService.ModelsOther;
@@ -24,8 +26,14 @@ namespace TestService
         {
             string result = string.Empty;
 
-            new AutoPlanXf().OrderScreen();
+            //测试计划生成
+            //new AutoPlanXf().OrderScreen();
 
+            Console.ReadLine();
+
+            ////线上测试队列
+            var service = new APSService.NewMassgeServiceClient();
+            service.InsertMessage("OnlineTest", "OnlineTest", "1234567890", null);
 
             //var orderList = new Select().From<TBLDataOrdermx>()
             //    .InnerJoin(TBasisOrderStatus.CustomerIdColumn, TBLDataOrdermx.KhdhColumn)
@@ -148,35 +156,35 @@ namespace TestService
 
 
 
-        public static void New201()
-        {
-            try
-            {
-                SqlQuery query = new Select().From<TAnalysisOrderList>()
-                    .Where(TAnalysisOrderList.OrderStatusColumn).IsEqualTo("201")
-                    .And(TAnalysisOrderList.DeliveryTimeColumn).IsGreaterThanOrEqualTo("2017-11-6");
+        //public static void New201()
+        //{
+        //    try
+        //    {
+        //        SqlQuery query = new Select().From<TAnalysisOrderList>()
+        //            .Where(TAnalysisOrderList.OrderStatusColumn).IsEqualTo("201")
+        //            .And(TAnalysisOrderList.DeliveryTimeColumn).IsGreaterThanOrEqualTo("2017-11-6");
 
-                var list = query.ExecuteTypedList<TAnalysisOrderList>();
-                foreach (var orderList in list)
-                {
-                    var comp = new Completion
-                    {
-                        CustmerId = orderList.CustomerId,
-                        CallingParty = "ERP",
-                        OrderSrate = "201"
-                    };
+        //        var list = query.ExecuteTypedList<TAnalysisOrderList>();
+        //        foreach (var orderList in list)
+        //        {
+        //            var comp = new Completion
+        //            {
+        //                CustmerId = orderList.CustomerId,
+        //                CallingParty = "ERP",
+        //                OrderSrate = "201"
+        //            };
 
-                    var service = new APSService.NewMessageQueuesClient();
-                    var json = service.DoWork("Completion", JsonConvert.SerializeObject(comp));
-                    Console.WriteLine(json);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+        //            var service = new APSService.NewMessageQueuesClient();
+        //            var json = service.DoWork("Completion", JsonConvert.SerializeObject(comp));
+        //            Console.WriteLine(json);
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //    }
 
-        }
+        //}
 
         private static void TestMethod()
         {

@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -32,6 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Interop.RTXSAPILib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\ServiceMq\SeviceMq\TestService\Interop.RTXSAPILib.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=5.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\SubSonic.Scaffold.2.2.0.0\lib\net20\MySql.Data.dll</HintPath>
     </Reference>
@@ -89,11 +94,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\APSService\NewMessageQueues.wsdl" />
-    <None Include="Connected Services\APSService\NewMessageQueues.xsd">
+    <None Include="Connected Services\APSService\NewMassgeService.wsdl" />
+    <None Include="Connected Services\APSService\NewMassgeService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\APSService\NewMessageQueues1.xsd">
+    <None Include="Connected Services\APSService\NewMassgeService1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\LocalService\NewMassgeService1.wsdl" />
@@ -139,9 +144,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\APSService\NewMessageQueues.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\APSService\configuration91.svcinfo" />
@@ -190,6 +192,16 @@
       <Project>{fc11b119-2974-4750-bc01-0b56b4b630ee}</Project>
       <Name>DataModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ServiceHelper\ServiceHelper.csproj">
+      <Project>{1cbb637c-428f-492a-940f-701ec0494dbf}</Project>
+      <Name>ServiceHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\APSService\NewMassgeService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Interop.RTXSAPILib.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

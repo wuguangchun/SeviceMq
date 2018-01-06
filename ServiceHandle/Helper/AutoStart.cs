@@ -70,12 +70,17 @@ namespace ServiceHandle.Helper
             threadPlan.Start();
 
 
+            //线上队列测试
+            Thread threadOnlineTest = new Thread(OnlineTestHandle.GetMessageQueues) { IsBackground = true };
+            threadOnlineTest.Start();
+
+
             //线程集合
             threads = new List<Thread>
             {
                 threadLog,threadNewOrder,threadComp,threadNewCadOrder,threadNewCaiJianOrder,threadBlanking,
                 threadKillOrder,threadPushBl,threadAutoLog,threadArtHour,threadAnalysisLis,threadCallBack
-                ,threadPlan
+                ,threadPlan,threadOnlineTest
             };
 
             ////检测以上自启动线程状态

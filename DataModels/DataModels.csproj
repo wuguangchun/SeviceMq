@@ -175,6 +175,8 @@
     <Compile Include="Models\TBasisOrderStatusController.cs" />
     <Compile Include="Models\TBasisResource.cs" />
     <Compile Include="Models\TBasisResourceController.cs" />
+    <Compile Include="Models\TBasisRTXMsg.cs" />
+    <Compile Include="Models\TBasisRTXMsgController.cs" />
     <Compile Include="Models\TBasisSewingProcess.cs" />
     <Compile Include="Models\TBasisSewingProcessController.cs" />
     <Compile Include="Models\TBasisSpecialCode.cs" />

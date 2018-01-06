@@ -45,7 +45,7 @@ namespace CallBackPlugs
 
                         Thread thread = new Thread(delegate ()
                         {
-                            PushWebHelper.PostToGet(url, ref result);
+                            PushWebHelper.PostToGet(url, ref result, Encoding.UTF8);
                         })
                         { IsBackground = true };
                         thread.Start();
