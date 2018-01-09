@@ -56,18 +56,28 @@ namespace TestService.Helper
                 //订单池数据
                 foreach (var category in allCategorys)
                 {
-                    var orderList = new Select().From<TBLDataOrdermx>()
+                    var orderListSql = new Select().From<TBLDataOrdermx>()
                         .InnerJoin(TBasisOrderStatus.CustomerIdColumn, TBLDataOrdermx.KhdhColumn)
                         .InnerJoin(TBLDataOrder.KhdhColumn, TBLDataOrdermx.KhdhColumn)
                         .Where(TBasisOrderStatus.OrderStatusColumn).IsEqualTo("103")
-                        .Or(TBLDataOrdermx.FzflColumn).IsEqualTo(category);
-                    orderList.Paged(0, 5000);
-                    orderList.OrderAsc(TBLDataOrder.JhrqColumn.ColumnName);
-                    ListOrder.AddRange(orderList.ExecuteTypedList<TBLDataOrdermx>().ConvertAll(x => x.Khdh));
+                        .And(TBLDataOrdermx.FzflColumn).IsEqualTo(category);
+                    orderListSql.Paged(1, 2000);
+                    orderListSql.OrderAsc(TBLDataOrder.JhrqColumn.ColumnName);
+                    var orderList = orderListSql.ExecuteTypedList<TBLDataOrdermx>();
+
+                    //去除还没有计划标注的订单
+                    var mxObj = new Select().From<TAnalysisOrderMx>()
+                        .Where(TAnalysisOrderMx.KhdhColumn).In(orderList.ConvertAll(x => x.Khdh))
+                        .And(TAnalysisOrderMx.ScjhbzColumn).IsNull()
+                        .ExecuteTypedList<TAnalysisOrderMx>();
+                    mxObj.ForEach(x => orderList.RemoveAll(y => y.Khdh == x.Khdh));
+
+                    ListOrder.AddRange(orderList.ConvertAll(x => x.Khdh));
                 }
 
                 //添加的订单明细客户单号去重
-                ListOrder = ListOrder.Distinct<string>().ToList();
+                 ListOrder = ListOrder.Distinct<string>().ToList();
+
 
                 //产线产能倒序(同品类要在一起) 
                 Dictionary<string, int> lineCapacity = new Dictionary<string, int>();

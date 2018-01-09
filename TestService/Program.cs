@@ -27,13 +27,13 @@ namespace TestService
             string result = string.Empty;
 
             //测试计划生成
-            //new AutoPlanXf().OrderScreen();
+            new AutoPlanXf().OrderScreen();
 
             Console.ReadLine();
 
             ////线上测试队列
-            var service = new APSService.NewMassgeServiceClient();
-            service.InsertMessage("OnlineTest", "OnlineTest", "1234567890", null);
+            //var service = new APSService.NewMassgeServiceClient();
+            //service.InsertMessage("OnlineTest", "OnlineTest", "1234567890", null);
 
             //var orderList = new Select().From<TBLDataOrdermx>()
             //    .InnerJoin(TBasisOrderStatus.CustomerIdColumn, TBLDataOrdermx.KhdhColumn)

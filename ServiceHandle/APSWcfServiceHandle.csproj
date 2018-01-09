@@ -171,6 +171,10 @@
       <Project>{fc11b119-2974-4750-bc01-0b56b4b630ee}</Project>
       <Name>DataModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IntelligentLogHelper\IntelligentLogHelper.csproj">
+      <Project>{81db3b66-ab56-4eb9-b0a6-cbe4ada33e45}</Project>
+      <Name>IntelligentLogHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KillOrderPlugs\KillOrderPlugs.csproj">
       <Project>{7604a9f8-7045-4183-b32d-433191df4073}</Project>
       <Name>KillOrderPlugs</Name>

@@ -115,3 +115,6 @@ F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\CallBackPlugs.dll.config
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\PlanInfoPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\PlanInfoPlugs.pdb
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\PlanInfoPlugs.dll.config
+F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\IntelligentLogHelper.dll
+F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\IntelligentLogHelper.pdb
+F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\IntelligentLogHelper.dll.config

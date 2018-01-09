@@ -55,4 +55,31 @@ namespace DataModels.ModelsOther
         public string Tg { get; set; }
         public string Mltgkd { get; set; }
     }
+
+    public class BlReturnMsg
+    {
+        public string S { get; set; }
+        public string Rs { get; set; }
+    }
+
+    public class CadBlModel
+    {
+        public string customerId { get; set; }
+        public string jobCode { get; set; }
+        public string project { get; set; }
+        public string abnormal { get; set; }
+        public string note { get; set; }
+        public string resources { get; set; }
+        public string beginTime { get; set; }
+        public string endTime { get; set; }
+        public string makeTime { get; set; }
+        public string createDate { get; set; }
+        public string mtmortz { get; set; }
+        public string grabTime { get; set; }
+    }
+
+    public class CadBlModelList
+    {
+        public List<CadBlModel> ds { get; set; }
+    }
 }

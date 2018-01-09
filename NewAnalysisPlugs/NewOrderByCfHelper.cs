@@ -289,6 +289,7 @@ namespace NewAnalysisPlugs
                         erpTable[4].ToString().Contains("未配料") ||
                         erpTable[4].ToString().Contains("未BL"))
                     {
+                        new RtxSendNotifyHelper().SendNotifyError("Scjhbz", "ERP取计划标注信息异常，ERP信息异常返回。请确认裁剪交期，计划日期，计划面料备注信息及订单信息是否正确。原始凭单：" + orderId);
                         throw new Exception("ERP重要字段为空值");
                     }
 

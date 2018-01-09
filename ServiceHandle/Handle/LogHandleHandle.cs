@@ -5,6 +5,7 @@ using System.Messaging;
 using System.Web;
 using Kute.Helper;
 using Model;
+using ServiceHelper;
 using TestService.ModelsOther;
 
 namespace ServiceHandle.Handle
@@ -57,6 +58,9 @@ namespace ServiceHandle.Handle
                     logError.Save();
                     json.RetCode = "success";
                     json.RetMessage = "添加系统错误日志成功";
+
+                    //系统异常通知RTX
+                    new RtxSendNotifyHelper().SendNotifyError("systemError", logError.Message);
                 }
                 else
                 {//无法识别标签内容

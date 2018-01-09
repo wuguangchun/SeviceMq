@@ -18,9 +18,37 @@ namespace KillOrderPlugs
             try
             {
                 string result = string.Empty;
+
+
+                //T_Analysis_Order
+                var killAnalysisOrder = new Delete().From<TAnalysisOrder>()
+                    .Where(TAnalysisOrder.CustomerIdColumn).IsEqualTo(json);
+
+                //T_Analysis_OrderMx
+                var killAnalysisOrderMx = new Delete().From<TAnalysisOrderMx>()
+                    .Where(TAnalysisOrderMx.KhdhColumn).IsEqualTo(json);
+
                 //T_Analysis_OrderList
                 var killOrderList = new Delete().From<TAnalysisOrderList>()
                  .Where(TAnalysisOrderList.CustomerIdColumn).IsEqualTo(json);
+
+                //获取明细ID
+                var mxlist = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(json).ExecuteTypedList<TBLDataOrdermx>();
+
+                //循环删除MES工时数据
+                foreach (var ordermx in mxlist)
+                {
+
+                    //T_OrderKeyProcess
+                    new Delete().From<TOrderKeyProcess>()
+                         .Where(TOrderKeyProcess.MxidColumn).IsEqualTo(ordermx.Mxid)
+                         .Execute();
+
+                    //T_OrderMESArtInfo
+                    new Delete().From<TOrderMESArtInfo>()
+                        .Where(TOrderMESArtInfo.MxIdColumn).IsEqualTo(ordermx.Mxid)
+                        .Execute();
+                }
 
                 //T_Analysis_OrderListByDH
                 //var killOrderList=new Delete().From<TAnalysisOrderListByDH>()
@@ -77,6 +105,10 @@ namespace KillOrderPlugs
                 result += $"T_BLData_Mflxx撤回{killBLMflxx.Execute()}条数据，";
                 result += $"T_OldApsByCf撤回{killOldApsByCf.Execute()}条数据。";
                 result += $"T_Basis_OrderStatus撤回{killOrderStatus.Execute()}条数据。";
+                result += $"T_Analysis_Order撤回{killAnalysisOrder.Execute()}条数据。";
+                result += $"T_Analysis_OrderMx撤回{killAnalysisOrderMx.Execute()}条数据。";
+
+
 
                 resultJson.RetCode = "success";
                 resultJson.RetMessage = result;
@@ -101,7 +133,7 @@ namespace KillOrderPlugs
                 //T_Analysis_OrderListByDH
                 //var killOrderList=new Delete().From<TAnalysisOrderListByDH>()
                 //    .Where(TAnalysisOrderListByDH.CustomerIdColumn).IsEqualTo(json);
-                
+
 
                 //T_Analysis_OutPutListByFZ
                 var killOrderListOutByfz = new Delete().From<TAnalysisOutPutListByFZ>()
@@ -110,7 +142,7 @@ namespace KillOrderPlugs
                 //T_BlankingDetailes
                 var killBlankingDetaile = new Delete().From<TBlankingDetaile>()
                     .Where(TBlankingDetaile.CustumerIdColumn).IsEqualTo(json);
-                
+
 
                 //T_BLData_Ordermx
                 var killBLOrdermx = new Delete().From<TBLDataOrdermx>()
@@ -119,7 +151,7 @@ namespace KillOrderPlugs
                 //T_BLData_Mflxx
                 var killBLMflxx = new Delete().From<TBLDataMflxx>()
                     .Where(TBLDataMflxx.KhdhColumn).IsEqualTo(json);
-                
+
 
                 //result += $"T_Analysis_OrderList撤回{killOrderList.Execute()}条数据，";
                 //result += $"T_Analysis_OrderListByCF撤回{killOrderListByCf.Execute()}条数据，";
