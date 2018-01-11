@@ -76,7 +76,11 @@ namespace Model
         
 		public static readonly string TAnalysisOrderList1706 = @"T_Analysis_OrderList@1706";
         
+		public static readonly string TAnalysisOrderList1712 = @"T_Analysis_OrderList@1712";
+        
 		public static readonly string TAnalysisOrderListByCF = @"T_Analysis_OrderListByCF";
+        
+		public static readonly string TAnalysisOrderListByCF1712 = @"T_Analysis_OrderListByCF@1712";
         
 		public static readonly string TAnalysisOrderListByDH = @"T_Analysis_OrderListByDH";
         
@@ -116,6 +120,8 @@ namespace Model
         
 		public static readonly string TBasisCoatType = @"T_Basis_CoatType";
         
+		public static readonly string TBasisIntercourse = @"T_Basis_Intercourse";
+        
 		public static readonly string TBasisLinerType = @"T_Basis_LinerType";
         
 		public static readonly string TBasisLinesFz = @"T_Basis_LinesFz";
@@ -123,6 +129,8 @@ namespace Model
 		public static readonly string TBasisLinesRestriction = @"T_Basis_LinesRestriction";
         
 		public static readonly string TBasisOrderStatus = @"T_Basis_OrderStatus";
+        
+		public static readonly string TBasisOrderStatus1712 = @"T_Basis_OrderStatus@1712";
         
 		public static readonly string TBasisResource = @"T_Basis_resource";
         
@@ -154,9 +162,15 @@ namespace Model
         
 		public static readonly string TBLDataMflxx = @"T_BLData_Mflxx";
         
+		public static readonly string TBLDataMflxx1712 = @"T_BLData_Mflxx@1712";
+        
 		public static readonly string TBLDataOrder = @"T_BLData_Order";
         
+		public static readonly string TBLDataOrder1712 = @"T_BLData_Order@1712";
+        
 		public static readonly string TBLDataOrdermx = @"T_BLData_Ordermx";
+        
+		public static readonly string TBLDataOrdermx1712 = @"T_BLData_Ordermx@1712";
         
 		public static readonly string TBom = @"T_BOM";
         
@@ -374,9 +388,19 @@ namespace Model
             get { return DataService.GetSchema("T_Analysis_OrderList@1706", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TAnalysisOrderList1712
+		{
+            get { return DataService.GetSchema("T_Analysis_OrderList@1712", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TAnalysisOrderListByCF
 		{
             get { return DataService.GetSchema("T_Analysis_OrderListByCF", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TAnalysisOrderListByCF1712
+		{
+            get { return DataService.GetSchema("T_Analysis_OrderListByCF@1712", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOrderListByDH
@@ -474,6 +498,11 @@ namespace Model
             get { return DataService.GetSchema("T_Basis_CoatType", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBasisIntercourse
+		{
+            get { return DataService.GetSchema("T_Basis_Intercourse", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBasisLinerType
 		{
             get { return DataService.GetSchema("T_Basis_LinerType", "Nowthwin"); }
@@ -492,6 +521,11 @@ namespace Model
 		public static TableSchema.Table TBasisOrderStatus
 		{
             get { return DataService.GetSchema("T_Basis_OrderStatus", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TBasisOrderStatus1712
+		{
+            get { return DataService.GetSchema("T_Basis_OrderStatus@1712", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBasisResource
@@ -569,14 +603,29 @@ namespace Model
             get { return DataService.GetSchema("T_BLData_Mflxx", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBLDataMflxx1712
+		{
+            get { return DataService.GetSchema("T_BLData_Mflxx@1712", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBLDataOrder
 		{
             get { return DataService.GetSchema("T_BLData_Order", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBLDataOrder1712
+		{
+            get { return DataService.GetSchema("T_BLData_Order@1712", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBLDataOrdermx
 		{
             get { return DataService.GetSchema("T_BLData_Ordermx", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TBLDataOrdermx1712
+		{
+            get { return DataService.GetSchema("T_BLData_Ordermx@1712", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBom
@@ -774,6 +823,8 @@ namespace Model
 		public static readonly string VCADResourceNum = @"V_CADResourceNum";
         
 		public static readonly string VCyjh = @"V_CYJH";
+        
+		public static readonly string VErpOrderXf = @"V_ErpOrderXf";
         
 		public static readonly string VFactoryCalendar = @"V_FactoryCalendar";
         

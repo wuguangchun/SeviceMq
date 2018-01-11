@@ -15,6 +15,7 @@ namespace TestService.Helper
         public List<String> ListOrder { get; set; }
         public List<TBasisLinesFz> Lines { get; set; }
         public List<LineOrderPool> LineOrder { get; set; }
+        public List<String> ListXjOrder { get; set; }
 
         /// <summary>
         /// 构造函数，初始化三大集合
@@ -24,6 +25,7 @@ namespace TestService.Helper
             ListOrder = new List<string>();
             Lines = new List<TBasisLinesFz>();
             LineOrder = new List<LineOrderPool>();
+            ListXjOrder = new List<string>();
         }
 
         /// <summary>
@@ -53,17 +55,34 @@ namespace TestService.Helper
                     }
                 }
 
+                var erpOrder = new Select().From<VErpOrderXf>().ExecuteTypedList<VErpOrderXf>();
+
+
+                //线上加急订单
+                ListXjOrder.AddRange(erpOrder.FindAll(x => x.Jqts != null && int.Parse(x.Jqts) == 6).ConvertAll(x => x.Khdh));
+                erpOrder.RemoveAll(x => int.Parse(x.Jqts) == 6);
+
                 //订单池数据
                 foreach (var category in allCategorys)
                 {
-                    var orderListSql = new Select().From<TBLDataOrdermx>()
-                        .InnerJoin(TBasisOrderStatus.CustomerIdColumn, TBLDataOrdermx.KhdhColumn)
-                        .InnerJoin(TBLDataOrder.KhdhColumn, TBLDataOrdermx.KhdhColumn)
-                        .Where(TBasisOrderStatus.OrderStatusColumn).IsEqualTo("103")
-                        .And(TBLDataOrdermx.FzflColumn).IsEqualTo(category);
-                    orderListSql.Paged(1, 2000);
-                    orderListSql.OrderAsc(TBLDataOrder.JhrqColumn.ColumnName);
-                    var orderList = orderListSql.ExecuteTypedList<TBLDataOrdermx>();
+                    //前期使用ERP数据源关联自有数据，原因：已生成计划订单不明确
+                    var orderList = erpOrder.FindAll(x => x.Fzfl == category);
+
+                    //每个品类每次只取1000条就够了
+                    if (orderList.Count > 1000)
+                    {
+                        orderList = orderList.OrderBy(x => x.Jhrq).Take(1000).ToList();
+                    }
+                    //自有数据源
+                    //var orderListSql = new Select().From<TBLDataOrdermx>()
+                    //    .InnerJoin(TBasisOrderStatus.CustomerIdColumn, TBLDataOrdermx.KhdhColumn)
+                    //    .InnerJoin(TBLDataOrder.OrderidColumn, TBLDataOrdermx.OrderidColumn)
+                    //    .Where(TBasisOrderStatus.OrderStatusColumn).IsEqualTo("103")
+                    //    .And(TBLDataOrdermx.FzflColumn).IsEqualTo(category);
+                    //orderListSql.Paged(1, 2000);
+                    //orderListSql.OrderAsc(TBLDataOrder.JhrqColumn.ColumnName);
+                    //var orderList = orderListSql.ExecuteTypedList<TBLDataOrdermx>();
+
 
                     //去除还没有计划标注的订单
                     var mxObj = new Select().From<TAnalysisOrderMx>()
@@ -76,7 +95,7 @@ namespace TestService.Helper
                 }
 
                 //添加的订单明细客户单号去重
-                 ListOrder = ListOrder.Distinct<string>().ToList();
+                ListOrder = ListOrder.Distinct<string>().ToList();
 
 
                 //产线产能倒序(同品类要在一起) 
@@ -96,19 +115,31 @@ namespace TestService.Helper
 
                 //订单分配后产能检测,产能不饱和记录List
                 List<TBasisLinesFz> lineUnSaturated = new List<TBasisLinesFz>();
-                foreach (var line in Lines)
+
+                //品类分组
+                foreach (var liner in Lines.GroupBy(x => x.Abbreviation))
                 {
-                    //订单不饱和
-                    if (line.Capacity - LineOrder.FindAll(x => x.LineName == line.LineName).Sum(x => x.Num) > 5)
+                    var baohe = true;
+                    //按照同品类的订单检测是否饱和
+                    foreach (var line in Lines.FindAll(x => x.Abbreviation == liner.Key))
                     {
-                        lineUnSaturated.Add(line);
+                        //订单不饱和
+                        if (line.Capacity - LineOrder.FindAll(x => x.LineName == line.LineName).Sum(x => x.Num) > 5)
+                        {
+                            lineUnSaturated.Add(line);
+                            baohe = false;
+                        }
+
                     }
-                    else
+
+                    //如果品类订单全部饱和则 进行特殊订单检测
+                    if (baohe)
                     {
-                        //产线产能饱和的需要检测特殊订单
-                        FullScreen(line);
+                        Lines.FindAll(x => x.Abbreviation == liner.Key).ForEach(FullScreen);
                     }
+
                 }
+
 
                 //如果有产线的产能没有达到饱和
                 if (lineUnSaturated.Count > 0)
@@ -158,10 +189,6 @@ namespace TestService.Helper
                     Console.WriteLine($"{line.Key}:{num}");
                 }
 
-                var khdhNull = LineOrder.FindAll(x => x.Khdh == null);
-                var numNull = LineOrder.FindAll(x => x.Khdh == null);
-                var fzflNull = LineOrder.FindAll(x => x.Khdh == null);
-                var lineNameNull = LineOrder.FindAll(x => x.Khdh == null);
 
                 //暂存到数据库
                 foreach (var orderPool in LineOrder)
@@ -397,30 +424,29 @@ namespace TestService.Helper
                         nowWg.ForEach(x => nowOutOrders.AddRange(mxList.FindAll(y => y.Khdh == x.Khdh)));
 
                     }
-
                     //-- FZFL 服装分类
-                    if (linesRestriction.Identifies == "FZFL")
+                    else if (linesRestriction.Identifies == "FZFL")
                     {
                         //筛选当前的分类订单
                         sXList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Fzfl == y)));
                     }
 
                     //-- GYXX 工艺信息
-                    if (linesRestriction.Identifies == "GYXX")
+                    else if (linesRestriction.Identifies == "GYXX")
                     {
                         //筛选当前的工艺订单
                         sXList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Gyxx.ToLower().Contains(y.ToLower()))));
                     }
 
                     //-- MLBM 面料编码
-                    if (linesRestriction.Identifies == "MLBM")
+                    else if (linesRestriction.Identifies == "MLBM")
                     {
                         //筛选当前的工艺订单
                         sXList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Mlbm == y)));
                     }
 
                     //-- GYLX 工艺类型
-                    if (linesRestriction.Identifies == "GYLX")
+                    else if (linesRestriction.Identifies == "GYLX")
                     {
                         sXList.ToList().ForEach(y => nowOutOrders.AddRange(mxList.FindAll(x => x.Gylx == y)));
                     }
@@ -549,7 +575,7 @@ namespace TestService.Helper
                     var orderOne = new List<TBLDataOrder>();
 
                     //按照单品类查找订单
-                    orderMain?.Sldl.Split('+').ToList().ForEach(x => orderOne.Add(listOrder.OrderBy(y => y.Jhrq).ToList().Find(y => y.Sldl == orderMain?.Sldl)));
+                    orderMain?.Sldl.Split('+').ToList().ForEach(x => orderOne.Add(listOrder.OrderBy(y => y.Jhrq).ToList().Find(y => y.Sldl == x)));
 
                     //查找配套方式一致的订单
                     var ptOrder = listOrder.OrderBy(x => x.Jhrq).ToList().Find(x => x.Sldl == orderMain?.Sldl);
@@ -561,7 +587,7 @@ namespace TestService.Helper
                     {//如果 单品里替换 匹配不成功 就依照 配套来
                         replaceOrder.Add(order.Khdh, ptOrder.Khdh);
                     }
-                    if (ptOrder == null)
+                    else if (ptOrder == null)
                     {//如果 配套里替换 匹配不成功 就依照单品来
                      /**可能有问题的  疑问点
                       * ??????????????????????????????????????????????????????????

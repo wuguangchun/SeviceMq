@@ -165,20 +165,21 @@ namespace SystemMaintain.Improt
         {
             try
             {
+                var obj1 = typeof(SCT02);
 
                 //根据ID判断新增或修改 生成有参数或无参实例对象
                 object obj;
                 if (string.IsNullOrWhiteSpace(id.ToString()))
                 {
 
-                    obj = Assembly.Load("APS系统维护").CreateInstance(tableClassName, false); //类的完全限定名（即包括命名空间）
+                    obj = Assembly.Load("DataModels").CreateInstance(tableClassName, false); //类的完全限定名（即包括命名空间）
                 }
                 else
                 {
                     object[] parameters = new object[1];
                     parameters[0] = id;
 
-                    obj = Assembly.Load("APS系统维护").CreateInstance(tableClassName, true, System.Reflection.BindingFlags.Default, null, parameters, null, null);// 创建类的实例
+                    obj = Assembly.Load("DataModels").CreateInstance(tableClassName, true, System.Reflection.BindingFlags.Default, null, parameters, null, null);// 创建类的实例
                 }
 
                 //获取反射类所有方法
@@ -278,10 +279,9 @@ namespace SystemMaintain.Improt
                 //获取选择的表
                 var tableClass = cmb_tableList.SelectedValue.ToString();
 
-                 
-                var obj1 = typeof(TTest).Assembly; 
+                  
                 //反射生成类
-                var obj = Assembly.Load("APS系统维护").CreateInstance("Model." + tableClass, false);
+                var obj = Assembly.Load("DataModels").CreateInstance("Model." + tableClass, false);
 
                 //获取反射类所有方法
                 var mi = obj.GetType().GetProperties().ToList();

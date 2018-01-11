@@ -131,8 +131,8 @@ namespace Model
 				colvarLineName.DataType = DbType.String;
 				colvarLineName.MaxLength = 100;
 				colvarLineName.AutoIncrement = false;
-				colvarLineName.IsNullable = true;
-				colvarLineName.IsPrimaryKey = false;
+				colvarLineName.IsNullable = false;
+				colvarLineName.IsPrimaryKey = true;
 				colvarLineName.IsForeignKey = false;
 				colvarLineName.IsReadOnly = false;
 				colvarLineName.DefaultSetting = @"";

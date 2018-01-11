@@ -151,6 +151,27 @@ namespace SystemMaintain
             var form = new Form_Log_ServiceAuto() { TopLevel = false, Parent = tabPage };
             form.Show();
         }
+
+        //撤单通知接口
+        private void KillOrderAll_Click(object sender, EventArgs e)
+        {
+
+            //新增TAB页面 
+            TabPage tabPage = AddTabPage(@"客户撤单", "Tab_KillOrderAll");
+
+            var form = new Form_KillOrderAll() { TopLevel = false, Parent = tabPage };
+            form.Show();
+        }
+
+        //往来户通知接口 新增 修改
+        private void Intercourse_Click(object sender, EventArgs e)
+        {
+            //新增TAB页面 
+            TabPage tabPage = AddTabPage(@"往来户", "Tab_Intercourse");
+
+            var form = new Form_Intercourse() { TopLevel = false, Parent = tabPage };
+            form.Show();
+        }
         #endregion
 
         #region 数据导入
@@ -273,8 +294,9 @@ namespace SystemMaintain
         }
 
 
-        #endregion
 
+
+        #endregion
 
     }
 }

@@ -124,7 +124,11 @@
     <Compile Include="Models\TAnalysisOrderList.cs" />
     <Compile Include="Models\TAnalysisOrderList1706.cs" />
     <Compile Include="Models\TAnalysisOrderList1706Controller.cs" />
+    <Compile Include="Models\TAnalysisOrderList1712.cs" />
+    <Compile Include="Models\TAnalysisOrderList1712Controller.cs" />
     <Compile Include="Models\TAnalysisOrderListByCF.cs" />
+    <Compile Include="Models\TAnalysisOrderListByCF1712.cs" />
+    <Compile Include="Models\TAnalysisOrderListByCF1712Controller.cs" />
     <Compile Include="Models\TAnalysisOrderListByCFController.cs" />
     <Compile Include="Models\TAnalysisOrderListByDH.cs" />
     <Compile Include="Models\TAnalysisOrderListByDHController.cs" />
@@ -165,6 +169,8 @@
     <Compile Include="Models\TBasisCoatListController.cs" />
     <Compile Include="Models\TBasisCoatType.cs" />
     <Compile Include="Models\TBasisCoatTypeController.cs" />
+    <Compile Include="Models\TBasisIntercourse.cs" />
+    <Compile Include="Models\TBasisIntercourseController.cs" />
     <Compile Include="Models\TBasisLinerType.cs" />
     <Compile Include="Models\TBasisLinerTypeController.cs" />
     <Compile Include="Models\TBasisLinesFz.cs" />
@@ -172,6 +178,8 @@
     <Compile Include="Models\TBasisLinesRestriction.cs" />
     <Compile Include="Models\TBasisLinesRestrictionController.cs" />
     <Compile Include="Models\TBasisOrderStatus.cs" />
+    <Compile Include="Models\TBasisOrderStatus1712.cs" />
+    <Compile Include="Models\TBasisOrderStatus1712Controller.cs" />
     <Compile Include="Models\TBasisOrderStatusController.cs" />
     <Compile Include="Models\TBasisResource.cs" />
     <Compile Include="Models\TBasisResourceController.cs" />
@@ -202,10 +210,16 @@
     <Compile Include="Models\TBLCADTempHistory.cs" />
     <Compile Include="Models\TBLCADTempHistoryController.cs" />
     <Compile Include="Models\TBLDataMflxx.cs" />
+    <Compile Include="Models\TBLDataMflxx1712.cs" />
+    <Compile Include="Models\TBLDataMflxx1712Controller.cs" />
     <Compile Include="Models\TBLDataMflxxController.cs" />
     <Compile Include="Models\TBLDataOrder.cs" />
+    <Compile Include="Models\TBLDataOrder1712.cs" />
+    <Compile Include="Models\TBLDataOrder1712Controller.cs" />
     <Compile Include="Models\TBLDataOrderController.cs" />
     <Compile Include="Models\TBLDataOrdermx.cs" />
+    <Compile Include="Models\TBLDataOrdermx1712.cs" />
+    <Compile Include="Models\TBLDataOrdermx1712Controller.cs" />
     <Compile Include="Models\TBLDataOrdermxController.cs" />
     <Compile Include="Models\TBom.cs" />
     <Compile Include="Models\TBomController.cs" />
@@ -270,6 +284,7 @@
     <Compile Include="Models\VCadOrderlistBackup.cs" />
     <Compile Include="Models\VCADResourceNum.cs" />
     <Compile Include="Models\VCyjh.cs" />
+    <Compile Include="Models\VErpOrderXf.cs" />
     <Compile Include="Models\VFactoryCalendar.cs" />
     <Compile Include="Models\VFzScjh.cs" />
     <Compile Include="Models\View1.cs" />

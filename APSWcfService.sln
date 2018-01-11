@@ -48,6 +48,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanInfoPlugs", "PlanInfoPl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentLogHelper", "IntelligentLogHelper\IntelligentLogHelper.csproj", "{81DB3B66-AB56-4EB9-B0A6-CBE4ADA33E45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntercoursePlugs", "IntercoursePlugs\IntercoursePlugs.csproj", "{E006FC45-4419-4C16-9E47-B0553D0FF814}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,6 +116,10 @@ Global
 		{81DB3B66-AB56-4EB9-B0A6-CBE4ADA33E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81DB3B66-AB56-4EB9-B0A6-CBE4ADA33E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81DB3B66-AB56-4EB9-B0A6-CBE4ADA33E45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E006FC45-4419-4C16-9E47-B0553D0FF814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E006FC45-4419-4C16-9E47-B0553D0FF814}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E006FC45-4419-4C16-9E47-B0553D0FF814}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E006FC45-4419-4C16-9E47-B0553D0FF814}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,6 +139,7 @@ Global
 		{7604A9F8-7045-4183-B32D-433191DF4073} = {8CE617E8-8907-46A7-93AE-9C35433797E1}
 		{DAECC43C-FEFB-46FF-9D28-F9E2B08DAB82} = {8CE617E8-8907-46A7-93AE-9C35433797E1}
 		{81DB3B66-AB56-4EB9-B0A6-CBE4ADA33E45} = {8CE617E8-8907-46A7-93AE-9C35433797E1}
+		{E006FC45-4419-4C16-9E47-B0553D0FF814} = {8CE617E8-8907-46A7-93AE-9C35433797E1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61257557-64D4-4F01-A113-48322816BCC1}

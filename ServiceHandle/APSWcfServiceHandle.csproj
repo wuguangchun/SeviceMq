@@ -122,6 +122,7 @@
     <Compile Include="Handle\CreateCadOrderHandle.cs" />
     <Compile Include="Handle\ErrorAutoHandle.cs" />
     <Compile Include="Handle\IntelligentLogHandle.cs" />
+    <Compile Include="Handle\IntercourseHandle.cs" />
     <Compile Include="Handle\KillOrderHandle.cs" />
     <Compile Include="Handle\LogHandleHandle.cs" />
     <Compile Include="Handle\NewAnalysisOrderHandle.cs" />
@@ -174,6 +175,10 @@
     <ProjectReference Include="..\IntelligentLogHelper\IntelligentLogHelper.csproj">
       <Project>{81db3b66-ab56-4eb9-b0a6-cbe4ada33e45}</Project>
       <Name>IntelligentLogHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntercoursePlugs\IntercoursePlugs.csproj">
+      <Project>{e006fc45-4419-4c16-9e47-b0553d0ff814}</Project>
+      <Name>IntercoursePlugs</Name>
     </ProjectReference>
     <ProjectReference Include="..\KillOrderPlugs\KillOrderPlugs.csproj">
       <Project>{7604a9f8-7045-4183-b32d-433191df4073}</Project>

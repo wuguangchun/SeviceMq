@@ -118,3 +118,6 @@ F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\PlanInfoPlugs.dll.config
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\IntelligentLogHelper.dll
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\IntelligentLogHelper.pdb
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\IntelligentLogHelper.dll.config
+F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\IntercoursePlugs.dll
+F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\IntercoursePlugs.pdb
+F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\IntercoursePlugs.dll.config

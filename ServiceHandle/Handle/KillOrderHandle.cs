@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Messaging;
+using System.Threading;
 using System.Web;
 using Kute.Helper;
 using Model;
@@ -40,6 +41,9 @@ namespace ServiceHandle.Handle
             Message message = null;
             try
             {
+                //撤单前暂停所有进程，避免锁表删数据超时 ---也不用考虑启用进程，因为在全局中有进程自检类
+                Helper.AutoStart.threads.FindAll(x => x.Name != "KillOrder"&&x.ThreadState==ThreadState.Running).ForEach(x => x.Suspend());
+
                 var mq = (MessageQueue)sender;
                 message = mq.EndReceive(e.AsyncResult);
 

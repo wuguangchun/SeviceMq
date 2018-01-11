@@ -10,7 +10,7 @@ namespace ServiceHandle.Helper
 {
     public class AutoStart
     {
-        private static List<Thread> threads = new List<Thread>();
+        public static List<Thread> threads = new List<Thread>();
         public static void AutoStartHandle()
         {
             /*******************************
@@ -46,7 +46,7 @@ namespace ServiceHandle.Helper
             threadCallBack.Start();
 
             //数据重复/撤单
-            Thread threadKillOrder = new Thread(KillOrderHandle.GetMessageQueues) { IsBackground = true };
+            Thread threadKillOrder = new Thread(KillOrderHandle.GetMessageQueues) { IsBackground = true, Name = "KillOrder" };
             threadKillOrder.Start();
 
             //将排程数据推送给BL
@@ -74,13 +74,16 @@ namespace ServiceHandle.Helper
             Thread threadOnlineTest = new Thread(OnlineTestHandle.GetMessageQueues) { IsBackground = true };
             threadOnlineTest.Start();
 
+            //线上队列测试
+            Thread threadIntercourse = new Thread(IntercourseHandle.GetMessageQueues) { IsBackground = true };
+            threadIntercourse.Start();
 
             //线程集合
             threads = new List<Thread>
             {
                 threadLog,threadNewOrder,threadComp,threadNewCadOrder,threadNewCaiJianOrder,threadBlanking,
-                threadKillOrder,threadPushBl,threadAutoLog,threadArtHour,threadAnalysisLis,threadCallBack
-                ,threadPlan,threadOnlineTest
+                threadKillOrder,threadPushBl,threadAutoLog,threadArtHour,threadAnalysisLis,threadCallBack,
+                threadPlan,threadOnlineTest,threadIntercourse
             };
 
             ////检测以上自启动线程状态

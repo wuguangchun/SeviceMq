@@ -50,9 +50,9 @@ namespace Model
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public TBasisLinesRestrictionCollection FetchByID(object Restriction)
+        public TBasisLinesRestrictionCollection FetchByID(object LineName)
         {
-            TBasisLinesRestrictionCollection coll = new TBasisLinesRestrictionCollection().Where("Restriction", Restriction).Load();
+            TBasisLinesRestrictionCollection coll = new TBasisLinesRestrictionCollection().Where("LineName", LineName).Load();
             return coll;
         }
 		
@@ -64,24 +64,24 @@ namespace Model
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
-        public bool Delete(object Restriction)
+        public bool Delete(object LineName)
         {
-            return (TBasisLinesRestriction.Delete(Restriction) == 1);
+            return (TBasisLinesRestriction.Delete(LineName) == 1);
         }
         [DataObjectMethod(DataObjectMethodType.Delete, false)]
-        public bool Destroy(object Restriction)
+        public bool Destroy(object LineName)
         {
-            return (TBasisLinesRestriction.Destroy(Restriction) == 1);
+            return (TBasisLinesRestriction.Destroy(LineName) == 1);
         }
         
         
         
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
-        public bool Delete(string Restriction,string Identifies)
+        public bool Delete(string LineName,string Restriction,string Identifies)
         {
             Query qry = new Query(TBasisLinesRestriction.Schema);
             qry.QueryType = QueryType.Delete;
-            qry.AddWhere("Restriction", Restriction).AND("Identifies", Identifies);
+            qry.AddWhere("LineName", LineName).AND("Restriction", Restriction).AND("Identifies", Identifies);
             qry.Execute();
             return (true);
         }        
