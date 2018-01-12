@@ -157,7 +157,7 @@ namespace Model
 				colvarUsersId.DataType = DbType.String;
 				colvarUsersId.MaxLength = 100;
 				colvarUsersId.AutoIncrement = false;
-				colvarUsersId.IsNullable = true;
+				colvarUsersId.IsNullable = false;
 				colvarUsersId.IsPrimaryKey = false;
 				colvarUsersId.IsForeignKey = false;
 				colvarUsersId.IsReadOnly = false;
@@ -170,7 +170,7 @@ namespace Model
 				colvarMsgName.DataType = DbType.String;
 				colvarMsgName.MaxLength = 255;
 				colvarMsgName.AutoIncrement = false;
-				colvarMsgName.IsNullable = true;
+				colvarMsgName.IsNullable = false;
 				colvarMsgName.IsPrimaryKey = false;
 				colvarMsgName.IsForeignKey = false;
 				colvarMsgName.IsReadOnly = false;
@@ -183,13 +183,27 @@ namespace Model
 				colvarMsgTemplate.DataType = DbType.String;
 				colvarMsgTemplate.MaxLength = 255;
 				colvarMsgTemplate.AutoIncrement = false;
-				colvarMsgTemplate.IsNullable = true;
+				colvarMsgTemplate.IsNullable = false;
 				colvarMsgTemplate.IsPrimaryKey = false;
 				colvarMsgTemplate.IsForeignKey = false;
 				colvarMsgTemplate.IsReadOnly = false;
 				colvarMsgTemplate.DefaultSetting = @"";
 				colvarMsgTemplate.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarMsgTemplate);
+				
+				TableSchema.TableColumn colvarDelaytime = new TableSchema.TableColumn(schema);
+				colvarDelaytime.ColumnName = "delaytime";
+				colvarDelaytime.DataType = DbType.Int32;
+				colvarDelaytime.MaxLength = 0;
+				colvarDelaytime.AutoIncrement = false;
+				colvarDelaytime.IsNullable = false;
+				colvarDelaytime.IsPrimaryKey = false;
+				colvarDelaytime.IsForeignKey = false;
+				colvarDelaytime.IsReadOnly = false;
+				
+						colvarDelaytime.DefaultSetting = @"((0))";
+				colvarDelaytime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarDelaytime);
 				
 				BaseSchema = schema;
 				//add this schema to the provider
@@ -240,6 +254,14 @@ namespace Model
 			get { return GetColumnValue<string>(Columns.MsgTemplate); }
 			set { SetColumnValue(Columns.MsgTemplate, value); }
 		}
+		  
+		[XmlAttribute("Delaytime")]
+		[Bindable(true)]
+		public int Delaytime 
+		{
+			get { return GetColumnValue<int>(Columns.Delaytime); }
+			set { SetColumnValue(Columns.Delaytime, value); }
+		}
 		
 		#endregion
 		
@@ -260,7 +282,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varMsgType,string varUsersId,string varMsgName,string varMsgTemplate)
+		public static void Insert(string varMsgType,string varUsersId,string varMsgName,string varMsgTemplate,int varDelaytime)
 		{
 			TBasisRTXMsg item = new TBasisRTXMsg();
 			
@@ -272,6 +294,8 @@ namespace Model
 			
 			item.MsgTemplate = varMsgTemplate;
 			
+			item.Delaytime = varDelaytime;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -282,7 +306,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varId,string varMsgType,string varUsersId,string varMsgName,string varMsgTemplate)
+		public static void Update(int varId,string varMsgType,string varUsersId,string varMsgName,string varMsgTemplate,int varDelaytime)
 		{
 			TBasisRTXMsg item = new TBasisRTXMsg();
 			
@@ -295,6 +319,8 @@ namespace Model
 				item.MsgName = varMsgName;
 			
 				item.MsgTemplate = varMsgTemplate;
+			
+				item.Delaytime = varDelaytime;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -344,6 +370,13 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn DelaytimeColumn
+        {
+            get { return Schema.Columns[5]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -353,6 +386,7 @@ namespace Model
 			 public static string UsersId = @"UsersId";
 			 public static string MsgName = @"MsgName";
 			 public static string MsgTemplate = @"MsgTemplate";
+			 public static string Delaytime = @"delaytime";
 						
 		}
 		#endregion

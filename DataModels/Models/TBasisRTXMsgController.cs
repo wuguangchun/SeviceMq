@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string MsgType,string UsersId,string MsgName,string MsgTemplate)
+	    public void Insert(string MsgType,string UsersId,string MsgName,string MsgTemplate,int Delaytime)
 	    {
 		    TBasisRTXMsg item = new TBasisRTXMsg();
 		    
@@ -92,6 +92,8 @@ namespace Model
             
             item.MsgTemplate = MsgTemplate;
             
+            item.Delaytime = Delaytime;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -100,7 +102,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Id,string MsgType,string UsersId,string MsgName,string MsgTemplate)
+	    public void Update(int Id,string MsgType,string UsersId,string MsgName,string MsgTemplate,int Delaytime)
 	    {
 		    TBasisRTXMsg item = new TBasisRTXMsg();
 	        item.MarkOld();
@@ -115,6 +117,8 @@ namespace Model
 			item.MsgName = MsgName;
 				
 			item.MsgTemplate = MsgTemplate;
+				
+			item.Delaytime = Delaytime;
 				
 	        item.Save(UserName);
 	    }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataModels.ModelsOther;
 using Newtonsoft.Json;
 
 namespace KillOrderPlugs
@@ -115,8 +116,14 @@ namespace KillOrderPlugs
             }
             catch (Exception e)
             {
-                resultJson.RetCode = "error";
-                resultJson.RetMessage = e.Message;
+                //撤单异常后系统自动执行撤单
+                var msmqList = new List<MsmqModel>
+                {
+                    new MsmqModel{Path = "BlankingData",Label = "NewOrder",Body = json,CallBackUrl = "ErrorAuto-Local"}
+                };
+
+                resultJson.RetMessage = JsonConvert.SerializeObject(msmqList);
+                resultJson.RetCode = "Proceed";
 
             }
 

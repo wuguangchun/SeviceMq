@@ -111,6 +111,12 @@ namespace IntelligentLogHelper
                     {
                         okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
                     }
+                    //往来户数据
+                    else if (logService.MessagePath == "Intercourse" && logService.Lable == "NewCustomer")
+                    {
+                        var intercourse = (TBasisIntercourse)JsonConvert.DeserializeObject(logService.Context, typeof(TBasisIntercourse));
+                        okRow += UpdateLogs(logService.Id, intercourse.Xtwldm) ? 1 : 0;
+                    }
 
 
                     //执行后删除日志信息

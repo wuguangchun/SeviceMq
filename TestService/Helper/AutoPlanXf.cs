@@ -57,10 +57,10 @@ namespace TestService.Helper
 
                 var erpOrder = new Select().From<VErpOrderXf>().ExecuteTypedList<VErpOrderXf>();
 
-
+                erpOrder.RemoveAll(x => string.IsNullOrEmpty(x.Jqts));
                 //线上加急订单
-                ListXjOrder.AddRange(erpOrder.FindAll(x => x.Jqts != null && int.Parse(x.Jqts) == 6).ConvertAll(x => x.Khdh));
-                erpOrder.RemoveAll(x => int.Parse(x.Jqts) == 6);
+                ListXjOrder.AddRange(erpOrder.FindAll(x => x.Jqts == "6").ConvertAll(x => x.Khdh));
+                erpOrder.RemoveAll(x => x.Jqts == "6");
 
                 //订单池数据
                 foreach (var category in allCategorys)
@@ -89,6 +89,7 @@ namespace TestService.Helper
                         .Where(TAnalysisOrderMx.KhdhColumn).In(orderList.ConvertAll(x => x.Khdh))
                         .And(TAnalysisOrderMx.ScjhbzColumn).IsNull()
                         .ExecuteTypedList<TAnalysisOrderMx>();
+
                     mxObj.ForEach(x => orderList.RemoveAll(y => y.Khdh == x.Khdh));
 
                     ListOrder.AddRange(orderList.ConvertAll(x => x.Khdh));
@@ -484,9 +485,10 @@ namespace TestService.Helper
                         //将替补订单添加到集合
                         LineOrder.Add(new LineOrderPool { Fzfl = ordermx.Fzfl, Khdh = ordermx.Khdh, LineName = order.LineName, Num = int.Parse(ordermx.Ddsl.ToString()) });
 
-                        //去除原有订单
-                        LineOrder.RemoveAll(x => x.Khdh == key.Key && x.Fzfl == ordermx.Fzfl);
                     }
+
+                    //去除原有订单
+                    LineOrder.RemoveAll(x => x.Khdh == key.Key);
                 }
 
 

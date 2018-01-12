@@ -4,10 +4,12 @@ using System.Linq;
 using System.Messaging;
 using System.Threading;
 using System.Web;
+using DataModels.ModelsOther;
 using Kute.Helper;
 using Model;
 using SubSonic;
 using KillOrderPlugs;
+using Newtonsoft.Json;
 
 namespace ServiceHandle.Handle
 {
@@ -51,6 +53,16 @@ namespace ServiceHandle.Handle
                 if (message.Label.ToLower().Trim() == "KillOrder".ToLower())
                 {//接收BL传入数据源
                     reMeg = new KillOrderHelper().KillOrder(message.Body.ToString());
+                }
+                else if (json.RetCode.ToLower() == "proceed")//投诉异常：需要新增队列通知
+                {
+                    var msmqList = (List<MsmqModel>)JsonConvert.DeserializeObject(json.RetMessage, typeof(List<MsmqModel>));
+                    foreach (var msmq in msmqList)
+                    {
+                        var service = new ApsMessageService.NewMassgeServiceClient();
+                        service.InsertMessage(msmq.Path, msmq.Label, msmq.Body, msmq.CallBackUrl);
+                        service.Close();
+                    }
                 }
                 else
                 {//无法识别标签内容

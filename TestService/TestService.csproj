@@ -200,8 +200,5 @@
   <ItemGroup>
     <None Include="Connected Services\APSService\NewMassgeService.disco" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Interop.RTXSAPILib.dll" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

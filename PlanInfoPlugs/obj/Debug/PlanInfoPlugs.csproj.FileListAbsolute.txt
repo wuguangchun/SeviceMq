@@ -15,4 +15,3 @@ F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\Newtonsoft.Json.xml
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\obj\Debug\PlanInfoPlugs.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\obj\Debug\PlanInfoPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\obj\Debug\PlanInfoPlugs.pdb
-F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\obj\Debug\PlanInfoPlugs.csprojResolveAssemblyReference.cache
