@@ -16,6 +16,8 @@ namespace TestService.Helper
         public List<TBasisLinesFz> Lines { get; set; }
         public List<LineOrderPool> LineOrder { get; set; }
         public List<String> ListXjOrder { get; set; }
+        public List<string> AllCategorys { get; set; }
+        public List<VErpOrderXf> ErpOrder { get; set; }
 
         /// <summary>
         /// 构造函数，初始化三大集合
@@ -26,6 +28,8 @@ namespace TestService.Helper
             Lines = new List<TBasisLinesFz>();
             LineOrder = new List<LineOrderPool>();
             ListXjOrder = new List<string>();
+            AllCategorys = new List<string>();
+            ErpOrder = new List<VErpOrderXf>();
         }
 
         /// <summary>
@@ -35,38 +39,38 @@ namespace TestService.Helper
         {
             try
             {
-                //当前车间的产线
                 var lines = new Select().From<TBasisLinesFz>()
                     .Where(TBasisLinesFz.LineTypeColumn).IsEqualTo("XF")
                     .ExecuteTypedList<TBasisLinesFz>();
 
                 //当前车间的产能品类
-                var allCategorys = new List<string>();
                 foreach (var categorys in lines.ConvertAll(x => x.Categorys))
                 {
                     var nowCategorys = categorys.Split(',');
                     foreach (var category in nowCategorys)
                     {
-                        if (!allCategorys.Contains(category))
+                        if (!AllCategorys.Contains(category))
                         {
-                            allCategorys.Add(category);
+                            AllCategorys.Add(category);
                         }
 
                     }
                 }
 
-                var erpOrder = new Select().From<VErpOrderXf>().ExecuteTypedList<VErpOrderXf>();
+                //是否重新获取数据
+                //当前车间的产线
+                ErpOrder = new Select().From<VErpOrderXf>().ExecuteTypedList<VErpOrderXf>();
 
-                erpOrder.RemoveAll(x => string.IsNullOrEmpty(x.Jqts));
+                ErpOrder.RemoveAll(x => string.IsNullOrEmpty(x.Jqts));
                 //线上加急订单
-                ListXjOrder.AddRange(erpOrder.FindAll(x => x.Jqts == "6").ConvertAll(x => x.Khdh));
-                erpOrder.RemoveAll(x => x.Jqts == "6");
+                ListXjOrder.AddRange(ErpOrder.FindAll(x => x.Jqts == "6").ConvertAll(x => x.Khdh));
+                ErpOrder.RemoveAll(x => x.Jqts == "6");
 
                 //订单池数据
-                foreach (var category in allCategorys)
+                foreach (var category in AllCategorys)
                 {
                     //前期使用ERP数据源关联自有数据，原因：已生成计划订单不明确
-                    var orderList = erpOrder.FindAll(x => x.Fzfl == category);
+                    var orderList = ErpOrder.FindAll(x => x.Fzfl == category);
 
                     //每个品类每次只取1000条就够了
                     if (orderList.Count > 1000)
@@ -190,6 +194,7 @@ namespace TestService.Helper
                     Console.WriteLine($"{line.Key}:{num}");
                 }
 
+                new Delete().From<TTempLineOrderPool>().Execute();
 
                 //暂存到数据库
                 foreach (var orderPool in LineOrder)
@@ -250,6 +255,7 @@ namespace TestService.Helper
                         {
                             break;
                         }
+                         
 
                         //如果同品类中已分配则不需要再次分配
                         bool having = false;
@@ -466,6 +472,7 @@ namespace TestService.Helper
                     return;
                 }
 
+
                 //将多余的特殊订单替换成正常的订单
                 var replaceOrder = AlternateOrders(outOrders);
                 foreach (var key in replaceOrder)
@@ -490,9 +497,6 @@ namespace TestService.Helper
                     //去除原有订单
                     LineOrder.RemoveAll(x => x.Khdh == key.Key);
                 }
-
-
-                FullScreen(line);
 
             }
             catch (Exception e)
@@ -560,10 +564,20 @@ namespace TestService.Helper
                 Dictionary<string, string> replaceOrder = new Dictionary<string, string>();
 
 
-                //--ListOrder 订单集合
-                var listOrder = new Select().From<TBLDataOrder>()
-                    .Where(TBLDataOrder.KhdhColumn).In(ListOrder)
-                    .ExecuteTypedList<TBLDataOrder>();
+                //--ListOrder 订单集合 拆分每1000条取一次添加到集合
+                var listOrder = new List<TBLDataOrder>();
+                for (int i = 0; i < ListOrder.Count / 1000 + 1; i++)
+                {
+                    var list = ListOrder.Take(1000 * (i + 1)).ToList();
+                    ListOrder.Take(1000 * i).ToList().ForEach(x => list.RemoveAll(y => y == x));
+
+                    var orders = new Select().From<TBLDataOrder>()
+                        .Where(TBLDataOrder.KhdhColumn).In(list)
+                        .ExecuteTypedList<TBLDataOrder>();
+                    listOrder.AddRange(orders);
+                }
+
+
 
                 foreach (var order in outOrders)
                 {
@@ -579,38 +593,7 @@ namespace TestService.Helper
                     //按照单品类查找订单
                     orderMain?.Sldl.Split('+').ToList().ForEach(x => orderOne.Add(listOrder.OrderBy(y => y.Jhrq).ToList().Find(y => y.Sldl == x)));
 
-                    //查找配套方式一致的订单
-                    var ptOrder = listOrder.OrderBy(x => x.Jhrq).ToList().Find(x => x.Sldl == orderMain?.Sldl);
-
-                    #region 按照交期 匹配用单品类替换或 配套
-
-                    //多条件 模拟规则挑选优先于那一类筛选
-                    if (orderOne.Count != orderMain?.Sldl.Split('+').Length)
-                    {//如果 单品里替换 匹配不成功 就依照 配套来
-                        replaceOrder.Add(order.Khdh, ptOrder.Khdh);
-                    }
-                    else if (ptOrder == null)
-                    {//如果 配套里替换 匹配不成功 就依照单品来
-                     /**可能有问题的  疑问点
-                      * ??????????????????????????????????????????????????????????
-                      * 如果套装替换成单品 那么对应的 产线里分配的订单应该怎么去匹配？？                         * 
-                      * 解决方案 0.0.0.1：
-                      * 已分配订单集合增加服装分类字段，对应替换（嘛来个比，操蛋的规则）
-                      **/
-
-                        orderOne.ForEach(x => replaceOrder.Add(order.Khdh, x.Khdh));
-                    }
-                    else if (orderOne.OrderBy(x => x.Jhrq).First().Jhrq < ptOrder.Jhrq)
-                    {//比较如果 单品类 交期靠前
-                        //???????????????????
-                        //如果套装替换成单品 那么对应的 产线里分配的订单应该怎么去匹配？？
-                        orderOne.ForEach(x => replaceOrder.Add(order.Khdh, x.Khdh));
-                    }
-                    else if (orderOne.OrderBy(x => x.Jhrq).First().Jhrq > ptOrder.Jhrq)
-                    {//比较如果 配套方式一致类 交期靠前
-                        replaceOrder.Add(order.Khdh, ptOrder.Khdh);
-                    }
-                    #endregion  
+                    orderOne.ForEach(x => replaceOrder.Add(order.Khdh, x.Khdh));
 
                 }
 
@@ -623,6 +606,7 @@ namespace TestService.Helper
                 throw;
             }
         }
+
 
     }
 }

@@ -166,7 +166,8 @@ namespace SystemMaintain.ServiceLog
                 var list = Grid_ErrList.SelectedRows;
                 foreach (DataGridViewRow row in list)
                 {
-                    new Delete().From<TLogError>().Where(TLogError.MessageIdColumn).IsEqualTo(row.Cells["MessageId"].ToString()).Execute();
+                    var messageId = row.Cells["MessageId"].Value.ToString();
+                    var rowCount = new Delete().From<TLogError>().Where(TLogError.MessageIdColumn).IsEqualTo(messageId).Execute();
                 }
 
                 LoadData(null, null);
