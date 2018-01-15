@@ -57,14 +57,20 @@ namespace TestService.Helper
                     }
                 }
 
-                //是否重新获取数据
                 //当前车间的产线
                 ErpOrder = new Select().From<VErpOrderXf>().ExecuteTypedList<VErpOrderXf>();
 
                 ErpOrder.RemoveAll(x => string.IsNullOrEmpty(x.Jqts));
+
                 //线上加急订单
                 ListXjOrder.AddRange(ErpOrder.FindAll(x => x.Jqts == "6").ConvertAll(x => x.Khdh));
                 ErpOrder.RemoveAll(x => x.Jqts == "6");
+
+                //先将多余的裙子和马甲过滤出去
+                var orderData = RemoveC_DMore(ErpOrder, lines.FindAll(x => x.Abbreviation == "C" || x.Abbreviation == "D"));
+
+                //将马甲线和裙子线删掉（不考虑）
+                lines.RemoveAll(x => x.Abbreviation == "C" || x.Abbreviation == "D");
 
                 //订单池数据
                 foreach (var category in AllCategorys)
@@ -121,7 +127,7 @@ namespace TestService.Helper
                 //订单分配后产能检测,产能不饱和记录List
                 List<TBasisLinesFz> lineUnSaturated = new List<TBasisLinesFz>();
 
-                //品类分组
+                //产线品类分组  检测是否饱和
                 foreach (var liner in Lines.GroupBy(x => x.Abbreviation))
                 {
                     var baohe = true;
@@ -255,7 +261,7 @@ namespace TestService.Helper
                         {
                             break;
                         }
-                         
+
 
                         //如果同品类中已分配则不需要再次分配
                         bool having = false;
@@ -467,36 +473,86 @@ namespace TestService.Helper
 
                 }
 
-                if (outOrders.Count < 2)
+
+                var orders = new Select().From<TBLDataOrdermx>()
+                    .InnerJoin(TBLDataOrder.OrderidColumn, TBLDataOrdermx.OrderidColumn)
+                    .Where(TBLDataOrder.KhdhColumn).In(ListOrder.Take(1000).ToList())
+                    .OrderAsc(TBLDataOrder.JhrqColumn.ColumnName)
+                    .ExecuteTypedList<TBLDataOrdermx>();
+
+                //outOrders  需要替换的订单集合
+                foreach (var orderPool in outOrders)
                 {
-                    return;
-                }
-
-
-                //将多余的特殊订单替换成正常的订单
-                var replaceOrder = AlternateOrders(outOrders);
-                foreach (var key in replaceOrder)
-                {
-                    //替补订单的明细
-                    var replaceOrderMx = new Select()
-                        .From<TBLDataOrdermx>()
-                        .Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(key.Value)
-                        .ExecuteTypedList<TBLDataOrdermx>();
-
-                    //循环替补订单信息 替换掉原有的订单
-                    foreach (var ordermx in replaceOrderMx)
+                    //如果是上衣超限，替换时可以不考虑裤子
+                    if (line.Abbreviation == "F")
                     {
-                        //根据原有订单的客户单号和现有的服装大类匹配出将要被替换的订单
-                        var order = LineOrder.Find(x => x.Khdh == key.Key && x.Fzfl == ordermx.Fzfl);
+                        int num = 0;
+                        foreach (var order in orders.FindAll(x => 1 == 1))
+                        {
+                            //如果替换数量和被替换订单的数量一致就跳出   替换完毕
+                            if (num == orderPool.Num)
+                            {
+                                continue;
+                            }
 
-                        //将替补订单添加到集合
-                        LineOrder.Add(new LineOrderPool { Fzfl = ordermx.Fzfl, Khdh = ordermx.Khdh, LineName = order.LineName, Num = int.Parse(ordermx.Ddsl.ToString()) });
+                            //如果该订单比被替换订单数量多则不替换或者已替换订单加上当前订单超出被替换订单的数量
+                            if (order.Ddsl > orderPool.Num || num + int.Parse(order.Ddsl.ToString()) > orderPool.Num)
+                            {
+                                continue;
+                            }
+
+                            //如果改产线的订单大类包含此订单的大类说明可以分配
+                            if (line.Categorys.Contains(order.Fzfl))
+                            {
+                                //添加到分配订单集合
+                                LineOrder.Add(
+                                    new LineOrderPool
+                                    {
+                                        Fzfl = order.Fzfl,
+                                        Khdh = order.Khdh,
+                                        LineName = line.LineName,
+                                        Num = int.Parse(order.Ddsl.ToString())
+                                    });
+
+                                //记录被替换的数量
+                                num += int.Parse(order.Ddsl.ToString());
+
+                                //从数据源中移除此条数据
+                                orders.Remove(order);
+                            }
+
+                        }
 
                     }
+                    else //如果是裤子超限，替换时必须是单件（如果是套装 上衣就超限了）
+                    {
+                        int num = 0;
+                        foreach (var order in orders.FindAll(x => 1 == 1))
+                        {
+                            //如果替换数量和被替换订单的数量一致就跳出   替换完毕
+                            if (num == orderPool.Num)
+                            {
+                                continue;
+                            }
 
-                    //去除原有订单
-                    LineOrder.RemoveAll(x => x.Khdh == key.Key);
+                            //订单必为单件西裤
+                            if (orders.FindAll(x => x.Orderid == order.Orderid).Count > 1)
+                            {
+                                continue;
+                            }
+
+                            //如果该订单比被替换订单数量多则不替换或者已替换订单加上当前订单超出被替换订单的数量
+                            if (order.Ddsl > orderPool.Num || num + int.Parse(order.Ddsl.ToString()) > orderPool.Num)
+                            {
+                                continue;
+                            }
+
+
+                        }
+                    }
+
                 }
+
 
             }
             catch (Exception e)
@@ -553,60 +609,48 @@ namespace TestService.Helper
             }
         }
 
-        /// <summary>
-        /// 特殊订单超出后，替换正常订单
-        /// </summary>
-        public Dictionary<string, string> AlternateOrders(List<LineOrderPool> outOrders)
+        public List<VErpOrderXf> RemoveC_DMore(List<VErpOrderXf> orders, List<TBasisLinesFz> lins)
         {
+            List<VErpOrderXf> orderList = new List<VErpOrderXf>();
             try
             {
-                //订单替换对照  key：被替换  value 替补订单
-                Dictionary<string, string> replaceOrder = new Dictionary<string, string>();
 
+                //备份原数据传出
+                orders.CopyTo(orderList);
 
-                //--ListOrder 订单集合 拆分每1000条取一次添加到集合
-                var listOrder = new List<TBLDataOrder>();
-                for (int i = 0; i < ListOrder.Count / 1000 + 1; i++)
+                List<string> rMore = new List<string>();
+                var cCount = lins.FindAll(x => x.Abbreviation == "C").Sum(x => x.Capacity);
+                var dCount = lins.FindAll(x => x.Abbreviation == "D").Sum(x => x.Capacity);
+
+                int cNum = 0;
+                int dNum = 0;
+
+                foreach (var order in orders.FindAll(x => x.Sldl.Contains("C") || x.Sldl.Contains("D")))
                 {
-                    var list = ListOrder.Take(1000 * (i + 1)).ToList();
-                    ListOrder.Take(1000 * i).ToList().ForEach(x => list.RemoveAll(y => y == x));
+                    if (cNum >= cCount || dNum >= dCount)
+                    {
+                        rMore.Add(order.Khdh);
+                    }
 
-                    var orders = new Select().From<TBLDataOrder>()
-                        .Where(TBLDataOrder.KhdhColumn).In(list)
-                        .ExecuteTypedList<TBLDataOrder>();
-                    listOrder.AddRange(orders);
+                    if (order.Sldl.Contains("C"))
+                    {
+                        cNum += int.Parse(order.Ddsl.ToString());
+                    }
+                    if (order.Sldl.Contains("D"))
+                    {
+                        dNum += int.Parse(order.Ddsl.ToString());
+
+                    }
                 }
-
-
-
-                foreach (var order in outOrders)
-                {
-                    //等待被替换的订单明细
-                    var orderMain = new Select().From<TBLDataOrder>()
-                        .Where(TBLDataOrder.KhdhColumn).IsEqualTo(order.Khdh)
-                        .ExecuteTypedList<TBLDataOrder>()
-                        .FirstOrDefault();
-
-                    //但品类订单集合
-                    var orderOne = new List<TBLDataOrder>();
-
-                    //按照单品类查找订单
-                    orderMain?.Sldl.Split('+').ToList().ForEach(x => orderOne.Add(listOrder.OrderBy(y => y.Jhrq).ToList().Find(y => y.Sldl == x)));
-
-                    orderOne.ForEach(x => replaceOrder.Add(order.Khdh, x.Khdh));
-
-                }
-
-                return replaceOrder;
+                rMore.Distinct().ToList().ForEach(x => orders.RemoveAll(y => y.Khdh == x));
 
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                throw;
             }
+            return orderList;
         }
-
 
     }
 }

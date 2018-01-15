@@ -26,9 +26,9 @@ namespace Model
         
 		public static readonly string SCM13 = @"SCM13";
         
-		public static readonly string SCT02 = @"SCT02";
+		public static readonly string SCT02Delete = @"SCT02_delete";
         
-		public static readonly string SCT12 = @"SCT12";
+		public static readonly string SCT12Delete = @"SCT12_delete";
         
 		public static readonly string SCT26 = @"SCT26";
         
@@ -36,33 +36,33 @@ namespace Model
         
 		public static readonly string SCT26Test1 = @"SCT26_test1";
         
-		public static readonly string SCT262 = @"SCT262";
+		public static readonly string SCT262Delete = @"SCT262_delete";
         
 		public static readonly string SCT27 = @"SCT27";
         
 		public static readonly string SCT27Test = @"SCT27_test";
         
-		public static readonly string SCT271 = @"SCT271";
+		public static readonly string SCT271Delete = @"SCT271_delete";
         
-		public static readonly string SCT272 = @"SCT272";
+		public static readonly string SCT272Delete = @"SCT272_delete";
         
-		public static readonly string SCT28 = @"SCT28";
+		public static readonly string SCT28Delete = @"SCT28_delete";
         
-		public static readonly string SCT282 = @"SCT282";
+		public static readonly string SCT282Delete = @"SCT282_delete";
         
-		public static readonly string SCT31 = @"SCT31";
+		public static readonly string SCT31Delete = @"SCT31_delete";
         
-		public static readonly string SCT32 = @"SCT32";
+		public static readonly string SCT32Delete = @"SCT32_delete";
         
-		public static readonly string SCT33 = @"SCT33";
+		public static readonly string SCT33Delete = @"SCT33_delete";
         
-		public static readonly string SCT51 = @"SCT51";
+		public static readonly string SCT51Delete = @"SCT51_delete";
         
-		public static readonly string SCT52 = @"SCT52";
+		public static readonly string SCT52Delete = @"SCT52_delete";
         
-		public static readonly string SCT55 = @"SCT55";
+		public static readonly string SCT55Delete = @"SCT55_delete";
         
-		public static readonly string SCT56 = @"SCT56";
+		public static readonly string SCT56Delete = @"SCT56_delete";
         
 		public static readonly string TAnalysisCyMTMJh = @"T_Analysis_CyMTMJh";
         
@@ -74,13 +74,11 @@ namespace Model
         
 		public static readonly string TAnalysisOrderList = @"T_Analysis_OrderList";
         
-		public static readonly string TAnalysisOrderList1706 = @"T_Analysis_OrderList@1706";
-        
-		public static readonly string TAnalysisOrderList1712 = @"T_Analysis_OrderList@1712";
+		public static readonly string TAnalysisOrderListHistory = @"T_Analysis_OrderList@History";
         
 		public static readonly string TAnalysisOrderListByCF = @"T_Analysis_OrderListByCF";
         
-		public static readonly string TAnalysisOrderListByCF1712 = @"T_Analysis_OrderListByCF@1712";
+		public static readonly string TAnalysisOrderListByCFHistory = @"T_Analysis_OrderListByCF@History";
         
 		public static readonly string TAnalysisOrderListByDH = @"T_Analysis_OrderListByDH";
         
@@ -102,9 +100,7 @@ namespace Model
         
 		public static readonly string TApsClientLog = @"T_ApsClientLog";
         
-		public static readonly string TApsClientLog1706 = @"T_ApsClientLog@1706";
-        
-		public static readonly string TApsClientLog1712 = @"T_ApsClientLog@1712";
+		public static readonly string TApsClientLogHistory = @"T_ApsClientLog@History";
         
 		public static readonly string TAPSCount = @"T_APSCount";
         
@@ -130,7 +126,7 @@ namespace Model
         
 		public static readonly string TBasisOrderStatus = @"T_Basis_OrderStatus";
         
-		public static readonly string TBasisOrderStatus1712 = @"T_Basis_OrderStatus@1712";
+		public static readonly string TBasisOrderStatusHistory = @"T_Basis_OrderStatus@History";
         
 		public static readonly string TBasisResource = @"T_Basis_resource";
         
@@ -148,29 +144,23 @@ namespace Model
         
 		public static readonly string TBlankingDetaile = @"T_BlankingDetailes";
         
-		public static readonly string TBlankingDetailes1706 = @"T_BlankingDetailes@1706";
-        
-		public static readonly string TBlankingDetailes1712 = @"T_BlankingDetailes@1712";
+		public static readonly string TBlankingDetailesHistory = @"T_BlankingDetailes@History";
         
 		public static readonly string TBLCADTemp = @"T_BLCADTemp";
         
-		public static readonly string TBLCADTempCopy = @"T_BLCADTemp_copy";
-        
-		public static readonly string TBlcadtempbca = @"T_BLCADTEMPBCA";
-        
-		public static readonly string TBLCADTempHistory = @"T_BLCADTempHistory";
+		public static readonly string TBLCADTempHistory = @"T_BLCADTemp@History";
         
 		public static readonly string TBLDataMflxx = @"T_BLData_Mflxx";
         
-		public static readonly string TBLDataMflxx1712 = @"T_BLData_Mflxx@1712";
+		public static readonly string TBLDataMflxxHistory = @"T_BLData_Mflxx@History";
         
 		public static readonly string TBLDataOrder = @"T_BLData_Order";
         
-		public static readonly string TBLDataOrder1712 = @"T_BLData_Order@1712";
+		public static readonly string TBLDataOrderHistory = @"T_BLData_Order@History";
         
 		public static readonly string TBLDataOrdermx = @"T_BLData_Ordermx";
         
-		public static readonly string TBLDataOrdermx1712 = @"T_BLData_Ordermx@1712";
+		public static readonly string TBLDataOrdermxHistory = @"T_BLData_Ordermx@History";
         
 		public static readonly string TBom = @"T_BOM";
         
@@ -202,9 +192,7 @@ namespace Model
         
 		public static readonly string TOldApsByCf = @"T_OldApsByCf";
         
-		public static readonly string TOldApsByCf1706 = @"T_OldApsByCf@1706";
-        
-		public static readonly string TOldApsByCf1712 = @"T_OldApsByCf@1712";
+		public static readonly string TOldApsByCfHistory = @"T_OldApsByCf@History";
         
 		public static readonly string TOrderKeyProcess = @"T_OrderKeyProcess";
         
@@ -263,14 +251,14 @@ namespace Model
             get { return DataService.GetSchema("SCM13", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT02
+		public static TableSchema.Table SCT02Delete
 		{
-            get { return DataService.GetSchema("SCT02", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT02_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT12
+		public static TableSchema.Table SCT12Delete
 		{
-            get { return DataService.GetSchema("SCT12", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT12_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table SCT26
@@ -288,9 +276,9 @@ namespace Model
             get { return DataService.GetSchema("SCT26_test1", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT262
+		public static TableSchema.Table SCT262Delete
 		{
-            get { return DataService.GetSchema("SCT262", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT262_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table SCT27
@@ -303,59 +291,59 @@ namespace Model
             get { return DataService.GetSchema("SCT27_test", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT271
+		public static TableSchema.Table SCT271Delete
 		{
-            get { return DataService.GetSchema("SCT271", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT271_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT272
+		public static TableSchema.Table SCT272Delete
 		{
-            get { return DataService.GetSchema("SCT272", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT272_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT28
+		public static TableSchema.Table SCT28Delete
 		{
-            get { return DataService.GetSchema("SCT28", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT28_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT282
+		public static TableSchema.Table SCT282Delete
 		{
-            get { return DataService.GetSchema("SCT282", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT282_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT31
+		public static TableSchema.Table SCT31Delete
 		{
-            get { return DataService.GetSchema("SCT31", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT31_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT32
+		public static TableSchema.Table SCT32Delete
 		{
-            get { return DataService.GetSchema("SCT32", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT32_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT33
+		public static TableSchema.Table SCT33Delete
 		{
-            get { return DataService.GetSchema("SCT33", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT33_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT51
+		public static TableSchema.Table SCT51Delete
 		{
-            get { return DataService.GetSchema("SCT51", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT51_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT52
+		public static TableSchema.Table SCT52Delete
 		{
-            get { return DataService.GetSchema("SCT52", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT52_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT55
+		public static TableSchema.Table SCT55Delete
 		{
-            get { return DataService.GetSchema("SCT55", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT55_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT56
+		public static TableSchema.Table SCT56Delete
 		{
-            get { return DataService.GetSchema("SCT56", "Nowthwin"); }
+            get { return DataService.GetSchema("SCT56_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisCyMTMJh
@@ -383,14 +371,9 @@ namespace Model
             get { return DataService.GetSchema("T_Analysis_OrderList", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisOrderList1706
+		public static TableSchema.Table TAnalysisOrderListHistory
 		{
-            get { return DataService.GetSchema("T_Analysis_OrderList@1706", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TAnalysisOrderList1712
-		{
-            get { return DataService.GetSchema("T_Analysis_OrderList@1712", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Analysis_OrderList@History", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOrderListByCF
@@ -398,9 +381,9 @@ namespace Model
             get { return DataService.GetSchema("T_Analysis_OrderListByCF", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisOrderListByCF1712
+		public static TableSchema.Table TAnalysisOrderListByCFHistory
 		{
-            get { return DataService.GetSchema("T_Analysis_OrderListByCF@1712", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Analysis_OrderListByCF@History", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOrderListByDH
@@ -453,14 +436,9 @@ namespace Model
             get { return DataService.GetSchema("T_ApsClientLog", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TApsClientLog1706
+		public static TableSchema.Table TApsClientLogHistory
 		{
-            get { return DataService.GetSchema("T_ApsClientLog@1706", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TApsClientLog1712
-		{
-            get { return DataService.GetSchema("T_ApsClientLog@1712", "Nowthwin"); }
+            get { return DataService.GetSchema("T_ApsClientLog@History", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAPSCount
@@ -523,9 +501,9 @@ namespace Model
             get { return DataService.GetSchema("T_Basis_OrderStatus", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TBasisOrderStatus1712
+		public static TableSchema.Table TBasisOrderStatusHistory
 		{
-            get { return DataService.GetSchema("T_Basis_OrderStatus@1712", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Basis_OrderStatus@History", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBasisResource
@@ -568,14 +546,9 @@ namespace Model
             get { return DataService.GetSchema("T_BlankingDetailes", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TBlankingDetailes1706
+		public static TableSchema.Table TBlankingDetailesHistory
 		{
-            get { return DataService.GetSchema("T_BlankingDetailes@1706", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TBlankingDetailes1712
-		{
-            get { return DataService.GetSchema("T_BlankingDetailes@1712", "Nowthwin"); }
+            get { return DataService.GetSchema("T_BlankingDetailes@History", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBLCADTemp
@@ -583,19 +556,9 @@ namespace Model
             get { return DataService.GetSchema("T_BLCADTemp", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TBLCADTempCopy
-		{
-            get { return DataService.GetSchema("T_BLCADTemp_copy", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TBlcadtempbca
-		{
-            get { return DataService.GetSchema("T_BLCADTEMPBCA", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table TBLCADTempHistory
 		{
-            get { return DataService.GetSchema("T_BLCADTempHistory", "Nowthwin"); }
+            get { return DataService.GetSchema("T_BLCADTemp@History", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBLDataMflxx
@@ -603,9 +566,9 @@ namespace Model
             get { return DataService.GetSchema("T_BLData_Mflxx", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TBLDataMflxx1712
+		public static TableSchema.Table TBLDataMflxxHistory
 		{
-            get { return DataService.GetSchema("T_BLData_Mflxx@1712", "Nowthwin"); }
+            get { return DataService.GetSchema("T_BLData_Mflxx@History", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBLDataOrder
@@ -613,9 +576,9 @@ namespace Model
             get { return DataService.GetSchema("T_BLData_Order", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TBLDataOrder1712
+		public static TableSchema.Table TBLDataOrderHistory
 		{
-            get { return DataService.GetSchema("T_BLData_Order@1712", "Nowthwin"); }
+            get { return DataService.GetSchema("T_BLData_Order@History", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBLDataOrdermx
@@ -623,9 +586,9 @@ namespace Model
             get { return DataService.GetSchema("T_BLData_Ordermx", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TBLDataOrdermx1712
+		public static TableSchema.Table TBLDataOrdermxHistory
 		{
-            get { return DataService.GetSchema("T_BLData_Ordermx@1712", "Nowthwin"); }
+            get { return DataService.GetSchema("T_BLData_Ordermx@History", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBom
@@ -703,14 +666,9 @@ namespace Model
             get { return DataService.GetSchema("T_OldApsByCf", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TOldApsByCf1706
+		public static TableSchema.Table TOldApsByCfHistory
 		{
-            get { return DataService.GetSchema("T_OldApsByCf@1706", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TOldApsByCf1712
-		{
-            get { return DataService.GetSchema("T_OldApsByCf@1712", "Nowthwin"); }
+            get { return DataService.GetSchema("T_OldApsByCf@History", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TOrderKeyProcess

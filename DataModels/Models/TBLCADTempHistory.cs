@@ -11,4 +11,4 @@ using System.Xml;
 using System.Xml.Serialization;
 using SubSonic; 
 using SubSonic.Utilities;
-// The class TBLCADTempHistory was not generated because T_BLCADTempHistory does not have a primary key.
+// The class TBLCADTempHistory was not generated because T_BLCADTemp@History does not have a primary key.

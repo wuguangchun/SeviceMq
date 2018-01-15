@@ -321,6 +321,18 @@ namespace Model{
                 
                 schema.Columns.Add(colvarTrantime);
                 
+                TableSchema.TableColumn colvarSldl = new TableSchema.TableColumn(schema);
+                colvarSldl.ColumnName = "sldl";
+                colvarSldl.DataType = DbType.String;
+                colvarSldl.MaxLength = 50;
+                colvarSldl.AutoIncrement = false;
+                colvarSldl.IsNullable = true;
+                colvarSldl.IsPrimaryKey = false;
+                colvarSldl.IsForeignKey = false;
+                colvarSldl.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarSldl);
+                
                 
                 BaseSchema = schema;
                 //add this schema to the provider
@@ -678,6 +690,20 @@ namespace Model{
 			    SetColumnValue("trantime", value);
             }
         }
+	      
+        [XmlAttribute("Sldl")]
+        [Bindable(true)]
+        public string Sldl 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("sldl");
+		    }
+            set 
+		    {
+			    SetColumnValue("sldl", value);
+            }
+        }
 	    
 	    #endregion
     
@@ -729,6 +755,8 @@ namespace Model{
             public static string Jhrq = @"jhrq";
             
             public static string Trantime = @"trantime";
+            
+            public static string Sldl = @"sldl";
             
 	    }
 	    #endregion

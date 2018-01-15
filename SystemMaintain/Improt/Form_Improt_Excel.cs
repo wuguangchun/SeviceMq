@@ -164,8 +164,7 @@ namespace SystemMaintain.Improt
         public bool UpdateData(string tableClassName, object id, Dictionary<string, object> dictionary)
         {
             try
-            {
-                var obj1 = typeof(SCT02);
+            { 
 
                 //根据ID判断新增或修改 生成有参数或无参实例对象
                 object obj;
