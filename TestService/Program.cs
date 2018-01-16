@@ -26,107 +26,26 @@ namespace TestService
         {
             string result = string.Empty;
 
+            var pld = new Blpld()
+            {
+                Khdh = "123456",
+                Scggdh = "098765"
+            };
+            pld.Wlmxs = new List<Wlmx>
+            {
+            new Wlmx{Pbxh = 1,Wlbm = "TXX0199",Wlfk = (decimal) 1.4900,Wlhy = (decimal) 0.0000,Tgsx = "阴阳纹",Tgkd = (decimal) 0.5000,Wlks = "面料",
+                    Wlbw = "默认的沿条里料",Wlxh = 0,XH1 = 1,Gyfl = "00C1",Sldl = "1A+1B",Cpzl = "XF",Sfhd = "",Hdh = ""
+                },
+
+                new Wlmx{Pbxh = 1,Wlbm = "FLL623-113",Wlfk =(decimal)  1.3700,Wlhy =(decimal)  0.0000,Tgsx = "素色",Tgkd =(decimal)  0.0000,Wlbw = "挂面边沿条客户指定料-",
+                Wlks = "无需排版的沿条",Wlxh = 1,XH1 = 1,Gyfl = "00C1",Sldl = "1A+1B",Cpzl = "XF",Sfhd = "",Hdh = ""
+            }
+            };
+
+            result = JsonConvert.SerializeObject(pld);
+
             //测试计划生成
             new AutoPlanXf().OrderScreen();
-
-            Console.ReadLine();
-
-            ////线上测试队列
-            //var service = new APSService.NewMassgeServiceClient();
-            //service.InsertMessage("OnlineTest", "OnlineTest", "1234567890", null);
-
-            //var orderList = new Select().From<TBLDataOrdermx>()
-            //    .InnerJoin(TBasisOrderStatus.CustomerIdColumn, TBLDataOrdermx.KhdhColumn)
-            //    .Where(TBasisOrderStatus.OrderStatusColumn).IsEqualTo("103")
-            //    .ExecuteTypedList<TBLDataOrdermx>();
-
-            //foreach (var ordermx in orderList)
-            //{
-            //    var service = new ServiceTest.NewMassgeServiceClient();
-            //    service.InsertMessage("PlanInfo", "NewPlan", ordermx.Khdh, null);
-            //    service.Close();
-
-            //}
-
-            //var comp = new Completion
-            //{
-            //    CustmerId = "SAE417110077",
-            //    CallingParty = "MES",
-            //    OrderSrate = "302"
-            //};
-
-            //var service=new ServiceOld.NewMessageQueuesClient();
-            //var result=service.DoWork("Completion", JsonConvert.SerializeObject(comp));
-
-            //while (true)
-            //{
-            //    TestMethod();
-            //    Console.ReadLine();
-            //}
-
-            //var list = new Select().From<VNoKeyProcess>().ExecuteTypedList<VNoKeyProcess>();
-            //foreach (var keyProcess in list)
-            //{
-            //    var service = new ServiceTest.NewMassgeServiceClient();
-            //    service.InsertMessage("OrderGetMesHour", "KeyProcess", keyProcess.MxId.ToString(), null); 
-            //}
-
-            //var list = new Select().From<VOrderListFZXf>()
-            //    .Where(VOrderListFZXf.Columns.OrderType).Like("%MJ%")
-            //    .ExecuteTypedList<VOrderListFZXf>();
-
-            //var mjlist = new Select().From<TBasisOrderStatus>()
-            //    .Where(TBasisOrderStatus.OrderStatusColumn).IsEqualTo(201)
-            //    .ExecuteTypedList<TBasisOrderStatus>()
-            //    .FindAll(x => !x.CustomerId.ToLower().Contains("cy"));
-
-            //mjlist.RemoveRange(2000, mjlist.Count - 2000);
-            //var list1 = new Select().From<TBLDataOrdermx>()
-            //    .Where(TBLDataOrdermx.KhdhColumn).In(mjlist.ConvertAll(x => x.CustomerId))
-            //    .ExecuteTypedList<TBLDataOrdermx>();
-
-            //list1.RemoveAll(x => !x.Fzfl.ToLower().Contains("mj"));
-
-            //foreach (var artInfo in list1)
-            //{
-            //    try
-            //    {
-            //        var service = new ServiceTest.NewMassgeServiceClient();
-            //        service.InsertMessage("ordergetmeshour", "NewOrder", artInfo.Khdh, null);
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        Console.WriteLine(e);
-            //    }
-            //}
-
-            //var list = new Select().From<VOrderListFZXf>().ExecuteTypedList<VOrderListFZXf>();
-
-            ////生成订单数据字表
-            //var ordermxList = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).In(list.ConvertAll(x => x.Khdh))
-            //    .ExecuteTypedList<TBLDataOrdermx>();
-
-            //var mxList = new List<TAnalysisOrderMx>();
-            //foreach (var ordermx in ordermxList)
-            //{
-            //    var orderMx = new TAnalysisOrderMx
-            //    {
-            //        Khdh = ordermx.Khdh,
-            //        Fzfl = ordermx.Fzfl,
-            //        SpecialCode = GetFZSpecialCode(ordermx.Gyxx.Split(','), ordermx.Fzfl).Replace("[", "").Replace("]", "").Replace("\"", "")
-            //    };
-
-            //    mxList.Add(orderMx);
-            //}
-
-            ////避免数据重复先删除
-            //new Delete().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn)
-            //    .In(mxList.ConvertAll(x => x.Khdh)).Execute();
-
-            //mxList.ForEach(x => x.Save());
-
-
-
 
             Console.WriteLine(result);
             Console.ReadLine();

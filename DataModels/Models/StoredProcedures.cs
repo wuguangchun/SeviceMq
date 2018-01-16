@@ -62,13 +62,11 @@ namespace Model{
         /// <summary>
         /// Creates an object wrapper for the P_Gen_CutterAPS Procedure
         /// </summary>
-        public static StoredProcedure PGenCutterAPS(string PLANMIDS, string Factory, int? CutterNum, string DateX, string Time, int? Cutcount, string isJIaJi, string cRESULT)
+        public static StoredProcedure PGenCutterAPS(string SCGGDH, int? CutterNum, string DateX, string Time, int? Cutcount, string cRESULT)
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("P_Gen_CutterAPS", DataService.GetInstance("Nowthwin"), "dbo");
         	
-            sp.Command.AddParameter("@PLANMIDS", PLANMIDS, DbType.AnsiString, null, null);
-        	
-            sp.Command.AddParameter("@Factory", Factory, DbType.AnsiString, null, null);
+            sp.Command.AddParameter("@SCGGDH", SCGGDH, DbType.AnsiString, null, null);
         	
             sp.Command.AddParameter("@CutterNum", CutterNum, DbType.Int32, 0, 10);
         	
@@ -77,8 +75,6 @@ namespace Model{
             sp.Command.AddParameter("@Time", Time, DbType.AnsiString, null, null);
         	
             sp.Command.AddParameter("@Cutcount", Cutcount, DbType.Int32, 0, 10);
-        	
-            sp.Command.AddParameter("@isJIaJi", isJIaJi, DbType.AnsiString, null, null);
         	
             sp.Command.AddOutputParameter("@cRESULT", DbType.AnsiString, null, null);
             
@@ -93,6 +89,28 @@ namespace Model{
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("P_Gen_CutterAPS_Anti", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@PLANMID", PLANMID, DbType.AnsiString, null, null);
+        	
+            sp.Command.AddOutputParameter("@cRESULT", DbType.AnsiString, null, null);
+            
+            return sp;
+        }
+        
+        /// <summary>
+        /// Creates an object wrapper for the P_Gen_CutterAPS_tsh_test Procedure
+        /// </summary>
+        public static StoredProcedure PGenCutterAPSTshTest(string SCGGDH, int? CutterNum, string DateX, string Time, int? Cutcount, string cRESULT)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("P_Gen_CutterAPS_tsh_test", DataService.GetInstance("Nowthwin"), "dbo");
+        	
+            sp.Command.AddParameter("@SCGGDH", SCGGDH, DbType.AnsiString, null, null);
+        	
+            sp.Command.AddParameter("@CutterNum", CutterNum, DbType.Int32, 0, 10);
+        	
+            sp.Command.AddParameter("@Date", DateX, DbType.AnsiString, null, null);
+        	
+            sp.Command.AddParameter("@Time", Time, DbType.AnsiString, null, null);
+        	
+            sp.Command.AddParameter("@Cutcount", Cutcount, DbType.Int32, 0, 10);
         	
             sp.Command.AddOutputParameter("@cRESULT", DbType.AnsiString, null, null);
             

@@ -139,25 +139,25 @@ namespace Model
 				colvarApsid.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarApsid);
 				
-				TableSchema.TableColumn colvarPlanmid = new TableSchema.TableColumn(schema);
-				colvarPlanmid.ColumnName = "PLANMID";
-				colvarPlanmid.DataType = DbType.Int32;
-				colvarPlanmid.MaxLength = 0;
-				colvarPlanmid.AutoIncrement = false;
-				colvarPlanmid.IsNullable = true;
-				colvarPlanmid.IsPrimaryKey = false;
-				colvarPlanmid.IsForeignKey = false;
-				colvarPlanmid.IsReadOnly = false;
-				colvarPlanmid.DefaultSetting = @"";
-				colvarPlanmid.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarPlanmid);
+				TableSchema.TableColumn colvarScggdh = new TableSchema.TableColumn(schema);
+				colvarScggdh.ColumnName = "SCGGDH";
+				colvarScggdh.DataType = DbType.AnsiString;
+				colvarScggdh.MaxLength = 20;
+				colvarScggdh.AutoIncrement = false;
+				colvarScggdh.IsNullable = false;
+				colvarScggdh.IsPrimaryKey = false;
+				colvarScggdh.IsForeignKey = false;
+				colvarScggdh.IsReadOnly = false;
+				colvarScggdh.DefaultSetting = @"";
+				colvarScggdh.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarScggdh);
 				
 				TableSchema.TableColumn colvarPlansid = new TableSchema.TableColumn(schema);
 				colvarPlansid.ColumnName = "PLANSID";
 				colvarPlansid.DataType = DbType.Int32;
 				colvarPlansid.MaxLength = 0;
 				colvarPlansid.AutoIncrement = false;
-				colvarPlansid.IsNullable = true;
+				colvarPlansid.IsNullable = false;
 				colvarPlansid.IsPrimaryKey = false;
 				colvarPlansid.IsForeignKey = false;
 				colvarPlansid.IsReadOnly = false;
@@ -168,9 +168,9 @@ namespace Model
 				TableSchema.TableColumn colvarSczsbh = new TableSchema.TableColumn(schema);
 				colvarSczsbh.ColumnName = "SCZSBH";
 				colvarSczsbh.DataType = DbType.AnsiString;
-				colvarSczsbh.MaxLength = 12;
+				colvarSczsbh.MaxLength = 20;
 				colvarSczsbh.AutoIncrement = false;
-				colvarSczsbh.IsNullable = true;
+				colvarSczsbh.IsNullable = false;
 				colvarSczsbh.IsPrimaryKey = false;
 				colvarSczsbh.IsForeignKey = false;
 				colvarSczsbh.IsReadOnly = false;
@@ -183,7 +183,7 @@ namespace Model
 				colvarFilename.DataType = DbType.AnsiString;
 				colvarFilename.MaxLength = 20;
 				colvarFilename.AutoIncrement = false;
-				colvarFilename.IsNullable = true;
+				colvarFilename.IsNullable = false;
 				colvarFilename.IsPrimaryKey = false;
 				colvarFilename.IsForeignKey = false;
 				colvarFilename.IsReadOnly = false;
@@ -197,7 +197,7 @@ namespace Model
 				colvarCutternum.DataType = DbType.Int32;
 				colvarCutternum.MaxLength = 0;
 				colvarCutternum.AutoIncrement = false;
-				colvarCutternum.IsNullable = true;
+				colvarCutternum.IsNullable = false;
 				colvarCutternum.IsPrimaryKey = false;
 				colvarCutternum.IsForeignKey = false;
 				colvarCutternum.IsReadOnly = false;
@@ -210,7 +210,7 @@ namespace Model
 				colvarCutcount.DataType = DbType.Int32;
 				colvarCutcount.MaxLength = 0;
 				colvarCutcount.AutoIncrement = false;
-				colvarCutcount.IsNullable = true;
+				colvarCutcount.IsNullable = false;
 				colvarCutcount.IsPrimaryKey = false;
 				colvarCutcount.IsForeignKey = false;
 				colvarCutcount.IsReadOnly = false;
@@ -223,7 +223,7 @@ namespace Model
 				colvarCutdate.DataType = DbType.AnsiString;
 				colvarCutdate.MaxLength = 10;
 				colvarCutdate.AutoIncrement = false;
-				colvarCutdate.IsNullable = true;
+				colvarCutdate.IsNullable = false;
 				colvarCutdate.IsPrimaryKey = false;
 				colvarCutdate.IsForeignKey = false;
 				colvarCutdate.IsReadOnly = false;
@@ -236,7 +236,7 @@ namespace Model
 				colvarCuttime.DataType = DbType.AnsiString;
 				colvarCuttime.MaxLength = 11;
 				colvarCuttime.AutoIncrement = false;
-				colvarCuttime.IsNullable = true;
+				colvarCuttime.IsNullable = false;
 				colvarCuttime.IsPrimaryKey = false;
 				colvarCuttime.IsForeignKey = false;
 				colvarCuttime.IsReadOnly = false;
@@ -262,7 +262,7 @@ namespace Model
 				colvarBarcode.DataType = DbType.AnsiString;
 				colvarBarcode.MaxLength = 50;
 				colvarBarcode.AutoIncrement = false;
-				colvarBarcode.IsNullable = true;
+				colvarBarcode.IsNullable = false;
 				colvarBarcode.IsPrimaryKey = false;
 				colvarBarcode.IsForeignKey = false;
 				colvarBarcode.IsReadOnly = false;
@@ -276,7 +276,7 @@ namespace Model
 				colvarFilestatus.DataType = DbType.AnsiString;
 				colvarFilestatus.MaxLength = 4;
 				colvarFilestatus.AutoIncrement = false;
-				colvarFilestatus.IsNullable = true;
+				colvarFilestatus.IsNullable = false;
 				colvarFilestatus.IsPrimaryKey = false;
 				colvarFilestatus.IsForeignKey = false;
 				colvarFilestatus.IsReadOnly = false;
@@ -290,7 +290,7 @@ namespace Model
 				colvarMatstatus.DataType = DbType.AnsiString;
 				colvarMatstatus.MaxLength = 4;
 				colvarMatstatus.AutoIncrement = false;
-				colvarMatstatus.IsNullable = true;
+				colvarMatstatus.IsNullable = false;
 				colvarMatstatus.IsPrimaryKey = false;
 				colvarMatstatus.IsForeignKey = false;
 				colvarMatstatus.IsReadOnly = false;
@@ -304,11 +304,12 @@ namespace Model
 				colvarMatlength.DataType = DbType.AnsiString;
 				colvarMatlength.MaxLength = 10;
 				colvarMatlength.AutoIncrement = false;
-				colvarMatlength.IsNullable = true;
+				colvarMatlength.IsNullable = false;
 				colvarMatlength.IsPrimaryKey = false;
 				colvarMatlength.IsForeignKey = false;
 				colvarMatlength.IsReadOnly = false;
-				colvarMatlength.DefaultSetting = @"";
+				
+						colvarMatlength.DefaultSetting = @"('')";
 				colvarMatlength.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarMatlength);
 				
@@ -317,7 +318,7 @@ namespace Model
 				colvarCutstatus.DataType = DbType.AnsiString;
 				colvarCutstatus.MaxLength = 4;
 				colvarCutstatus.AutoIncrement = false;
-				colvarCutstatus.IsNullable = true;
+				colvarCutstatus.IsNullable = false;
 				colvarCutstatus.IsPrimaryKey = false;
 				colvarCutstatus.IsForeignKey = false;
 				colvarCutstatus.IsReadOnly = false;
@@ -331,7 +332,7 @@ namespace Model
 				colvarStatusdate.DataType = DbType.DateTime;
 				colvarStatusdate.MaxLength = 0;
 				colvarStatusdate.AutoIncrement = false;
-				colvarStatusdate.IsNullable = true;
+				colvarStatusdate.IsNullable = false;
 				colvarStatusdate.IsPrimaryKey = false;
 				colvarStatusdate.IsForeignKey = false;
 				colvarStatusdate.IsReadOnly = false;
@@ -358,19 +359,19 @@ namespace Model
 			set { SetColumnValue(Columns.Apsid, value); }
 		}
 		  
-		[XmlAttribute("Planmid")]
+		[XmlAttribute("Scggdh")]
 		[Bindable(true)]
-		public int? Planmid 
+		public string Scggdh 
 		{
-			get { return GetColumnValue<int?>(Columns.Planmid); }
-			set { SetColumnValue(Columns.Planmid, value); }
+			get { return GetColumnValue<string>(Columns.Scggdh); }
+			set { SetColumnValue(Columns.Scggdh, value); }
 		}
 		  
 		[XmlAttribute("Plansid")]
 		[Bindable(true)]
-		public int? Plansid 
+		public int Plansid 
 		{
-			get { return GetColumnValue<int?>(Columns.Plansid); }
+			get { return GetColumnValue<int>(Columns.Plansid); }
 			set { SetColumnValue(Columns.Plansid, value); }
 		}
 		  
@@ -392,17 +393,17 @@ namespace Model
 		  
 		[XmlAttribute("Cutternum")]
 		[Bindable(true)]
-		public int? Cutternum 
+		public int Cutternum 
 		{
-			get { return GetColumnValue<int?>(Columns.Cutternum); }
+			get { return GetColumnValue<int>(Columns.Cutternum); }
 			set { SetColumnValue(Columns.Cutternum, value); }
 		}
 		  
 		[XmlAttribute("Cutcount")]
 		[Bindable(true)]
-		public int? Cutcount 
+		public int Cutcount 
 		{
-			get { return GetColumnValue<int?>(Columns.Cutcount); }
+			get { return GetColumnValue<int>(Columns.Cutcount); }
 			set { SetColumnValue(Columns.Cutcount, value); }
 		}
 		  
@@ -472,9 +473,9 @@ namespace Model
 		  
 		[XmlAttribute("Statusdate")]
 		[Bindable(true)]
-		public DateTime? Statusdate 
+		public DateTime Statusdate 
 		{
-			get { return GetColumnValue<DateTime?>(Columns.Statusdate); }
+			get { return GetColumnValue<DateTime>(Columns.Statusdate); }
 			set { SetColumnValue(Columns.Statusdate, value); }
 		}
 		
@@ -497,11 +498,11 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int? varPlanmid,int? varPlansid,string varSczsbh,string varFilename,int? varCutternum,int? varCutcount,string varCutdate,string varCuttime,DateTime? varOpdate,string varBarcode,string varFilestatus,string varMatstatus,string varMatlength,string varCutstatus,DateTime? varStatusdate)
+		public static void Insert(string varScggdh,int varPlansid,string varSczsbh,string varFilename,int varCutternum,int varCutcount,string varCutdate,string varCuttime,DateTime? varOpdate,string varBarcode,string varFilestatus,string varMatstatus,string varMatlength,string varCutstatus,DateTime varStatusdate)
 		{
 			TCutterAP item = new TCutterAP();
 			
-			item.Planmid = varPlanmid;
+			item.Scggdh = varScggdh;
 			
 			item.Plansid = varPlansid;
 			
@@ -541,13 +542,13 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varApsid,int? varPlanmid,int? varPlansid,string varSczsbh,string varFilename,int? varCutternum,int? varCutcount,string varCutdate,string varCuttime,DateTime? varOpdate,string varBarcode,string varFilestatus,string varMatstatus,string varMatlength,string varCutstatus,DateTime? varStatusdate)
+		public static void Update(int varApsid,string varScggdh,int varPlansid,string varSczsbh,string varFilename,int varCutternum,int varCutcount,string varCutdate,string varCuttime,DateTime? varOpdate,string varBarcode,string varFilestatus,string varMatstatus,string varMatlength,string varCutstatus,DateTime varStatusdate)
 		{
 			TCutterAP item = new TCutterAP();
 			
 				item.Apsid = varApsid;
 			
-				item.Planmid = varPlanmid;
+				item.Scggdh = varScggdh;
 			
 				item.Plansid = varPlansid;
 			
@@ -597,7 +598,7 @@ namespace Model
         
         
         
-        public static TableSchema.TableColumn PlanmidColumn
+        public static TableSchema.TableColumn ScggdhColumn
         {
             get { return Schema.Columns[1]; }
         }
@@ -707,7 +708,7 @@ namespace Model
 		public struct Columns
 		{
 			 public static string Apsid = @"APSID";
-			 public static string Planmid = @"PLANMID";
+			 public static string Scggdh = @"SCGGDH";
 			 public static string Plansid = @"PLANSID";
 			 public static string Sczsbh = @"SCZSBH";
 			 public static string Filename = @"FILENAME";

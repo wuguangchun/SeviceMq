@@ -172,6 +172,16 @@ namespace SystemMaintain
             var form = new Form_Intercourse() { TopLevel = false, Parent = tabPage };
             form.Show();
         }
+
+
+        private void BlSendPld_Click(object sender, EventArgs e)
+        { //新增TAB页面 
+            TabPage tabPage = AddTabPage(@"排料单推送", "BlSendPld");
+
+            var form = new Form_BlSendPld() { TopLevel = false, Parent = tabPage };
+            form.Show();
+
+        }
         #endregion
 
         #region 数据导入

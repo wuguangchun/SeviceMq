@@ -55,6 +55,12 @@ namespace IntelligentLogHelper
                         var obj = (CadBlModelList)JsonConvert.DeserializeObject(logService.Context, typeof(CadBlModelList));
                         okRow += UpdateLogs(logService.Id, obj.ds?.First().customerId) ? 1 : 0;
                     }
+                    //接受Bl推送得排料单
+                    else if (logService.MessagePath == "AnalysisOrder" && logService.Lable == "NewOrderPld")
+                    {
+                        var obj = (Blpld)JsonConvert.DeserializeObject(logService.Context, typeof(Blpld));
+                        okRow += UpdateLogs(logService.Id, obj.Khdh) ? 1 : 0;
+                    }
                     //计划下达生成裁剪排程数据
                     else if (logService.MessagePath == "CaiJianOrder" && logService.Lable == "NewOrder")
                     {

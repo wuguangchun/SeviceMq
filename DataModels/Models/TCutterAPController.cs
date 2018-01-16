@@ -80,11 +80,11 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int? Planmid,int? Plansid,string Sczsbh,string Filename,int? Cutternum,int? Cutcount,string Cutdate,string Cuttime,DateTime? Opdate,string Barcode,string Filestatus,string Matstatus,string Matlength,string Cutstatus,DateTime? Statusdate)
+	    public void Insert(string Scggdh,int Plansid,string Sczsbh,string Filename,int Cutternum,int Cutcount,string Cutdate,string Cuttime,DateTime? Opdate,string Barcode,string Filestatus,string Matstatus,string Matlength,string Cutstatus,DateTime Statusdate)
 	    {
 		    TCutterAP item = new TCutterAP();
 		    
-            item.Planmid = Planmid;
+            item.Scggdh = Scggdh;
             
             item.Plansid = Plansid;
             
@@ -122,7 +122,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Apsid,int? Planmid,int? Plansid,string Sczsbh,string Filename,int? Cutternum,int? Cutcount,string Cutdate,string Cuttime,DateTime? Opdate,string Barcode,string Filestatus,string Matstatus,string Matlength,string Cutstatus,DateTime? Statusdate)
+	    public void Update(int Apsid,string Scggdh,int Plansid,string Sczsbh,string Filename,int Cutternum,int Cutcount,string Cutdate,string Cuttime,DateTime? Opdate,string Barcode,string Filestatus,string Matstatus,string Matlength,string Cutstatus,DateTime Statusdate)
 	    {
 		    TCutterAP item = new TCutterAP();
 	        item.MarkOld();
@@ -130,7 +130,7 @@ namespace Model
 		    
 			item.Apsid = Apsid;
 				
-			item.Planmid = Planmid;
+			item.Scggdh = Scggdh;
 				
 			item.Plansid = Plansid;
 				

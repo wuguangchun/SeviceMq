@@ -57,6 +57,7 @@
             this.KillOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.KillOrderAll = new System.Windows.Forms.ToolStripMenuItem();
             this.单品撤单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Intercourse = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
             this.Excel_To_Db = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
@@ -69,7 +70,7 @@
             this.tab_box = new System.Windows.Forms.TabControl();
             this.tabBoxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.Intercourse = new System.Windows.Forms.ToolStripMenuItem();
+            this.BlSendPld = new System.Windows.Forms.ToolStripMenuItem();
             this.tool_menu.SuspendLayout();
             this.tab_box.SuspendLayout();
             this.SuspendLayout();
@@ -194,7 +195,8 @@
             this.Push_Completion,
             this.生成CAD数据ToolStripMenuItem,
             this.KillOrder,
-            this.Intercourse});
+            this.Intercourse,
+            this.BlSendPld});
             this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
@@ -291,6 +293,13 @@
             this.单品撤单ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.单品撤单ToolStripMenuItem.Text = "单品撤单";
             // 
+            // Intercourse
+            // 
+            this.Intercourse.Name = "Intercourse";
+            this.Intercourse.Size = new System.Drawing.Size(152, 22);
+            this.Intercourse.Text = "往来户通知";
+            this.Intercourse.Click += new System.EventHandler(this.Intercourse_Click);
+            // 
             // toolStripSplitButton3
             // 
             this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -305,7 +314,7 @@
             // Excel_To_Db
             // 
             this.Excel_To_Db.Name = "Excel_To_Db";
-            this.Excel_To_Db.Size = new System.Drawing.Size(152, 22);
+            this.Excel_To_Db.Size = new System.Drawing.Size(136, 22);
             this.Excel_To_Db.Text = "EXCEL导入";
             this.Excel_To_Db.Click += new System.EventHandler(this.Excel_To_Db_Click);
             // 
@@ -390,12 +399,12 @@
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
-            // Intercourse
+            // BlSendPld
             // 
-            this.Intercourse.Name = "Intercourse";
-            this.Intercourse.Size = new System.Drawing.Size(152, 22);
-            this.Intercourse.Text = "往来户通知";
-            this.Intercourse.Click += new System.EventHandler(this.Intercourse_Click);
+            this.BlSendPld.Name = "BlSendPld";
+            this.BlSendPld.Size = new System.Drawing.Size(152, 22);
+            this.BlSendPld.Text = "BL排料单推送";
+            this.BlSendPld.Click += new System.EventHandler(this.BlSendPld_Click);
             // 
             // Defaut
             // 
@@ -461,6 +470,7 @@
         private System.Windows.Forms.ToolStripMenuItem KillOrderAll;
         private System.Windows.Forms.ToolStripMenuItem 单品撤单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Intercourse;
+        private System.Windows.Forms.ToolStripMenuItem BlSendPld;
     }
 }
 

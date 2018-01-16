@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Messaging;
-using System.Web; 
+using System.Web;
 using Kute.Helper;
 using Model;
 using NewAnalysisPlugs;
@@ -50,6 +50,11 @@ namespace ServiceHandle.Handle
                 {//收到新订单命令
 
                     reMeg = new NewAnalysisHelper().NewData(message.Body.ToString());
+                }
+                else if (message.Label.ToLower().Trim() == "NewOrderPld".ToLower())
+                {//收到新订单命令
+
+                    reMeg = new BlPldHelper().ReceiveBlPldHelper(message.Body.ToString());
                 }
                 else
                 {//无法识别标签内容

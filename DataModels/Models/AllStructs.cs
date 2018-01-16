@@ -18,9 +18,19 @@ namespace Model
 	public partial struct Tables
 	{
 		
+		public static readonly string BCutterSet = @"B_CutterSet";
+        
+		public static readonly string BISOFileSet = @"B_ISOFileSet";
+        
+		public static readonly string BPMOrder = @"BPMOrders";
+        
 		public static readonly string Dictionary = @"Dictionaries";
         
+		public static readonly string FactoryOrderTran = @"FactoryOrderTrans";
+        
 		public static readonly string HljtTaskList = @"HLJT_TaskList";
+        
+		public static readonly string Isypb = @"ISYPB";
         
 		public static readonly string SCM06 = @"SCM06";
         
@@ -162,6 +172,8 @@ namespace Model
         
 		public static readonly string TBLDataOrdermxHistory = @"T_BLData_Ordermx@History";
         
+		public static readonly string TBLDataPld = @"T_BLData_PLD";
+        
 		public static readonly string TBom = @"T_BOM";
         
 		public static readonly string TCategoryProcessFlow = @"T_CategoryProcessFlow";
@@ -200,9 +212,13 @@ namespace Model
         
 		public static readonly string TOrderProcessHour = @"T_OrderProcessHour";
         
+		public static readonly string TPlanM = @"T_PlanM";
+        
 		public static readonly string TResultMsg = @"T_ResultMsg";
         
 		public static readonly string TTempLineOrderPool = @"T_Temp_LineOrderPool";
+        
+		public static readonly string TTempME = @"T_TempMES";
         
 		public static readonly string TTsgy = @"T_TSGY";
         
@@ -215,6 +231,12 @@ namespace Model
 		public static readonly string TWorkTime = @"T_WorkTime";
         
 		public static readonly string TWorkTimeShirt = @"T_WorkTimeShirt";
+        
+		public static readonly string WmsSyncCutterAP = @"WMS_SYNC_CutterAPS";
+        
+		public static readonly string WmsSyncPlanm = @"WMS_SYNC_planm";
+        
+		public static readonly string WmsSyncPlan = @"WMS_SYNC_plans";
         
 		public static readonly string XTM12 = @"XTM12";
         
@@ -231,14 +253,39 @@ namespace Model
     #region Schemas
     public partial class Schemas {
 		
+		public static TableSchema.Table BCutterSet
+		{
+            get { return DataService.GetSchema("B_CutterSet", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table BISOFileSet
+		{
+            get { return DataService.GetSchema("B_ISOFileSet", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table BPMOrder
+		{
+            get { return DataService.GetSchema("BPMOrders", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table Dictionary
 		{
             get { return DataService.GetSchema("Dictionaries", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table FactoryOrderTran
+		{
+            get { return DataService.GetSchema("FactoryOrderTrans", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table HljtTaskList
 		{
             get { return DataService.GetSchema("HLJT_TaskList", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table Isypb
+		{
+            get { return DataService.GetSchema("ISYPB", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table SCM06
@@ -591,6 +638,11 @@ namespace Model
             get { return DataService.GetSchema("T_BLData_Ordermx@History", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBLDataPld
+		{
+            get { return DataService.GetSchema("T_BLData_PLD", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBom
 		{
             get { return DataService.GetSchema("T_BOM", "Nowthwin"); }
@@ -686,6 +738,11 @@ namespace Model
             get { return DataService.GetSchema("T_OrderProcessHour", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TPlanM
+		{
+            get { return DataService.GetSchema("T_PlanM", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TResultMsg
 		{
             get { return DataService.GetSchema("T_ResultMsg", "Nowthwin"); }
@@ -694,6 +751,11 @@ namespace Model
 		public static TableSchema.Table TTempLineOrderPool
 		{
             get { return DataService.GetSchema("T_Temp_LineOrderPool", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TTempME
+		{
+            get { return DataService.GetSchema("T_TempMES", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TTsgy
@@ -724,6 +786,21 @@ namespace Model
 		public static TableSchema.Table TWorkTimeShirt
 		{
             get { return DataService.GetSchema("T_WorkTimeShirt", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table WmsSyncCutterAP
+		{
+            get { return DataService.GetSchema("WMS_SYNC_CutterAPS", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table WmsSyncPlanm
+		{
+            get { return DataService.GetSchema("WMS_SYNC_planm", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table WmsSyncPlan
+		{
+            get { return DataService.GetSchema("WMS_SYNC_plans", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table XTM12

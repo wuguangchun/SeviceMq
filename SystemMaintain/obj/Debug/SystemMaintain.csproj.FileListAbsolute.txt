@@ -74,3 +74,4 @@ F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\APS系统维护.pdb
 F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.WebService.Form_KillOrderAll.resources
 F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.WebService.Form_Intercourse.resources
+F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.WebService.Form_BlSendPld.resources
