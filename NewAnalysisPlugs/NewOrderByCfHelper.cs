@@ -264,8 +264,8 @@ namespace NewAnalysisPlugs
                         inner join SCT26 b on a.sczsbh = b.sczsbh
                         inner join sct32 on  sct32.schtbh=a.schtbh
                         inner join  sct51 on a.scggdh=sct51.scggdh
-                        where sct51.scyspd=''{orderId}''  and scjhbz not like ''%未%''
-                        order by sccjjq ,scjhbz";
+                        where sct51.scyspd=''{orderId}''  and scjhbz not like ''%未%'' and  sccjjq is not null
+                        order by sccjjq desc,scjhbz";
                 var erpTables = new DataHelper().OtherBaseSelect("FYERP", sql);
 
                 if (erpTables.Rows.Count < 1)

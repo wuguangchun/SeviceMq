@@ -310,6 +310,7 @@
     <Compile Include="Models\VJh.cs" />
     <Compile Include="Models\VNoKeyProcess.cs" />
     <Compile Include="Models\VOderArtHour.cs" />
+    <Compile Include="Models\VOrderDatapoolXf.cs" />
     <Compile Include="Models\VOrderKeyProcessRow.cs" />
     <Compile Include="Models\VOrderListCJAll.cs" />
     <Compile Include="Models\VOrderListFZXf.cs" />

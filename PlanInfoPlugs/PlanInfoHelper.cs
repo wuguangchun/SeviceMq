@@ -46,7 +46,9 @@ namespace PlanInfoPlugs
                         Scgybz = row["SCGYBZ"].ToString(),
                     };
                     //预防重复，先删再加
-                    new Delete().From<SCT27>().Where(SCT27.ScggdhColumn).IsEqualTo(sct27.Scggdh);
+                    new Delete().From<SCT27>()
+                        .Where(SCT27.ScggdhColumn).IsEqualTo(sct27.Scggdh)
+                        .Execute();
                     sct27.Save();
                 }
                 var msmqList = new List<MsmqModel>

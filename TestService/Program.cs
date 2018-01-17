@@ -26,23 +26,23 @@ namespace TestService
         {
             string result = string.Empty;
 
-            var pld = new Blpld()
-            {
-                Khdh = "123456",
-                Scggdh = "098765"
-            };
-            pld.Wlmxs = new List<Wlmx>
-            {
-            new Wlmx{Pbxh = 1,Wlbm = "TXX0199",Wlfk = (decimal) 1.4900,Wlhy = (decimal) 0.0000,Tgsx = "阴阳纹",Tgkd = (decimal) 0.5000,Wlks = "面料",
-                    Wlbw = "默认的沿条里料",Wlxh = 0,XH1 = 1,Gyfl = "00C1",Sldl = "1A+1B",Cpzl = "XF",Sfhd = "",Hdh = ""
-                },
+            //var pld = new Blpld()
+            //{
+            //    Khdh = "123456",
+            //    Scggdh = "098765"
+            //};
+            //pld.Wlmxs = new List<Wlmx>
+            //{
+            //new Wlmx{Pbxh = 1,Wlbm = "TXX0199",Wlfk = (decimal) 1.4900,Wlhy = (decimal) 0.0000,Tgsx = "阴阳纹",Tgkd = (decimal) 0.5000,Wlks = "面料",
+            //        Wlbw = "默认的沿条里料",Wlxh = 0,XH1 = 1,Gyfl = "00C1",Sldl = "1A+1B",Cpzl = "XF",Sfhd = "",Hdh = ""
+            //    },
 
-                new Wlmx{Pbxh = 1,Wlbm = "FLL623-113",Wlfk =(decimal)  1.3700,Wlhy =(decimal)  0.0000,Tgsx = "素色",Tgkd =(decimal)  0.0000,Wlbw = "挂面边沿条客户指定料-",
-                Wlks = "无需排版的沿条",Wlxh = 1,XH1 = 1,Gyfl = "00C1",Sldl = "1A+1B",Cpzl = "XF",Sfhd = "",Hdh = ""
-            }
-            };
+            //    new Wlmx{Pbxh = 1,Wlbm = "FLL623-113",Wlfk =(decimal)  1.3700,Wlhy =(decimal)  0.0000,Tgsx = "素色",Tgkd =(decimal)  0.0000,Wlbw = "挂面边沿条客户指定料-",
+            //    Wlks = "无需排版的沿条",Wlxh = 1,XH1 = 1,Gyfl = "00C1",Sldl = "1A+1B",Cpzl = "XF",Sfhd = "",Hdh = ""
+            //}
+            //};
 
-            result = JsonConvert.SerializeObject(pld);
+            //result = JsonConvert.SerializeObject(pld);
 
             //测试计划生成
             new AutoPlanXf().OrderScreen();
