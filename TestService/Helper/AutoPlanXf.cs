@@ -73,6 +73,8 @@ namespace TestService.Helper
                 var datapool = RemoveC_DMore(OrderDatapool, lines.FindAll(x => x.Abbreviation == "C" || x.Abbreviation == "D"));
 
 
+                var orders = new List<VOrderDatapoolXf>();
+
                 //订单池数据
                 foreach (var category in AllCategorys)
                 {
@@ -83,13 +85,12 @@ namespace TestService.Helper
                     if (orderList.Count > 1000)
                         orderList = orderList.OrderBy(x => x.Jhrq).Take(1000).ToList();
 
-                    ListOrder.AddRange(orderList.ConvertAll(x => x.Khdh));
+                    orders.AddRange(orderList);
                 }
 
-                //去除多余得裙子和马甲
+                //添加的订单客户单号去重
+                ListOrder.AddRange(orders.OrderBy(x => x.Jhrq).ToList().ConvertAll(x => x.Khdh).Distinct());
 
-                //添加的订单明细客户单号去重
-                ListOrder = ListOrder.Distinct().ToList();
 
                 //产线排序  以西服为主
                 Lines.AddRange(lines.FindAll(x => x.Abbreviation == "F"));
@@ -158,7 +159,7 @@ namespace TestService.Helper
                     //将产能能不饱和的生产线聚合重新分配
                     LineOrder.AddRange(ScheduingOrder(lineUnSaturated, listOrder.ConvertAll(x => x.Khdh)));
                 }
-                
+
                 //控制台输出查看当前分了多少
                 Console.WriteLine(" 最终分配订单");
                 lines.ForEach(x => Console.WriteLine(x.LineName + "::" + LineOrder.FindAll(y => y.LineName == x.LineName).Sum(y => y.Num)));
@@ -408,23 +409,19 @@ namespace TestService.Helper
                     //-- MLWG 面料外观
                     if (linesRestriction.Identifies == "MLWG")
                     {
+
+                        /**
+                         * 要只计算当前产线得格子订单
+                         * **/
+
                         //匹配订单的面料外观
-                        var waiGuanList =
-                            new Select(TAnalysisOrderMx.KhdhColumn.ColumnName,
-                                    TAnalysisOrderMx.ScjhbzColumn.ColumnName)
-                                .From<TAnalysisOrderMx>()
-                                .Where(TAnalysisOrderMx.KhdhColumn)
-                                .In(mxList.ConvertAll(x => x.Khdh))
-                                .ExecuteTypedList<TAnalysisOrderMx>();
+                        var waiGuanList = new List<VOrderDatapoolXf>();
+                        nowLineOrder.ForEach(x => waiGuanList.AddRange(OrderDatapool.FindAll(y => y.Khdh == x.Khdh && y.Fzfl == x.Fzfl && y.Scjhbz.ToUpper().Contains(linesRestriction.Restriction == "GZ" ? "MTM/" : "新/"))));
 
-                        //查找符合当前面料外观的订单
-                        var nowWg = waiGuanList.Distinct().ToList()
-                            .FindAll(x => x.Scjhbz.ToUpper()
-                                .Contains(linesRestriction.Restriction.ToUpper()));
+                        //将已有订单添加到集合
+                        waiGuanList.ForEach(x => nowOutOrders.AddRange(mxList.FindAll(y => y.Khdh == x.Khdh && y.Fzfl == x.Fzfl)));
 
-                        //筛选当前的分类订单
-                        nowWg.ForEach(
-                            x => nowOutOrders.AddRange(mxList.FindAll(y => y.Khdh == x.Khdh)));
+
                     }
                     //-- FZFL 服装分类
                     else if (linesRestriction.Identifies == "FZFL")
