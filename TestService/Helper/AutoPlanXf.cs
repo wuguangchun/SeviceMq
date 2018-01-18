@@ -17,7 +17,7 @@ namespace TestService.Helper
         public List<LineOrderPool> LineOrder { get; set; }
         public List<string> ListXjOrder { get; set; }
         public List<string> AllCategorys { get; set; }
-        public List<VOrderDatapoolXf> ErpOrder { get; set; }
+        public List<VOrderDatapoolXf> OrderDatapool { get; set; }
 
         /// <summary>
         ///     构造函数，初始化三大集合
@@ -29,7 +29,7 @@ namespace TestService.Helper
             LineOrder = new List<LineOrderPool>();
             ListXjOrder = new List<string>();
             AllCategorys = new List<string>();
-            ErpOrder = new List<VOrderDatapoolXf>();
+            OrderDatapool = new List<VOrderDatapoolXf>();
         }
 
         /// <summary>
@@ -57,23 +57,27 @@ namespace TestService.Helper
                 }
 
                 //当前可以分配得订单池
-                ErpOrder = new Select().From<VOrderDatapoolXf>().ExecuteTypedList<VOrderDatapoolXf>();
+                OrderDatapool = new Select().From<VOrderDatapoolXf>().ExecuteTypedList<VOrderDatapoolXf>();
 
                 //去掉没有交期天数得订单
-                ErpOrder.RemoveAll(x => string.IsNullOrEmpty(x.Jqts));
+                OrderDatapool.RemoveAll(x => string.IsNullOrEmpty(x.Jqts));
 
                 //去除还没有计划标注的订单
-                ErpOrder.RemoveAll(x => string.IsNullOrEmpty(x.Scjhbz) || x.Scjhbz.Contains("未"));
+                OrderDatapool.RemoveAll(x => string.IsNullOrEmpty(x.Scjhbz) || x.Scjhbz.Contains("未"));
 
                 //线上加急订单
-                ListXjOrder.AddRange(ErpOrder.FindAll(x => x.Jqts == "6").ConvertAll(x => x.Khdh));
-                ErpOrder.RemoveAll(x => x.Jqts == "6");
+                ListXjOrder.AddRange(OrderDatapool.FindAll(x => x.Jqts == "6").ConvertAll(x => x.Khdh));
+                OrderDatapool.RemoveAll(x => x.Jqts == "6");
+
+                //过滤裙子和马甲订单，只留需求的数量就好
+                var datapool = RemoveC_DMore(OrderDatapool, lines.FindAll(x => x.Abbreviation == "C" || x.Abbreviation == "D"));
+
 
                 //订单池数据
                 foreach (var category in AllCategorys)
                 {
                     //前期使用ERP数据源关联自有数据，原因：已生成计划订单不明确
-                    var orderList = ErpOrder.FindAll(x => x.Fzfl == category);
+                    var orderList = OrderDatapool.FindAll(x => x.Fzfl == category);
 
                     //每个品类每次只取1000条就够了
                     if (orderList.Count > 1000)
@@ -81,6 +85,8 @@ namespace TestService.Helper
 
                     ListOrder.AddRange(orderList.ConvertAll(x => x.Khdh));
                 }
+
+                //去除多余得裙子和马甲
 
                 //添加的订单明细客户单号去重
                 ListOrder = ListOrder.Distinct().ToList();
@@ -152,8 +158,7 @@ namespace TestService.Helper
                     //将产能能不饱和的生产线聚合重新分配
                     LineOrder.AddRange(ScheduingOrder(lineUnSaturated, listOrder.ConvertAll(x => x.Khdh)));
                 }
-
-
+                
                 //控制台输出查看当前分了多少
                 Console.WriteLine(" 最终分配订单");
                 lines.ForEach(x => Console.WriteLine(x.LineName + "::" + LineOrder.FindAll(y => y.LineName == x.LineName).Sum(y => y.Num)));
@@ -372,7 +377,7 @@ namespace TestService.Helper
         }
 
         //检测当前产线特殊规则得订单是否超出
-        public bool TestRule(TBasisLinesFz line, List<LineOrderPool> LineOrders)
+        public bool TestRule(TBasisLinesFz line, List<LineOrderPool> lineOrders)
         {
             try
             {
@@ -382,7 +387,7 @@ namespace TestService.Helper
                    .ExecuteTypedList<TBasisLinesRestriction>();
 
                 //--当前产线分配的订单
-                var nowLineOrder = LineOrders.FindAll(x => x.LineName == line.LineName);
+                var nowLineOrder = lineOrders.FindAll(x => x.LineName == line.LineName);
 
                 //当前已有订单明细
                 var mxList = new Select().From<TBLDataOrdermx>()
@@ -464,8 +469,8 @@ namespace TestService.Helper
                 throw;
             }
         }
-        
-        //检测裙子和马甲得数量（弃用）
+
+        //检测裙子和马甲得数量
         public List<VOrderDatapoolXf> RemoveC_DMore(List<VOrderDatapoolXf> orders, List<TBasisLinesFz> lins)
         {
             var orderList = new List<VOrderDatapoolXf>();
@@ -474,25 +479,32 @@ namespace TestService.Helper
                 //备份原数据传出
                 orderList.AddRange(orders);
 
-                var rMore = new List<string>();
+                //裙子马甲需要得总数量
                 var cCount = lins.FindAll(x => x.Abbreviation == "C").Sum(x => x.Capacity);
                 var dCount = lins.FindAll(x => x.Abbreviation == "D").Sum(x => x.Capacity);
 
-                var cNum = 0;
-                var dNum = 0;
+                //裙子马甲得订单集合
+                var list = orders.FindAll(x => x.Sldl.Contains("C") || x.Sldl.Contains("D"));
 
-                foreach (var order in orders.FindAll(
-                    x => x.Sldl.Contains("C") || x.Sldl.Contains("D")))
+                //遍历集合如果马甲数量超出
+                foreach (var order in list.OrderByDescending(x => x.Jhrq))
                 {
-                    if (cNum >= cCount || dNum >= dCount)
-                        rMore.Add(order.Khdh);
+                    int mjNum = orders.FindAll(x => x.Fzfl == "MMJ" || x.Fzfl == "WMJ" || x.Fzfl == "TMJ").Sum(x => int.Parse(x.Ddsl.ToString()));
+                    int xqNum = orders.FindAll(x => x.Fzfl == "WXQ").Sum(x => int.Parse(x.Ddsl.ToString()));
+                    if (mjNum > cCount && order.Sldl.Contains("C"))
+                    {
+                        orders.RemoveAll(x => x.Khdh == order.Khdh);
+                    }
+                    else if (xqNum > dCount && order.Sldl.Contains("D"))
+                    {
+                        orders.RemoveAll(x => x.Khdh == order.Khdh);
+                    }
+                    else
+                    {
+                        break;
+                    }
 
-                    if (order.Sldl.Contains("C"))
-                        cNum += int.Parse(order.Ddsl.ToString());
-                    if (order.Sldl.Contains("D"))
-                        dNum += int.Parse(order.Ddsl.ToString());
                 }
-                rMore.Distinct().ToList().ForEach(x => orders.RemoveAll(y => y.Khdh == x));
             }
             catch (Exception e)
             {

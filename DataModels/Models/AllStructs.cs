@@ -206,6 +206,8 @@ namespace Model
         
 		public static readonly string TOldApsByCfHistory = @"T_OldApsByCf@History";
         
+		public static readonly string TOrderdatapoolxf = @"T_orderdatapoolxf";
+        
 		public static readonly string TOrderKeyProcess = @"T_OrderKeyProcess";
         
 		public static readonly string TOrderMESArtInfo = @"T_OrderMESArtInfo";
@@ -725,6 +727,11 @@ namespace Model
             get { return DataService.GetSchema("T_OldApsByCf@History", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TOrderdatapoolxf
+		{
+            get { return DataService.GetSchema("T_orderdatapoolxf", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TOrderKeyProcess
 		{
             get { return DataService.GetSchema("T_OrderKeyProcess", "Nowthwin"); }
@@ -879,6 +886,8 @@ namespace Model
 		public static readonly string VOderArtHour = @"V_OderArtHour";
         
 		public static readonly string VOrderDatapoolXf = @"V_OrderDatapoolXf";
+        
+		public static readonly string VOrderDatapoolXfNew = @"V_OrderDatapoolXf_new";
         
 		public static readonly string VOrderKeyProcessRow = @"V_OrderKeyProcessRow";
         

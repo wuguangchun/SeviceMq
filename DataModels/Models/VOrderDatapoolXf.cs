@@ -86,7 +86,7 @@ namespace Model{
                 colvarOrderid.DataType = DbType.Int32;
                 colvarOrderid.MaxLength = 0;
                 colvarOrderid.AutoIncrement = false;
-                colvarOrderid.IsNullable = true;
+                colvarOrderid.IsNullable = false;
                 colvarOrderid.IsPrimaryKey = false;
                 colvarOrderid.IsForeignKey = false;
                 colvarOrderid.IsReadOnly = false;
@@ -98,7 +98,7 @@ namespace Model{
                 colvarKhdh.DataType = DbType.String;
                 colvarKhdh.MaxLength = 250;
                 colvarKhdh.AutoIncrement = false;
-                colvarKhdh.IsNullable = true;
+                colvarKhdh.IsNullable = false;
                 colvarKhdh.IsPrimaryKey = false;
                 colvarKhdh.IsForeignKey = false;
                 colvarKhdh.IsReadOnly = false;
@@ -122,7 +122,7 @@ namespace Model{
                 colvarFzfl.DataType = DbType.String;
                 colvarFzfl.MaxLength = 250;
                 colvarFzfl.AutoIncrement = false;
-                colvarFzfl.IsNullable = true;
+                colvarFzfl.IsNullable = false;
                 colvarFzfl.IsPrimaryKey = false;
                 colvarFzfl.IsForeignKey = false;
                 colvarFzfl.IsReadOnly = false;
@@ -425,11 +425,11 @@ namespace Model{
 	      
         [XmlAttribute("Orderid")]
         [Bindable(true)]
-        public int? Orderid 
+        public int Orderid 
 	    {
 		    get
 		    {
-			    return GetColumnValue<int?>("orderid");
+			    return GetColumnValue<int>("orderid");
 		    }
             set 
 		    {

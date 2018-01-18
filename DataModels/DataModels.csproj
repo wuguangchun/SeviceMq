@@ -255,6 +255,8 @@
     <Compile Include="Models\TOldApsByCfController.cs" />
     <Compile Include="Models\TOldApsByCfHistory.cs" />
     <Compile Include="Models\TOldApsByCfHistoryController.cs" />
+    <Compile Include="Models\TOrderdatapoolxf.cs" />
+    <Compile Include="Models\TOrderdatapoolxfController.cs" />
     <Compile Include="Models\TOrderKeyProcess.cs" />
     <Compile Include="Models\TOrderKeyProcessController.cs" />
     <Compile Include="Models\TOrderMESArtInfo.cs" />
