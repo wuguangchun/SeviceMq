@@ -119,7 +119,8 @@ namespace TestService.Helper
                         //订单不饱和
                         if (line.Capacity - LineOrder.FindAll(x => x.LineName == line.LineName).Sum(x => x.Num) > 5)
                         {
-                            lineUnSaturated.Add(line);
+                            if (!lineUnSaturated.Contains(line))
+                                lineUnSaturated.AddRange(Lines.FindAll(x => x.Abbreviation == liner.Key));
                         }
 
                 }
@@ -145,11 +146,14 @@ namespace TestService.Helper
 
                         //计算现有数量的订单比例数量
                         foreach (var linesFz in lineUnSaturated.FindAll(x => x.Abbreviation == fzes.Key))
+                        {
                             /**
                                  * 公式计算规则
                                  * 现有同品类数量总和 * （所有同品类的总和/当前产线的所需数量）
                                  * **/
-                            linesFz.Capacity = nowOrder * (sum / linesFz.Capacity);
+                            var num = (float)linesFz.Capacity / (float)sum * nowOrder;
+                            linesFz.Capacity = int.Parse(Math.Round(num).ToString());
+                        }
                     }
 
                     //从已分配的集合中删除等待重新分配订单数据
