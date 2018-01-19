@@ -86,7 +86,7 @@ namespace Model{
                 colvarOrderid.DataType = DbType.Int32;
                 colvarOrderid.MaxLength = 0;
                 colvarOrderid.AutoIncrement = false;
-                colvarOrderid.IsNullable = false;
+                colvarOrderid.IsNullable = true;
                 colvarOrderid.IsPrimaryKey = false;
                 colvarOrderid.IsForeignKey = false;
                 colvarOrderid.IsReadOnly = false;
@@ -98,7 +98,7 @@ namespace Model{
                 colvarKhdh.DataType = DbType.String;
                 colvarKhdh.MaxLength = 250;
                 colvarKhdh.AutoIncrement = false;
-                colvarKhdh.IsNullable = false;
+                colvarKhdh.IsNullable = true;
                 colvarKhdh.IsPrimaryKey = false;
                 colvarKhdh.IsForeignKey = false;
                 colvarKhdh.IsReadOnly = false;
@@ -122,7 +122,7 @@ namespace Model{
                 colvarFzfl.DataType = DbType.String;
                 colvarFzfl.MaxLength = 250;
                 colvarFzfl.AutoIncrement = false;
-                colvarFzfl.IsNullable = false;
+                colvarFzfl.IsNullable = true;
                 colvarFzfl.IsPrimaryKey = false;
                 colvarFzfl.IsForeignKey = false;
                 colvarFzfl.IsReadOnly = false;
@@ -345,6 +345,18 @@ namespace Model{
                 
                 schema.Columns.Add(colvarScjhbz);
                 
+                TableSchema.TableColumn colvarGyxx = new TableSchema.TableColumn(schema);
+                colvarGyxx.ColumnName = "gyxx";
+                colvarGyxx.DataType = DbType.String;
+                colvarGyxx.MaxLength = -1;
+                colvarGyxx.AutoIncrement = false;
+                colvarGyxx.IsNullable = true;
+                colvarGyxx.IsPrimaryKey = false;
+                colvarGyxx.IsForeignKey = false;
+                colvarGyxx.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarGyxx);
+                
                 
                 BaseSchema = schema;
                 //add this schema to the provider
@@ -425,11 +437,11 @@ namespace Model{
 	      
         [XmlAttribute("Orderid")]
         [Bindable(true)]
-        public int Orderid 
+        public int? Orderid 
 	    {
 		    get
 		    {
-			    return GetColumnValue<int>("orderid");
+			    return GetColumnValue<int?>("orderid");
 		    }
             set 
 		    {
@@ -730,6 +742,20 @@ namespace Model{
 			    SetColumnValue("SCJHBZ", value);
             }
         }
+	      
+        [XmlAttribute("Gyxx")]
+        [Bindable(true)]
+        public string Gyxx 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("gyxx");
+		    }
+            set 
+		    {
+			    SetColumnValue("gyxx", value);
+            }
+        }
 	    
 	    #endregion
     
@@ -785,6 +811,8 @@ namespace Model{
             public static string Sldl = @"sldl";
             
             public static string Scjhbz = @"SCJHBZ";
+            
+            public static string Gyxx = @"gyxx";
             
 	    }
 	    #endregion

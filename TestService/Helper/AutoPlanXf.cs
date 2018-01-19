@@ -18,18 +18,20 @@ namespace TestService.Helper
         public List<string> ListXjOrder { get; set; }
         public List<string> AllCategorys { get; set; }
         public List<VOrderDatapoolXf> OrderDatapool { get; set; }
+        public List<TBasisLinesRestriction> Restriction { get; set; }
 
         /// <summary>
-        ///     构造函数，初始化三大集合
+        ///     构造函数，初始化数据集合
         /// </summary>
         public AutoPlanXf()
         {
             ListOrder = new List<string>();
-            Lines = new List<TBasisLinesFz>();
+            Lines = new Select().From<TBasisLinesFz>().Where(TBasisLinesFz.LineTypeColumn).IsEqualTo("XF").ExecuteTypedList<TBasisLinesFz>();
             LineOrder = new List<LineOrderPool>();
             ListXjOrder = new List<string>();
             AllCategorys = new List<string>();
-            OrderDatapool = new List<VOrderDatapoolXf>();
+            OrderDatapool = new Select().From<VOrderDatapoolXf>().ExecuteTypedList<VOrderDatapoolXf>();
+            Restriction = new Select().From<TBasisLinesRestriction>().ExecuteTypedList<TBasisLinesRestriction>();
         }
 
         /// <summary>
@@ -39,9 +41,8 @@ namespace TestService.Helper
         {
             try
             {
-                var lines = new Select().From<TBasisLinesFz>()
-                    .Where(TBasisLinesFz.LineTypeColumn).IsEqualTo("XF")
-                    .ExecuteTypedList<TBasisLinesFz>();
+                var lines = new List<TBasisLinesFz>();
+                lines.AddRange(Lines);
 
                 //当前车间的产能品类
                 foreach (var categorys in lines.ConvertAll(x => x.Categorys))
@@ -55,9 +56,6 @@ namespace TestService.Helper
                         }
                     }
                 }
-
-                //当前可以分配得订单池
-                OrderDatapool = new Select().From<VOrderDatapoolXf>().ExecuteTypedList<VOrderDatapoolXf>();
 
                 //去掉没有交期天数得订单
                 OrderDatapool.RemoveAll(x => string.IsNullOrEmpty(x.Jqts));
@@ -82,8 +80,8 @@ namespace TestService.Helper
                     var orderList = OrderDatapool.FindAll(x => x.Fzfl == category);
 
                     //每个品类每次只取1000条就够了
-                    if (orderList.Count > 1000)
-                        orderList = orderList.OrderBy(x => x.Jhrq).Take(1000).ToList();
+                    if (orderList.Count > 300)
+                        orderList = orderList.OrderBy(x => x.Jhrq).Take(300).ToList();
 
                     orders.AddRange(orderList);
                 }
@@ -154,18 +152,19 @@ namespace TestService.Helper
                             var num = (float)linesFz.Capacity / (float)sum * nowOrder;
                             linesFz.Capacity = int.Parse(Math.Round(num).ToString());
                         }
+
                     }
 
                     //从已分配的集合中删除等待重新分配订单数据
-                    listOrder.ForEach(
-                        x => LineOrder.RemoveAll(y => y.LineName == x.LineName && y.Khdh == x.Khdh));
+                    listOrder.ForEach(x => LineOrder.RemoveAll(y => y.LineName == x.LineName && y.Khdh == x.Khdh));
 
                     //将产能能不饱和的生产线聚合重新分配
-                    LineOrder.AddRange(ScheduingOrder(lineUnSaturated, listOrder.ConvertAll(x => x.Khdh)));
+                    LineOrder.AddRange(ScheduingOrderUnion(lineUnSaturated, listOrder.ConvertAll(x => x.Khdh)));
                 }
 
                 //控制台输出查看当前分了多少
                 Console.WriteLine(" 最终分配订单");
+
                 lines.ForEach(x => Console.WriteLine(x.LineName + "::" + LineOrder.FindAll(y => y.LineName == x.LineName).Sum(y => y.Num)));
 
                 new Delete().From<TTempLineOrderPool>().Execute();
@@ -276,9 +275,11 @@ namespace TestService.Helper
                     foreach (var order in listOrder.FindAll(x => true))
                     {
                         //获取订单的明细信息（套装信息）
-                        var ordermx = new Select().From<TBLDataOrdermx>()
-                            .Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(order)
-                            .ExecuteTypedList<TBLDataOrdermx>();
+                        //var ordermx = new Select().From<TBLDataOrdermx>()
+                        //    .Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(order)
+                        //    .ExecuteTypedList<TBLDataOrdermx>();
+
+                        var ordermx = OrderDatapool.FindAll(x => x.Khdh == order);
 
                         //判断产线产能是否饱和
                         if (lineOrders.FindAll(x => x.LineName == line.LineName).Sum(x => x.Num) >=
@@ -387,19 +388,13 @@ namespace TestService.Helper
             try
             {
                 //--当前筛选条件集合获取
-                var restriction = new Select().From<TBasisLinesRestriction>()
-                   .Where(TBasisLinesRestriction.LineNameColumn).IsEqualTo(line.LineName)
-                   .ExecuteTypedList<TBasisLinesRestriction>();
+                var restriction = Restriction.FindAll(x => x.LineName == line.LineName);
 
                 //--当前产线分配的订单
                 var nowLineOrder = lineOrders.FindAll(x => x.LineName == line.LineName);
 
-                //当前已有订单明细
-                var mxList = new Select().From<TBLDataOrdermx>()
-                    .Where(TBLDataOrdermx.KhdhColumn).In(nowLineOrder.ConvertAll(x => x.Khdh))
-                    .ExecuteTypedList<TBLDataOrdermx>();
-
-
+                var mxList = new List<VOrderDatapoolXf>();
+                nowLineOrder.ForEach(x => mxList.AddRange(OrderDatapool.FindAll(y => y.Khdh == x.Khdh)));
                 //---LineOrder
                 //根据不同的规则筛选
                 foreach (var linesRestriction in restriction)
@@ -408,7 +403,7 @@ namespace TestService.Helper
                     var sXList = linesRestriction.Restriction.Split(',');
 
                     //当前的设限分类类型订单
-                    var nowOutOrders = new List<TBLDataOrdermx>();
+                    var nowOutOrders = new List<VOrderDatapoolXf>();
 
                     //-- MLWG 面料外观
                     if (linesRestriction.Identifies == "MLWG")

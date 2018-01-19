@@ -345,6 +345,18 @@ namespace Model{
                 
                 schema.Columns.Add(colvarScjhbz);
                 
+                TableSchema.TableColumn colvarGyxx = new TableSchema.TableColumn(schema);
+                colvarGyxx.ColumnName = "gyxx";
+                colvarGyxx.DataType = DbType.String;
+                colvarGyxx.MaxLength = -1;
+                colvarGyxx.AutoIncrement = false;
+                colvarGyxx.IsNullable = true;
+                colvarGyxx.IsPrimaryKey = false;
+                colvarGyxx.IsForeignKey = false;
+                colvarGyxx.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarGyxx);
+                
                 
                 BaseSchema = schema;
                 //add this schema to the provider
@@ -730,6 +742,20 @@ namespace Model{
 			    SetColumnValue("SCJHBZ", value);
             }
         }
+	      
+        [XmlAttribute("Gyxx")]
+        [Bindable(true)]
+        public string Gyxx 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("gyxx");
+		    }
+            set 
+		    {
+			    SetColumnValue("gyxx", value);
+            }
+        }
 	    
 	    #endregion
     
@@ -785,6 +811,8 @@ namespace Model{
             public static string Sldl = @"sldl";
             
             public static string Scjhbz = @"SCJHBZ";
+            
+            public static string Gyxx = @"gyxx";
             
 	    }
 	    #endregion

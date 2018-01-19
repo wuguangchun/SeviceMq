@@ -234,8 +234,6 @@ namespace Model
         
 		public static readonly string TWorkTimeShirt = @"T_WorkTimeShirt";
         
-		public static readonly string Test = @"Test";
-        
 		public static readonly string WmsSyncCutterAP = @"WMS_SYNC_CutterAPS";
         
 		public static readonly string WmsSyncPlanm = @"WMS_SYNC_planm";
@@ -795,11 +793,6 @@ namespace Model
 		public static TableSchema.Table TWorkTimeShirt
 		{
             get { return DataService.GetSchema("T_WorkTimeShirt", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table Test
-		{
-            get { return DataService.GetSchema("Test", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table WmsSyncCutterAP
