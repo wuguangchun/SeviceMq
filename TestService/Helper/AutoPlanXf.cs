@@ -20,9 +20,8 @@ namespace TestService.Helper
         public List<VOrderDatapoolXf> OrderDatapool { get; set; }
         public List<TBasisLinesRestriction> Restriction { get; set; }
 
-        /// <summary>
-        ///     构造函数，初始化数据集合
-        /// </summary>
+
+        //构造函数，初始化数据集合
         public AutoPlanXf()
         {
             ListOrder = new List<string>();
@@ -34,9 +33,7 @@ namespace TestService.Helper
             Restriction = new Select().From<TBasisLinesRestriction>().ExecuteTypedList<TBasisLinesRestriction>();
         }
 
-        /// <summary>
-        ///     筛选订单
-        /// </summary>
+        //筛选订单 
         public void OrderScreen()
         {
             try
@@ -66,11 +63,7 @@ namespace TestService.Helper
                 //线上加急订单
                 ListXjOrder.AddRange(OrderDatapool.FindAll(x => x.Jqts == "6").ConvertAll(x => x.Khdh));
                 OrderDatapool.RemoveAll(x => x.Jqts == "6");
-
-                //过滤裙子和马甲订单，只留需求的数量就好
-                var datapool = RemoveC_DMore(OrderDatapool, lines.FindAll(x => x.Abbreviation == "C" || x.Abbreviation == "D"));
-
-
+                
                 var orders = new List<VOrderDatapoolXf>();
 
                 //订单池数据
@@ -79,18 +72,33 @@ namespace TestService.Helper
                     //前期使用ERP数据源关联自有数据，原因：已生成计划订单不明确
                     var orderList = OrderDatapool.FindAll(x => x.Fzfl == category);
 
-                    //每个品类每次只取1000条就够了
-                    if (orderList.Count > 300)
+                    //如果是裙子品类，产能最大每小时是3左右，取50就够了
+                    if (category.Contains("XQ"))
+                    {
+                        orderList = orderList.OrderBy(x => x.Jhrq).Take(50).ToList();
+                    }//如果是马甲品类，产能最大每小时是40左右，取100就够了
+                    else if (category.Contains("MJ"))
+                    {
+                        orderList = orderList.OrderBy(x => x.Jhrq).Take(100).ToList();
+                    }//每个品类每次只取300条就够了
+                    else if (orderList.Count > 300)
+                    {
                         orderList = orderList.OrderBy(x => x.Jhrq).Take(300).ToList();
+                    }
+
 
                     orders.AddRange(orderList);
                 }
+
+                //过滤裙子和马甲订单，只留需求的数量就好
+                var datapool = RemoveC_DMore(OrderDatapool, lines.FindAll(x => x.Abbreviation == "C" || x.Abbreviation == "D"));
 
                 //添加的订单客户单号去重
                 ListOrder.AddRange(orders.OrderBy(x => x.Jhrq).ToList().ConvertAll(x => x.Khdh).Distinct());
 
 
                 //产线排序  以西服为主
+                Lines.Clear();
                 Lines.AddRange(lines.FindAll(x => x.Abbreviation == "F"));
                 Lines.AddRange(lines.FindAll(x => x.Abbreviation == "B"));
                 Lines.AddRange(lines.FindAll(x => x.Abbreviation == "D"));
@@ -196,8 +204,7 @@ namespace TestService.Helper
         }
 
         //根据产线和分配订单(检索其他产线的套装信息,优先并且必须包含在内)
-        public List<LineOrderPool> ScheduingOrderUnion(List<TBasisLinesFz> lines,
-            List<string> listOrder)
+        public List<LineOrderPool> ScheduingOrderUnion(List<TBasisLinesFz> lines, List<string> listOrder)
         {
             var lineOrders = new List<LineOrderPool>();
             try
@@ -275,15 +282,10 @@ namespace TestService.Helper
                     foreach (var order in listOrder.FindAll(x => true))
                     {
                         //获取订单的明细信息（套装信息）
-                        //var ordermx = new Select().From<TBLDataOrdermx>()
-                        //    .Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(order)
-                        //    .ExecuteTypedList<TBLDataOrdermx>();
-
                         var ordermx = OrderDatapool.FindAll(x => x.Khdh == order);
 
                         //判断产线产能是否饱和
-                        if (lineOrders.FindAll(x => x.LineName == line.LineName).Sum(x => x.Num) >=
-                            line.Capacity)
+                        if (lineOrders.FindAll(x => x.LineName == line.LineName).Sum(x => x.Num) >= line.Capacity)
                             break;
 
                         //如果当前是套装并且包含已分配完产线的品类就踢出去，避免超出
@@ -394,7 +396,7 @@ namespace TestService.Helper
                 var nowLineOrder = lineOrders.FindAll(x => x.LineName == line.LineName);
 
                 var mxList = new List<VOrderDatapoolXf>();
-                nowLineOrder.ForEach(x => mxList.AddRange(OrderDatapool.FindAll(y => y.Khdh == x.Khdh)));
+                nowLineOrder.ForEach(x => mxList.AddRange(OrderDatapool.FindAll(y => y.Khdh == x.Khdh && y.Fzfl == x.Fzfl)));
                 //---LineOrder
                 //根据不同的规则筛选
                 foreach (var linesRestriction in restriction)
@@ -458,6 +460,7 @@ namespace TestService.Helper
                     if (nowOutOrders.Sum(x => x.Ddsl) - linesRestriction.Capacity > 0)
                         return true;
                 }
+
                 return false;
             }
             catch (Exception e)

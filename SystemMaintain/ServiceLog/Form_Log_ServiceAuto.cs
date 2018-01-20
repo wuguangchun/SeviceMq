@@ -9,14 +9,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
-using SystemMaintain.ModelsOther;
 using APSWcfService.Helper;
+using DataModels.ModelsOther;
 using Model;
 using Newtonsoft.Json;
 using ServiceHandle.ModelsOther;
 using SubSonic;
 using SubSonic.Extensions;
 using WcfService1.OrderModel;
+using CadBlModelList = SystemMaintain.ModelsOther.CadBlModelList;
 using Timer = System.Timers.Timer;
 
 namespace SystemMaintain.ServiceLog
@@ -34,14 +35,17 @@ namespace SystemMaintain.ServiceLog
         {
             try
             {
-                logList = new Select().From<TLogService>()
+                var logListSql = new Select().From<TLogService>()
                     .Where(TLogService.KhdhColumn).IsEqualTo("")
                     .And(TLogService.MessagePathColumn).IsNotEqualTo("CallBackMsg")
                     .And(TLogService.MessagePathColumn).IsNotEqualTo("LogService")
                     .And(TLogService.MessagePathColumn).IsNotEqualTo("computejq")
+                    .And(TLogService.MessagePathColumn).IsNotEqualTo("OnlineTest")
                     .And(TLogService.LableColumn).IsNotEqualTo("SchedulingReady")
-                    .And(TLogService.LableColumn).IsNotEqualTo("AutoKill") 
-                    .ExecuteTypedList<TLogService>();
+                    .And(TLogService.LableColumn).IsNotEqualTo("AutoKill");
+                //logListSql.Paged(1, 10000);
+
+                logList = logListSql.ExecuteTypedList<TLogService>();
 
                 if (this.InvokeRequired)
                 {
@@ -86,13 +90,13 @@ namespace SystemMaintain.ServiceLog
                     //BL主动推送的订单数据
                     if (logService.MessagePath == "NewOrderData" && logService.Lable == "BlPutData")
                     {
-                        var obj = (List<BLDate>)JsonConvert.DeserializeObject(logService.Context, typeof(List<BLDate>));
+                        var obj = (List<BLData>)JsonConvert.DeserializeObject(logService.Context, typeof(List<BLData>));
                         okRow += UpdateLogs(logService.Id, obj?.First().order.Khdh) ? 1 : 0;
                     }
                     //新订单数据生成CAD排程数据/生成APS基础数据
                     else if ((logService.MessagePath == "CadOrder" || logService.MessagePath == "AnalysisOrder") && logService.Lable == "NewOrder")
                     {
-                        var obj = (BLDate)JsonConvert.DeserializeObject(logService.Context, typeof(BLDate));
+                        var obj = (BLData)JsonConvert.DeserializeObject(logService.Context, typeof(BLData));
                         okRow += UpdateLogs(logService.Id, obj.order.Khdh) ? 1 : 0;
                     }
                     //CAD排程数据准备推送给BL
@@ -103,8 +107,14 @@ namespace SystemMaintain.ServiceLog
                     //CAD排程数据推送给BL
                     else if (logService.MessagePath == "PutCadBL" && logService.Lable == "CADScheduling")
                     {
-                        var obj = (CadBlModelList)JsonConvert.DeserializeObject(logService.Context, typeof(CadBlModelList));
+                        var obj = (DataModels.ModelsOther.CadBlModelList)JsonConvert.DeserializeObject(logService.Context, typeof(DataModels.ModelsOther.CadBlModelList));
                         okRow += UpdateLogs(logService.Id, obj.ds?.First().customerId) ? 1 : 0;
+                    }
+                    //接受Bl推送得排料单
+                    else if (logService.MessagePath == "AnalysisOrder" && logService.Lable == "NewOrderPld")
+                    {
+                        var obj = (Blpld)JsonConvert.DeserializeObject(logService.Context, typeof(Blpld));
+                        okRow += UpdateLogs(logService.Id, obj.Khdh) ? 1 : 0;
                     }
                     //计划下达生成裁剪排程数据
                     else if (logService.MessagePath == "CaiJianOrder" && logService.Lable == "NewOrder")
@@ -153,9 +163,20 @@ namespace SystemMaintain.ServiceLog
                         okRow += UpdateLogs(logService.Id, new TBLDataOrdermx(TBLDataOrdermx.MxidColumn.ColumnName, logService.Context).Khdh) ? 1 : 0;
                     }
                     //从ERP获取计划数据
-                    else if (logService.MessagePath == "PlanInfo" && (logService.Lable == "NewPlan"|| logService.Lable == "NewPlanMain"))
+                    else if (logService.MessagePath == "PlanInfo" && (logService.Lable == "NewPlan" || logService.Lable == "NewPlanMain") || logService.Lable == "CreateScjhbz")
                     {
                         okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
+                    }
+                    //等待获取面辅料外观匹配
+                    else if (logService.MessagePath == "CreateScjhbz" && (logService.Lable == "NewOrder" || logService.Lable == "SCJHBZ"))
+                    {
+                        okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
+                    }
+                    //往来户数据
+                    else if (logService.MessagePath == "Intercourse" && logService.Lable == "NewCustomer")
+                    {
+                        var intercourse = (TBasisIntercourse)JsonConvert.DeserializeObject(logService.Context, typeof(TBasisIntercourse));
+                        okRow += UpdateLogs(logService.Id, intercourse.Xtwldm) ? 1 : 0;
                     }
 
                     //执行后删除日志信息

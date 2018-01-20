@@ -74,7 +74,7 @@ namespace ServiceHandle.Helper
             Thread threadOnlineTest = new Thread(OnlineTestHandle.GetMessageQueues) { IsBackground = true };
             threadOnlineTest.Start();
 
-            //线上队列测试
+            //往来户差异更新接口
             Thread threadIntercourse = new Thread(IntercourseHandle.GetMessageQueues) { IsBackground = true };
             threadIntercourse.Start();
 

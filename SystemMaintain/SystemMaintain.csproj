@@ -342,6 +342,10 @@
       <Project>{fc11b119-2974-4750-bc01-0b56b4b630ee}</Project>
       <Name>DataModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IntelligentLogHelper\IntelligentLogHelper.csproj">
+      <Project>{81db3b66-ab56-4eb9-b0a6-cbe4ada33e45}</Project>
+      <Name>IntelligentLogHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
