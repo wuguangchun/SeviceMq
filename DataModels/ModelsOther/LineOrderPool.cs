@@ -13,4 +13,20 @@ namespace TestService.ModelsOther
         public string Fzfl { get; set; }
         public int Num { get; set; }
     }
+
+    public class PlanInfo
+    {
+        public string Sczsbh { get; set; }
+        public string Scjhry { get; set; }
+        public string Scshry { get; set; }
+        public string Scgcdm { get; set; }
+        public string Scxdrq { get; set; }
+        public string Scjhrq { get; set; }
+        public string Scshrq { get; set; }
+        public string Sczsbz { get; set; }
+        public string Sclrrq { get; set; }
+        public string Type { get; set; }
+        public List<LineOrderPool> OrderPools { get; set; }
+    }
+
 }

@@ -347,6 +347,19 @@ namespace Model
 				colvarMddm.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarMddm);
 				
+				TableSchema.TableColumn colvarKhzb = new TableSchema.TableColumn(schema);
+				colvarKhzb.ColumnName = "Khzb";
+				colvarKhzb.DataType = DbType.String;
+				colvarKhzb.MaxLength = 10;
+				colvarKhzb.AutoIncrement = false;
+				colvarKhzb.IsNullable = true;
+				colvarKhzb.IsPrimaryKey = false;
+				colvarKhzb.IsForeignKey = false;
+				colvarKhzb.IsReadOnly = false;
+				colvarKhzb.DefaultSetting = @"";
+				colvarKhzb.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKhzb);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -492,6 +505,14 @@ namespace Model
 			get { return GetColumnValue<string>(Columns.Mddm); }
 			set { SetColumnValue(Columns.Mddm, value); }
 		}
+		  
+		[XmlAttribute("Khzb")]
+		[Bindable(true)]
+		public string Khzb 
+		{
+			get { return GetColumnValue<string>(Columns.Khzb); }
+			set { SetColumnValue(Columns.Khzb, value); }
+		}
 		
 		#endregion
 		
@@ -512,7 +533,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType,string varMdmc,string varMddm)
+		public static void Insert(string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType,string varMdmc,string varMddm,string varKhzb)
 		{
 			TBLDataOrder item = new TBLDataOrder();
 			
@@ -548,6 +569,8 @@ namespace Model
 			
 			item.Mddm = varMddm;
 			
+			item.Khzb = varKhzb;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -558,7 +581,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varOrderid,string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType,string varMdmc,string varMddm)
+		public static void Update(int varOrderid,string varKhdh,DateTime? varTrantime,DateTime? varJhrq,DateTime? varCreatetime,string varSldl,string varCustomername,string varTxtz,string varXhSyKh,string varPbcd,DateTime? varAudittime,string varTzecode,string varScggdh,int? varFlagDelete,int? varOrderType,string varMdmc,string varMddm,string varKhzb)
 		{
 			TBLDataOrder item = new TBLDataOrder();
 			
@@ -595,6 +618,8 @@ namespace Model
 				item.Mdmc = varMdmc;
 			
 				item.Mddm = varMddm;
+			
+				item.Khzb = varKhzb;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -728,6 +753,13 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn KhzbColumn
+        {
+            get { return Schema.Columns[17]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -749,6 +781,7 @@ namespace Model
 			 public static string OrderType = @"orderType";
 			 public static string Mdmc = @"mdmc";
 			 public static string Mddm = @"mddm";
+			 public static string Khzb = @"Khzb";
 						
 		}
 		#endregion

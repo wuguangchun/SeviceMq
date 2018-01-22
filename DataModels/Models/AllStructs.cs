@@ -880,7 +880,7 @@ namespace Model
         
 		public static readonly string VOrderDatapoolXf = @"V_OrderDatapoolXf";
         
-		public static readonly string VOrderDatapoolXfNew = @"V_OrderDatapoolXf_new";
+		public static readonly string VOrderDatapoolXfTest = @"V_OrderDatapoolXf_Test";
         
 		public static readonly string VOrderKeyProcessRow = @"V_OrderKeyProcessRow";
         

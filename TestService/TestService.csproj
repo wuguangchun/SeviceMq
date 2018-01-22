@@ -87,7 +87,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Helper\AutoPlanCy.cs" />
-    <Compile Include="Helper\AutoPlanXf.cs" />
     <Compile Include="Helper\PushWebHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -191,6 +190,10 @@
     <ProjectReference Include="..\DataModels\DataModels.csproj">
       <Project>{fc11b119-2974-4750-bc01-0b56b4b630ee}</Project>
       <Name>DataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlanInfoPlugs\PlanInfoPlugs.csproj">
+      <Project>{daecc43c-fefb-46ff-9d28-f9e2b08dab82}</Project>
+      <Name>PlanInfoPlugs</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServiceHelper\ServiceHelper.csproj">
       <Project>{1cbb637c-428f-492a-940f-701ec0494dbf}</Project>

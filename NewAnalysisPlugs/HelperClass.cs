@@ -190,7 +190,7 @@ namespace NewAnalysisPlugs
                 throw;
             }
         }
-        
+
         //生成FzSpecial字段 缝制特殊工艺订单
         public string GetFZSpecialCode(string[] gyxx, string sType)
         {
@@ -209,6 +209,26 @@ namespace NewAnalysisPlugs
             catch (Exception e)
             {
                 throw;
+            }
+        }
+
+        //根据门店代码返回客户组别
+        public string GetKhzb(string wldm)
+        {
+            try
+            {
+                //获取订单的门店信息
+                var intercourse = new Select().From<TBasisIntercourse>()
+                    .Where(TBasisIntercourse.XtwldmColumn).IsEqualTo(wldm)
+                    .ExecuteTypedList<TBasisIntercourse>()
+                    .FirstOrDefault();
+
+                return intercourse?.Xskhzb;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return "门店信息空";
             }
         }
     }

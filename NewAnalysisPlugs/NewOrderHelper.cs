@@ -88,7 +88,8 @@ namespace NewAnalysisPlugs
                         Scggdh = blDate.order.Ecode,
                         OrderType = int.Parse(blDate.order.OrderType),
                         Mddm = blDate.order.Mddm,
-                        Mdmc = blDate.order.Mdmc
+                        Mdmc = blDate.order.Mdmc,
+                        Khzb = new HelperClass().GetKhzb(blDate.order.Mddm)=="13"? "国外" : "国内"
                     };
                     tblDataOrder.Save();
                     if (tblDataOrder.Orderid > 0)

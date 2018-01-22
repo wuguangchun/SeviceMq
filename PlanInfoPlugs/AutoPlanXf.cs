@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.UI.WebControls;
-using Model;
+﻿using Model;
 using SubSonic;
 using SubSonic.Extensions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using TestService.ModelsOther;
 
 namespace TestService.Helper
@@ -63,7 +62,7 @@ namespace TestService.Helper
                 //线上加急订单
                 ListXjOrder.AddRange(OrderDatapool.FindAll(x => x.Jqts == "6").ConvertAll(x => x.Khdh));
                 OrderDatapool.RemoveAll(x => x.Jqts == "6");
-                
+
                 var orders = new List<VOrderDatapoolXf>();
 
                 //订单池数据
@@ -196,6 +195,9 @@ namespace TestService.Helper
                         Console.WriteLine(e);
                     }
                 }
+
+                //筛选订单完成
+                new CreatePlanNo(LineOrder).AutoPlanNo();
             }
             catch (Exception e)
             {
@@ -513,4 +515,35 @@ namespace TestService.Helper
         }
 
     }
+
+    public class CreatePlanNo
+    {
+        public List<LineOrderPool> LineOrder { get; set; }
+        public List<TBLDataOrder> DataOrder { get; set; }
+        public List<TBLDataOrdermx> DataOrderMx { get; set; }
+        public List<TAnalysisOrderMx> OrderAnalyMx { get; set; }
+
+        //构造函数，初始化集合
+        public CreatePlanNo(List<LineOrderPool> lineOrder)
+        {
+            //初始化数据
+            LineOrder = lineOrder;
+            DataOrder = new Select().From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn).In(lineOrder.ConvertAll(x => x.Khdh)).ExecuteTypedList<TBLDataOrder>();
+            DataOrderMx = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).In(lineOrder.ConvertAll(x => x.Khdh)).ExecuteTypedList<TBLDataOrdermx>();
+            OrderAnalyMx = new Select().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn).In(lineOrder.ConvertAll(x => x.Khdh)).ExecuteTypedList<TAnalysisOrderMx>();
+
+        }
+
+        public void AutoPlanNo()
+        {
+            //根据产线分组
+            var lineGroup = LineOrder.GroupBy(x => x.LineName);
+            foreach (var line in lineGroup)
+            {
+                //国外
+
+            }
+        }
+    }
+
 }
