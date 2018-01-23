@@ -14,7 +14,8 @@ namespace TestService.Helper
         public List<string> ListOrder { get; set; }
         public List<TBasisLinesFz> Lines { get; set; }
         public List<LineOrderPool> LineOrder { get; set; }
-        public List<string> ListXjOrder { get; set; }
+        public List<VOrderDatapoolXf> ListXjOrder { get; set; }
+        public List<VOrderDatapoolXf> ListPjOrder { get; set; }
         public List<string> AllCategorys { get; set; }
         public List<VOrderDatapoolXf> OrderDatapool { get; set; }
         public List<TBasisLinesRestriction> Restriction { get; set; }
@@ -26,7 +27,8 @@ namespace TestService.Helper
             ListOrder = new List<string>();
             Lines = new Select().From<TBasisLinesFz>().Where(TBasisLinesFz.LineTypeColumn).IsEqualTo("XF").ExecuteTypedList<TBasisLinesFz>();
             LineOrder = new List<LineOrderPool>();
-            ListXjOrder = new List<string>();
+            ListXjOrder = new List<VOrderDatapoolXf>();
+            ListPjOrder = new List<VOrderDatapoolXf>();
             AllCategorys = new List<string>();
             OrderDatapool = new Select().From<VOrderDatapoolXf>().ExecuteTypedList<VOrderDatapoolXf>();
             Restriction = new Select().From<TBasisLinesRestriction>().ExecuteTypedList<TBasisLinesRestriction>();
@@ -60,8 +62,12 @@ namespace TestService.Helper
                 OrderDatapool.RemoveAll(x => string.IsNullOrEmpty(x.Scjhbz) || x.Scjhbz.Contains("未"));
 
                 //线上加急订单
-                ListXjOrder.AddRange(OrderDatapool.FindAll(x => x.Jqts == "6").ConvertAll(x => x.Khdh));
+                ListXjOrder.AddRange(OrderDatapool.FindAll(x => x.Jqts == "6"));
                 OrderDatapool.RemoveAll(x => x.Jqts == "6");
+                //配件
+                ListPjOrder.AddRange(OrderDatapool.FindAll(x => x.Fzfl == "P0"));
+                OrderDatapool.RemoveAll(x => x.Fzfl == "P0");
+
 
                 var orders = new List<VOrderDatapoolXf>();
 
@@ -88,6 +94,8 @@ namespace TestService.Helper
 
                     orders.AddRange(orderList);
                 }
+                OrderDatapool.Clear();
+                OrderDatapool.AddRange(orders);
 
                 //过滤裙子和马甲订单，只留需求的数量就好
                 var datapool = RemoveC_DMore(OrderDatapool, lines.FindAll(x => x.Abbreviation == "C" || x.Abbreviation == "D"));
@@ -171,8 +179,82 @@ namespace TestService.Helper
 
                 //控制台输出查看当前分了多少
                 Console.WriteLine(" 最终分配订单");
-
                 lines.ForEach(x => Console.WriteLine(x.LineName + "::" + LineOrder.FindAll(y => y.LineName == x.LineName).Sum(y => y.Num)));
+
+
+                #region 加急订单分配
+
+
+                //----马甲全部给缝制1  ListXjOrder
+                ListXjOrder.FindAll(x => x.Fzfl.Contains("MJ")).ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, LineName = "马甲缝制1", Fzfl = x.Fzfl, Num = int.Parse(x.Ddsl.ToString()) }));
+
+                //----西裙全部给缝制1
+                ListXjOrder.FindAll(x => x.Fzfl == "WXQ").ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, LineName = "西裙缝制1", Fzfl = x.Fzfl, Num = int.Parse(x.Ddsl.ToString()) }));
+
+                //----西裤平分
+                var xjXk = ListXjOrder.FindAll(x => x.Fzfl.Contains("XK"));
+                foreach (var linesFz in Lines.FindAll(x => x.Abbreviation == "B"))
+                {
+                    //计算平均应分多少
+                    var num = (double)xjXk.Sum(x => x.Ddsl) / Lines.FindAll(x => x.Abbreviation == "B").Count;
+                    var nowCount = 0;
+                    num = num > 1 && num > 0 ? num : 1;
+                    //分配订单
+                    foreach (var datapoolXf in xjXk.FindAll(x => true).Take(int.Parse(Math.Round(num).ToString())))
+                    {
+                        nowCount += int.Parse(datapoolXf.Ddsl.ToString());
+                        if (num < nowCount)
+                        {
+                            break;
+                        }
+
+                        LineOrder.Add(new LineOrderPool
+                        {
+                            Khdh = datapoolXf.Khdh,
+                            LineName = linesFz.LineName,
+                            Fzfl = datapoolXf.Fzfl,
+                            Num = int.Parse(datapoolXf.Ddsl.ToString())
+                        });
+
+                        xjXk.Remove(datapoolXf);
+                    }
+                }
+
+                //----西服平分
+                var xjXf = ListXjOrder.FindAll(x => !x.Fzfl.Contains("XK") && !x.Fzfl.Contains("MJ") && x.Fzfl != "WXQ");
+                foreach (var linesFz in Lines.FindAll(x => true).FindAll(x => x.Abbreviation == "F"))
+                {
+                    //计算平均应分多少
+                    var num = (double)xjXf.Sum(x => x.Ddsl) / Lines.FindAll(x => x.Abbreviation == "F").Count;
+                    var nowCount = 0;
+                    num = num > 1 && num > 0 ? num : 1;
+
+                    //分配订单
+                    foreach (var datapoolXf in xjXf.Take(int.Parse(Math.Round(num).ToString())))
+                    {
+                        nowCount += int.Parse(datapoolXf.Ddsl.ToString());
+                        if (num > nowCount)
+                        {
+                            break;
+                        }
+
+                        LineOrder.Add(new LineOrderPool
+                        {
+                            Khdh = datapoolXf.Khdh,
+                            LineName = linesFz.LineName,
+                            Fzfl = datapoolXf.Fzfl,
+                            Num = int.Parse(datapoolXf.Ddsl.ToString())
+                        });
+
+                        xjXf.Remove(datapoolXf);
+
+                    }
+                }
+
+                //--配件订单分配（默认全部F2）
+                ListPjOrder.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, LineName = "西服缝制2", Fzfl = x.Fzfl, Num = int.Parse(x.Ddsl.ToString()) }));
+
+                #endregion
 
                 new Delete().From<TTempLineOrderPool>().Execute();
 
@@ -196,8 +278,9 @@ namespace TestService.Helper
                     }
                 }
 
+
                 //筛选订单完成
-                new CreatePlanNo(LineOrder).AutoPlanNo();
+                //new CreatePlanNo(LineOrder).AutoPlanNo();
             }
             catch (Exception e)
             {
@@ -536,14 +619,47 @@ namespace TestService.Helper
 
         public void AutoPlanNo()
         {
-            //根据产线分组
-            var lineGroup = LineOrder.GroupBy(x => x.LineName);
-            foreach (var line in lineGroup)
+            foreach (var tmw in "TMW,other".Split(','))
             {
-                //国外
 
+                var lineGroup = LineOrder.FindAll(x => x.Khdh.IndexOf(tmw, StringComparison.Ordinal) == 0).GroupBy(x => x.LineName);
+                if (tmw != "TMW")
+                {
+                    lineGroup = LineOrder.FindAll(x => x.Khdh.IndexOf(tmw, StringComparison.Ordinal) != 0).GroupBy(x => x.LineName);
+                }
+
+                //根据产线分组
+                foreach (var line in lineGroup)
+                {
+                    //国别筛选
+                    foreach (var gb in "国内,国外".Split(','))
+                    {
+
+                        var list = DataOrder.Where(x => LineOrder.FindAll(y => y.LineName == line.Key).Exists(t => t.Khdh == x.Khdh) && x.Khzb == gb).ToList().ConvertAll(x => x.Khdh);
+
+                        //面料外观筛选
+                        foreach (var mlwg in "MTM/,新/".Split(','))
+                        {
+                            OrderAnalyMx.ForEach(x=>x.Scjhbz.Replace("",""));
+                            list = OrderAnalyMx.Where(x => list.Contains(x.Khdh) && x.Scjhbz.IndexOf(mlwg, StringComparison.Ordinal) == 0).ToList()
+                                .ConvertAll(x => x.Khdh).Distinct().ToList();
+
+                            //性别筛选
+                            //测试订单
+                            //筛选加急的订单
+                            //筛选8天的订单
+                            //筛选9天的顶大
+                            //筛选TMW的订单
+                            //筛选普通的订单
+
+                        }
+
+                    }
+
+                }
             }
         }
+
     }
 
 }

@@ -47,7 +47,7 @@ namespace ServiceHandle.ModelsOther
         public string Sfhd { get; set; }
         public string Hdh { get; set; }
         public string Wlbw { get; set; }
-    
+
 
     }
 }

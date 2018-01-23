@@ -89,8 +89,13 @@ namespace NewAnalysisPlugs
                         OrderType = int.Parse(blDate.order.OrderType),
                         Mddm = blDate.order.Mddm,
                         Mdmc = blDate.order.Mdmc,
-                        Khzb = new HelperClass().GetKhzb(blDate.order.Mddm)=="13"? "国外" : "国内"
                     };
+
+                    if (blDate.order.OrderType == "1")
+                    {
+                        tblDataOrder.Khzb = new HelperClass().GetKhzb(blDate.order.Mddm) == "13" ? "国外" : "国内";
+                    }
+
                     tblDataOrder.Save();
                     if (tblDataOrder.Orderid > 0)
                     {
