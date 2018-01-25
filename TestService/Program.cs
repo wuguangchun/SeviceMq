@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Management;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.ServiceModel;
 using System.Text;
 using System.Threading;
@@ -44,13 +46,57 @@ namespace TestService
 
             //result = JsonConvert.SerializeObject(pld);
 
+            OrderKill order = new OrderKill
+            {
+                CallingParty = "BPM",
+                CustmerId = "JJJJ16080092",
+                OrderFl = "MXK"
+            };
+            var service = new ServiceTest.NewMassgeServiceClient();
+            result = service.InsertMessage("KillOrder", "KillSingle", JsonConvert.SerializeObject(order), null);
+
+
             //测试计划生成
-            new AutoPlanXf().OrderScreen();
+            var beginTime = DateTime.Now.Date.AddHours(10);
+            //new AutoPlanXf().OrderScreen(beginTime);
 
             Console.WriteLine(result);
             Console.ReadLine();
         }
 
+        public static string GetMac()
+        {
+            string text = "";
+            ManagementClass managementClass = new ManagementClass("Win32_NetworkAdapterConfiguration");
+            ManagementObjectCollection instances = managementClass.GetInstances();
+            using (ManagementObjectCollection.ManagementObjectEnumerator enumerator = instances.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    ManagementObject managementObject = (ManagementObject)enumerator.Current;
+                    bool flag = (bool)managementObject["IPEnabled"];
+                    if (flag)
+                    {
+                        text += managementObject["MACAddress"].ToString();
+                    }
+                }
+            }
+            return text;
+        }
+
+        public static string GetMD5(string s)
+        {
+            MD5 mD = new MD5CryptoServiceProvider();
+            byte[] array = mD.ComputeHash(Encoding.GetEncoding("utf-8").GetBytes(s));
+            StringBuilder stringBuilder = new StringBuilder(32);
+            int num;
+            for (int i = 0; i < array.Length; i = num + 1)
+            {
+                stringBuilder.Append(array[i].ToString("x").PadLeft(2, '0'));
+                num = i;
+            }
+            return stringBuilder.ToString();
+        }
 
         //生成FzSpecial字段 缝制特殊工艺订单
         public static string GetFZSpecialCode(string[] gyxx, string sType)
@@ -72,8 +118,6 @@ namespace TestService
                 throw;
             }
         }
-
-
 
         //public static void New201()
         //{

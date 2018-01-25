@@ -55,6 +55,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
@@ -114,11 +115,11 @@
     <None Include="Connected Services\ServiceOld\NewMessageQueues1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceTest\NewMassgeService.wsdl" />
-    <None Include="Connected Services\ServiceTest\NewMassgeService.xsd">
+    <None Include="Connected Services\ServiceTest\NewMassgeService1.wsdl" />
+    <None Include="Connected Services\ServiceTest\NewMassgeService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceTest\NewMassgeService1.xsd">
+    <None Include="Connected Services\ServiceTest\NewMassgeService21.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />

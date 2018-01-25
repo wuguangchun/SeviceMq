@@ -44,7 +44,7 @@ namespace ServiceHandle.Handle
             try
             {
                 //撤单前暂停所有进程，避免锁表删数据超时 ---也不用考虑启用进程，因为在全局中有进程自检类
-                Helper.AutoStart.threads.FindAll(x => x.Name != "KillOrder"&&x.ThreadState==ThreadState.Running).ForEach(x => x.Suspend());
+                Helper.AutoStart.threads.FindAll(x => x.Name != "KillOrder" && x.ThreadState == ThreadState.Running).ForEach(x => x.Suspend());
 
                 var mq = (MessageQueue)sender;
                 message = mq.EndReceive(e.AsyncResult);
@@ -53,6 +53,10 @@ namespace ServiceHandle.Handle
                 if (message.Label.ToLower().Trim() == "KillOrder".ToLower())
                 {//接收BL传入数据源
                     reMeg = new KillOrderHelper().KillOrder(message.Body.ToString());
+                }
+                else if (message.Label.ToLower().Trim() == "KillSingle".ToLower())
+                {//接收BL传入数据源
+                    reMeg = new KillOrderHelper().KillSingle(message.Body.ToString());
                 }
                 else if (json.RetCode.ToLower() == "proceed")//投诉异常：需要新增队列通知
                 {

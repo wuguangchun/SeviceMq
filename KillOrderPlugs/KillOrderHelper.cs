@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataModels.ModelsOther;
 using Newtonsoft.Json;
+using ServiceHandle.ModelsOther;
 
 namespace KillOrderPlugs
 {
@@ -18,101 +19,50 @@ namespace KillOrderPlugs
             var resultJson = new JsonHelper();
             try
             {
-                string result = string.Empty;
-
-
-                //T_Analysis_Order
-                var killAnalysisOrder = new Delete().From<TAnalysisOrder>()
-                    .Where(TAnalysisOrder.CustomerIdColumn).IsEqualTo(json);
-
-                //T_Analysis_OrderMx
-                var killAnalysisOrderMx = new Delete().From<TAnalysisOrderMx>()
-                    .Where(TAnalysisOrderMx.KhdhColumn).IsEqualTo(json);
-
-                //T_Analysis_OrderList
-                var killOrderList = new Delete().From<TAnalysisOrderList>()
-                 .Where(TAnalysisOrderList.CustomerIdColumn).IsEqualTo(json);
-
                 //获取明细ID
                 var mxlist = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(json).ExecuteTypedList<TBLDataOrdermx>();
 
                 //循环删除MES工时数据
                 foreach (var ordermx in mxlist)
                 {
-
                     //T_OrderKeyProcess
-                    new Delete().From<TOrderKeyProcess>()
-                         .Where(TOrderKeyProcess.MxidColumn).IsEqualTo(ordermx.Mxid)
-                         .Execute();
+                    new Delete().From<TOrderKeyProcess>().Where(TOrderKeyProcess.MxidColumn).IsEqualTo(ordermx.Mxid).Execute();
 
                     //T_OrderMESArtInfo
-                    new Delete().From<TOrderMESArtInfo>()
-                        .Where(TOrderMESArtInfo.MxIdColumn).IsEqualTo(ordermx.Mxid)
-                        .Execute();
+                    new Delete().From<TOrderMESArtInfo>().Where(TOrderMESArtInfo.MxIdColumn).IsEqualTo(ordermx.Mxid).Execute();
                 }
 
-                //T_Analysis_OrderListByDH
-                //var killOrderList=new Delete().From<TAnalysisOrderListByDH>()
-                //    .Where(TAnalysisOrderListByDH.CustomerIdColumn).IsEqualTo(json);
+                new Delete().From<TAnalysisOrder>().Where(TAnalysisOrder.CustomerIdColumn).IsEqualTo(json).Execute();
+                new Delete().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn).IsEqualTo(json).Execute();
+                new Delete().From<TAnalysisOrderList>().Where(TAnalysisOrderList.CustomerIdColumn).IsEqualTo(json).Execute();
+                new Delete().From<TAnalysisOrderListByCF>().Where(TAnalysisOrderListByCF.CustomerIdColumn).IsEqualTo(json).Execute();
+                new Delete().From<TAnalysisOutputList>().Where(TAnalysisOutputList.OrderNoColumn).IsEqualTo(json).Execute();
+                new Delete().From<TAnalysisOutPutListByCF>().Where(TAnalysisOutPutListByCF.CustomerIdColumn).IsEqualTo(json).Execute();
+                new Delete().From<TAnalysisOutPutListByFZ>().Where(TAnalysisOutPutListByFZ.CustomerIdColumn).IsEqualTo(json).Execute();
+                new Delete().From<TBlankingDetaile>().Where(TBlankingDetaile.CustumerIdColumn).IsEqualTo(json).Execute();
+                new Delete().From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn).IsEqualTo(json).Execute();
+                new Delete().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(json).Execute();
+                new Delete().From<TBLDataMflxx>().Where(TBLDataMflxx.KhdhColumn).IsEqualTo(json).Execute();
+                new Delete().From<TOldApsByCf>().Where(TOldApsByCf.OrderIDColumn).IsEqualTo(json).Execute();
+                new Delete().From<TBasisOrderStatus>().Where(TBasisOrderStatus.CustomerIdColumn).IsEqualTo(json).Execute();
 
-                //T_Analysis_OrderListByCF
-                var killOrderListByCf = new Delete().From<TAnalysisOrderListByCF>()
-                    .Where(TAnalysisOrderListByCF.CustomerIdColumn).IsEqualTo(json);
 
-                //T_Analysis_OutputList
-                var killOrderListOut = new Delete().From<TAnalysisOutputList>()
-                    .Where(TAnalysisOutputList.OrderNoColumn).IsEqualTo(json);
-
-                //T_Analysis_OutPutListByCF
-                var killOrderListOutByCf = new Delete().From<TAnalysisOutPutListByCF>()
-                    .Where(TAnalysisOutPutListByCF.CustomerIdColumn).IsEqualTo(json);
-
-                //T_Analysis_OutPutListByFZ
-                var killOrderListOutByfz = new Delete().From<TAnalysisOutPutListByFZ>()
-                    .Where(TAnalysisOutPutListByFZ.CustomerIdColumn).IsEqualTo(json);
-
-                //T_BlankingDetailes
-                var killBlankingDetaile = new Delete().From<TBlankingDetaile>()
-                    .Where(TBlankingDetaile.CustumerIdColumn).IsEqualTo(json);
-
-                //T_BLData_Order
-                var killBLOrder = new Delete().From<TBLDataOrder>()
-                    .Where(TBLDataOrder.KhdhColumn).IsEqualTo(json);
-
-                //T_BLData_Ordermx
-                var killBLOrdermx = new Delete().From<TBLDataOrdermx>()
-                    .Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(json);
-
-                //T_BLData_Mflxx
-                var killBLMflxx = new Delete().From<TBLDataMflxx>()
-                    .Where(TBLDataMflxx.KhdhColumn).IsEqualTo(json);
-
-                //T_OldApsByCf
-                var killOldApsByCf = new Delete().From<TOldApsByCf>()
-                    .Where(TOldApsByCf.OrderIDColumn).IsEqualTo(json);
-
-                //T_Basis_OrderStatus
-                var killOrderStatus = new Delete().From<TBasisOrderStatus>()
-                    .Where(TBasisOrderStatus.CustomerIdColumn).IsEqualTo(json);
-
-                result += $"T_Analysis_OrderList撤回{killOrderList.Execute()}条数据，";
-                result += $"T_Analysis_OrderListByCF撤回{killOrderListByCf.Execute()}条数据，";
-                result += $"T_Analysis_OutputList撤回{killOrderListOut.Execute()}条数据，";
-                result += $"T_Analysis_OutPutListByCF撤回{killOrderListOutByCf.Execute()}条数据，";
-                result += $"T_Analysis_OutPutListByFZ撤回{killOrderListOutByfz.Execute()}条数据，";
-                result += $"T_BlankingDetailes撤回{killBlankingDetaile.Execute()}条数据，";
-                result += $"T_BLData_Order撤回{killBLOrder.Execute()}条数据，";
-                result += $"T_BLData_Ordermx撤回{killBLOrdermx.Execute()}条数据，";
-                result += $"T_BLData_Mflxx撤回{killBLMflxx.Execute()}条数据，";
-                result += $"T_OldApsByCf撤回{killOldApsByCf.Execute()}条数据。";
-                result += $"T_Basis_OrderStatus撤回{killOrderStatus.Execute()}条数据。";
-                result += $"T_Analysis_Order撤回{killAnalysisOrder.Execute()}条数据。";
-                result += $"T_Analysis_OrderMx撤回{killAnalysisOrderMx.Execute()}条数据。";
-
+                //调用存储过程删已经圈起来的计划
+                try
+                {
+                    var spd = new StoredProcedure("proc_DelERPData");
+                    spd.CommandTimeout = 300;
+                    spd.Command.AddParameter("@OrderID", json);
+                    spd.Execute();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
 
 
                 resultJson.RetCode = "success";
-                resultJson.RetMessage = result;
+                resultJson.RetMessage = "撤单成功";
             }
             catch (Exception e)
             {
@@ -124,61 +74,68 @@ namespace KillOrderPlugs
 
                 resultJson.RetMessage = JsonConvert.SerializeObject(msmqList);
                 resultJson.RetCode = "Proceed";
-
             }
 
             return JsonConvert.SerializeObject(resultJson);
         }
 
-        public string killSingle(string json)
+        public string KillSingle(string json)
         {
             var resultJson = new JsonHelper();
             try
             {
+                var killOrder = (OrderKill)JsonConvert.DeserializeObject(json, typeof(OrderKill));
+
                 string result = string.Empty;
 
-                //T_Analysis_OrderListByDH
-                //var killOrderList=new Delete().From<TAnalysisOrderListByDH>()
-                //    .Where(TAnalysisOrderListByDH.CustomerIdColumn).IsEqualTo(json);
+                //获取原始数据
+                var order = new TBLDataOrder(TBLDataOrder.KhdhColumn.ColumnName, killOrder.CustmerId);
+                var ordermx = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.OrderidColumn).IsEqualTo(order.Orderid).ExecuteTypedList<TBLDataOrdermx>();
+
+                //只有一条明细，系统内关于此订单的信息全部删掉
+                if (ordermx.Count == 1)
+                {
+                    new Delete().From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
+                    new Delete().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
+                    new Delete().From<TBLDataMflxx>().Where(TBLDataMflxx.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
+                    new Delete().From<TOldApsByCf>().Where(TOldApsByCf.OrderIDColumn).IsEqualTo(killOrder.CustmerId).Execute();
+                    new Delete().From<TBasisOrderStatus>().Where(TBasisOrderStatus.CustomerIdColumn).IsEqualTo(killOrder.CustmerId).Execute();
+                    new Delete().From<TBlankingDetaile>().Where(TBlankingDetaile.CustumerIdColumn).IsEqualTo(killOrder.CustmerId).Execute();
+                    new Delete().From<TAnalysisOrderListByCF>().Where(TAnalysisOrderListByCF.CustomerIdColumn).IsEqualTo(killOrder.CustmerId).Execute();
+                    new Delete().From<TAnalysisOrderList>().Where(TAnalysisOrderList.CustomerIdColumn).IsEqualTo(killOrder.CustmerId).Execute();
+                    new Delete().From<TAnalysisOrder>().Where(TAnalysisOrder.CustomerIdColumn).IsEqualTo(killOrder.CustmerId).Execute();
+                    new Delete().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
+                    new Delete().From<TOrderKeyProcess>().Where(TOrderKeyProcess.MxidColumn).IsEqualTo(ordermx.FirstOrDefault()?.Mxid).Execute();
+                    new Delete().From<TOrderMESArtInfo>().Where(TOrderMESArtInfo.MxIdColumn).IsEqualTo(ordermx.FirstOrDefault()?.Mxid).Execute();
+                    new Delete().From<TBLDataPld>().Where(TBLDataPld.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
+                    new Delete().From<TBLDataPld>().Where(TBLDataPld.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
 
 
-                //T_Analysis_OutPutListByFZ
-                var killOrderListOutByfz = new Delete().From<TAnalysisOutPutListByFZ>()
-                    .Where(TAnalysisOutPutListByFZ.CustomerIdColumn).IsEqualTo(json);
+                }//有多条明细，只删除此条明细的信息
+                else if (ordermx.Count > 1)
+                {
+                    var mx = ordermx.Find(x => x.Khdh == killOrder.CustmerId && x.Fzfl == killOrder.OrderFl);
+                    new Delete().From<TBLDataOrdermx>().Where(TBLDataOrdermx.MxidColumn).IsEqualTo(mx.Mxid).Execute();
+                    new Delete().From<TBLDataMflxx>().Where(TBLDataMflxx.MxidColumn).IsEqualTo(mx.Mxid).Execute();
+                    new Delete().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn).IsEqualTo(killOrder.CustmerId).And(TAnalysisOrderMx.FzflColumn).IsEqualTo(killOrder.OrderFl).Execute();
+                    new Delete().From<TOrderKeyProcess>().Where(TOrderKeyProcess.MxidColumn).IsEqualTo(ordermx.FirstOrDefault()?.Mxid).Execute();
+                    new Delete().From<TOrderMESArtInfo>().Where(TOrderMESArtInfo.MxIdColumn).IsEqualTo(ordermx.FirstOrDefault()?.Mxid).Execute();
+                }
 
-                //T_BlankingDetailes
-                var killBlankingDetaile = new Delete().From<TBlankingDetaile>()
-                    .Where(TBlankingDetaile.CustumerIdColumn).IsEqualTo(json);
-
-
-                //T_BLData_Ordermx
-                var killBLOrdermx = new Delete().From<TBLDataOrdermx>()
-                    .Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(json);
-
-                //T_BLData_Mflxx
-                var killBLMflxx = new Delete().From<TBLDataMflxx>()
-                    .Where(TBLDataMflxx.KhdhColumn).IsEqualTo(json);
-
-
-                //result += $"T_Analysis_OrderList撤回{killOrderList.Execute()}条数据，";
-                //result += $"T_Analysis_OrderListByCF撤回{killOrderListByCf.Execute()}条数据，";
-                //result += $"T_Analysis_OutputList撤回{killOrderListOut.Execute()}条数据，";
-                //result += $"T_Analysis_OutPutListByCF撤回{killOrderListOutByCf.Execute()}条数据，";
-                //result += $"T_Analysis_OutPutListByFZ撤回{killOrderListOutByfz.Execute()}条数据，";
-                //result += $"T_BlankingDetailes撤回{killBlankingDetaile.Execute()}条数据，";
-                //result += $"T_BLData_Order撤回{killBLOrder.Execute()}条数据，";
-                //result += $"T_BLData_Ordermx撤回{killBLOrdermx.Execute()}条数据，";
-                //result += $"T_BLData_Mflxx撤回{killBLMflxx.Execute()}条数据，";
-                //result += $"T_OldApsByCf撤回{killOldApsByCf.Execute()}条数据。";
-                //result += $"T_Basis_OrderStatus撤回{killOrderStatus.Execute()}条数据。";
 
                 resultJson.RetCode = "success";
                 resultJson.RetMessage = result;
             }
             catch (Exception e)
             {
-                resultJson.RetCode = "error";
-                resultJson.RetMessage = e.Message;
+                // 撤单异常后系统自动执行撤单
+                var msmqList = new List<MsmqModel>
+                {
+                    new MsmqModel{Path = "BlankingData",Label = "NewOrder",Body = json,CallBackUrl = "ErrorAuto-Local"}
+                };
+
+                resultJson.RetMessage = JsonConvert.SerializeObject(msmqList);
+                resultJson.RetCode = "Proceed";
 
             }
 

@@ -2,6 +2,7 @@
 using SubSonic;
 using SubSonic.Extensions;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TestService.ModelsOther;
@@ -35,7 +36,7 @@ namespace TestService.Helper
         }
 
         //筛选订单 
-        public void OrderScreen()
+        public void OrderScreen(DateTime beginTime)
         {
             try
             {
@@ -280,7 +281,7 @@ namespace TestService.Helper
 
 
                 //筛选订单完成
-                //new CreatePlanNo(LineOrder).AutoPlanNo();
+                new CreatePlanNo(LineOrder, OrderDatapool, beginTime).AutoPlanNo();
             }
             catch (Exception e)
             {
@@ -502,6 +503,7 @@ namespace TestService.Helper
 
                         //匹配订单的面料外观
                         var waiGuanList = new List<VOrderDatapoolXf>();
+                        OrderDatapool.ForEach(x => x.Scjhbz.Replace("绘纸皮/", "MTM/"));
                         nowLineOrder.ForEach(x => waiGuanList.AddRange(OrderDatapool.FindAll(y => y.Khdh == x.Khdh && y.Fzfl == x.Fzfl && y.Scjhbz.ToUpper().Contains(linesRestriction.Restriction == "GZ" ? "MTM/" : "新/"))));
 
                         //将已有订单添加到集合
@@ -605,12 +607,18 @@ namespace TestService.Helper
         public List<TBLDataOrder> DataOrder { get; set; }
         public List<TBLDataOrdermx> DataOrderMx { get; set; }
         public List<TAnalysisOrderMx> OrderAnalyMx { get; set; }
+        public List<VOrderDatapoolXf> OrderDatapool { get; set; }
+        public DateTime BeginTime { get; set; }
+        public List<TWorkTime> WorkTimes { get; set; }
 
         //构造函数，初始化集合
-        public CreatePlanNo(List<LineOrderPool> lineOrder)
+        public CreatePlanNo(List<LineOrderPool> lineOrder, List<VOrderDatapoolXf> orderDatapool, DateTime beginTime)
         {
-            //初始化数据
+            //初始化数据DateTime 
+            BeginTime = beginTime;
+            OrderDatapool = orderDatapool;
             LineOrder = lineOrder;
+            WorkTimes = new Select().From<TWorkTime>().OrderAsc(TWorkTime.WorktimeColumn.ColumnName).Where(TWorkTime.WorktimeColumn).IsBetweenAnd(beginTime, beginTime.AddDays(30)).ExecuteTypedList<TWorkTime>();
             DataOrder = new Select().From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn).In(lineOrder.ConvertAll(x => x.Khdh)).ExecuteTypedList<TBLDataOrder>();
             DataOrderMx = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).In(lineOrder.ConvertAll(x => x.Khdh)).ExecuteTypedList<TBLDataOrdermx>();
             OrderAnalyMx = new Select().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn).In(lineOrder.ConvertAll(x => x.Khdh)).ExecuteTypedList<TAnalysisOrderMx>();
@@ -619,38 +627,67 @@ namespace TestService.Helper
 
         public void AutoPlanNo()
         {
+            //当前已分配计划集合
+            List<PlanInfo> listplan = new List<PlanInfo>();
+
             foreach (var tmw in "TMW,other".Split(','))
             {
 
-                var lineGroup = LineOrder.FindAll(x => x.Khdh.IndexOf(tmw, StringComparison.Ordinal) == 0).GroupBy(x => x.LineName);
+                var lineTmw = LineOrder.FindAll(x => x.Khdh.IndexOf(tmw, StringComparison.Ordinal) == 0);
+
                 if (tmw != "TMW")
                 {
-                    lineGroup = LineOrder.FindAll(x => x.Khdh.IndexOf(tmw, StringComparison.Ordinal) != 0).GroupBy(x => x.LineName);
+                    lineTmw = LineOrder.FindAll(x => x.Khdh.IndexOf(tmw, StringComparison.Ordinal) != 0);
                 }
 
                 //根据产线分组
-                foreach (var line in lineGroup)
+                foreach (var line in lineTmw.GroupBy(x => x.LineName))
                 {
+
+                    var list = LineOrder.FindAll(x => x.LineName == line.Key && lineTmw.Exists(y => y.Khdh == x.Khdh)).ToList().ConvertAll(x => x.Khdh);
+
                     //国别筛选
                     foreach (var gb in "国内,国外".Split(','))
                     {
+                        list = DataOrder.FindAll(x => x.Khzb == gb && list.Exists(y => y == x.Khdh)).ConvertAll(x => x.Khdh);
 
-                        var list = DataOrder.Where(x => LineOrder.FindAll(y => y.LineName == line.Key).Exists(t => t.Khdh == x.Khdh) && x.Khzb == gb).ToList().ConvertAll(x => x.Khdh);
 
                         //面料外观筛选
                         foreach (var mlwg in "MTM/,新/".Split(','))
                         {
-                            OrderAnalyMx.ForEach(x=>x.Scjhbz.Replace("",""));
+                            OrderAnalyMx.ForEach(x => x.Scjhbz.Replace("绘纸皮/", "MTM/"));
                             list = OrderAnalyMx.Where(x => list.Contains(x.Khdh) && x.Scjhbz.IndexOf(mlwg, StringComparison.Ordinal) == 0).ToList()
                                 .ConvertAll(x => x.Khdh).Distinct().ToList();
 
                             //性别筛选
-                            //测试订单
-                            //筛选加急的订单
-                            //筛选8天的订单
-                            //筛选9天的顶大
-                            //筛选TMW的订单
-                            //筛选普通的订单
+                            foreach (var sex in "男,女".Split(','))
+                            {
+                                list = list.Where(x => DataOrderMx.Exists(y => y.Fzfl.IndexOf("W", StringComparison.Ordinal) == 0)).ToList();
+
+                                //测试订单
+                                var listTest = list.FindAll(x => x.ToUpper().IndexOf("JJJ", StringComparison.Ordinal) == 0 || x.ToUpper().IndexOf("TEST") == 0);
+
+                                //筛选加急的订单
+                                //--线上加急6天的
+                                var list6 = list.Where(x => OrderDatapool.Exists(y => y.Khdh == x && y.Jqts == "6"));
+
+                                //--线下加急4天的
+
+                                //--线下加急3天的
+
+
+                                //筛选8天的订单
+                                var list8 = list.Where(x => OrderDatapool.Exists(y => y.Khdh == x && y.Jqts == "8"));
+
+                                //筛选9天的订单
+                                var list9 = list.Where(x => OrderDatapool.Exists(y => y.Khdh == x && y.Jqts == "9"));
+
+                                //筛选TMW的订单
+                                var listTmw = list.FindAll(x => x.ToUpper().IndexOf("TMW", StringComparison.Ordinal) == 0);
+
+                                //筛选普通的订单
+
+                            }
 
                         }
 
