@@ -41,6 +41,20 @@ namespace CompletionPlugs
                         };
                         orderStatus.OrderStatus += "-P";
                         orderStatus.Save();
+
+                        //调用存储过程暂停ERP订单
+                        try
+                        {
+                            var spd = new StoredProcedure("Proc_UptSCT51");
+                            spd.CommandTimeout = 300;
+                            spd.Command.AddParameter("@SCYSPD", objCompletion.CustmerId);
+                            spd.Command.AddParameter("@SCDJZT", "Z");
+                            spd.Execute();
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                        }
                     }
                     //订单恢复
                     else if (objCompletion.OrderSrate == "7777")
@@ -53,6 +67,20 @@ namespace CompletionPlugs
                         };
                         orderStatus.OrderStatus = orderStatus.OrderStatus.Replace("-P", "");
                         orderStatus.Save();
+
+                        //调用存储过程暂停ERP订单
+                        try
+                        {
+                            var spd = new StoredProcedure("Proc_UptSCT51");
+                            spd.CommandTimeout = 300;
+                            spd.Command.AddParameter("@SCYSPD", objCompletion.CustmerId);
+                            spd.Command.AddParameter("@SCDJZT", "S");
+                            spd.Execute();
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                        }
                     }
                     //订单状态更新
                     else

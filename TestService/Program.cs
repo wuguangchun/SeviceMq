@@ -12,7 +12,6 @@ using System.Timers;
 using DataModels.ModelsOther;
 using Model;
 using Newtonsoft.Json;
-using RTXSAPILib;
 using ServiceHandle.Helper;
 using ServiceHandle.ModelsOther;
 using ServiceHelper;

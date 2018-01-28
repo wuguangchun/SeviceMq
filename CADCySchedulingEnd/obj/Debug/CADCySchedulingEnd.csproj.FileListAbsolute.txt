@@ -19,3 +19,10 @@ F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.cspro
 F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.exe
 F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.pdb
 F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.csprojResolveAssemblyReference.cache
+C:\Users\wugc\Source\Release\CADCYPush\CADCySchedulingEnd.exe.config
+C:\Users\wugc\Source\Release\CADCYPush\CADCySchedulingEnd.exe
+C:\Users\wugc\Source\Release\CADCYPush\CADCySchedulingEnd.pdb
+C:\Users\wugc\Source\Repos\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.csprojResolveAssemblyReference.cache
+C:\Users\wugc\Source\Repos\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.csproj.CoreCompileInputs.cache
+C:\Users\wugc\Source\Repos\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.exe
+C:\Users\wugc\Source\Repos\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.pdb
