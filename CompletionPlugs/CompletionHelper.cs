@@ -28,7 +28,7 @@ namespace CompletionPlugs
                     .IsEqualTo(objCompletion.CustmerId).ExecuteScalar();
 
 
-                if (int.Parse(data.ToString()) > 0)
+                if (int.Parse(data.ToString()) > 0 || objCompletion.OrderSrate != "7776" || objCompletion.OrderSrate != "7777")
                 {
                     //订单暂停
                     if (objCompletion.OrderSrate == "7776")

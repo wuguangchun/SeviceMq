@@ -88,6 +88,12 @@
   <ItemGroup>
     <Content Include="ActivationService.svc" />
     <None Include="Connected Services\ApsMessageService\NewMassgeService1.disco" />
+    <None Include="Connected Services\EepPlanService\configuration91.svcinfo" />
+    <None Include="Connected Services\EepPlanService\configuration.svcinfo" />
+    <None Include="Connected Services\EepPlanService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Global.asax" />
     <None Include="Connected Services\ApsMessageService\configuration91.svcinfo" />
     <None Include="Connected Services\ApsMessageService\configuration.svcinfo" />
@@ -109,6 +115,11 @@
       <DependentUpon>ActivationService.svc</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\ApsMessageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\EepPlanService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -140,6 +151,13 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\EepPlanService\DdcxMainPort.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EepPlanService\DdcxMainService.wsdl" />
+    <Content Include="Connected Services\EepPlanService\ServiceHandle.EepPlanService.ddcxResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
@@ -154,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ApsMessageService\" />
+    <WCFMetadataStorage Include="Connected Services\EepPlanService\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlankingPlugs\BlankingPlugs.csproj">

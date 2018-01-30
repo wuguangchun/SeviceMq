@@ -63,25 +63,6 @@ namespace TestService
             Console.ReadLine();
         }
 
-        public static string GetMac()
-        {
-            string text = "";
-            ManagementClass managementClass = new ManagementClass("Win32_NetworkAdapterConfiguration");
-            ManagementObjectCollection instances = managementClass.GetInstances();
-            using (ManagementObjectCollection.ManagementObjectEnumerator enumerator = instances.GetEnumerator())
-            {
-                while (enumerator.MoveNext())
-                {
-                    ManagementObject managementObject = (ManagementObject)enumerator.Current;
-                    bool flag = (bool)managementObject["IPEnabled"];
-                    if (flag)
-                    {
-                        text += managementObject["MACAddress"].ToString();
-                    }
-                }
-            }
-            return text;
-        }
 
         public static string GetMD5(string s)
         {

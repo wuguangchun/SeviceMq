@@ -86,8 +86,6 @@ namespace KillOrderPlugs
             {
                 var killOrder = (OrderKill)JsonConvert.DeserializeObject(json, typeof(OrderKill));
 
-                string result = string.Empty;
-
                 //获取原始数据
                 var order = new TBLDataOrder(TBLDataOrder.KhdhColumn.ColumnName, killOrder.CustmerId);
                 var ordermx = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.OrderidColumn).IsEqualTo(order.Orderid).ExecuteTypedList<TBLDataOrdermx>();
@@ -122,16 +120,24 @@ namespace KillOrderPlugs
                     new Delete().From<TOrderMESArtInfo>().Where(TOrderMESArtInfo.MxIdColumn).IsEqualTo(ordermx.FirstOrDefault()?.Mxid).Execute();
                 }
 
+                // 撤单异常后系统自动执行撤单
+                var msmqList = new List<MsmqModel>
+                {
+                    new MsmqModel{Path = "KillOrder",Label = "KillSingleERP",Body = json,CallBackUrl = null}
+                };
 
-                resultJson.RetCode = "success";
-                resultJson.RetMessage = result;
+                resultJson.RetMessage = JsonConvert.SerializeObject(msmqList);
+                resultJson.RetCode = "Proceed";
+
+                //resultJson.RetCode = "success";
+                //resultJson.RetMessage = result;
             }
             catch (Exception e)
             {
                 // 撤单异常后系统自动执行撤单
                 var msmqList = new List<MsmqModel>
                 {
-                    new MsmqModel{Path = "BlankingData",Label = "NewOrder",Body = json,CallBackUrl = "ErrorAuto-Local"}
+                    new MsmqModel{Path = "KillOrder",Label = "KillSingle",Body = json,CallBackUrl = "ErrorAuto-Local"}
                 };
 
                 resultJson.RetMessage = JsonConvert.SerializeObject(msmqList);

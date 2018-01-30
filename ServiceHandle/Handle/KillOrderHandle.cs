@@ -10,6 +10,7 @@ using Model;
 using SubSonic;
 using KillOrderPlugs;
 using Newtonsoft.Json;
+using ServiceHandle.ModelsOther;
 
 namespace ServiceHandle.Handle
 {
@@ -51,12 +52,33 @@ namespace ServiceHandle.Handle
 
                 //根据消息标签执行相应的命令
                 if (message.Label.ToLower().Trim() == "KillOrder".ToLower())
-                {//接收BL传入数据源
+                {
                     reMeg = new KillOrderHelper().KillOrder(message.Body.ToString());
                 }
                 else if (message.Label.ToLower().Trim() == "KillSingle".ToLower())
-                {//接收BL传入数据源
+                {
                     reMeg = new KillOrderHelper().KillSingle(message.Body.ToString());
+                }
+                else if (message.Label.ToLower().Trim() == "KillSingleERP".ToLower())
+                {
+                    try
+                    {
+                        var killOrder = (OrderKill)JsonConvert.DeserializeObject(message.Body.ToString(), typeof(OrderKill));
+
+                        var service = new EepPlanService.DdcxMainDelegateClient();
+                        var result = service.ddcx(@"{'SCYSPD':'" + killOrder.CustmerId + "','FZFL':'" + killOrder.OrderFl + "'}");
+                        if (result.ToLower().Contains("false"))
+                        {
+                            throw new Exception("ERP接口处理返回失败");
+                        }
+                    }
+                    catch (Exception exception)
+                    {
+                        var service = new ApsMessageService.NewMassgeServiceClient();
+                        service.InsertMessage("KillOrder", "KillSingleERP", message.Body.ToString(), null);
+                        service.Close();
+
+                    }
                 }
                 else if (json.RetCode.ToLower() == "proceed")//投诉异常：需要新增队列通知
                 {

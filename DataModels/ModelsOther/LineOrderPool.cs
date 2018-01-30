@@ -29,4 +29,16 @@ namespace TestService.ModelsOther
         public List<LineOrderPool> OrderPools { get; set; }
     }
 
+    public class DataPool
+    {
+        public string LineName { get; set; }
+        public string Khdh { get; set; }
+        public string Sex { get; set; }
+        public string Tmw { get; set; }
+        public string Khzb { get; set; }
+        public string Mlwg { get; set; }
+        public string TypeId { get; set; }
+
+
+    }
 }
