@@ -46,19 +46,19 @@ namespace TestService
 
             //result = JsonConvert.SerializeObject(pld);
 
-            OrderKill order = new OrderKill
-            {
-                CallingParty = "BPM",
-                CustmerId = "JJJJ16080092",
-                OrderFl = "MXK"
-            };
-            var service = new ServiceTest.NewMassgeServiceClient();
-            result = service.InsertMessage("KillOrder", "KillSingle", JsonConvert.SerializeObject(order), null);
+            //OrderKill order = new OrderKill
+            //{
+            //    CallingParty = "BPM",
+            //    CustmerId = "JJJJ16080092",
+            //    OrderFl = "MXK"
+            //};
+            //var service = new ServiceTest.NewMassgeServiceClient();
+            //result = service.InsertMessage("KillOrder", "KillSingle", JsonConvert.SerializeObject(order), null);
 
 
             //测试计划生成
             var beginTime = DateTime.Now.Date.AddHours(10);
-            //new AutoPlanXf().OrderScreen(beginTime);
+            new AutoPlanXf().OrderScreen(beginTime);
 
             Console.WriteLine(result);
             Console.ReadLine();

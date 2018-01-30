@@ -630,6 +630,8 @@ namespace TestService.Helper
             //当前已分配计划集合
             List<PlanInfo> listplan = new List<PlanInfo>();
 
+            OrderAnalyMx.ForEach(x => x.Scjhbz.Replace("绘纸皮/", "MTM/"));
+
             foreach (var tmw in "TMW,other".Split(','))
             {
 
@@ -646,22 +648,32 @@ namespace TestService.Helper
 
                     var list = LineOrder.FindAll(x => x.LineName == line.Key && lineTmw.Exists(y => y.Khdh == x.Khdh)).ToList().ConvertAll(x => x.Khdh);
 
+                    if (list.Count < 1)
+                        continue;
+
                     //国别筛选
                     foreach (var gb in "国内,国外".Split(','))
                     {
                         list = DataOrder.FindAll(x => x.Khzb == gb && list.Exists(y => y == x.Khdh)).ConvertAll(x => x.Khdh);
 
+                        if (list.Count < 1)
+                            continue;
 
                         //面料外观筛选
                         foreach (var mlwg in "MTM/,新/".Split(','))
                         {
-                            OrderAnalyMx.ForEach(x => x.Scjhbz.Replace("绘纸皮/", "MTM/"));
                             list = OrderAnalyMx.Where(x => list.Contains(x.Khdh) && x.Scjhbz.IndexOf(mlwg, StringComparison.Ordinal) == 0).ToList()
                                 .ConvertAll(x => x.Khdh).Distinct().ToList();
+
+                            if (list.Count < 1)
+                                continue;
 
                             //性别筛选
                             foreach (var sex in "男,女".Split(','))
                             {
+                                if (list.Count < 1)
+                                    continue;
+
                                 list = list.Where(x => DataOrderMx.Exists(y => y.Fzfl.IndexOf("W", StringComparison.Ordinal) == 0)).ToList();
 
                                 //测试订单
