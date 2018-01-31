@@ -22,8 +22,8 @@
     <MetadataSource Address="http://172.16.7.87:8080/ERPSER/DdcxMainPort?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DdcxMainPort.xsd" MetadataType="Schema" ID="bc77c64e-2dba-4471-9715-0a0dd19f15be" SourceId="1" SourceUrl="http://172.16.7.87:8080/ERPSER/DdcxMainPort?xsd=1" />
-    <MetadataFile FileName="DdcxMainService.wsdl" MetadataType="Wsdl" ID="4f228508-74cc-4948-8c70-746738954bc4" SourceId="1" SourceUrl="http://172.16.7.87:8080/ERPSER/DdcxMainPort?wsdl" />
+    <MetadataFile FileName="DdcxMainPort.xsd" MetadataType="Schema" ID="cd96f76e-1628-429e-b832-42c692599611" SourceId="1" SourceUrl="http://172.16.7.87:8080/ERPSER/DdcxMainPort?xsd=1" />
+    <MetadataFile FileName="DdcxMainService.wsdl" MetadataType="Wsdl" ID="9dfd8d57-3ea7-4fdb-8254-299716b489a9" SourceId="1" SourceUrl="http://172.16.7.87:8080/ERPSER/DdcxMainPort?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

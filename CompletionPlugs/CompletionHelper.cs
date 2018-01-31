@@ -65,7 +65,11 @@ namespace CompletionPlugs
                             CreateDate = DateTime.Now,
                             CustomerId = objCompletion.CustmerId,
                         };
-                        orderStatus.OrderStatus = orderStatus.OrderStatus.Replace("-P", "");
+                        orderStatus.OrderStatus = orderStatus?.OrderStatus.Replace("-P", "");
+                        if (string.IsNullOrEmpty(orderStatus.OrderStatus))
+                        {
+                            orderStatus.OrderStatus = "0";
+                        }
                         orderStatus.Save();
 
                         //调用存储过程暂停ERP订单

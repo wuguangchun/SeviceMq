@@ -90,6 +90,10 @@
     <None Include="Connected Services\ApsMessageService\NewMassgeService1.disco" />
     <None Include="Connected Services\EepPlanService\configuration91.svcinfo" />
     <None Include="Connected Services\EepPlanService\configuration.svcinfo" />
+    <None Include="Connected Services\EepPlanService\DdcxMainPort.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EepPlanService\DdcxMainService.wsdl" />
     <None Include="Connected Services\EepPlanService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -151,10 +155,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\EepPlanService\DdcxMainPort.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\EepPlanService\DdcxMainService.wsdl" />
     <Content Include="Connected Services\EepPlanService\ServiceHandle.EepPlanService.ddcxResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>

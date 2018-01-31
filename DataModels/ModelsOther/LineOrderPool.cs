@@ -32,13 +32,30 @@ namespace TestService.ModelsOther
     public class DataPool
     {
         public string LineName { get; set; }
+        public string Fzfl { get; set; }
+        public string Jqts { get; set; }
         public string Khdh { get; set; }
         public string Sex { get; set; }
-        public string Tmw { get; set; }
         public string Khzb { get; set; }
         public string Mlwg { get; set; }
         public string TypeId { get; set; }
 
+
+    }
+
+    public class Sczsbh
+    {
+        public string sczsbh { get; set; }
+        public string scjhry { get; set; }
+        public string scshry { get; set; }
+        public string scgcdm { get; set; }
+        public string scxdrq { get; set; }
+        public string scjhrq { get; set; }
+        public string scshrq { get; set; }
+        public string sczsbz { get; set; }
+        public string sclrrq { get; set; }
+        public string type { get; set; }
+        public List<string> scggdhs { get; set; }
 
     }
 }

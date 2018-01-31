@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://services.redcollar.cn/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="IServiceToFyerpService" targetNamespace="http://services.redcollar.cn/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="doRemoveDeliveryResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkProductCodesStockResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveXtm22Response">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doRemoveAllocationGoodsResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveXtm14Response">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="reckonDateByCapacityResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doAutoDeliveryByJson">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="reckonDateByCapacity">
+    <wsdl:part name="arg0" type="xsd:string" />
+    <wsdl:part name="arg1" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="reckonDateByFactoryResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="findSct51ByScyspdResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doAutoDeliveryResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getConversionCode">
+    <wsdl:part name="arg0" type="xsd:string" />
+    <wsdl:part name="arg1" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveU8Xs031Response">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveCgt04">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doAdvanceAccountFabricResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveCgt01">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveCgt03">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveU8Xs031">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveCgt02">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveCgt04Response">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getOrdenStatusBySyscodeResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="findXtm22ZyResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getOrderByEcodeIsXML">
+    <wsdl:part name="arg0" type="xsd:string" />
+    <wsdl:part name="arg1" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="findSct51ByScyspd">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doAdvanceAccountFabric">
+    <wsdl:part name="arg0" type="xsd:string" />
+    <wsdl:part name="arg1" type="xsd:string" />
+    <wsdl:part name="arg2" type="xsd:string" />
+    <wsdl:part name="arg3" type="xsd:string" />
+    <wsdl:part name="arg4" type="xsd:string" />
+    <wsdl:part name="arg5" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="checkProductStock">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getFabricStock">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getSct31Xtwldm">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="reckonDateByFactory">
+    <wsdl:part name="arg0" type="xsd:string" />
+    <wsdl:part name="arg1" type="xsd:string" />
+    <wsdl:part name="arg2" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="findXtm22Zy">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getAdvanceAccountFabricResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveXtm14">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getOrderByEcodeIsXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkProductCodesStock">
+    <wsdl:part name="arg0" type="xsd:string" />
+    <wsdl:part name="arg1" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkFabricStockResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getCodeStatusResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSavePlan">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveCgt01Response">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveCgt03Response">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getAdvanceAccountFabric">
+    <wsdl:part name="arg0" type="xsd:string" />
+    <wsdl:part name="arg1" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSavePlanResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getConversionCodeResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkFabricStock">
+    <wsdl:part name="arg0" type="xsd:string" />
+    <wsdl:part name="arg1" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveCgt02Response">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getSct31XtwldmResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doAllocationGoods">
+    <wsdl:part name="arg0" type="xsd:string" />
+    <wsdl:part name="arg1" type="xsd:string" />
+    <wsdl:part name="arg2" type="xsd:string" />
+    <wsdl:part name="arg3" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="findXtm22ByScggdh">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="findXtm22ByScggdhResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doRemoveAllocationGoods">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doAutoDelivery">
+    <wsdl:part name="arg0" type="xsd:string" />
+    <wsdl:part name="arg1" type="xsd:string" />
+    <wsdl:part name="arg2" type="xsd:string" />
+    <wsdl:part name="arg3" type="xsd:string" />
+    <wsdl:part name="arg4" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getFabricStockResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doAllocationGoodsByJson">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doAllocationGoodsByJsonResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkProductStockResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getCodeStatus">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getOrdenStatusBySyscode">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doRemoveDelivery">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doAutoDeliveryByJsonResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doSaveXtm22">
+    <wsdl:part name="arg0" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="doAllocationGoodsResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceToFyerp">
+    <wsdl:operation name="doAdvanceAccountFabric">
+      <wsdl:input name="doAdvanceAccountFabric" message="tns:doAdvanceAccountFabric" />
+      <wsdl:output name="doAdvanceAccountFabricResponse" message="tns:doAdvanceAccountFabricResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="doRemoveDelivery">
+      <wsdl:input name="doRemoveDelivery" message="tns:doRemoveDelivery" />
+      <wsdl:output name="doRemoveDeliveryResponse" message="tns:doRemoveDeliveryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="checkProductCodesStock">
+      <wsdl:input name="checkProductCodesStock" message="tns:checkProductCodesStock" />
+      <wsdl:output name="checkProductCodesStockResponse" message="tns:checkProductCodesStockResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="doSaveCgt01">
+      <wsdl:input name="doSaveCgt01" message="tns:doSaveCgt01" />
+      <wsdl:output name="doSaveCgt01Response" message="tns:doSaveCgt01Response" />
+    </wsdl:operation>
+    <wsdl:operation name="doSaveCgt04">
+      <wsdl:input name="doSaveCgt04" message="tns:doSaveCgt04" />
+      <wsdl:output name="doSaveCgt04Response" message="tns:doSaveCgt04Response" />
+    </wsdl:operation>
+    <wsdl:operation name="doSavePlan">
+      <wsdl:input name="doSavePlan" message="tns:doSavePlan" />
+      <wsdl:output name="doSavePlanResponse" message="tns:doSavePlanResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCodeStatus">
+      <wsdl:input name="getCodeStatus" message="tns:getCodeStatus" />
+      <wsdl:output name="getCodeStatusResponse" message="tns:getCodeStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="doAutoDelivery">
+      <wsdl:input name="doAutoDelivery" message="tns:doAutoDelivery" />
+      <wsdl:output name="doAutoDeliveryResponse" message="tns:doAutoDeliveryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getFabricStock">
+      <wsdl:input name="getFabricStock" message="tns:getFabricStock" />
+      <wsdl:output name="getFabricStockResponse" message="tns:getFabricStockResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAdvanceAccountFabric">
+      <wsdl:input name="getAdvanceAccountFabric" message="tns:getAdvanceAccountFabric" />
+      <wsdl:output name="getAdvanceAccountFabricResponse" message="tns:getAdvanceAccountFabricResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="doSaveCgt02">
+      <wsdl:input name="doSaveCgt02" message="tns:doSaveCgt02" />
+      <wsdl:output name="doSaveCgt02Response" message="tns:doSaveCgt02Response" />
+    </wsdl:operation>
+    <wsdl:operation name="doSaveU8Xs031">
+      <wsdl:input name="doSaveU8Xs031" message="tns:doSaveU8Xs031" />
+      <wsdl:output name="doSaveU8Xs031Response" message="tns:doSaveU8Xs031Response" />
+    </wsdl:operation>
+    <wsdl:operation name="reckonDateByCapacity">
+      <wsdl:input name="reckonDateByCapacity" message="tns:reckonDateByCapacity" />
+      <wsdl:output name="reckonDateByCapacityResponse" message="tns:reckonDateByCapacityResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="doAllocationGoods">
+      <wsdl:input name="doAllocationGoods" message="tns:doAllocationGoods" />
+      <wsdl:output name="doAllocationGoodsResponse" message="tns:doAllocationGoodsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderByEcodeIsXML">
+      <wsdl:input name="getOrderByEcodeIsXML" message="tns:getOrderByEcodeIsXML" />
+      <wsdl:output name="getOrderByEcodeIsXMLResponse" message="tns:getOrderByEcodeIsXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="doSaveXtm22">
+      <wsdl:input name="doSaveXtm22" message="tns:doSaveXtm22" />
+      <wsdl:output name="doSaveXtm22Response" message="tns:doSaveXtm22Response" />
+    </wsdl:operation>
+    <wsdl:operation name="doSaveCgt03">
+      <wsdl:input name="doSaveCgt03" message="tns:doSaveCgt03" />
+      <wsdl:output name="doSaveCgt03Response" message="tns:doSaveCgt03Response" />
+    </wsdl:operation>
+    <wsdl:operation name="getSct31Xtwldm">
+      <wsdl:input name="getSct31Xtwldm" message="tns:getSct31Xtwldm" />
+      <wsdl:output name="getSct31XtwldmResponse" message="tns:getSct31XtwldmResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findSct51ByScyspd">
+      <wsdl:input name="findSct51ByScyspd" message="tns:findSct51ByScyspd" />
+      <wsdl:output name="findSct51ByScyspdResponse" message="tns:findSct51ByScyspdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findXtm22ByScggdh">
+      <wsdl:input name="findXtm22ByScggdh" message="tns:findXtm22ByScggdh" />
+      <wsdl:output name="findXtm22ByScggdhResponse" message="tns:findXtm22ByScggdhResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="doAllocationGoodsByJson">
+      <wsdl:input name="doAllocationGoodsByJson" message="tns:doAllocationGoodsByJson" />
+      <wsdl:output name="doAllocationGoodsByJsonResponse" message="tns:doAllocationGoodsByJsonResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getConversionCode">
+      <wsdl:input name="getConversionCode" message="tns:getConversionCode" />
+      <wsdl:output name="getConversionCodeResponse" message="tns:getConversionCodeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="doRemoveAllocationGoods">
+      <wsdl:input name="doRemoveAllocationGoods" message="tns:doRemoveAllocationGoods" />
+      <wsdl:output name="doRemoveAllocationGoodsResponse" message="tns:doRemoveAllocationGoodsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="checkProductStock">
+      <wsdl:input name="checkProductStock" message="tns:checkProductStock" />
+      <wsdl:output name="checkProductStockResponse" message="tns:checkProductStockResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="reckonDateByFactory">
+      <wsdl:input name="reckonDateByFactory" message="tns:reckonDateByFactory" />
+      <wsdl:output name="reckonDateByFactoryResponse" message="tns:reckonDateByFactoryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="doSaveXtm14">
+      <wsdl:input name="doSaveXtm14" message="tns:doSaveXtm14" />
+      <wsdl:output name="doSaveXtm14Response" message="tns:doSaveXtm14Response" />
+    </wsdl:operation>
+    <wsdl:operation name="doAutoDeliveryByJson">
+      <wsdl:input name="doAutoDeliveryByJson" message="tns:doAutoDeliveryByJson" />
+      <wsdl:output name="doAutoDeliveryByJsonResponse" message="tns:doAutoDeliveryByJsonResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="checkFabricStock">
+      <wsdl:input name="checkFabricStock" message="tns:checkFabricStock" />
+      <wsdl:output name="checkFabricStockResponse" message="tns:checkFabricStockResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findXtm22Zy">
+      <wsdl:input name="findXtm22Zy" message="tns:findXtm22Zy" />
+      <wsdl:output name="findXtm22ZyResponse" message="tns:findXtm22ZyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrdenStatusBySyscode">
+      <wsdl:input name="getOrdenStatusBySyscode" message="tns:getOrdenStatusBySyscode" />
+      <wsdl:output name="getOrdenStatusBySyscodeResponse" message="tns:getOrdenStatusBySyscodeResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IServiceToFyerpServiceSoapBinding" type="tns:IServiceToFyerp">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="doAdvanceAccountFabric">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doAdvanceAccountFabric">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doAdvanceAccountFabricResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doRemoveDelivery">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doRemoveDelivery">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doRemoveDeliveryResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkProductCodesStock">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="checkProductCodesStock">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="checkProductCodesStockResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doSaveCgt01">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doSaveCgt01">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doSaveCgt01Response">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doSaveCgt04">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doSaveCgt04">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doSaveCgt04Response">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doSavePlan">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doSavePlan">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doSavePlanResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCodeStatus">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getCodeStatus">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="getCodeStatusResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doAutoDelivery">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doAutoDelivery">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doAutoDeliveryResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFabricStock">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getFabricStock">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="getFabricStockResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdvanceAccountFabric">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getAdvanceAccountFabric">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="getAdvanceAccountFabricResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doSaveCgt02">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doSaveCgt02">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doSaveCgt02Response">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doSaveU8Xs031">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doSaveU8Xs031">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doSaveU8Xs031Response">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doAllocationGoods">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doAllocationGoods">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doAllocationGoodsResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reckonDateByCapacity">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="reckonDateByCapacity">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="reckonDateByCapacityResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderByEcodeIsXML">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getOrderByEcodeIsXML">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="getOrderByEcodeIsXMLResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doSaveXtm22">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doSaveXtm22">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doSaveXtm22Response">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doSaveCgt03">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doSaveCgt03">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doSaveCgt03Response">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findSct51ByScyspd">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="findSct51ByScyspd">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="findSct51ByScyspdResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSct31Xtwldm">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getSct31Xtwldm">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="getSct31XtwldmResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doAllocationGoodsByJson">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doAllocationGoodsByJson">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doAllocationGoodsByJsonResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findXtm22ByScggdh">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="findXtm22ByScggdh">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="findXtm22ByScggdhResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConversionCode">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getConversionCode">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="getConversionCodeResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doRemoveAllocationGoods">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doRemoveAllocationGoods">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doRemoveAllocationGoodsResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkProductStock">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="checkProductStock">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="checkProductStockResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reckonDateByFactory">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="reckonDateByFactory">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="reckonDateByFactoryResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doSaveXtm14">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doSaveXtm14">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doSaveXtm14Response">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doAutoDeliveryByJson">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="doAutoDeliveryByJson">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="doAutoDeliveryByJsonResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkFabricStock">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="checkFabricStock">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="checkFabricStockResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findXtm22Zy">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="findXtm22Zy">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="findXtm22ZyResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrdenStatusBySyscode">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getOrdenStatusBySyscode">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:input>
+      <wsdl:output name="getOrdenStatusBySyscodeResponse">
+        <soap:body use="literal" namespace="http://services.redcollar.cn/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IServiceToFyerpService">
+    <wsdl:port name="IServiceToFyerpPort" binding="tns:IServiceToFyerpServiceSoapBinding">
+      <soap:address location="http://services.rcmtm.com/services/FyerpService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

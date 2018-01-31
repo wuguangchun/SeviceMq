@@ -9,15 +9,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
-using APSWcfService.Helper;
 using DataModels.ModelsOther;
 using Model;
 using Newtonsoft.Json;
 using ServiceHandle.ModelsOther;
 using SubSonic;
 using SubSonic.Extensions;
-using WcfService1.OrderModel;
-using CadBlModelList = SystemMaintain.ModelsOther.CadBlModelList;
 using Timer = System.Timers.Timer;
 
 namespace SystemMaintain.ServiceLog

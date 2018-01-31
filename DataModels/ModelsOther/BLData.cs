@@ -27,6 +27,8 @@ namespace DataModels.ModelsOther
         public string Tstx { get; set; }
         public string Mddm { get; set; }
         public string Mdmc { get; set; }
+        public string Htbh { get; set; }
+        
 
     }
 

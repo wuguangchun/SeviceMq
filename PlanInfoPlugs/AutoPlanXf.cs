@@ -648,9 +648,10 @@ namespace TestService.Helper
                     {
                         Khdh = x.Khdh,
                         LineName = x.LineName,
+                        Fzfl = x.Fzfl,
+                        Jqts = OrderDatapool.Find(y => y.Khdh == x.Khdh).Jqts,
                         Sex = x.Fzfl.IndexOf("W", StringComparison.Ordinal) == 0 ? "女" : "男",
                         Mlwg = OrderAnalyMx.Find(y => y.Khdh == x.Khdh).Scjhbz.Contains("新/") ? "素" : "格",
-                        Tmw = x.Khdh.IndexOf("TMW", StringComparison.Ordinal) == 0 ? "1" : "0",
                         Khzb = DataOrder.Find(y => y.Khdh == x.Khdh).Khzb,
                         TypeId = "4"
                     })
@@ -659,7 +660,69 @@ namespace TestService.Helper
             //填充集合得交期类型
             foreach (var dataPool in list)
             {
+                var jhrq = DataOrder.Find(x => x.Khdh == dataPool.Khdh).Jhrq;
+                var day = workTime.Where(x => x.Worktime > BeginTime && x.Worktime <= jhrq).ToList().ConvertAll(x => x.Worktime.ToShortDateString()).Distinct().ToList().Count;
 
+                #region 半成品试衣
+
+                #endregion
+
+                #region 全手工订单
+
+                #endregion
+
+                #region 填充8/9天订单
+
+                if (OrderDatapool.Find(x => x.Khdh == dataPool.Khdh).Jqts == "8")
+                {
+                    dataPool.TypeId = "51";
+                }
+
+                if (OrderDatapool.Find(x => x.Khdh == dataPool.Khdh).Jqts == "9")
+                {
+                    dataPool.TypeId = "52";
+                }
+
+                #endregion
+
+                #region 全手工14天  半手工10天
+
+                if (dataPool.Jqts == "10")
+                {
+                    dataPool.TypeId = "49";
+                }
+                else if (dataPool.Jqts == "14")
+                {
+                    dataPool.TypeId = "50";
+                }
+                #endregion
+
+                #region 加急标识填充
+
+                if (day == 4)
+                {
+                    dataPool.TypeId = "34";
+                }
+                else if (day <= 3)
+                {
+                    dataPool.TypeId = "47";
+                }
+                #endregion
+
+                #region 测试订单填充
+                if (dataPool.Khdh.IndexOf("JJJ") == 0)
+                {
+                    dataPool.TypeId = "20";
+                }
+                #endregion
+
+                #region 配件订单填充
+
+                if (dataPool.Fzfl == "P0")
+                {
+                    dataPool.TypeId = "13";
+                }
+                #endregion
 
             }
 

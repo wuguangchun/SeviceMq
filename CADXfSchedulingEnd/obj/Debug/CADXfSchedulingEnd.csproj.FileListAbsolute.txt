@@ -8,9 +8,6 @@ F:\ApsService\APSWcfService\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.pdb
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\bin\Debug\CADXfSchedulingEnd.exe.config
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\bin\Debug\CADXfSchedulingEnd.exe
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\bin\Debug\CADXfSchedulingEnd.pdb
-F:\Release\CADXFPush\CADXfSchedulingEnd.exe.config
-F:\Release\CADXFPush\CADXfSchedulingEnd.exe
-F:\Release\CADXFPush\CADXfSchedulingEnd.pdb
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csproj.CoreCompileInputs.cache
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.exe
 F:\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.pdb
@@ -21,10 +18,6 @@ F:\Projects\Release\CADXFPush\CADXfSchedulingEnd.pdb
 F:\Projects\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csproj.CoreCompileInputs.cache
 F:\Projects\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.exe
 F:\Projects\ServiceMq\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.pdb
-F:\ServiceMQPlugs\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csproj.CoreCompileInputs.cache
-F:\ServiceMQPlugs\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.exe
-F:\ServiceMQPlugs\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.pdb
-F:\ServiceMQPlugs\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csprojResolveAssemblyReference.cache
 C:\Users\wugc\Source\Release\CADXFPush\CADXfSchedulingEnd.exe.config
 C:\Users\wugc\Source\Release\CADXFPush\CADXfSchedulingEnd.exe
 C:\Users\wugc\Source\Release\CADXFPush\CADXfSchedulingEnd.pdb
@@ -32,3 +25,9 @@ C:\Users\wugc\Source\Repos\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfScheduling
 C:\Users\wugc\Source\Repos\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csproj.CoreCompileInputs.cache
 C:\Users\wugc\Source\Repos\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.exe
 C:\Users\wugc\Source\Repos\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.pdb
+F:\Release\CADXFPush\CADXfSchedulingEnd.exe.config
+F:\Release\CADXFPush\CADXfSchedulingEnd.exe
+F:\Release\CADXFPush\CADXfSchedulingEnd.pdb
+F:\ServiceMQPlugs\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.csproj.CoreCompileInputs.cache
+F:\ServiceMQPlugs\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.exe
+F:\ServiceMQPlugs\SeviceMq\CADXfSchedulingEnd\obj\Debug\CADXfSchedulingEnd.pdb

@@ -58,42 +58,28 @@ namespace ServiceHandle.Handle
                 else if (message.Label.ToLower().Trim() == "KillSingle".ToLower())
                 {
                     reMeg = new KillOrderHelper().KillSingle(message.Body.ToString());
-                }
-                else if (message.Label.ToLower().Trim() == "KillSingleERP".ToLower())
-                {
                     try
                     {
                         var killOrder = (OrderKill)JsonConvert.DeserializeObject(message.Body.ToString(), typeof(OrderKill));
 
                         var service = new EepPlanService.DdcxMainDelegateClient();
                         var result = service.ddcx(@"{'SCYSPD':'" + killOrder.CustmerId + "','FZFL':'" + killOrder.OrderFl + "'}");
-                        if (result.ToLower().Contains("false"))
+                        if (!result.ToLower().Contains("true"))
                         {
-                            throw new Exception("ERP接口处理返回失败");
+                            throw new Exception(result);
                         }
                     }
                     catch (Exception exception)
                     {
-                        var service = new ApsMessageService.NewMassgeServiceClient();
-                        service.InsertMessage("KillOrder", "KillSingleERP", message.Body.ToString(), null);
-                        service.Close();
+                        throw;
 
-                    }
-                }
-                else if (json.RetCode.ToLower() == "proceed")//投诉异常：需要新增队列通知
-                {
-                    var msmqList = (List<MsmqModel>)JsonConvert.DeserializeObject(json.RetMessage, typeof(List<MsmqModel>));
-                    foreach (var msmq in msmqList)
-                    {
-                        var service = new ApsMessageService.NewMassgeServiceClient();
-                        service.InsertMessage(msmq.Path, msmq.Label, msmq.Body, msmq.CallBackUrl);
-                        service.Close();
                     }
                 }
                 else
                 {//无法识别标签内容
                     throw new ApplicationException("无法识别标签内容");
                 }
+
 
                 //程序处理返回的结果
                 json = (JsonHelper)JsonHelper.ReturnObject(reMeg, typeof(JsonHelper));

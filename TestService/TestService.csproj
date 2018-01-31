@@ -67,6 +67,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ErpService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\LocalService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,6 +101,7 @@
     <None Include="Connected Services\APSService\NewMassgeService1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ErpService\IServiceToFyerpService.wsdl" />
     <None Include="Connected Services\LocalService\NewMassgeService1.wsdl" />
     <None Include="Connected Services\LocalService\NewMassgeService2.xsd">
       <SubType>Designer</SubType>
@@ -124,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\APSService\" />
+    <WCFMetadataStorage Include="Connected Services\ErpService\" />
     <WCFMetadataStorage Include="Connected Services\LocalService\" />
     <WCFMetadataStorage Include="Connected Services\ServiceOld\" />
     <WCFMetadataStorage Include="Connected Services\ServiceTest\" />
@@ -198,6 +205,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\APSService\NewMassgeService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ErpService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ErpService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ErpService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

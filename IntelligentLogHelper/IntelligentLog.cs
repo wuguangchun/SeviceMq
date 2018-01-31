@@ -87,6 +87,11 @@ namespace IntelligentLogHelper
                     {
                         okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
                     }
+                    else if (logService.MessagePath == "KillOrder" && logService.Lable == "KillSingle")
+                    {
+                        var killOrder = (OrderKill)JsonConvert.DeserializeObject(logService.Context, typeof(OrderKill));
+                        okRow += UpdateLogs(logService.Id, killOrder.CustmerId) ? 1 : 0;
+                    }
                     //增加日志
                     else if (logService.MessagePath == "LogService" && logService.Lable == "AddLog")
                     {

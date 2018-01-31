@@ -182,6 +182,16 @@ namespace SystemMaintain
             form.Show();
 
         }
+
+        private void Input_plan_Click(object sender, EventArgs e)
+        {
+            //新增TAB页面 
+            TabPage tabPage = AddTabPage(@"计划导入", "Inputplan");
+
+            var form = new Form_improt_Plan() { TopLevel = false, Parent = tabPage };
+            form.Show();
+
+        }
         #endregion
 
         #region 数据导入
@@ -307,6 +317,7 @@ namespace SystemMaintain
 
 
         #endregion
+
 
     }
 }
