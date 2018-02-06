@@ -87,6 +87,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\WorkService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Helper\AutoPlanCy.cs" />
     <Compile Include="Helper\PushWebHelper.cs" />
     <Compile Include="Program.cs" />
@@ -123,6 +128,13 @@
     <None Include="Connected Services\ServiceTest\NewMassgeService21.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\WorkService\DataQueryService.wsdl" />
+    <None Include="Connected Services\WorkService\DataQueryService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkService\DataQueryService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +146,7 @@
     <WCFMetadataStorage Include="Connected Services\LocalService\" />
     <WCFMetadataStorage Include="Connected Services\ServiceOld\" />
     <WCFMetadataStorage Include="Connected Services\ServiceTest\" />
+    <WCFMetadataStorage Include="Connected Services\WorkService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceTest\configuration91.svcinfo" />
@@ -214,6 +227,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ErpService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WorkService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WorkService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WorkService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

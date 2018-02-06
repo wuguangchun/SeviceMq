@@ -53,7 +53,28 @@ namespace ServiceHandle.Handle
                 //根据消息标签执行相应的命令
                 if (message.Label.ToLower().Trim() == "KillOrder".ToLower())
                 {
+                    var ordermx = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn)
+                        .IsEqualTo(message.Body.ToString()).ExecuteTypedList<TBLDataOrdermx>();
                     reMeg = new KillOrderHelper().KillOrder(message.Body.ToString());
+
+                    foreach (var order in ordermx)
+                    {
+                        try
+                        {
+                            var service = new EepPlanService.DdcxMainDelegateClient();
+                            var result = service.ddcx(@"{'SCYSPD':'" + order.Khdh + "','FZFL':'" + order.Fzfl + "'}");
+                            if (!result.ToLower().Contains("true"))
+                            {
+                                throw new Exception(result);
+                            }
+                        }
+                        catch (Exception exception)
+                        {
+                            throw;
+
+                        }
+
+                    }
                 }
                 else if (message.Label.ToLower().Trim() == "KillSingle".ToLower())
                 {

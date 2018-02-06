@@ -824,7 +824,7 @@ namespace TestService.Helper
                 planInfos.Add(planinfo);
             }
 
-            planInfos.ForEach(x => Console.WriteLine($"{x.Sczsbh}--{x.Scjhry}--{x.Scshry}--{x.Scxdrq}--{JsonConvert.SerializeObject(x.OrderPools)}"));
+            planInfos.ForEach(x => Console.WriteLine($"{x.Sczsbh}--{x.Type}--{x.Scjhry}--{x.Scshry}--{x.Scxdrq}--{JsonConvert.SerializeObject(x.OrderPools)}\r\n"));
         }
 
     }

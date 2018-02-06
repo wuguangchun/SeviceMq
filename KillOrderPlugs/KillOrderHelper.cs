@@ -47,21 +47,6 @@ namespace KillOrderPlugs
                 new Delete().From<TBasisOrderStatus>().Where(TBasisOrderStatus.CustomerIdColumn).IsEqualTo(json).Execute();
                 new Delete().From<TBLDataPld>().Where(TBLDataPld.KhdhColumn).IsEqualTo(json).Execute();
 
-
-                //调用存储过程删已经圈起来的计划
-                try
-                {
-                    var spd = new StoredProcedure("proc_DelERPData");
-                    spd.CommandTimeout = 300;
-                    spd.Command.AddParameter("@OrderID", json);
-                    spd.Execute();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-
-
                 resultJson.RetCode = "success";
                 resultJson.RetMessage = "撤单成功";
             }

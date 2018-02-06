@@ -46,6 +46,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntercoursePlugs", "IntercoursePlugs\IntercoursePlugs.csproj", "{E006FC45-4419-4C16-9E47-B0553D0FF814}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestService", "TestService\TestService.csproj", "{819836BA-B463-4466-AEB2-6F13EB4C7F2E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{55E5DD76-EF63-4161-BADC-5B12CA972D4C} = {55E5DD76-EF63-4161-BADC-5B12CA972D4C}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
