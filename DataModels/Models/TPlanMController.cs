@@ -80,11 +80,13 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Scggdh,string Sczsbh,string Schtbh,string Scgcmc,string Sczsdl,decimal Scnlzy,string Wlbm,short Status,string PlanType,DateTime? Ddjhrq)
+	    public void Insert(string Scggdh,string Khdh,string Sczsbh,string Schtbh,string Scgcmc,string Sczsdl,int Scnlzy,string Wlbm,short Status,string PlanType,DateTime? Ddjhrq,short Isypb,short MESStatus,int Cutternum,short BPMStatus,short FactoryStatus)
 	    {
 		    TPlanM item = new TPlanM();
 		    
             item.Scggdh = Scggdh;
+            
+            item.Khdh = Khdh;
             
             item.Sczsbh = Sczsbh;
             
@@ -104,6 +106,16 @@ namespace Model
             
             item.Ddjhrq = Ddjhrq;
             
+            item.Isypb = Isypb;
+            
+            item.MESStatus = MESStatus;
+            
+            item.Cutternum = Cutternum;
+            
+            item.BPMStatus = BPMStatus;
+            
+            item.FactoryStatus = FactoryStatus;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -112,7 +124,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int PlanMID,string Scggdh,string Sczsbh,string Schtbh,string Scgcmc,string Sczsdl,decimal Scnlzy,string Wlbm,short Status,string PlanType,DateTime? Ddjhrq)
+	    public void Update(int PlanMID,string Scggdh,string Khdh,string Sczsbh,string Schtbh,string Scgcmc,string Sczsdl,int Scnlzy,string Wlbm,short Status,string PlanType,DateTime? Ddjhrq,short Isypb,short MESStatus,int Cutternum,short BPMStatus,short FactoryStatus)
 	    {
 		    TPlanM item = new TPlanM();
 	        item.MarkOld();
@@ -121,6 +133,8 @@ namespace Model
 			item.PlanMID = PlanMID;
 				
 			item.Scggdh = Scggdh;
+				
+			item.Khdh = Khdh;
 				
 			item.Sczsbh = Sczsbh;
 				
@@ -139,6 +153,16 @@ namespace Model
 			item.PlanType = PlanType;
 				
 			item.Ddjhrq = Ddjhrq;
+				
+			item.Isypb = Isypb;
+				
+			item.MESStatus = MESStatus;
+				
+			item.Cutternum = Cutternum;
+				
+			item.BPMStatus = BPMStatus;
+				
+			item.FactoryStatus = FactoryStatus;
 				
 	        item.Save(UserName);
 	    }

@@ -152,6 +152,20 @@ namespace Model
 				colvarScggdh.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarScggdh);
 				
+				TableSchema.TableColumn colvarKhdh = new TableSchema.TableColumn(schema);
+				colvarKhdh.ColumnName = "KHDH";
+				colvarKhdh.DataType = DbType.AnsiString;
+				colvarKhdh.MaxLength = 20;
+				colvarKhdh.AutoIncrement = false;
+				colvarKhdh.IsNullable = false;
+				colvarKhdh.IsPrimaryKey = false;
+				colvarKhdh.IsForeignKey = false;
+				colvarKhdh.IsReadOnly = false;
+				
+						colvarKhdh.DefaultSetting = @"('‘’')";
+				colvarKhdh.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarKhdh);
+				
 				TableSchema.TableColumn colvarSczsbh = new TableSchema.TableColumn(schema);
 				colvarSczsbh.ColumnName = "SCZSBH";
 				colvarSczsbh.DataType = DbType.AnsiString;
@@ -206,7 +220,7 @@ namespace Model
 				
 				TableSchema.TableColumn colvarScnlzy = new TableSchema.TableColumn(schema);
 				colvarScnlzy.ColumnName = "SCNLZY";
-				colvarScnlzy.DataType = DbType.Decimal;
+				colvarScnlzy.DataType = DbType.Int32;
 				colvarScnlzy.MaxLength = 0;
 				colvarScnlzy.AutoIncrement = false;
 				colvarScnlzy.IsNullable = false;
@@ -270,6 +284,76 @@ namespace Model
 				colvarDdjhrq.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarDdjhrq);
 				
+				TableSchema.TableColumn colvarIsypb = new TableSchema.TableColumn(schema);
+				colvarIsypb.ColumnName = "ISYPB";
+				colvarIsypb.DataType = DbType.Int16;
+				colvarIsypb.MaxLength = 0;
+				colvarIsypb.AutoIncrement = false;
+				colvarIsypb.IsNullable = false;
+				colvarIsypb.IsPrimaryKey = false;
+				colvarIsypb.IsForeignKey = false;
+				colvarIsypb.IsReadOnly = false;
+				
+						colvarIsypb.DefaultSetting = @"((0))";
+				colvarIsypb.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarIsypb);
+				
+				TableSchema.TableColumn colvarMESStatus = new TableSchema.TableColumn(schema);
+				colvarMESStatus.ColumnName = "MESStatus";
+				colvarMESStatus.DataType = DbType.Int16;
+				colvarMESStatus.MaxLength = 0;
+				colvarMESStatus.AutoIncrement = false;
+				colvarMESStatus.IsNullable = false;
+				colvarMESStatus.IsPrimaryKey = false;
+				colvarMESStatus.IsForeignKey = false;
+				colvarMESStatus.IsReadOnly = false;
+				
+						colvarMESStatus.DefaultSetting = @"((0))";
+				colvarMESStatus.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarMESStatus);
+				
+				TableSchema.TableColumn colvarCutternum = new TableSchema.TableColumn(schema);
+				colvarCutternum.ColumnName = "CUTTERNUM";
+				colvarCutternum.DataType = DbType.Int32;
+				colvarCutternum.MaxLength = 0;
+				colvarCutternum.AutoIncrement = false;
+				colvarCutternum.IsNullable = false;
+				colvarCutternum.IsPrimaryKey = false;
+				colvarCutternum.IsForeignKey = false;
+				colvarCutternum.IsReadOnly = false;
+				
+						colvarCutternum.DefaultSetting = @"((-1))";
+				colvarCutternum.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarCutternum);
+				
+				TableSchema.TableColumn colvarBPMStatus = new TableSchema.TableColumn(schema);
+				colvarBPMStatus.ColumnName = "BPMStatus";
+				colvarBPMStatus.DataType = DbType.Int16;
+				colvarBPMStatus.MaxLength = 0;
+				colvarBPMStatus.AutoIncrement = false;
+				colvarBPMStatus.IsNullable = false;
+				colvarBPMStatus.IsPrimaryKey = false;
+				colvarBPMStatus.IsForeignKey = false;
+				colvarBPMStatus.IsReadOnly = false;
+				
+						colvarBPMStatus.DefaultSetting = @"((0))";
+				colvarBPMStatus.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarBPMStatus);
+				
+				TableSchema.TableColumn colvarFactoryStatus = new TableSchema.TableColumn(schema);
+				colvarFactoryStatus.ColumnName = "FactoryStatus";
+				colvarFactoryStatus.DataType = DbType.Int16;
+				colvarFactoryStatus.MaxLength = 0;
+				colvarFactoryStatus.AutoIncrement = false;
+				colvarFactoryStatus.IsNullable = false;
+				colvarFactoryStatus.IsPrimaryKey = false;
+				colvarFactoryStatus.IsForeignKey = false;
+				colvarFactoryStatus.IsReadOnly = false;
+				
+						colvarFactoryStatus.DefaultSetting = @"((0))";
+				colvarFactoryStatus.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarFactoryStatus);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -294,6 +378,14 @@ namespace Model
 		{
 			get { return GetColumnValue<string>(Columns.Scggdh); }
 			set { SetColumnValue(Columns.Scggdh, value); }
+		}
+		  
+		[XmlAttribute("Khdh")]
+		[Bindable(true)]
+		public string Khdh 
+		{
+			get { return GetColumnValue<string>(Columns.Khdh); }
+			set { SetColumnValue(Columns.Khdh, value); }
 		}
 		  
 		[XmlAttribute("Sczsbh")]
@@ -330,9 +422,9 @@ namespace Model
 		  
 		[XmlAttribute("Scnlzy")]
 		[Bindable(true)]
-		public decimal Scnlzy 
+		public int Scnlzy 
 		{
-			get { return GetColumnValue<decimal>(Columns.Scnlzy); }
+			get { return GetColumnValue<int>(Columns.Scnlzy); }
 			set { SetColumnValue(Columns.Scnlzy, value); }
 		}
 		  
@@ -367,6 +459,46 @@ namespace Model
 			get { return GetColumnValue<DateTime?>(Columns.Ddjhrq); }
 			set { SetColumnValue(Columns.Ddjhrq, value); }
 		}
+		  
+		[XmlAttribute("Isypb")]
+		[Bindable(true)]
+		public short Isypb 
+		{
+			get { return GetColumnValue<short>(Columns.Isypb); }
+			set { SetColumnValue(Columns.Isypb, value); }
+		}
+		  
+		[XmlAttribute("MESStatus")]
+		[Bindable(true)]
+		public short MESStatus 
+		{
+			get { return GetColumnValue<short>(Columns.MESStatus); }
+			set { SetColumnValue(Columns.MESStatus, value); }
+		}
+		  
+		[XmlAttribute("Cutternum")]
+		[Bindable(true)]
+		public int Cutternum 
+		{
+			get { return GetColumnValue<int>(Columns.Cutternum); }
+			set { SetColumnValue(Columns.Cutternum, value); }
+		}
+		  
+		[XmlAttribute("BPMStatus")]
+		[Bindable(true)]
+		public short BPMStatus 
+		{
+			get { return GetColumnValue<short>(Columns.BPMStatus); }
+			set { SetColumnValue(Columns.BPMStatus, value); }
+		}
+		  
+		[XmlAttribute("FactoryStatus")]
+		[Bindable(true)]
+		public short FactoryStatus 
+		{
+			get { return GetColumnValue<short>(Columns.FactoryStatus); }
+			set { SetColumnValue(Columns.FactoryStatus, value); }
+		}
 		
 		#endregion
 		
@@ -387,11 +519,13 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varScggdh,string varSczsbh,string varSchtbh,string varScgcmc,string varSczsdl,decimal varScnlzy,string varWlbm,short varStatus,string varPlanType,DateTime? varDdjhrq)
+		public static void Insert(string varScggdh,string varKhdh,string varSczsbh,string varSchtbh,string varScgcmc,string varSczsdl,int varScnlzy,string varWlbm,short varStatus,string varPlanType,DateTime? varDdjhrq,short varIsypb,short varMESStatus,int varCutternum,short varBPMStatus,short varFactoryStatus)
 		{
 			TPlanM item = new TPlanM();
 			
 			item.Scggdh = varScggdh;
+			
+			item.Khdh = varKhdh;
 			
 			item.Sczsbh = varSczsbh;
 			
@@ -411,6 +545,16 @@ namespace Model
 			
 			item.Ddjhrq = varDdjhrq;
 			
+			item.Isypb = varIsypb;
+			
+			item.MESStatus = varMESStatus;
+			
+			item.Cutternum = varCutternum;
+			
+			item.BPMStatus = varBPMStatus;
+			
+			item.FactoryStatus = varFactoryStatus;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -421,13 +565,15 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varPlanMID,string varScggdh,string varSczsbh,string varSchtbh,string varScgcmc,string varSczsdl,decimal varScnlzy,string varWlbm,short varStatus,string varPlanType,DateTime? varDdjhrq)
+		public static void Update(int varPlanMID,string varScggdh,string varKhdh,string varSczsbh,string varSchtbh,string varScgcmc,string varSczsdl,int varScnlzy,string varWlbm,short varStatus,string varPlanType,DateTime? varDdjhrq,short varIsypb,short varMESStatus,int varCutternum,short varBPMStatus,short varFactoryStatus)
 		{
 			TPlanM item = new TPlanM();
 			
 				item.PlanMID = varPlanMID;
 			
 				item.Scggdh = varScggdh;
+			
+				item.Khdh = varKhdh;
 			
 				item.Sczsbh = varSczsbh;
 			
@@ -446,6 +592,16 @@ namespace Model
 				item.PlanType = varPlanType;
 			
 				item.Ddjhrq = varDdjhrq;
+			
+				item.Isypb = varIsypb;
+			
+				item.MESStatus = varMESStatus;
+			
+				item.Cutternum = varCutternum;
+			
+				item.BPMStatus = varBPMStatus;
+			
+				item.FactoryStatus = varFactoryStatus;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -474,65 +630,107 @@ namespace Model
         
         
         
-        public static TableSchema.TableColumn SczsbhColumn
+        public static TableSchema.TableColumn KhdhColumn
         {
             get { return Schema.Columns[2]; }
         }
         
         
         
-        public static TableSchema.TableColumn SchtbhColumn
+        public static TableSchema.TableColumn SczsbhColumn
         {
             get { return Schema.Columns[3]; }
         }
         
         
         
-        public static TableSchema.TableColumn ScgcmcColumn
+        public static TableSchema.TableColumn SchtbhColumn
         {
             get { return Schema.Columns[4]; }
         }
         
         
         
-        public static TableSchema.TableColumn SczsdlColumn
+        public static TableSchema.TableColumn ScgcmcColumn
         {
             get { return Schema.Columns[5]; }
         }
         
         
         
-        public static TableSchema.TableColumn ScnlzyColumn
+        public static TableSchema.TableColumn SczsdlColumn
         {
             get { return Schema.Columns[6]; }
         }
         
         
         
-        public static TableSchema.TableColumn WlbmColumn
+        public static TableSchema.TableColumn ScnlzyColumn
         {
             get { return Schema.Columns[7]; }
         }
         
         
         
-        public static TableSchema.TableColumn StatusColumn
+        public static TableSchema.TableColumn WlbmColumn
         {
             get { return Schema.Columns[8]; }
         }
         
         
         
-        public static TableSchema.TableColumn PlanTypeColumn
+        public static TableSchema.TableColumn StatusColumn
         {
             get { return Schema.Columns[9]; }
         }
         
         
         
-        public static TableSchema.TableColumn DdjhrqColumn
+        public static TableSchema.TableColumn PlanTypeColumn
         {
             get { return Schema.Columns[10]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn DdjhrqColumn
+        {
+            get { return Schema.Columns[11]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn IsypbColumn
+        {
+            get { return Schema.Columns[12]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn MESStatusColumn
+        {
+            get { return Schema.Columns[13]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn CutternumColumn
+        {
+            get { return Schema.Columns[14]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn BPMStatusColumn
+        {
+            get { return Schema.Columns[15]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn FactoryStatusColumn
+        {
+            get { return Schema.Columns[16]; }
         }
         
         
@@ -543,6 +741,7 @@ namespace Model
 		{
 			 public static string PlanMID = @"PlanMID";
 			 public static string Scggdh = @"SCGGDH";
+			 public static string Khdh = @"KHDH";
 			 public static string Sczsbh = @"SCZSBH";
 			 public static string Schtbh = @"SCHTBH";
 			 public static string Scgcmc = @"SCGCMC";
@@ -552,6 +751,11 @@ namespace Model
 			 public static string Status = @"STATUS";
 			 public static string PlanType = @"PlanType";
 			 public static string Ddjhrq = @"DDJHRQ";
+			 public static string Isypb = @"ISYPB";
+			 public static string MESStatus = @"MESStatus";
+			 public static string Cutternum = @"CUTTERNUM";
+			 public static string BPMStatus = @"BPMStatus";
+			 public static string FactoryStatus = @"FactoryStatus";
 						
 		}
 		#endregion

@@ -7,6 +7,7 @@ using Kute.Helper;
 using Model;
 using Newtonsoft.Json;
 using ServiceHandle.ModelsOther;
+using SubSonic;
 
 namespace NewAnalysisPlugs
 {
@@ -18,6 +19,9 @@ namespace NewAnalysisPlugs
             try
             {
                 var blpldList = (Blpld)JsonConvert.DeserializeObject(dataJson, typeof(Blpld));
+
+                new Delete().From<TBLDataPld>().Where(TBLDataPld.KhdhColumn).IsEqualTo(blpldList.Khdh).Execute();
+
                 foreach (var pldmx in blpldList.Wlmxs)
                 {
                     var data = new TBLDataPld
@@ -40,14 +44,11 @@ namespace NewAnalysisPlugs
                         Hdh = pldmx.Hdh,
                         Wlbw = pldmx.Wlbw
                     };
-                    data.Save();
-                    if (data.Id < 1)
-                        throw new Exception("系统无异常，排料单插入数据库失败！");
-                    else
-                    {
-                        json.RetMessage = "排料单新增成功";
-                        json.RetCode = "Success";
-                    }
+                    data.Save(); 
+
+                    json.RetMessage = "排料单新增成功";
+                    json.RetCode = "Success";
+
                 }
             }
             catch (Exception e)

@@ -34,11 +34,7 @@ namespace Model
         
 		public static readonly string SCM06 = @"SCM06";
         
-		public static readonly string SCM13 = @"SCM13";
-        
-		public static readonly string SCT02Delete = @"SCT02_delete";
-        
-		public static readonly string SCT12Delete = @"SCT12_delete";
+		public static readonly string SCM13Delete = @"SCM13_delete";
         
 		public static readonly string SCT26 = @"SCT26";
         
@@ -46,37 +42,13 @@ namespace Model
         
 		public static readonly string SCT26Test1 = @"SCT26_test1";
         
-		public static readonly string SCT262Delete = @"SCT262_delete";
-        
 		public static readonly string SCT27 = @"SCT27";
         
 		public static readonly string SCT27Test = @"SCT27_test";
         
-		public static readonly string SCT271Delete = @"SCT271_delete";
-        
-		public static readonly string SCT272Delete = @"SCT272_delete";
-        
-		public static readonly string SCT28Delete = @"SCT28_delete";
-        
-		public static readonly string SCT282Delete = @"SCT282_delete";
-        
-		public static readonly string SCT31Delete = @"SCT31_delete";
-        
-		public static readonly string SCT32Delete = @"SCT32_delete";
-        
-		public static readonly string SCT33Delete = @"SCT33_delete";
-        
-		public static readonly string SCT51Delete = @"SCT51_delete";
-        
-		public static readonly string SCT52Delete = @"SCT52_delete";
-        
-		public static readonly string SCT55Delete = @"SCT55_delete";
-        
-		public static readonly string SCT56Delete = @"SCT56_delete";
-        
 		public static readonly string TAnalysisCyMTMJh = @"T_Analysis_CyMTMJh";
         
-		public static readonly string TAnalysisCyTZJh = @"T_Analysis_CyTZJh";
+		public static readonly string TAnalysisCyTZJhDelete = @"T_Analysis_CyTZJh_delete";
         
 		public static readonly string TAnalysisDelivery = @"T_Analysis_Delivery";
         
@@ -100,7 +72,7 @@ namespace Model
         
 		public static readonly string TAnalysisOutPutListByFZ = @"T_Analysis_OutPutListByFZ";
         
-		public static readonly string TAnalysisOutputListTzWithCode = @"T_Analysis_OutputListTzWithCode";
+		public static readonly string TAnalysisOutputListTzWithCodeDelete = @"T_Analysis_OutputListTzWithCode_delete";
         
 		public static readonly string TAnalysisOutputListWithCodeCopy = @"T_Analysis_OutputListWithCode_copy";
         
@@ -142,6 +114,8 @@ namespace Model
         
 		public static readonly string TBasisRTXMsg = @"T_Basis_RTXMsg";
         
+		public static readonly string TBasisScgcmc = @"T_Basis_SCGCMC";
+        
 		public static readonly string TBasisSewingProcess = @"T_Basis_SewingProcess";
         
 		public static readonly string TBasisSpecialCode = @"T_Basis_SpecialCode";
@@ -174,9 +148,11 @@ namespace Model
         
 		public static readonly string TBLDataPld = @"T_BLData_PLD";
         
+		public static readonly string TBLDataPLD1 = @"T_BLData_PLD1";
+        
 		public static readonly string TBom = @"T_BOM";
         
-		public static readonly string TCategoryProcessFlow = @"T_CategoryProcessFlow";
+		public static readonly string TCategoryProcessFlowDelete = @"T_CategoryProcessFlow_delete";
         
 		public static readonly string TCutterAP = @"T_CutterAPS";
         
@@ -189,6 +165,8 @@ namespace Model
 		public static readonly string TFZfirstOut = @"T_FZfirstOut";
         
 		public static readonly string TLog = @"T_Log";
+        
+		public static readonly string TLogErpSct27 = @"T_Log_ErpSct27";
         
 		public static readonly string TLogError = @"T_Log_Error";
         
@@ -212,7 +190,7 @@ namespace Model
         
 		public static readonly string TOrderMESArtInfo = @"T_OrderMESArtInfo";
         
-		public static readonly string TOrderProcessHour = @"T_OrderProcessHour";
+		public static readonly string TOrderProcessHourDelete = @"T_OrderProcessHour_delete";
         
 		public static readonly string TPlanM = @"T_PlanM";
         
@@ -240,15 +218,15 @@ namespace Model
         
 		public static readonly string WmsSyncPlan = @"WMS_SYNC_plans";
         
-		public static readonly string XTM12 = @"XTM12";
+		public static readonly string XTM12Delete = @"XTM12_delete";
         
-		public static readonly string XTM124 = @"XTM124";
+		public static readonly string XTM124Delete = @"XTM124_delete";
         
-		public static readonly string XTM14 = @"XTM14";
+		public static readonly string XTM14Delete = @"XTM14_delete";
         
-		public static readonly string XTM22 = @"XTM22";
+		public static readonly string XTM22Delete = @"XTM22_delete";
         
-		public static readonly string XTM32 = @"XTM32";
+		public static readonly string XTM32Delete = @"XTM32_delete";
         
 	}
 	#endregion
@@ -295,19 +273,9 @@ namespace Model
             get { return DataService.GetSchema("SCM06", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCM13
+		public static TableSchema.Table SCM13Delete
 		{
-            get { return DataService.GetSchema("SCM13", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCT02Delete
-		{
-            get { return DataService.GetSchema("SCT02_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCT12Delete
-		{
-            get { return DataService.GetSchema("SCT12_delete", "Nowthwin"); }
+            get { return DataService.GetSchema("SCM13_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table SCT26
@@ -325,11 +293,6 @@ namespace Model
             get { return DataService.GetSchema("SCT26_test1", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT262Delete
-		{
-            get { return DataService.GetSchema("SCT262_delete", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table SCT27
 		{
             get { return DataService.GetSchema("SCT27", "Nowthwin"); }
@@ -340,69 +303,14 @@ namespace Model
             get { return DataService.GetSchema("SCT27_test", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT271Delete
-		{
-            get { return DataService.GetSchema("SCT271_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCT272Delete
-		{
-            get { return DataService.GetSchema("SCT272_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCT28Delete
-		{
-            get { return DataService.GetSchema("SCT28_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCT282Delete
-		{
-            get { return DataService.GetSchema("SCT282_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCT31Delete
-		{
-            get { return DataService.GetSchema("SCT31_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCT32Delete
-		{
-            get { return DataService.GetSchema("SCT32_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCT33Delete
-		{
-            get { return DataService.GetSchema("SCT33_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCT51Delete
-		{
-            get { return DataService.GetSchema("SCT51_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCT52Delete
-		{
-            get { return DataService.GetSchema("SCT52_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCT55Delete
-		{
-            get { return DataService.GetSchema("SCT55_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCT56Delete
-		{
-            get { return DataService.GetSchema("SCT56_delete", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table TAnalysisCyMTMJh
 		{
             get { return DataService.GetSchema("T_Analysis_CyMTMJh", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisCyTZJh
+		public static TableSchema.Table TAnalysisCyTZJhDelete
 		{
-            get { return DataService.GetSchema("T_Analysis_CyTZJh", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Analysis_CyTZJh_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisDelivery
@@ -460,9 +368,9 @@ namespace Model
             get { return DataService.GetSchema("T_Analysis_OutPutListByFZ", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisOutputListTzWithCode
+		public static TableSchema.Table TAnalysisOutputListTzWithCodeDelete
 		{
-            get { return DataService.GetSchema("T_Analysis_OutputListTzWithCode", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Analysis_OutputListTzWithCode_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOutputListWithCodeCopy
@@ -565,6 +473,11 @@ namespace Model
             get { return DataService.GetSchema("T_Basis_RTXMsg", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBasisScgcmc
+		{
+            get { return DataService.GetSchema("T_Basis_SCGCMC", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBasisSewingProcess
 		{
             get { return DataService.GetSchema("T_Basis_SewingProcess", "Nowthwin"); }
@@ -645,14 +558,19 @@ namespace Model
             get { return DataService.GetSchema("T_BLData_PLD", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBLDataPLD1
+		{
+            get { return DataService.GetSchema("T_BLData_PLD1", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBom
 		{
             get { return DataService.GetSchema("T_BOM", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TCategoryProcessFlow
+		public static TableSchema.Table TCategoryProcessFlowDelete
 		{
-            get { return DataService.GetSchema("T_CategoryProcessFlow", "Nowthwin"); }
+            get { return DataService.GetSchema("T_CategoryProcessFlow_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TCutterAP
@@ -683,6 +601,11 @@ namespace Model
 		public static TableSchema.Table TLog
 		{
             get { return DataService.GetSchema("T_Log", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TLogErpSct27
+		{
+            get { return DataService.GetSchema("T_Log_ErpSct27", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TLogError
@@ -740,9 +663,9 @@ namespace Model
             get { return DataService.GetSchema("T_OrderMESArtInfo", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TOrderProcessHour
+		public static TableSchema.Table TOrderProcessHourDelete
 		{
-            get { return DataService.GetSchema("T_OrderProcessHour", "Nowthwin"); }
+            get { return DataService.GetSchema("T_OrderProcessHour_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TPlanM
@@ -810,29 +733,29 @@ namespace Model
             get { return DataService.GetSchema("WMS_SYNC_plans", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table XTM12
+		public static TableSchema.Table XTM12Delete
 		{
-            get { return DataService.GetSchema("XTM12", "Nowthwin"); }
+            get { return DataService.GetSchema("XTM12_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table XTM124
+		public static TableSchema.Table XTM124Delete
 		{
-            get { return DataService.GetSchema("XTM124", "Nowthwin"); }
+            get { return DataService.GetSchema("XTM124_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table XTM14
+		public static TableSchema.Table XTM14Delete
 		{
-            get { return DataService.GetSchema("XTM14", "Nowthwin"); }
+            get { return DataService.GetSchema("XTM14_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table XTM22
+		public static TableSchema.Table XTM22Delete
 		{
-            get { return DataService.GetSchema("XTM22", "Nowthwin"); }
+            get { return DataService.GetSchema("XTM22_delete", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table XTM32
+		public static TableSchema.Table XTM32Delete
 		{
-            get { return DataService.GetSchema("XTM32", "Nowthwin"); }
+            get { return DataService.GetSchema("XTM32_delete", "Nowthwin"); }
 		}
         
 	

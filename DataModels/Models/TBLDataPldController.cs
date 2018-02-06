@@ -50,9 +50,9 @@ namespace Model
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public TBLDataPldCollection FetchByID(object Id)
+        public TBLDataPldCollection FetchByID(object Scggdh)
         {
-            TBLDataPldCollection coll = new TBLDataPldCollection().Where("ID", Id).Load();
+            TBLDataPldCollection coll = new TBLDataPldCollection().Where("SCGGDH", Scggdh).Load();
             return coll;
         }
 		
@@ -64,23 +64,35 @@ namespace Model
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
-        public bool Delete(object Id)
+        public bool Delete(object Scggdh)
         {
-            return (TBLDataPld.Delete(Id) == 1);
+            return (TBLDataPld.Delete(Scggdh) == 1);
         }
         [DataObjectMethod(DataObjectMethodType.Delete, false)]
-        public bool Destroy(object Id)
+        public bool Destroy(object Scggdh)
         {
-            return (TBLDataPld.Destroy(Id) == 1);
+            return (TBLDataPld.Destroy(Scggdh) == 1);
         }
         
         
+        
+        [DataObjectMethod(DataObjectMethodType.Delete, true)]
+        public bool Delete(string Scggdh,int Wlxh)
+        {
+            Query qry = new Query(TBLDataPld.Schema);
+            qry.QueryType = QueryType.Delete;
+            qry.AddWhere("Scggdh", Scggdh).AND("Wlxh", Wlxh);
+            qry.Execute();
+            return (true);
+        }        
+       
+    	
     	
 	    /// <summary>
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Scggdh,string Khdh,int Pbxh,string Wlbm,decimal Wlfk,decimal Wlhy,string Tgsx,decimal Tgkd,string Wlks,int Wlxh,int XH1,string Wlbw,string Gyfl,string Sldl,string Cpzl,string Sfhd,string Hdh)
+	    public void Insert(string Scggdh,string Khdh,int? Pbxh,string Wlbm,decimal? Wlfk,decimal? Wlhy,string Tgsx,decimal? Tgkd,string Wlks,int Wlxh,int? XH1,string Wlbw,string Gyfl,string Sldl,string Cpzl,string Sfhd,string Hdh)
 	    {
 		    TBLDataPld item = new TBLDataPld();
 		    
@@ -126,7 +138,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Id,string Scggdh,string Khdh,int Pbxh,string Wlbm,decimal Wlfk,decimal Wlhy,string Tgsx,decimal Tgkd,string Wlks,int Wlxh,int XH1,string Wlbw,string Gyfl,string Sldl,string Cpzl,string Sfhd,string Hdh)
+	    public void Update(int Id,string Scggdh,string Khdh,int? Pbxh,string Wlbm,decimal? Wlfk,decimal? Wlhy,string Tgsx,decimal? Tgkd,string Wlks,int Wlxh,int? XH1,string Wlbw,string Gyfl,string Sldl,string Cpzl,string Sfhd,string Hdh)
 	    {
 		    TBLDataPld item = new TBLDataPld();
 	        item.MarkOld();

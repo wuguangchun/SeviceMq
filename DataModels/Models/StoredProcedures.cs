@@ -46,15 +46,35 @@ namespace Model{
         }
         
         /// <summary>
+        /// Creates an object wrapper for the P_Cutter_Cut Procedure
+        /// </summary>
+        public static StoredProcedure PCutterCut(string APSIDS, string OPNAME, string MATLENGTH, string OPREMARK, string RESULT)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("P_Cutter_Cut", DataService.GetInstance("Nowthwin"), "dbo");
+        	
+            sp.Command.AddParameter("@APSIDS", APSIDS, DbType.AnsiString, null, null);
+        	
+            sp.Command.AddParameter("@OPNAME", OPNAME, DbType.AnsiString, null, null);
+        	
+            sp.Command.AddParameter("@MATLENGTH", MATLENGTH, DbType.AnsiString, null, null);
+        	
+            sp.Command.AddParameter("@OPREMARK", OPREMARK, DbType.AnsiString, null, null);
+        	
+            sp.Command.AddOutputParameter("@RESULT", DbType.AnsiString, null, null);
+            
+            return sp;
+        }
+        
+        /// <summary>
         /// Creates an object wrapper for the P_File_Trans Procedure
         /// </summary>
-        public static StoredProcedure PFileTrans(string APSIDS, string cRESULT)
+        public static StoredProcedure PFileTrans(string APSIDS, string RESULT)
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("P_File_Trans", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@APSIDS", APSIDS, DbType.AnsiString, null, null);
         	
-            sp.Command.AddOutputParameter("@cRESULT", DbType.AnsiString, null, null);
+            sp.Command.AddOutputParameter("@RESULT", DbType.AnsiString, null, null);
             
             return sp;
         }
@@ -62,7 +82,7 @@ namespace Model{
         /// <summary>
         /// Creates an object wrapper for the P_Gen_CutterAPS Procedure
         /// </summary>
-        public static StoredProcedure PGenCutterAPS(string SCGGDH, int? CutterNum, string DateX, string Time, int? Cutcount, string cRESULT)
+        public static StoredProcedure PGenCutterAPS(string SCGGDH, int? CutterNum, string DateX, string Time, int? Cutcount, string RESULT)
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("P_Gen_CutterAPS", DataService.GetInstance("Nowthwin"), "dbo");
         	
@@ -76,7 +96,7 @@ namespace Model{
         	
             sp.Command.AddParameter("@Cutcount", Cutcount, DbType.Int32, 0, 10);
         	
-            sp.Command.AddOutputParameter("@cRESULT", DbType.AnsiString, null, null);
+            sp.Command.AddOutputParameter("@RESULT", DbType.AnsiString, null, null);
             
             return sp;
         }
@@ -84,13 +104,13 @@ namespace Model{
         /// <summary>
         /// Creates an object wrapper for the P_Gen_CutterAPS_Anti Procedure
         /// </summary>
-        public static StoredProcedure PGenCutterAPSAnti(string PLANMID, string cRESULT)
+        public static StoredProcedure PGenCutterAPSAnti(string SCGGDH, string RESULT)
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("P_Gen_CutterAPS_Anti", DataService.GetInstance("Nowthwin"), "dbo");
         	
-            sp.Command.AddParameter("@PLANMID", PLANMID, DbType.AnsiString, null, null);
+            sp.Command.AddParameter("@SCGGDH", SCGGDH, DbType.AnsiString, null, null);
         	
-            sp.Command.AddOutputParameter("@cRESULT", DbType.AnsiString, null, null);
+            sp.Command.AddOutputParameter("@RESULT", DbType.AnsiString, null, null);
             
             return sp;
         }
@@ -134,7 +154,7 @@ namespace Model{
         /// <summary>
         /// Creates an object wrapper for the P_Material_Cut Procedure
         /// </summary>
-        public static StoredProcedure PMaterialCut(string APSIDS, string OPCODE, string OPNAME, string MATLENGTH, string OPREMARK, string cRESULT)
+        public static StoredProcedure PMaterialCut(string APSIDS, string OPCODE, string OPNAME, string MATLENGTH, string OPREMARK, string RESULT)
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("P_Material_Cut", DataService.GetInstance("Nowthwin"), "dbo");
         	
@@ -148,7 +168,7 @@ namespace Model{
         	
             sp.Command.AddParameter("@OPREMARK", OPREMARK, DbType.AnsiString, null, null);
         	
-            sp.Command.AddOutputParameter("@cRESULT", DbType.AnsiString, null, null);
+            sp.Command.AddOutputParameter("@RESULT", DbType.AnsiString, null, null);
             
             return sp;
         }
@@ -156,7 +176,7 @@ namespace Model{
         /// <summary>
         /// Creates an object wrapper for the P_Material_Print Procedure
         /// </summary>
-        public static StoredProcedure PMaterialPrint(string APSIDS, string IpAdress, string OPCODE, string Print, string cRESULT)
+        public static StoredProcedure PMaterialPrint(string APSIDS, string IpAdress, string OPCODE, string Print, string RESULT)
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("P_Material_Print", DataService.GetInstance("Nowthwin"), "dbo");
         	
@@ -168,7 +188,7 @@ namespace Model{
         	
             sp.Command.AddParameter("@Print", Print, DbType.AnsiString, null, null);
         	
-            sp.Command.AddOutputParameter("@cRESULT", DbType.AnsiString, null, null);
+            sp.Command.AddOutputParameter("@RESULT", DbType.AnsiString, null, null);
             
             return sp;
         }
@@ -191,6 +211,18 @@ namespace Model{
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_CadOutTvColumn", DataService.GetInstance("Nowthwin"), "dbo");
         	
             sp.Command.AddParameter("@BeginDate", BeginDate, DbType.String, null, null);
+        	
+            return sp;
+        }
+        
+        /// <summary>
+        /// Creates an object wrapper for the proc_DelERPData Procedure
+        /// </summary>
+        public static StoredProcedure ProcDelERPData(string OrderID)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("proc_DelERPData", DataService.GetInstance("Nowthwin"), "dbo");
+        	
+            sp.Command.AddParameter("@OrderID", OrderID, DbType.String, null, null);
         	
             return sp;
         }
@@ -375,6 +407,20 @@ namespace Model{
         public static StoredProcedure ProcTzXfPlan()
         {
             SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_TzXfPlan", DataService.GetInstance("Nowthwin"), "");
+        	
+            return sp;
+        }
+        
+        /// <summary>
+        /// Creates an object wrapper for the Proc_UptSCT51 Procedure
+        /// </summary>
+        public static StoredProcedure ProcUptSCT51(string SCYSPD, string SCDJZT)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_UptSCT51", DataService.GetInstance("Nowthwin"), "dbo");
+        	
+            sp.Command.AddParameter("@SCYSPD", SCYSPD, DbType.AnsiString, null, null);
+        	
+            sp.Command.AddParameter("@SCDJZT", SCDJZT, DbType.AnsiString, null, null);
         	
             return sp;
         }

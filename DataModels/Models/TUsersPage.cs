@@ -193,6 +193,19 @@ namespace Model
 				colvarJurisdiction.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarJurisdiction);
 				
+				TableSchema.TableColumn colvarParentID = new TableSchema.TableColumn(schema);
+				colvarParentID.ColumnName = "ParentID";
+				colvarParentID.DataType = DbType.Int32;
+				colvarParentID.MaxLength = 0;
+				colvarParentID.AutoIncrement = false;
+				colvarParentID.IsNullable = true;
+				colvarParentID.IsPrimaryKey = false;
+				colvarParentID.IsForeignKey = false;
+				colvarParentID.IsReadOnly = false;
+				colvarParentID.DefaultSetting = @"";
+				colvarParentID.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarParentID);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -242,6 +255,14 @@ namespace Model
 			get { return GetColumnValue<int?>(Columns.Jurisdiction); }
 			set { SetColumnValue(Columns.Jurisdiction, value); }
 		}
+		  
+		[XmlAttribute("ParentID")]
+		[Bindable(true)]
+		public int? ParentID 
+		{
+			get { return GetColumnValue<int?>(Columns.ParentID); }
+			set { SetColumnValue(Columns.ParentID, value); }
+		}
 		
 		#endregion
 		
@@ -262,7 +283,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int varId,string varPageName,string varPageUrl,int varLocked,int? varJurisdiction)
+		public static void Insert(int varId,string varPageName,string varPageUrl,int varLocked,int? varJurisdiction,int? varParentID)
 		{
 			TUsersPage item = new TUsersPage();
 			
@@ -276,6 +297,8 @@ namespace Model
 			
 			item.Jurisdiction = varJurisdiction;
 			
+			item.ParentID = varParentID;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -286,7 +309,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varId,string varPageName,string varPageUrl,int varLocked,int? varJurisdiction)
+		public static void Update(int varId,string varPageName,string varPageUrl,int varLocked,int? varJurisdiction,int? varParentID)
 		{
 			TUsersPage item = new TUsersPage();
 			
@@ -299,6 +322,8 @@ namespace Model
 				item.Locked = varLocked;
 			
 				item.Jurisdiction = varJurisdiction;
+			
+				item.ParentID = varParentID;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -348,6 +373,13 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn ParentIDColumn
+        {
+            get { return Schema.Columns[5]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -357,6 +389,7 @@ namespace Model
 			 public static string PageUrl = @"PageUrl";
 			 public static string Locked = @"Locked";
 			 public static string Jurisdiction = @"Jurisdiction";
+			 public static string ParentID = @"ParentID";
 						
 		}
 		#endregion

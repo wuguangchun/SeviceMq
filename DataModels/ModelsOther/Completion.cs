@@ -17,5 +17,6 @@ namespace ServiceHandle.ModelsOther
         public string OrderFl { get; set; }
         public string CustmerId { get; set; }
         public string CallingParty { get; set; }
-    }
+        public string Note { get; set; }
+}
 }

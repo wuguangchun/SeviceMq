@@ -132,7 +132,7 @@ namespace Model
 				colvarId.MaxLength = 0;
 				colvarId.AutoIncrement = true;
 				colvarId.IsNullable = false;
-				colvarId.IsPrimaryKey = true;
+				colvarId.IsPrimaryKey = false;
 				colvarId.IsForeignKey = false;
 				colvarId.IsReadOnly = false;
 				colvarId.DefaultSetting = @"";
@@ -145,11 +145,10 @@ namespace Model
 				colvarScggdh.MaxLength = 50;
 				colvarScggdh.AutoIncrement = false;
 				colvarScggdh.IsNullable = false;
-				colvarScggdh.IsPrimaryKey = false;
+				colvarScggdh.IsPrimaryKey = true;
 				colvarScggdh.IsForeignKey = false;
 				colvarScggdh.IsReadOnly = false;
-				
-						colvarScggdh.DefaultSetting = @"('')";
+				colvarScggdh.DefaultSetting = @"";
 				colvarScggdh.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarScggdh);
 				
@@ -158,12 +157,11 @@ namespace Model
 				colvarKhdh.DataType = DbType.AnsiString;
 				colvarKhdh.MaxLength = 30;
 				colvarKhdh.AutoIncrement = false;
-				colvarKhdh.IsNullable = false;
+				colvarKhdh.IsNullable = true;
 				colvarKhdh.IsPrimaryKey = false;
 				colvarKhdh.IsForeignKey = false;
 				colvarKhdh.IsReadOnly = false;
-				
-						colvarKhdh.DefaultSetting = @"('')";
+				colvarKhdh.DefaultSetting = @"";
 				colvarKhdh.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarKhdh);
 				
@@ -172,12 +170,11 @@ namespace Model
 				colvarPbxh.DataType = DbType.Int32;
 				colvarPbxh.MaxLength = 0;
 				colvarPbxh.AutoIncrement = false;
-				colvarPbxh.IsNullable = false;
+				colvarPbxh.IsNullable = true;
 				colvarPbxh.IsPrimaryKey = false;
 				colvarPbxh.IsForeignKey = false;
 				colvarPbxh.IsReadOnly = false;
-				
-						colvarPbxh.DefaultSetting = @"((0))";
+				colvarPbxh.DefaultSetting = @"";
 				colvarPbxh.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarPbxh);
 				
@@ -186,12 +183,11 @@ namespace Model
 				colvarWlbm.DataType = DbType.AnsiString;
 				colvarWlbm.MaxLength = 50;
 				colvarWlbm.AutoIncrement = false;
-				colvarWlbm.IsNullable = false;
+				colvarWlbm.IsNullable = true;
 				colvarWlbm.IsPrimaryKey = false;
 				colvarWlbm.IsForeignKey = false;
 				colvarWlbm.IsReadOnly = false;
-				
-						colvarWlbm.DefaultSetting = @"('')";
+				colvarWlbm.DefaultSetting = @"";
 				colvarWlbm.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarWlbm);
 				
@@ -200,12 +196,11 @@ namespace Model
 				colvarWlfk.DataType = DbType.Decimal;
 				colvarWlfk.MaxLength = 0;
 				colvarWlfk.AutoIncrement = false;
-				colvarWlfk.IsNullable = false;
+				colvarWlfk.IsNullable = true;
 				colvarWlfk.IsPrimaryKey = false;
 				colvarWlfk.IsForeignKey = false;
 				colvarWlfk.IsReadOnly = false;
-				
-						colvarWlfk.DefaultSetting = @"((0))";
+				colvarWlfk.DefaultSetting = @"";
 				colvarWlfk.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarWlfk);
 				
@@ -214,12 +209,11 @@ namespace Model
 				colvarWlhy.DataType = DbType.Decimal;
 				colvarWlhy.MaxLength = 0;
 				colvarWlhy.AutoIncrement = false;
-				colvarWlhy.IsNullable = false;
+				colvarWlhy.IsNullable = true;
 				colvarWlhy.IsPrimaryKey = false;
 				colvarWlhy.IsForeignKey = false;
 				colvarWlhy.IsReadOnly = false;
-				
-						colvarWlhy.DefaultSetting = @"((0))";
+				colvarWlhy.DefaultSetting = @"";
 				colvarWlhy.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarWlhy);
 				
@@ -228,12 +222,11 @@ namespace Model
 				colvarTgsx.DataType = DbType.AnsiString;
 				colvarTgsx.MaxLength = 30;
 				colvarTgsx.AutoIncrement = false;
-				colvarTgsx.IsNullable = false;
+				colvarTgsx.IsNullable = true;
 				colvarTgsx.IsPrimaryKey = false;
 				colvarTgsx.IsForeignKey = false;
 				colvarTgsx.IsReadOnly = false;
-				
-						colvarTgsx.DefaultSetting = @"('')";
+				colvarTgsx.DefaultSetting = @"";
 				colvarTgsx.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarTgsx);
 				
@@ -242,12 +235,11 @@ namespace Model
 				colvarTgkd.DataType = DbType.Decimal;
 				colvarTgkd.MaxLength = 0;
 				colvarTgkd.AutoIncrement = false;
-				colvarTgkd.IsNullable = false;
+				colvarTgkd.IsNullable = true;
 				colvarTgkd.IsPrimaryKey = false;
 				colvarTgkd.IsForeignKey = false;
 				colvarTgkd.IsReadOnly = false;
-				
-						colvarTgkd.DefaultSetting = @"((0))";
+				colvarTgkd.DefaultSetting = @"";
 				colvarTgkd.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarTgkd);
 				
@@ -256,12 +248,11 @@ namespace Model
 				colvarWlks.DataType = DbType.AnsiString;
 				colvarWlks.MaxLength = 50;
 				colvarWlks.AutoIncrement = false;
-				colvarWlks.IsNullable = false;
+				colvarWlks.IsNullable = true;
 				colvarWlks.IsPrimaryKey = false;
 				colvarWlks.IsForeignKey = false;
 				colvarWlks.IsReadOnly = false;
-				
-						colvarWlks.DefaultSetting = @"('')";
+				colvarWlks.DefaultSetting = @"";
 				colvarWlks.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarWlks);
 				
@@ -271,11 +262,10 @@ namespace Model
 				colvarWlxh.MaxLength = 0;
 				colvarWlxh.AutoIncrement = false;
 				colvarWlxh.IsNullable = false;
-				colvarWlxh.IsPrimaryKey = false;
+				colvarWlxh.IsPrimaryKey = true;
 				colvarWlxh.IsForeignKey = false;
 				colvarWlxh.IsReadOnly = false;
-				
-						colvarWlxh.DefaultSetting = @"((0))";
+				colvarWlxh.DefaultSetting = @"";
 				colvarWlxh.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarWlxh);
 				
@@ -284,12 +274,11 @@ namespace Model
 				colvarXH1.DataType = DbType.Int32;
 				colvarXH1.MaxLength = 0;
 				colvarXH1.AutoIncrement = false;
-				colvarXH1.IsNullable = false;
+				colvarXH1.IsNullable = true;
 				colvarXH1.IsPrimaryKey = false;
 				colvarXH1.IsForeignKey = false;
 				colvarXH1.IsReadOnly = false;
-				
-						colvarXH1.DefaultSetting = @"((0))";
+				colvarXH1.DefaultSetting = @"";
 				colvarXH1.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarXH1);
 				
@@ -298,12 +287,11 @@ namespace Model
 				colvarWlbw.DataType = DbType.AnsiString;
 				colvarWlbw.MaxLength = 200;
 				colvarWlbw.AutoIncrement = false;
-				colvarWlbw.IsNullable = false;
+				colvarWlbw.IsNullable = true;
 				colvarWlbw.IsPrimaryKey = false;
 				colvarWlbw.IsForeignKey = false;
 				colvarWlbw.IsReadOnly = false;
-				
-						colvarWlbw.DefaultSetting = @"('')";
+				colvarWlbw.DefaultSetting = @"";
 				colvarWlbw.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarWlbw);
 				
@@ -312,12 +300,11 @@ namespace Model
 				colvarGyfl.DataType = DbType.AnsiString;
 				colvarGyfl.MaxLength = 30;
 				colvarGyfl.AutoIncrement = false;
-				colvarGyfl.IsNullable = false;
+				colvarGyfl.IsNullable = true;
 				colvarGyfl.IsPrimaryKey = false;
 				colvarGyfl.IsForeignKey = false;
 				colvarGyfl.IsReadOnly = false;
-				
-						colvarGyfl.DefaultSetting = @"('')";
+				colvarGyfl.DefaultSetting = @"";
 				colvarGyfl.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarGyfl);
 				
@@ -326,12 +313,11 @@ namespace Model
 				colvarSldl.DataType = DbType.AnsiString;
 				colvarSldl.MaxLength = 50;
 				colvarSldl.AutoIncrement = false;
-				colvarSldl.IsNullable = false;
+				colvarSldl.IsNullable = true;
 				colvarSldl.IsPrimaryKey = false;
 				colvarSldl.IsForeignKey = false;
 				colvarSldl.IsReadOnly = false;
-				
-						colvarSldl.DefaultSetting = @"('')";
+				colvarSldl.DefaultSetting = @"";
 				colvarSldl.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarSldl);
 				
@@ -340,26 +326,24 @@ namespace Model
 				colvarCpzl.DataType = DbType.AnsiString;
 				colvarCpzl.MaxLength = 30;
 				colvarCpzl.AutoIncrement = false;
-				colvarCpzl.IsNullable = false;
+				colvarCpzl.IsNullable = true;
 				colvarCpzl.IsPrimaryKey = false;
 				colvarCpzl.IsForeignKey = false;
 				colvarCpzl.IsReadOnly = false;
-				
-						colvarCpzl.DefaultSetting = @"('')";
+				colvarCpzl.DefaultSetting = @"";
 				colvarCpzl.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarCpzl);
 				
 				TableSchema.TableColumn colvarSfhd = new TableSchema.TableColumn(schema);
 				colvarSfhd.ColumnName = "SFHD";
-				colvarSfhd.DataType = DbType.AnsiStringFixedLength;
-				colvarSfhd.MaxLength = 1;
+				colvarSfhd.DataType = DbType.AnsiString;
+				colvarSfhd.MaxLength = 10;
 				colvarSfhd.AutoIncrement = false;
-				colvarSfhd.IsNullable = false;
+				colvarSfhd.IsNullable = true;
 				colvarSfhd.IsPrimaryKey = false;
 				colvarSfhd.IsForeignKey = false;
 				colvarSfhd.IsReadOnly = false;
-				
-						colvarSfhd.DefaultSetting = @"((0))";
+				colvarSfhd.DefaultSetting = @"";
 				colvarSfhd.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarSfhd);
 				
@@ -368,12 +352,11 @@ namespace Model
 				colvarHdh.DataType = DbType.AnsiString;
 				colvarHdh.MaxLength = 50;
 				colvarHdh.AutoIncrement = false;
-				colvarHdh.IsNullable = false;
+				colvarHdh.IsNullable = true;
 				colvarHdh.IsPrimaryKey = false;
 				colvarHdh.IsForeignKey = false;
 				colvarHdh.IsReadOnly = false;
-				
-						colvarHdh.DefaultSetting = @"('')";
+				colvarHdh.DefaultSetting = @"";
 				colvarHdh.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarHdh);
 				
@@ -413,9 +396,9 @@ namespace Model
 		  
 		[XmlAttribute("Pbxh")]
 		[Bindable(true)]
-		public int Pbxh 
+		public int? Pbxh 
 		{
-			get { return GetColumnValue<int>(Columns.Pbxh); }
+			get { return GetColumnValue<int?>(Columns.Pbxh); }
 			set { SetColumnValue(Columns.Pbxh, value); }
 		}
 		  
@@ -429,17 +412,17 @@ namespace Model
 		  
 		[XmlAttribute("Wlfk")]
 		[Bindable(true)]
-		public decimal Wlfk 
+		public decimal? Wlfk 
 		{
-			get { return GetColumnValue<decimal>(Columns.Wlfk); }
+			get { return GetColumnValue<decimal?>(Columns.Wlfk); }
 			set { SetColumnValue(Columns.Wlfk, value); }
 		}
 		  
 		[XmlAttribute("Wlhy")]
 		[Bindable(true)]
-		public decimal Wlhy 
+		public decimal? Wlhy 
 		{
-			get { return GetColumnValue<decimal>(Columns.Wlhy); }
+			get { return GetColumnValue<decimal?>(Columns.Wlhy); }
 			set { SetColumnValue(Columns.Wlhy, value); }
 		}
 		  
@@ -453,9 +436,9 @@ namespace Model
 		  
 		[XmlAttribute("Tgkd")]
 		[Bindable(true)]
-		public decimal Tgkd 
+		public decimal? Tgkd 
 		{
-			get { return GetColumnValue<decimal>(Columns.Tgkd); }
+			get { return GetColumnValue<decimal?>(Columns.Tgkd); }
 			set { SetColumnValue(Columns.Tgkd, value); }
 		}
 		  
@@ -477,9 +460,9 @@ namespace Model
 		  
 		[XmlAttribute("XH1")]
 		[Bindable(true)]
-		public int XH1 
+		public int? XH1 
 		{
-			get { return GetColumnValue<int>(Columns.XH1); }
+			get { return GetColumnValue<int?>(Columns.XH1); }
 			set { SetColumnValue(Columns.XH1, value); }
 		}
 		  
@@ -550,7 +533,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varScggdh,string varKhdh,int varPbxh,string varWlbm,decimal varWlfk,decimal varWlhy,string varTgsx,decimal varTgkd,string varWlks,int varWlxh,int varXH1,string varWlbw,string varGyfl,string varSldl,string varCpzl,string varSfhd,string varHdh)
+		public static void Insert(string varScggdh,string varKhdh,int? varPbxh,string varWlbm,decimal? varWlfk,decimal? varWlhy,string varTgsx,decimal? varTgkd,string varWlks,int varWlxh,int? varXH1,string varWlbw,string varGyfl,string varSldl,string varCpzl,string varSfhd,string varHdh)
 		{
 			TBLDataPld item = new TBLDataPld();
 			
@@ -598,7 +581,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varId,string varScggdh,string varKhdh,int varPbxh,string varWlbm,decimal varWlfk,decimal varWlhy,string varTgsx,decimal varTgkd,string varWlks,int varWlxh,int varXH1,string varWlbw,string varGyfl,string varSldl,string varCpzl,string varSfhd,string varHdh)
+		public static void Update(int varId,string varScggdh,string varKhdh,int? varPbxh,string varWlbm,decimal? varWlfk,decimal? varWlhy,string varTgsx,decimal? varTgkd,string varWlks,int varWlxh,int? varXH1,string varWlbw,string varGyfl,string varSldl,string varCpzl,string varSfhd,string varHdh)
 		{
 			TBLDataPld item = new TBLDataPld();
 			

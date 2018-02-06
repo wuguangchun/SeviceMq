@@ -282,6 +282,45 @@ namespace Model
 				colvarScgybz.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarScgybz);
 				
+				TableSchema.TableColumn colvarScdlzt = new TableSchema.TableColumn(schema);
+				colvarScdlzt.ColumnName = "SCDLZT";
+				colvarScdlzt.DataType = DbType.AnsiString;
+				colvarScdlzt.MaxLength = 10;
+				colvarScdlzt.AutoIncrement = false;
+				colvarScdlzt.IsNullable = true;
+				colvarScdlzt.IsPrimaryKey = false;
+				colvarScdlzt.IsForeignKey = false;
+				colvarScdlzt.IsReadOnly = false;
+				colvarScdlzt.DefaultSetting = @"";
+				colvarScdlzt.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarScdlzt);
+				
+				TableSchema.TableColumn colvarScddbz = new TableSchema.TableColumn(schema);
+				colvarScddbz.ColumnName = "SCDDBZ";
+				colvarScddbz.DataType = DbType.AnsiString;
+				colvarScddbz.MaxLength = 10;
+				colvarScddbz.AutoIncrement = false;
+				colvarScddbz.IsNullable = true;
+				colvarScddbz.IsPrimaryKey = false;
+				colvarScddbz.IsForeignKey = false;
+				colvarScddbz.IsReadOnly = false;
+				colvarScddbz.DefaultSetting = @"";
+				colvarScddbz.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarScddbz);
+				
+				TableSchema.TableColumn colvarFzfl = new TableSchema.TableColumn(schema);
+				colvarFzfl.ColumnName = "FZFL";
+				colvarFzfl.DataType = DbType.AnsiString;
+				colvarFzfl.MaxLength = 10;
+				colvarFzfl.AutoIncrement = false;
+				colvarFzfl.IsNullable = true;
+				colvarFzfl.IsPrimaryKey = false;
+				colvarFzfl.IsForeignKey = false;
+				colvarFzfl.IsReadOnly = false;
+				colvarFzfl.DefaultSetting = @"";
+				colvarFzfl.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarFzfl);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -387,6 +426,30 @@ namespace Model
 			get { return GetColumnValue<string>(Columns.Scgybz); }
 			set { SetColumnValue(Columns.Scgybz, value); }
 		}
+		  
+		[XmlAttribute("Scdlzt")]
+		[Bindable(true)]
+		public string Scdlzt 
+		{
+			get { return GetColumnValue<string>(Columns.Scdlzt); }
+			set { SetColumnValue(Columns.Scdlzt, value); }
+		}
+		  
+		[XmlAttribute("Scddbz")]
+		[Bindable(true)]
+		public string Scddbz 
+		{
+			get { return GetColumnValue<string>(Columns.Scddbz); }
+			set { SetColumnValue(Columns.Scddbz, value); }
+		}
+		  
+		[XmlAttribute("Fzfl")]
+		[Bindable(true)]
+		public string Fzfl 
+		{
+			get { return GetColumnValue<string>(Columns.Fzfl); }
+			set { SetColumnValue(Columns.Fzfl, value); }
+		}
 		
 		#endregion
 		
@@ -407,7 +470,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varSczsbh,string varSchtbh,int? varSchtxh,string varScggdh,int varScggxh,string varXtwpks,string varXtwpys,string varXtxmdm,int? varSczssl,string varSczsbz,string varSczsph,string varScgybz)
+		public static void Insert(string varSczsbh,string varSchtbh,int? varSchtxh,string varScggdh,int varScggxh,string varXtwpks,string varXtwpys,string varXtxmdm,int? varSczssl,string varSczsbz,string varSczsph,string varScgybz,string varScdlzt,string varScddbz,string varFzfl)
 		{
 			SCT27 item = new SCT27();
 			
@@ -435,6 +498,12 @@ namespace Model
 			
 			item.Scgybz = varScgybz;
 			
+			item.Scdlzt = varScdlzt;
+			
+			item.Scddbz = varScddbz;
+			
+			item.Fzfl = varFzfl;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -445,7 +514,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varSczsbh,string varSchtbh,int? varSchtxh,string varScggdh,int varScggxh,string varXtwpks,string varXtwpys,string varXtxmdm,int? varSczssl,string varSczsbz,string varSczsph,string varScgybz)
+		public static void Update(string varSczsbh,string varSchtbh,int? varSchtxh,string varScggdh,int varScggxh,string varXtwpks,string varXtwpys,string varXtxmdm,int? varSczssl,string varSczsbz,string varSczsph,string varScgybz,string varScdlzt,string varScddbz,string varFzfl)
 		{
 			SCT27 item = new SCT27();
 			
@@ -472,6 +541,12 @@ namespace Model
 				item.Sczsph = varSczsph;
 			
 				item.Scgybz = varScgybz;
+			
+				item.Scdlzt = varScdlzt;
+			
+				item.Scddbz = varScddbz;
+			
+				item.Fzfl = varFzfl;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -570,6 +645,27 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn ScdlztColumn
+        {
+            get { return Schema.Columns[12]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn ScddbzColumn
+        {
+            get { return Schema.Columns[13]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn FzflColumn
+        {
+            get { return Schema.Columns[14]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -586,6 +682,9 @@ namespace Model
 			 public static string Sczsbz = @"SCZSBZ";
 			 public static string Sczsph = @"SCZSPH";
 			 public static string Scgybz = @"SCGYBZ";
+			 public static string Scdlzt = @"SCDLZT";
+			 public static string Scddbz = @"SCDDBZ";
+			 public static string Fzfl = @"FZFL";
 						
 		}
 		#endregion

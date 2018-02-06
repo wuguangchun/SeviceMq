@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(Guid Id,string Sczsbh,string Content,DateTime CreateTime,string Creator)
+	    public void Insert(Guid Id,string Sczsbh,string Content,DateTime CreateTime,string Creator,string Result)
 	    {
 		    TLogAPSToSAP item = new TLogAPSToSAP();
 		    
@@ -94,6 +94,8 @@ namespace Model
             
             item.Creator = Creator;
             
+            item.Result = Result;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -102,7 +104,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(Guid Id,string Sczsbh,string Content,DateTime CreateTime,string Creator)
+	    public void Update(Guid Id,string Sczsbh,string Content,DateTime CreateTime,string Creator,string Result)
 	    {
 		    TLogAPSToSAP item = new TLogAPSToSAP();
 	        item.MarkOld();
@@ -117,6 +119,8 @@ namespace Model
 			item.CreateTime = CreateTime;
 				
 			item.Creator = Creator;
+				
+			item.Result = Result;
 				
 	        item.Save(UserName);
 	    }

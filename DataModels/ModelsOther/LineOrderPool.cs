@@ -39,7 +39,7 @@ namespace TestService.ModelsOther
         public string Khzb { get; set; }
         public string Mlwg { get; set; }
         public string TypeId { get; set; }
-
+        public string PlanCode { get; set; }
 
     }
 

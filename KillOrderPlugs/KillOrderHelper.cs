@@ -45,6 +45,7 @@ namespace KillOrderPlugs
                 new Delete().From<TBLDataMflxx>().Where(TBLDataMflxx.KhdhColumn).IsEqualTo(json).Execute();
                 new Delete().From<TOldApsByCf>().Where(TOldApsByCf.OrderIDColumn).IsEqualTo(json).Execute();
                 new Delete().From<TBasisOrderStatus>().Where(TBasisOrderStatus.CustomerIdColumn).IsEqualTo(json).Execute();
+                new Delete().From<TBLDataPld>().Where(TBLDataPld.KhdhColumn).IsEqualTo(json).Execute();
 
 
                 //调用存储过程删已经圈起来的计划
@@ -105,8 +106,7 @@ namespace KillOrderPlugs
                     new Delete().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
                     new Delete().From<TOrderKeyProcess>().Where(TOrderKeyProcess.MxidColumn).IsEqualTo(ordermx.FirstOrDefault()?.Mxid).Execute();
                     new Delete().From<TOrderMESArtInfo>().Where(TOrderMESArtInfo.MxIdColumn).IsEqualTo(ordermx.FirstOrDefault()?.Mxid).Execute();
-                    new Delete().From<TBLDataPld>().Where(TBLDataPld.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
-                    new Delete().From<TBLDataPld>().Where(TBLDataPld.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
+                    new Delete().From<TBLDataPld>().Where(TBLDataPld.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute(); 
 
 
                 }//有多条明细，只删除此条明细的信息

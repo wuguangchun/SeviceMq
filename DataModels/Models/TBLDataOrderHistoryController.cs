@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int Orderid,string Khdh,DateTime? Trantime,DateTime? Jhrq,DateTime? Createtime,string Sldl,string Customername,string Txtz,string XhSyKh,string Pbcd,DateTime? Audittime,string Tzecode,string Scggdh,int? FlagDelete,int? OrderType,string Mdmc,string Mddm)
+	    public void Insert(int Orderid,string Khdh,DateTime? Trantime,DateTime? Jhrq,DateTime? Createtime,string Sldl,string Customername,string Txtz,string XhSyKh,string Pbcd,DateTime? Audittime,string Tzecode,string Scggdh,int? FlagDelete,int? OrderType,string Mdmc,string Mddm,string Htbh)
 	    {
 		    TBLDataOrderHistory item = new TBLDataOrderHistory();
 		    
@@ -118,6 +118,8 @@ namespace Model
             
             item.Mddm = Mddm;
             
+            item.Htbh = Htbh;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -126,7 +128,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Orderid,string Khdh,DateTime? Trantime,DateTime? Jhrq,DateTime? Createtime,string Sldl,string Customername,string Txtz,string XhSyKh,string Pbcd,DateTime? Audittime,string Tzecode,string Scggdh,int? FlagDelete,int? OrderType,string Mdmc,string Mddm)
+	    public void Update(int Orderid,string Khdh,DateTime? Trantime,DateTime? Jhrq,DateTime? Createtime,string Sldl,string Customername,string Txtz,string XhSyKh,string Pbcd,DateTime? Audittime,string Tzecode,string Scggdh,int? FlagDelete,int? OrderType,string Mdmc,string Mddm,string Htbh)
 	    {
 		    TBLDataOrderHistory item = new TBLDataOrderHistory();
 	        item.MarkOld();
@@ -165,6 +167,8 @@ namespace Model
 			item.Mdmc = Mdmc;
 				
 			item.Mddm = Mddm;
+				
+			item.Htbh = Htbh;
 				
 	        item.Save(UserName);
 	    }

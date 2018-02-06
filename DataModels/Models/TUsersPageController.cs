@@ -92,7 +92,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int Id,string PageName,string PageUrl,int Locked,int? Jurisdiction)
+	    public void Insert(int Id,string PageName,string PageUrl,int Locked,int? Jurisdiction,int? ParentID)
 	    {
 		    TUsersPage item = new TUsersPage();
 		    
@@ -106,6 +106,8 @@ namespace Model
             
             item.Jurisdiction = Jurisdiction;
             
+            item.ParentID = ParentID;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -114,7 +116,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Id,string PageName,string PageUrl,int Locked,int? Jurisdiction)
+	    public void Update(int Id,string PageName,string PageUrl,int Locked,int? Jurisdiction,int? ParentID)
 	    {
 		    TUsersPage item = new TUsersPage();
 	        item.MarkOld();
@@ -129,6 +131,8 @@ namespace Model
 			item.Locked = Locked;
 				
 			item.Jurisdiction = Jurisdiction;
+				
+			item.ParentID = ParentID;
 				
 	        item.Save(UserName);
 	    }

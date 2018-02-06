@@ -27,18 +27,13 @@ namespace TestService
         {
             string result = string.Empty;
 
-
             //测试计划生成
             var beginTime = DateTime.Now.Date.AddHours(10);
             new AutoPlanXf().OrderScreen(beginTime);
 
+
             Console.WriteLine(result);
             Console.ReadLine();
         }
-
-
-
-
-
     }
 }

@@ -89,6 +89,7 @@ namespace NewAnalysisPlugs
                         OrderType = int.Parse(blDate.order.OrderType),
                         Mddm = blDate.order.Mddm,
                         Mdmc = blDate.order.Mdmc,
+                        Htbh = blDate.order.Htbh
                     };
 
                     if (blDate.order.OrderType == "1")

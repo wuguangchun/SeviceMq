@@ -155,7 +155,7 @@ namespace Model
 				TableSchema.TableColumn colvarContent = new TableSchema.TableColumn(schema);
 				colvarContent.ColumnName = "Content";
 				colvarContent.DataType = DbType.String;
-				colvarContent.MaxLength = 800;
+				colvarContent.MaxLength = 4000;
 				colvarContent.AutoIncrement = false;
 				colvarContent.IsNullable = false;
 				colvarContent.IsPrimaryKey = false;
@@ -190,6 +190,19 @@ namespace Model
 				colvarCreator.DefaultSetting = @"";
 				colvarCreator.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarCreator);
+				
+				TableSchema.TableColumn colvarResult = new TableSchema.TableColumn(schema);
+				colvarResult.ColumnName = "Result";
+				colvarResult.DataType = DbType.String;
+				colvarResult.MaxLength = 50;
+				colvarResult.AutoIncrement = false;
+				colvarResult.IsNullable = true;
+				colvarResult.IsPrimaryKey = false;
+				colvarResult.IsForeignKey = false;
+				colvarResult.IsReadOnly = false;
+				colvarResult.DefaultSetting = @"";
+				colvarResult.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarResult);
 				
 				BaseSchema = schema;
 				//add this schema to the provider
@@ -240,6 +253,14 @@ namespace Model
 			get { return GetColumnValue<string>(Columns.Creator); }
 			set { SetColumnValue(Columns.Creator, value); }
 		}
+		  
+		[XmlAttribute("Result")]
+		[Bindable(true)]
+		public string Result 
+		{
+			get { return GetColumnValue<string>(Columns.Result); }
+			set { SetColumnValue(Columns.Result, value); }
+		}
 		
 		#endregion
 		
@@ -260,7 +281,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(Guid varId,string varSczsbh,string varContent,DateTime varCreateTime,string varCreator)
+		public static void Insert(Guid varId,string varSczsbh,string varContent,DateTime varCreateTime,string varCreator,string varResult)
 		{
 			TLogAPSToSAP item = new TLogAPSToSAP();
 			
@@ -274,6 +295,8 @@ namespace Model
 			
 			item.Creator = varCreator;
 			
+			item.Result = varResult;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -284,7 +307,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(Guid varId,string varSczsbh,string varContent,DateTime varCreateTime,string varCreator)
+		public static void Update(Guid varId,string varSczsbh,string varContent,DateTime varCreateTime,string varCreator,string varResult)
 		{
 			TLogAPSToSAP item = new TLogAPSToSAP();
 			
@@ -297,6 +320,8 @@ namespace Model
 				item.CreateTime = varCreateTime;
 			
 				item.Creator = varCreator;
+			
+				item.Result = varResult;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -346,6 +371,13 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn ResultColumn
+        {
+            get { return Schema.Columns[5]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -355,6 +387,7 @@ namespace Model
 			 public static string Content = @"Content";
 			 public static string CreateTime = @"CreateTime";
 			 public static string Creator = @"Creator";
+			 public static string Result = @"Result";
 						
 		}
 		#endregion

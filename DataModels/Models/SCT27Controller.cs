@@ -92,7 +92,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Sczsbh,string Schtbh,int? Schtxh,string Scggdh,int Scggxh,string Xtwpks,string Xtwpys,string Xtxmdm,int? Sczssl,string Sczsbz,string Sczsph,string Scgybz)
+	    public void Insert(string Sczsbh,string Schtbh,int? Schtxh,string Scggdh,int Scggxh,string Xtwpks,string Xtwpys,string Xtxmdm,int? Sczssl,string Sczsbz,string Sczsph,string Scgybz,string Scdlzt,string Scddbz,string Fzfl)
 	    {
 		    SCT27 item = new SCT27();
 		    
@@ -120,6 +120,12 @@ namespace Model
             
             item.Scgybz = Scgybz;
             
+            item.Scdlzt = Scdlzt;
+            
+            item.Scddbz = Scddbz;
+            
+            item.Fzfl = Fzfl;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -128,7 +134,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string Sczsbh,string Schtbh,int? Schtxh,string Scggdh,int Scggxh,string Xtwpks,string Xtwpys,string Xtxmdm,int? Sczssl,string Sczsbz,string Sczsph,string Scgybz)
+	    public void Update(string Sczsbh,string Schtbh,int? Schtxh,string Scggdh,int Scggxh,string Xtwpks,string Xtwpys,string Xtxmdm,int? Sczssl,string Sczsbz,string Sczsph,string Scgybz,string Scdlzt,string Scddbz,string Fzfl)
 	    {
 		    SCT27 item = new SCT27();
 	        item.MarkOld();
@@ -157,6 +163,12 @@ namespace Model
 			item.Sczsph = Sczsph;
 				
 			item.Scgybz = Scgybz;
+				
+			item.Scdlzt = Scdlzt;
+				
+			item.Scddbz = Scddbz;
+				
+			item.Fzfl = Fzfl;
 				
 	        item.Save(UserName);
 	    }

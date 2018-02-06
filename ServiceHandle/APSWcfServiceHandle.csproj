@@ -98,6 +98,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="API\DataQueryService.svc" />
     <Content Include="Global.asax" />
     <None Include="Connected Services\ApsMessageService\configuration91.svcinfo" />
     <None Include="Connected Services\ApsMessageService\configuration.svcinfo" />
@@ -118,6 +119,10 @@
     <Compile Include="ActivationService.svc.cs">
       <DependentUpon>ActivationService.svc</DependentUpon>
     </Compile>
+    <Compile Include="API\DataQueryService.svc.cs">
+      <DependentUpon>DataQueryService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="API\IDataQueryService.cs" />
     <Compile Include="Connected Services\ApsMessageService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
