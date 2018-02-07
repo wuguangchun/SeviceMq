@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Timers;
 using DataModels.ModelsOther;
+using Kute.Helper;
 using Model;
 using Newtonsoft.Json;
 using ServiceHandle.Helper;
@@ -31,12 +32,15 @@ namespace TestService
             {
                 //测试计划生成
                 var beginTime = DateTime.Now.Date.AddHours(10);
-                new AutoPlanXf().OrderScreen(beginTime);
+
+                var service = new PlanService.SystemPlanServiceClient();
+                result = service.AutoXfPlan(beginTime);
+                service.Close();
 
                 Console.WriteLine(result);
                 Console.ReadLine();
-
             }
+
 
         }
     }

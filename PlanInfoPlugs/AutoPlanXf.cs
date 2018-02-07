@@ -37,7 +37,7 @@ namespace TestService.Helper
         }
 
         //筛选订单 
-        public void OrderScreen(DateTime beginTime)
+        public string OrderScreen(DateTime beginTime)
         {
             try
             {
@@ -123,7 +123,7 @@ namespace TestService.Helper
                 //待分配订单去除已分配订单
                 LineOrder.ForEach(x => ListOrder.RemoveAll(y => y == x.Khdh));
 
-                //控制台输出查看当前分了多少
+                //控制台输出查看当前分了多少-----
                 lines.ForEach(x => Console.WriteLine(x.LineName + "::" + LineOrder.FindAll(y => y.LineName == x.LineName).Sum(y => y.Num)));
 
                 //订单分配后产能检测,产能不饱和记录List
@@ -261,31 +261,9 @@ namespace TestService.Helper
 
                 #endregion
 
-                new Delete().From<TTempLineOrderPool>().Execute();
-
-                //暂存到数据库
-                foreach (var orderPool in LineOrder)
-                {
-                    try
-                    {
-                        var obj = new TTempLineOrderPool
-                        {
-                            Khdh = orderPool.Khdh,
-                            Fzfl = orderPool.Fzfl,
-                            Num = orderPool.Num,
-                            LineName = orderPool.LineName
-                        };
-                        obj.Save();
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e);
-                    }
-                }
-
 
                 //筛选订单完成
-                new CreatePlanNo(LineOrder, copyData, beginTime).AutoPlanNo();
+                return new CreatePlanNo(LineOrder, copyData, beginTime).AutoPlanNo();
             }
             catch (Exception e)
             {
@@ -632,7 +610,7 @@ namespace TestService.Helper
 
         }
 
-        public void AutoPlanNo()
+        public string AutoPlanNo()
         {
             //当前已分配计划集合
             List<PlanInfo> listplan = new List<PlanInfo>();
@@ -681,8 +659,6 @@ namespace TestService.Helper
                     var day = workTime.Where(x => x.Worktime >= BeginTime && x.Worktime <= jhrq).ToList().ConvertAll(x => x.Worktime.ToShortDateString()).Distinct().ToList().Count;
 
                     var ordermx = DataOrderMx.Find(x => x.Khdh == dataPool.Khdh);
-
-
 
                     #region 测试订单填充
                     if (dataPool.Khdh.IndexOf("JJJ") == 0)
@@ -767,7 +743,6 @@ namespace TestService.Helper
                     }
                     #endregion
 
-
                 }
                 catch (Exception e)
                 {
@@ -824,7 +799,11 @@ namespace TestService.Helper
                 planInfos.Add(planinfo);
             }
 
+
+            //循环输出计划信息，推送到计划时间节点计算接口
             planInfos.ForEach(x => Console.WriteLine($"{x.Sczsbh}--{x.Type}--{x.Scjhry}--{x.Scshry}--{x.Scxdrq}--{JsonConvert.SerializeObject(x.OrderPools)}\r\n"));
+
+            return $"{BeginTime}共生成计划{planGroup?.Count()}个";
         }
 
     }

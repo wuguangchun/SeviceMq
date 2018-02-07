@@ -7,6 +7,8 @@ using Newtonsoft.Json;
 
 namespace Kute.Helper
 {
+
+
     public class JsonHelper
     {
         /// <summary>
@@ -46,5 +48,11 @@ namespace Kute.Helper
             return JsonConvert.DeserializeObject(json, T);
         }
 
+    }
+
+    public  class RetCode
+    {
+        public static string Success { get { return "Success"; } }
+        public static string Error { get { return "Error"; } }
     }
 }

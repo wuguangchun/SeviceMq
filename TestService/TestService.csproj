@@ -77,17 +77,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\PlanService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceOld\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\ServiceTest\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\WorkService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -114,6 +114,13 @@
     <None Include="Connected Services\LocalService\NewMassgeService21.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\PlanService\SystemPlanService1.wsdl" />
+    <None Include="Connected Services\PlanService\SystemPlanService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PlanService\SystemPlanService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceOld\NewMessageQueues.wsdl" />
     <None Include="Connected Services\ServiceOld\NewMessageQueues.xsd">
       <SubType>Designer</SubType>
@@ -128,13 +135,6 @@
     <None Include="Connected Services\ServiceTest\NewMassgeService21.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkService\DataQueryService.wsdl" />
-    <None Include="Connected Services\WorkService\DataQueryService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\WorkService\DataQueryService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -144,9 +144,9 @@
     <WCFMetadataStorage Include="Connected Services\APSService\" />
     <WCFMetadataStorage Include="Connected Services\ErpService\" />
     <WCFMetadataStorage Include="Connected Services\LocalService\" />
+    <WCFMetadataStorage Include="Connected Services\PlanService\" />
     <WCFMetadataStorage Include="Connected Services\ServiceOld\" />
     <WCFMetadataStorage Include="Connected Services\ServiceTest\" />
-    <WCFMetadataStorage Include="Connected Services\WorkService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceTest\configuration91.svcinfo" />
@@ -232,16 +232,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WorkService\configuration91.svcinfo" />
+    <None Include="Connected Services\PlanService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WorkService\configuration.svcinfo" />
+    <None Include="Connected Services\PlanService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WorkService\Reference.svcmap">
+    <None Include="Connected Services\PlanService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PlanService\SystemPlanService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

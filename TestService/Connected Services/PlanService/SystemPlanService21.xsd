@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="GetWorkShop">
+  <xs:element name="AutoXfPlan">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="khdh" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="fzfl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="beginTime" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetWorkShopResponse">
+  <xs:element name="AutoXfPlanResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetWorkShopResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AutoXfPlanResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

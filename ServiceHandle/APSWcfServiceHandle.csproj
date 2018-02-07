@@ -98,6 +98,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="API\SystemPlanService.svc" />
     <Content Include="Global.asax" />
     <None Include="Connected Services\ApsMessageService\configuration91.svcinfo" />
     <None Include="Connected Services\ApsMessageService\configuration.svcinfo" />
@@ -117,6 +118,10 @@
   <ItemGroup>
     <Compile Include="ActivationService.svc.cs">
       <DependentUpon>ActivationService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="API\ISystemPlanService.cs" />
+    <Compile Include="API\SystemPlanService.svc.cs">
+      <DependentUpon>SystemPlanService.svc</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\ApsMessageService\Reference.cs">
       <AutoGen>True</AutoGen>
