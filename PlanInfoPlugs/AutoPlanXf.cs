@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using ServiceHandle.Helper;
 using TestService.ModelsOther;
 
 namespace TestService.Helper
@@ -803,7 +804,20 @@ namespace TestService.Helper
             //循环输出计划信息，推送到计划时间节点计算接口
             planInfos.ForEach(x => Console.WriteLine($"{x.Sczsbh}--{x.Type}--{x.Scjhry}--{x.Scshry}--{x.Scxdrq}--{JsonConvert.SerializeObject(x.OrderPools)}\r\n"));
 
-            return $"{BeginTime}共生成计划{planGroup?.Count()}个";
+            int successCount = 0;
+            foreach (var planInfo in planInfos)
+            {
+                var result = string.Empty;
+                PushWebHelper.PostToPost("http://172.16.7.214:8197/api/aps/CalculateDelivery", JsonConvert.SerializeObject(planInfo), ref result);
+
+                if (result.Contains("成功"))
+                {
+                    successCount++;
+                }
+            }
+
+            string rmark = successCount == planInfos.Count ? "" : $"计算交期时失败{planInfos.Count - successCount}个";
+            return $"{BeginTime}共生成计划{planGroup?.Count()}个  {rmark}";
         }
 
     }

@@ -7,6 +7,7 @@ using System.ServiceModel.Activation;
 using System.Text;
 using Kute.Helper;
 using Newtonsoft.Json;
+using ServiceHelper.Helper;
 using TestService.Helper;
 
 namespace ServiceHandle.API
@@ -25,13 +26,13 @@ namespace ServiceHandle.API
                 var result = new AutoPlanXf().OrderScreen(beginTime);
                 json.RetCode = RetCode.Success;
                 json.RetMessage = result;
-                json.RetObj = DateTime.Now;
+                json.RetObj = new DataHelper().GetTimeStamp();//时间戳
             }
             catch (Exception e)
             {
                 json.RetCode = RetCode.Error;
                 json.RetMessage = e.Message;
-                json.RetObj = DateTime.Now;
+                json.RetObj = new DataHelper().GetTimeStamp();//时间戳
             }
 
             return JsonConvert.SerializeObject(json);

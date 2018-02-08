@@ -27,6 +27,12 @@ namespace ServiceHelper.Helper
             return guid.ToString().Substring(0, guid.ToString().IndexOf('-'));
         }
 
+        /// <summary>
+        /// 通过DBLink 查询
+        /// </summary>
+        /// <param name="name">DBLink 名称</param>
+        /// <param name="sql">SQL语句</param>
+        /// <returns></returns>
         public DataTable OtherBaseSelect(string name, string sql)
         {
             try
@@ -39,6 +45,13 @@ namespace ServiceHelper.Helper
 
                 throw;
             }
+        }
+        
+        // 获取时间戳 
+        public string GetTimeStamp()
+        {
+            TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return Convert.ToInt64(ts.TotalSeconds).ToString();
         }
     }
 }

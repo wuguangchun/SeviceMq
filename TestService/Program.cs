@@ -33,15 +33,15 @@ namespace TestService
                 //测试计划生成
                 var beginTime = DateTime.Now.Date.AddHours(10);
 
-                var service = new PlanService.SystemPlanServiceClient();
-                result = service.AutoXfPlan(beginTime);
-                service.Close();
+                //var service = new PlanService.SystemPlanServiceClient();
+                //result = service.AutoXfPlan(beginTime);
+                //service.Close(); 
+
+                new AutoPlanXf().OrderScreen(beginTime);
 
                 Console.WriteLine(result);
                 Console.ReadLine();
             }
-
-
         }
     }
 }
