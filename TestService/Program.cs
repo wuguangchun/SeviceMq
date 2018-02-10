@@ -31,15 +31,16 @@ namespace TestService
             while (true)
             {
                 //测试计划生成
-                var beginTime = DateTime.Now.Date.AddHours(10);
+                var beginTime = DateTime.Parse("2018-02-23 15:00");// DateTime.Now.Date.AddHours(10);
 
                 //var service = new PlanService.SystemPlanServiceClient();
                 //result = service.AutoXfPlan(beginTime);
-                //service.Close(); 
+                //service.Close();
 
-                new AutoPlanXf().OrderScreen(beginTime);
+                var res=new AutoPlanXf().OrderScreen(beginTime);
 
                 Console.WriteLine(result);
+                Console.WriteLine(res);
                 Console.ReadLine();
             }
         }

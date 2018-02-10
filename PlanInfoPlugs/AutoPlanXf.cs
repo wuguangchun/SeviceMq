@@ -619,21 +619,17 @@ namespace TestService.Helper
             OrderAnalyMx.ForEach(x => x.Scjhbz.Replace("绘纸皮/", "MTM/"));
 
             //数据库中得最大计划号
-            var xmbh = new Select(SCT27.SczsbhColumn).From<SCT27>().Where(SCT27.SczsbhColumn).Like($"XM{DateTime.Now.ToString("yyMM")}% ").OrderDesc(SCT27.SczsbhColumn.ColumnName).ExecuteScalar();//国外
+            var xmbh = new Select(SCT27.SczsbhColumn).From<SCT27>().Where(SCT27.SczsbhColumn).Like($"XM{DateTime.Now.ToString("yyMM")}%").OrderDesc(SCT27.SczsbhColumn.ColumnName).ExecuteScalar();//国外
             var xsbh = new Select(SCT27.SczsbhColumn).From<SCT27>().Where(SCT27.SczsbhColumn).Like($"XS{DateTime.Now.ToString("yyMM")}%").OrderDesc(SCT27.SczsbhColumn.ColumnName).ExecuteScalar();//国内 
 
             var xmbhNum = xmbh == null ? int.Parse(DateTime.Now.ToString("yyMM") + "0000") : int.Parse(xmbh.ToString().Replace("XM", ""));
             var xsbhNum = xsbh == null ? int.Parse(DateTime.Now.ToString("yyMM") + "0000") : int.Parse(xsbh.ToString().Replace("XS", ""));
 
-
-
             //数据库中得日历
             var workTime = new Select().From<TWorkTime>().Where(TWorkTime.WorktimeColumn).IsBetweenAnd(BeginTime, BeginTime.AddDays(30)).ExecuteTypedList<TWorkTime>();
 
-
             //填充待生成计划订单
             var list = new List<DataPool>();
-
 
             LineOrder.ForEach(x =>
                 list.Add(
@@ -780,6 +776,10 @@ namespace TestService.Helper
             foreach (var key in planGroup)
             {
                 var orders = list.FindAll(x => x.PlanCode == key.Key);
+
+                //面料外观
+                var mlwg = orders.First().Mlwg == "素" ? "新裁床" : "单裁";
+
                 var planinfo = new PlanInfo
                 {
                     Sczsbh = orders.First().PlanCode,
@@ -789,7 +789,7 @@ namespace TestService.Helper
                     Scxdrq = BeginTime.ToString("yyyy-MM-dd HH:mm:ss"),
                     Scjhrq = DataOrder.Find(x => x.Khdh == orders.First().Khdh).Jhrq.ToString(),
                     Scshrq = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace('/', '-'),
-                    Sczsbz = $"{Lines.Find(y => y.LineName == orders.First().LineName).Abbreviation}{Lines.Find(y => y.LineName == orders.First().LineName).LineNumber}",
+                    Sczsbz = $"{Lines.Find(y => y.LineName == orders.First().LineName).Abbreviation}{Lines.Find(y => y.LineName == orders.First().LineName).LineNumber} {mlwg}",
                     Sclrrq = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace('/', '-'),
                     Type = orders.First().TypeId,
                     OrderPools = new List<LineOrderPool>()
@@ -799,7 +799,6 @@ namespace TestService.Helper
 
                 planInfos.Add(planinfo);
             }
-
 
             //循环输出计划信息，推送到计划时间节点计算接口
             planInfos.ForEach(x => Console.WriteLine($"{x.Sczsbh}--{x.Type}--{x.Scjhry}--{x.Scshry}--{x.Scxdrq}--{JsonConvert.SerializeObject(x.OrderPools)}\r\n"));
@@ -813,6 +812,10 @@ namespace TestService.Helper
                 if (result.Contains("成功"))
                 {
                     successCount++;
+                }
+                else
+                {
+                    
                 }
             }
 

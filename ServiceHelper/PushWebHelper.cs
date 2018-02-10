@@ -110,7 +110,7 @@ namespace ServiceHandle.Helper
                 requestScore.ContentLength = data.Length;
                 requestScore.KeepAlive = true;
                 requestScore.Date = DateTime.Now;
-                requestScore.Timeout = 1000 * 60;
+                requestScore.Timeout = 1000 * 60*10;
 
                 Stream stream = requestScore.GetRequestStream();
                 stream.Write(data, 0, data.Length);

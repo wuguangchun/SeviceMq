@@ -28,64 +28,64 @@
       <publishTime>11/07/2017 11:03:14</publishTime>
     </File>
     <File Include="bin/BlankingPlugs.dll">
-      <publishTime>02/08/2018 10:44:12</publishTime>
+      <publishTime>02/08/2018 15:13:14</publishTime>
     </File>
     <File Include="bin/BlankingPlugs.dll.config">
       <publishTime>12/18/2017 14:45:06</publishTime>
     </File>
     <File Include="bin/BlankingPlugs.pdb">
-      <publishTime>02/08/2018 10:44:12</publishTime>
+      <publishTime>02/08/2018 15:13:14</publishTime>
     </File>
     <File Include="bin/CallBackPlugs.dll">
-      <publishTime>02/08/2018 10:44:13</publishTime>
+      <publishTime>02/08/2018 15:13:15</publishTime>
     </File>
     <File Include="bin/CallBackPlugs.dll.config">
       <publishTime>01/02/2018 11:05:59</publishTime>
     </File>
     <File Include="bin/CallBackPlugs.pdb">
-      <publishTime>02/08/2018 10:44:13</publishTime>
+      <publishTime>02/08/2018 15:13:15</publishTime>
     </File>
     <File Include="bin/CompletionPlugs.dll">
-      <publishTime>02/08/2018 10:44:13</publishTime>
+      <publishTime>02/09/2018 10:25:23</publishTime>
     </File>
     <File Include="bin/CompletionPlugs.dll.config">
       <publishTime>12/18/2017 14:45:06</publishTime>
     </File>
     <File Include="bin/CompletionPlugs.pdb">
-      <publishTime>02/08/2018 10:44:13</publishTime>
+      <publishTime>02/09/2018 10:25:23</publishTime>
     </File>
     <File Include="bin/DataModels.dll">
-      <publishTime>02/08/2018 08:54:42</publishTime>
+      <publishTime>02/08/2018 15:13:12</publishTime>
     </File>
     <File Include="bin/DataModels.pdb">
-      <publishTime>02/08/2018 08:54:42</publishTime>
+      <publishTime>02/08/2018 15:13:12</publishTime>
     </File>
     <File Include="bin/IntelligentLogHelper.dll">
-      <publishTime>02/08/2018 08:54:44</publishTime>
+      <publishTime>02/08/2018 15:13:14</publishTime>
     </File>
     <File Include="bin/IntelligentLogHelper.dll.config">
       <publishTime>01/08/2018 13:46:44</publishTime>
     </File>
     <File Include="bin/IntelligentLogHelper.pdb">
-      <publishTime>02/08/2018 08:54:44</publishTime>
+      <publishTime>02/08/2018 15:13:14</publishTime>
     </File>
     <File Include="bin/IntercoursePlugs.dll">
-      <publishTime>02/08/2018 10:44:13</publishTime>
+      <publishTime>02/08/2018 15:13:15</publishTime>
     </File>
     <File Include="bin/IntercoursePlugs.dll.config">
       <publishTime>01/11/2018 09:22:29</publishTime>
     </File>
     <File Include="bin/IntercoursePlugs.pdb">
-      <publishTime>02/08/2018 10:44:13</publishTime>
+      <publishTime>02/08/2018 15:13:15</publishTime>
     </File>
     <File Include="bin/KillOrderPlugs.dll">
-      <publishTime>02/08/2018 10:44:12</publishTime>
+      <publishTime>02/08/2018 15:13:14</publishTime>
     </File>
     <File Include="bin/KillOrderPlugs.dll.config">
       <publishTime>12/18/2017 14:45:06</publishTime>
     </File>
     <File Include="bin/KillOrderPlugs.pdb">
-      <publishTime>02/08/2018 10:44:12</publishTime>
+      <publishTime>02/08/2018 15:13:14</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.dll">
       <publishTime>12/18/2017 08:06:36</publishTime>
@@ -94,13 +94,13 @@
       <publishTime>12/18/2017 08:06:37</publishTime>
     </File>
     <File Include="bin/NewAnalysisPlugs.dll">
-      <publishTime>02/08/2018 10:44:12</publishTime>
+      <publishTime>02/08/2018 15:13:14</publishTime>
     </File>
     <File Include="bin/NewAnalysisPlugs.dll.config">
       <publishTime>12/18/2017 14:45:06</publishTime>
     </File>
     <File Include="bin/NewAnalysisPlugs.pdb">
-      <publishTime>02/08/2018 10:44:12</publishTime>
+      <publishTime>02/08/2018 15:13:14</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>12/18/2017 08:06:37</publishTime>
@@ -109,28 +109,28 @@
       <publishTime>12/18/2017 08:06:37</publishTime>
     </File>
     <File Include="bin/PlanInfoPlugs.dll">
-      <publishTime>02/08/2018 10:44:13</publishTime>
+      <publishTime>02/09/2018 09:55:48</publishTime>
     </File>
     <File Include="bin/PlanInfoPlugs.dll.config">
       <publishTime>12/18/2017 14:45:06</publishTime>
     </File>
     <File Include="bin/PlanInfoPlugs.pdb">
-      <publishTime>02/08/2018 10:44:13</publishTime>
+      <publishTime>02/09/2018 09:55:48</publishTime>
     </File>
     <File Include="bin/ServiceHandle.dll">
-      <publishTime>02/08/2018 10:44:14</publishTime>
+      <publishTime>02/09/2018 10:25:24</publishTime>
     </File>
     <File Include="bin/ServiceHandle.pdb">
-      <publishTime>02/08/2018 10:44:14</publishTime>
+      <publishTime>02/09/2018 10:25:24</publishTime>
     </File>
     <File Include="bin/ServiceHelper.dll">
-      <publishTime>02/08/2018 10:44:12</publishTime>
+      <publishTime>02/08/2018 15:13:13</publishTime>
     </File>
     <File Include="bin/ServiceHelper.dll.config">
       <publishTime>12/18/2017 14:45:06</publishTime>
     </File>
     <File Include="bin/ServiceHelper.pdb">
-      <publishTime>02/08/2018 10:44:12</publishTime>
+      <publishTime>02/08/2018 15:13:13</publishTime>
     </File>
     <File Include="bin/SubSonic.Core.dll">
       <publishTime>12/18/2017 08:06:37</publishTime>
@@ -151,7 +151,7 @@
       <publishTime>11/07/2017 11:03:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/06/2018 10:18:33</publishTime>
+      <publishTime>02/09/2018 09:41:38</publishTime>
     </File>
   </ItemGroup>
 </Project>
