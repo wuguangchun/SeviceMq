@@ -50,9 +50,10 @@ namespace Kute.Helper
 
     }
 
-    public  class RetCode
+    public class RetCode
     {
         public static string Success { get { return "Success"; } }
         public static string Error { get { return "Error"; } }
+        public static string Proceed { get { return "Proceed"; } }
     }
 }

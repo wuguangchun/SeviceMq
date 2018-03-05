@@ -186,11 +186,8 @@ namespace TestService.Helper
                 //控制台输出查看当前分了多少
                 Console.WriteLine(" 最终分配订单");
                 lines.ForEach(x => Console.WriteLine(x.LineName + "::" + LineOrder.FindAll(y => y.LineName == x.LineName).Sum(y => y.Num)));
-
-
+                
                 #region 加急订单分配
-
-
                 //----马甲全部给缝制1  ListXjOrder
                 ListXjOrder.FindAll(x => x.Fzfl.Contains("MJ")).ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, LineName = "马甲缝制1", Fzfl = x.Fzfl, Num = int.Parse(x.Ddsl.ToString()) }));
 
@@ -261,8 +258,7 @@ namespace TestService.Helper
                 ListPjOrder.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, LineName = "西服缝制2", Fzfl = x.Fzfl, Num = int.Parse(x.Ddsl.ToString()) }));
 
                 #endregion
-
-
+                
                 //筛选订单完成
                 return new CreatePlanNo(LineOrder, copyData, beginTime).AutoPlanNo();
             }
@@ -748,14 +744,16 @@ namespace TestService.Helper
                 }
             }
 
-            var keys = list.GroupBy(x => new { x.Khzb, x.LineName, x.Mlwg, x.Sex, x.TypeId });
+            //计划号不区分产线，可以合并产线，标识都打在明细了 , x.LineName
+            var keys = list.GroupBy(x => new { x.Khzb, x.Mlwg, x.Sex, x.TypeId });
+
 
             //生成填充计划号
             foreach (var key in keys)
             {
-
-                var planList = list.FindAll(x => x.Khzb == key.Key.Khzb && x.LineName == key.Key.LineName && x.Mlwg == key.Key.Mlwg && x.Sex == key.Key.Sex && x.TypeId == key.Key.TypeId);
-                list.RemoveAll(x => x.Khzb == key.Key.Khzb && x.LineName == key.Key.LineName && x.Mlwg == key.Key.Mlwg && x.Sex == key.Key.Sex && x.TypeId == key.Key.TypeId);
+                //&& x.LineName == key.Key.LineName     && x.LineName == key.Key.LineName
+                var planList = list.FindAll(x => x.Khzb == key.Key.Khzb && x.Mlwg == key.Key.Mlwg && x.Sex == key.Key.Sex && x.TypeId == key.Key.TypeId);
+                list.RemoveAll(x => x.Khzb == key.Key.Khzb && x.Mlwg == key.Key.Mlwg && x.Sex == key.Key.Sex && x.TypeId == key.Key.TypeId);
 
                 var planCode = string.Empty;
                 if (key.Key.Khzb == "国外")
@@ -789,7 +787,7 @@ namespace TestService.Helper
                     Scxdrq = BeginTime.ToString("yyyy-MM-dd HH:mm:ss"),
                     Scjhrq = DataOrder.Find(x => x.Khdh == orders.First().Khdh).Jhrq.ToString(),
                     Scshrq = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace('/', '-'),
-                    Sczsbz = $"{Lines.Find(y => y.LineName == orders.First().LineName).Abbreviation}{Lines.Find(y => y.LineName == orders.First().LineName).LineNumber} {mlwg}",
+                    Sczsbz = "",//$"{Lines.Find(y => y.LineName == orders.First().LineName).Abbreviation}{Lines.Find(y => y.LineName == orders.First().LineName).LineNumber} {mlwg}",
                     Sclrrq = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace('/', '-'),
                     Type = orders.First().TypeId,
                     OrderPools = new List<LineOrderPool>()
@@ -807,7 +805,7 @@ namespace TestService.Helper
             foreach (var planInfo in planInfos)
             {
                 var result = string.Empty;
-                PushWebHelper.PostToPost("http://172.16.7.214:8197/api/aps/CalculateDelivery", JsonConvert.SerializeObject(planInfo), ref result);
+                //PushWebHelper.PostToPost("http://172.16.7.214:8196/api/aps/CalculateDelivery", JsonConvert.SerializeObject(planInfo), ref result);
 
                 if (result.Contains("成功"))
                 {
@@ -815,7 +813,7 @@ namespace TestService.Helper
                 }
                 else
                 {
-                    
+
                 }
             }
 

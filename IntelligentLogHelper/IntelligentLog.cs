@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using DataModels.ModelsOther;
+using Kute.Helper;
 using Model;
 using Newtonsoft.Json;
 using ServiceHandle.ModelsOther;
@@ -19,14 +20,17 @@ namespace IntelligentLogHelper
         {
             try
             {
-                var logList = new Select().From<TLogService>()
+                var logListQuery = new Select().From<TLogService>()
                     .Where(TLogService.KhdhColumn).IsEqualTo("")
-                    .And(TLogService.MessagePathColumn).IsNotEqualTo("CallBackMsg")
+                    // .And(TLogService.MessagePathColumn).IsNotEqualTo("CallBackMsg")
                     .And(TLogService.MessagePathColumn).IsNotEqualTo("LogService")
                     .And(TLogService.MessagePathColumn).IsNotEqualTo("computejq")
                     .And(TLogService.LableColumn).IsNotEqualTo("SchedulingReady")
-                    .And(TLogService.LableColumn).IsNotEqualTo("AutoKill")
-                    .ExecuteTypedList<TLogService>();
+                    .And(TLogService.LableColumn).IsNotEqualTo("AutoKill");
+                //.ExecuteTypedList<TLogService>();
+
+                logListQuery.Paged(1, 10000);
+                var logList = logListQuery.ExecuteTypedList<TLogService>();
 
                 int okRow = 0;
                 foreach (var logService in logList.FindAll(x => 1 == 1))
@@ -80,7 +84,9 @@ namespace IntelligentLogHelper
                     //回调接口的日志
                     else if (logService.MessagePath == "CallBackMsg" && logService.Lable == "Message")
                     {
-                        //无效，不需要解析，不包含所需要的关键索引
+                        //以处理信息得消息ID作为主键KHDH 
+                        var json = (JsonHelper)JsonConvert.DeserializeObject(logService.Context, typeof(JsonHelper));
+                        okRow += UpdateLogs(logService.Id, json.RetObj.ToString()) ? 1 : 0;
                     }
                     //撤单
                     else if (logService.MessagePath == "KillOrder" && logService.Lable == "KillOrder")
@@ -88,6 +94,11 @@ namespace IntelligentLogHelper
                         okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
                     }
                     else if (logService.MessagePath == "KillOrder" && logService.Lable == "KillSingle")
+                    {
+                        var killOrder = (OrderKill)JsonConvert.DeserializeObject(logService.Context, typeof(OrderKill));
+                        okRow += UpdateLogs(logService.Id, killOrder.CustmerId) ? 1 : 0;
+                    }
+                    else if (logService.MessagePath == "KillOrder" && logService.Lable == "KillSingleERP")
                     {
                         var killOrder = (OrderKill)JsonConvert.DeserializeObject(logService.Context, typeof(OrderKill));
                         okRow += UpdateLogs(logService.Id, killOrder.CustmerId) ? 1 : 0;

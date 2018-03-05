@@ -63,6 +63,10 @@
       <Project>{fc11b119-2974-4750-bc01-0b56b4b630ee}</Project>
       <Name>DataModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ServiceHelper\ServiceHelper.csproj">
+      <Project>{1cbb637c-428f-492a-940f-701ec0494dbf}</Project>
+      <Name>ServiceHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

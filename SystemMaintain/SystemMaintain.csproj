@@ -116,6 +116,9 @@
       <DependentUpon>Defaut.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpler\DbHelper.cs" />
+    <Compile Include="Helpler\HttpHelper.cs" />
+    <Compile Include="Helpler\JsonHelperT.cs" />
+    <Compile Include="Helpler\ResultHelper.cs" />
     <Compile Include="Improt\Form_Improt_Excel.cs">
       <SubType>Form</SubType>
     </Compile>

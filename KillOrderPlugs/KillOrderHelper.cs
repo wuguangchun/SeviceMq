@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using DataModels.ModelsOther;
 using Newtonsoft.Json;
 using ServiceHandle.ModelsOther;
+using ServiceHelper.Helper;
 
 namespace KillOrderPlugs
 {
@@ -47,8 +48,37 @@ namespace KillOrderPlugs
                 new Delete().From<TBasisOrderStatus>().Where(TBasisOrderStatus.CustomerIdColumn).IsEqualTo(json).Execute();
                 new Delete().From<TBLDataPld>().Where(TBLDataPld.KhdhColumn).IsEqualTo(json).Execute();
 
-                resultJson.RetCode = "success";
-                resultJson.RetMessage = "撤单成功";
+                if (FindErpOrder(json))
+                {
+                    // 撤单后通知ERP进行同步撤单
+                    var msmqList = new List<MsmqModel>();
+                    foreach (var ordermx in mxlist)
+                    {
+                        msmqList.Add(new MsmqModel
+                        {
+                            Path = "KillOrder",
+                            Label = "KillSingleERP",
+                            Body = JsonConvert.SerializeObject(new OrderKill
+                            {
+                                CustmerId = ordermx.Khdh,
+                                OrderFl = ordermx.Fzfl,
+                                CallingParty = "Auto"
+                            }),
+                            CallBackUrl = null
+                        });
+                    }
+
+                    resultJson.RetMessage = JsonConvert.SerializeObject(msmqList);
+                    resultJson.RetCode = "Proceed";
+                }
+                else
+                {
+                    resultJson.RetMessage = "APS系统撤单成功";
+                    resultJson.RetCode = RetCode.Success;
+
+                }
+
+
             }
             catch (Exception e)
             {
@@ -76,8 +106,8 @@ namespace KillOrderPlugs
                 var order = new TBLDataOrder(TBLDataOrder.KhdhColumn.ColumnName, killOrder.CustmerId);
                 var ordermx = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.OrderidColumn).IsEqualTo(order.Orderid).ExecuteTypedList<TBLDataOrdermx>();
 
-                //只有一条明细，系统内关于此订单的信息全部删掉
-                if (ordermx.Count == 1)
+                //只有一条明细，并且服装大类一致，系统内关于此订单的信息全部删掉
+                if (ordermx.Count == 1 && ordermx.First().Fzfl == killOrder.OrderFl)
                 {
                     new Delete().From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
                     new Delete().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
@@ -91,7 +121,7 @@ namespace KillOrderPlugs
                     new Delete().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
                     new Delete().From<TOrderKeyProcess>().Where(TOrderKeyProcess.MxidColumn).IsEqualTo(ordermx.FirstOrDefault()?.Mxid).Execute();
                     new Delete().From<TOrderMESArtInfo>().Where(TOrderMESArtInfo.MxIdColumn).IsEqualTo(ordermx.FirstOrDefault()?.Mxid).Execute();
-                    new Delete().From<TBLDataPld>().Where(TBLDataPld.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute(); 
+                    new Delete().From<TBLDataPld>().Where(TBLDataPld.KhdhColumn).IsEqualTo(killOrder.CustmerId).Execute();
 
 
                 }//有多条明细，只删除此条明细的信息
@@ -105,7 +135,7 @@ namespace KillOrderPlugs
                     new Delete().From<TOrderMESArtInfo>().Where(TOrderMESArtInfo.MxIdColumn).IsEqualTo(ordermx.FirstOrDefault()?.Mxid).Execute();
                 }
 
-                // 撤单异常后系统自动执行撤单
+                // 撤单后通知ERP进行同步撤单
                 var msmqList = new List<MsmqModel>
                 {
                     new MsmqModel{Path = "KillOrder",Label = "KillSingleERP",Body = json,CallBackUrl = null}
@@ -113,9 +143,6 @@ namespace KillOrderPlugs
 
                 resultJson.RetMessage = JsonConvert.SerializeObject(msmqList);
                 resultJson.RetCode = "Proceed";
-
-                //resultJson.RetCode = "success";
-                //resultJson.RetMessage = result;
             }
             catch (Exception e)
             {
@@ -131,6 +158,22 @@ namespace KillOrderPlugs
             }
 
             return JsonConvert.SerializeObject(resultJson);
+        }
+
+
+        public bool FindErpOrder(string khdh)
+        {
+            var f = false;
+            try
+            {
+                var result = new DataHelper().OtherBaseSelect("fyerp", $"select * from sct51 where scyspd='{khdh}'");
+                return result.Rows.Count > 0;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return f;
         }
     }
 }

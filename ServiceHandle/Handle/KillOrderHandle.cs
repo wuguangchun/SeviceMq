@@ -53,30 +53,33 @@ namespace ServiceHandle.Handle
                 //根据消息标签执行相应的命令
                 if (message.Label.ToLower().Trim() == "KillOrder".ToLower())
                 {
+
+
                     reMeg = new KillOrderHelper().KillOrder(message.Body.ToString());
 
-                    var ordermx = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn)
-                        .IsEqualTo(message.Body.ToString()).ExecuteTypedList<TBLDataOrdermx>();
-                    foreach (var order in ordermx)
-                    {
-                        try
-                        {
-                            var service = new EepPlanService.DdcxMainDelegateClient();
-                            var result = service.ddcx(@"{'SCYSPD':'" + order.Khdh + "','FZFL':'" + order.Fzfl + "'}");
-                            if (!result.ToLower().Contains("true"))
-                            {
-                                throw new Exception(result);
-                            }
-                        }
-                        catch (Exception exception)
-                        {
-                            throw;
-                        }
-                    }
+                    //foreach (var order in ordermx)
+                    //{
+                    //    try
+                    //    {
+                    //        var service = new EepPlanService.DdcxMainDelegateClient();
+                    //        var result = service.ddcx(@"{'SCYSPD':'" + order.Khdh + "','FZFL':'" + order.Fzfl + "'}");
+                    //        if (!result.ToLower().Contains("true"))
+                    //        {
+                    //            throw new Exception(result);
+                    //        }
+                    //    }
+                    //    catch (Exception exception)
+                    //    {
+                    //        throw;
+                    //    }
+                    //}
                 }
                 else if (message.Label.ToLower().Trim() == "KillSingle".ToLower())
                 {
                     reMeg = new KillOrderHelper().KillSingle(message.Body.ToString());
+                }
+                else if (message.Label.ToLower().Trim() == "KillSingleERP".ToLower())//投诉异常：需要新增队列通知
+                {
                     try
                     {
                         var killOrder = (OrderKill)JsonConvert.DeserializeObject(message.Body.ToString(), typeof(OrderKill));
@@ -86,6 +89,11 @@ namespace ServiceHandle.Handle
                         if (!result.ToLower().Contains("true"))
                         {
                             throw new Exception(result);
+                        }
+                        else
+                        {
+                            json.RetCode = "success";
+                            json.RetMessage = result;
                         }
                     }
                     catch (Exception exception)
@@ -105,8 +113,17 @@ namespace ServiceHandle.Handle
 
                 if (json.RetCode.ToLower() == "error")//程序处理失败
                 {
-
                     throw new ApplicationException($"程序处理失败,{json.RetMessage}");
+                }
+                else if (json.RetCode.ToLower() == "proceed")//投诉异常：需要新增队列通知
+                {
+                    var msmqList = (List<MsmqModel>)JsonConvert.DeserializeObject(json.RetMessage, typeof(List<MsmqModel>));
+                    foreach (var msmq in msmqList)
+                    {
+                        var service = new ApsMessageService.NewMassgeServiceClient();
+                        service.InsertMessage(msmq.Path, msmq.Label, msmq.Body, msmq.CallBackUrl);
+                        service.Close();
+                    }
                 }
                 else
                 {
