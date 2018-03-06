@@ -148,7 +148,8 @@ namespace Model
 				colvarScggdh.IsPrimaryKey = true;
 				colvarScggdh.IsForeignKey = false;
 				colvarScggdh.IsReadOnly = false;
-				colvarScggdh.DefaultSetting = @"";
+				
+						colvarScggdh.DefaultSetting = @"('')";
 				colvarScggdh.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarScggdh);
 				
@@ -161,7 +162,8 @@ namespace Model
 				colvarKhdh.IsPrimaryKey = false;
 				colvarKhdh.IsForeignKey = false;
 				colvarKhdh.IsReadOnly = false;
-				colvarKhdh.DefaultSetting = @"";
+				
+						colvarKhdh.DefaultSetting = @"('')";
 				colvarKhdh.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarKhdh);
 				
@@ -174,7 +176,8 @@ namespace Model
 				colvarPbxh.IsPrimaryKey = false;
 				colvarPbxh.IsForeignKey = false;
 				colvarPbxh.IsReadOnly = false;
-				colvarPbxh.DefaultSetting = @"";
+				
+						colvarPbxh.DefaultSetting = @"((0))";
 				colvarPbxh.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarPbxh);
 				
@@ -187,7 +190,8 @@ namespace Model
 				colvarWlbm.IsPrimaryKey = false;
 				colvarWlbm.IsForeignKey = false;
 				colvarWlbm.IsReadOnly = false;
-				colvarWlbm.DefaultSetting = @"";
+				
+						colvarWlbm.DefaultSetting = @"('')";
 				colvarWlbm.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarWlbm);
 				
@@ -200,7 +204,8 @@ namespace Model
 				colvarWlfk.IsPrimaryKey = false;
 				colvarWlfk.IsForeignKey = false;
 				colvarWlfk.IsReadOnly = false;
-				colvarWlfk.DefaultSetting = @"";
+				
+						colvarWlfk.DefaultSetting = @"((0))";
 				colvarWlfk.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarWlfk);
 				
@@ -213,7 +218,8 @@ namespace Model
 				colvarWlhy.IsPrimaryKey = false;
 				colvarWlhy.IsForeignKey = false;
 				colvarWlhy.IsReadOnly = false;
-				colvarWlhy.DefaultSetting = @"";
+				
+						colvarWlhy.DefaultSetting = @"((0))";
 				colvarWlhy.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarWlhy);
 				
@@ -226,7 +232,8 @@ namespace Model
 				colvarTgsx.IsPrimaryKey = false;
 				colvarTgsx.IsForeignKey = false;
 				colvarTgsx.IsReadOnly = false;
-				colvarTgsx.DefaultSetting = @"";
+				
+						colvarTgsx.DefaultSetting = @"('')";
 				colvarTgsx.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarTgsx);
 				
@@ -239,7 +246,8 @@ namespace Model
 				colvarTgkd.IsPrimaryKey = false;
 				colvarTgkd.IsForeignKey = false;
 				colvarTgkd.IsReadOnly = false;
-				colvarTgkd.DefaultSetting = @"";
+				
+						colvarTgkd.DefaultSetting = @"((0))";
 				colvarTgkd.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarTgkd);
 				
@@ -252,7 +260,8 @@ namespace Model
 				colvarWlks.IsPrimaryKey = false;
 				colvarWlks.IsForeignKey = false;
 				colvarWlks.IsReadOnly = false;
-				colvarWlks.DefaultSetting = @"";
+				
+						colvarWlks.DefaultSetting = @"('')";
 				colvarWlks.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarWlks);
 				
@@ -265,7 +274,8 @@ namespace Model
 				colvarWlxh.IsPrimaryKey = true;
 				colvarWlxh.IsForeignKey = false;
 				colvarWlxh.IsReadOnly = false;
-				colvarWlxh.DefaultSetting = @"";
+				
+						colvarWlxh.DefaultSetting = @"((0))";
 				colvarWlxh.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarWlxh);
 				
@@ -278,7 +288,8 @@ namespace Model
 				colvarXH1.IsPrimaryKey = false;
 				colvarXH1.IsForeignKey = false;
 				colvarXH1.IsReadOnly = false;
-				colvarXH1.DefaultSetting = @"";
+				
+						colvarXH1.DefaultSetting = @"((0))";
 				colvarXH1.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarXH1);
 				
@@ -291,7 +302,8 @@ namespace Model
 				colvarWlbw.IsPrimaryKey = false;
 				colvarWlbw.IsForeignKey = false;
 				colvarWlbw.IsReadOnly = false;
-				colvarWlbw.DefaultSetting = @"";
+				
+						colvarWlbw.DefaultSetting = @"('')";
 				colvarWlbw.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarWlbw);
 				
@@ -304,7 +316,8 @@ namespace Model
 				colvarGyfl.IsPrimaryKey = false;
 				colvarGyfl.IsForeignKey = false;
 				colvarGyfl.IsReadOnly = false;
-				colvarGyfl.DefaultSetting = @"";
+				
+						colvarGyfl.DefaultSetting = @"('')";
 				colvarGyfl.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarGyfl);
 				
@@ -317,7 +330,8 @@ namespace Model
 				colvarSldl.IsPrimaryKey = false;
 				colvarSldl.IsForeignKey = false;
 				colvarSldl.IsReadOnly = false;
-				colvarSldl.DefaultSetting = @"";
+				
+						colvarSldl.DefaultSetting = @"('')";
 				colvarSldl.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarSldl);
 				
@@ -330,7 +344,8 @@ namespace Model
 				colvarCpzl.IsPrimaryKey = false;
 				colvarCpzl.IsForeignKey = false;
 				colvarCpzl.IsReadOnly = false;
-				colvarCpzl.DefaultSetting = @"";
+				
+						colvarCpzl.DefaultSetting = @"('')";
 				colvarCpzl.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarCpzl);
 				
@@ -343,7 +358,8 @@ namespace Model
 				colvarSfhd.IsPrimaryKey = false;
 				colvarSfhd.IsForeignKey = false;
 				colvarSfhd.IsReadOnly = false;
-				colvarSfhd.DefaultSetting = @"";
+				
+						colvarSfhd.DefaultSetting = @"((0))";
 				colvarSfhd.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarSfhd);
 				
@@ -356,7 +372,8 @@ namespace Model
 				colvarHdh.IsPrimaryKey = false;
 				colvarHdh.IsForeignKey = false;
 				colvarHdh.IsReadOnly = false;
-				colvarHdh.DefaultSetting = @"";
+				
+						colvarHdh.DefaultSetting = @"('')";
 				colvarHdh.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarHdh);
 				

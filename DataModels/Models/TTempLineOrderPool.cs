@@ -178,6 +178,19 @@ namespace Model
 				colvarNum.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarNum);
 				
+				TableSchema.TableColumn colvarPlan = new TableSchema.TableColumn(schema);
+				colvarPlan.ColumnName = "plan";
+				colvarPlan.DataType = DbType.String;
+				colvarPlan.MaxLength = 50;
+				colvarPlan.AutoIncrement = false;
+				colvarPlan.IsNullable = true;
+				colvarPlan.IsPrimaryKey = false;
+				colvarPlan.IsForeignKey = false;
+				colvarPlan.IsReadOnly = false;
+				colvarPlan.DefaultSetting = @"";
+				colvarPlan.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarPlan);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -219,6 +232,14 @@ namespace Model
 			get { return GetColumnValue<int?>(Columns.Num); }
 			set { SetColumnValue(Columns.Num, value); }
 		}
+		  
+		[XmlAttribute("Plan")]
+		[Bindable(true)]
+		public string Plan 
+		{
+			get { return GetColumnValue<string>(Columns.Plan); }
+			set { SetColumnValue(Columns.Plan, value); }
+		}
 		
 		#endregion
 		
@@ -239,7 +260,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varKhdh,string varFzfl,string varLineName,int? varNum)
+		public static void Insert(string varKhdh,string varFzfl,string varLineName,int? varNum,string varPlan)
 		{
 			TTempLineOrderPool item = new TTempLineOrderPool();
 			
@@ -251,6 +272,8 @@ namespace Model
 			
 			item.Num = varNum;
 			
+			item.Plan = varPlan;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -261,7 +284,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varKhdh,string varFzfl,string varLineName,int? varNum)
+		public static void Update(string varKhdh,string varFzfl,string varLineName,int? varNum,string varPlan)
 		{
 			TTempLineOrderPool item = new TTempLineOrderPool();
 			
@@ -272,6 +295,8 @@ namespace Model
 				item.LineName = varLineName;
 			
 				item.Num = varNum;
+			
+				item.Plan = varPlan;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -314,6 +339,13 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn PlanColumn
+        {
+            get { return Schema.Columns[4]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -322,6 +354,7 @@ namespace Model
 			 public static string Fzfl = @"Fzfl";
 			 public static string LineName = @"LineName";
 			 public static string Num = @"Num";
+			 public static string Plan = @"plan";
 						
 		}
 		#endregion

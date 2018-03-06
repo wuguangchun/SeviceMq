@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Plans,string Scgydm,DateTime? Scjhrq,string Scyspd,string Schtbh,string Scggdh,string Scggbz,string Schtsl,string Schtxh,string Xtwpmc,string Xtwpks,string Xtwpys,string Ptfs,string Xtwldm,string Sckhxm,string Scjhdd,string Scjhbz,int Clothtype,int CM35,int Jiaji,int Guowai,int Miantang,int Yangpinban,int Peijian,int Isfangge,string Banzu,DateTime? CreateTime,string Pkid)
+	    public void Insert(string Plans,string Scgydm,DateTime? Scjhrq,string Scyspd,string Schtbh,string Scggdh,string Scggbz,string Schtsl,string Schtxh,string Xtwpmc,string Xtwpks,string Xtwpys,string Ptfs,string Xtwldm,string Sckhxm,string Scjhdd,string Scjhbz,int? Clothtype,int? CM35,int? Jiaji,int? Guowai,int? Miantang,int? Yangpinban,int? Peijian,int? Isfangge,string Banzu,DateTime? CreateTime,string Pkid)
 	    {
 		    TAnalysisOutputListWithCodeTZShirt item = new TAnalysisOutputListWithCodeTZShirt();
 		    
@@ -148,7 +148,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string Plans,string Scgydm,DateTime? Scjhrq,string Scyspd,string Schtbh,string Scggdh,string Scggbz,string Schtsl,string Schtxh,string Xtwpmc,string Xtwpks,string Xtwpys,string Ptfs,string Xtwldm,string Sckhxm,string Scjhdd,string Scjhbz,int Clothtype,int CM35,int Jiaji,int Guowai,int Miantang,int Yangpinban,int Peijian,int Isfangge,string Banzu,DateTime? CreateTime,string Pkid)
+	    public void Update(string Plans,string Scgydm,DateTime? Scjhrq,string Scyspd,string Schtbh,string Scggdh,string Scggbz,string Schtsl,string Schtxh,string Xtwpmc,string Xtwpks,string Xtwpys,string Ptfs,string Xtwldm,string Sckhxm,string Scjhdd,string Scjhbz,int? Clothtype,int? CM35,int? Jiaji,int? Guowai,int? Miantang,int? Yangpinban,int? Peijian,int? Isfangge,string Banzu,DateTime? CreateTime,string Pkid)
 	    {
 		    TAnalysisOutputListWithCodeTZShirt item = new TAnalysisOutputListWithCodeTZShirt();
 	        item.MarkOld();

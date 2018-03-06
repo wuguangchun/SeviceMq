@@ -92,7 +92,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Khdh,string Fzfl,string LineName,int? Num)
+	    public void Insert(string Khdh,string Fzfl,string LineName,int? Num,string Plan)
 	    {
 		    TTempLineOrderPool item = new TTempLineOrderPool();
 		    
@@ -104,6 +104,8 @@ namespace Model
             
             item.Num = Num;
             
+            item.Plan = Plan;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -112,7 +114,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string Khdh,string Fzfl,string LineName,int? Num)
+	    public void Update(string Khdh,string Fzfl,string LineName,int? Num,string Plan)
 	    {
 		    TTempLineOrderPool item = new TTempLineOrderPool();
 	        item.MarkOld();
@@ -125,6 +127,8 @@ namespace Model
 			item.LineName = LineName;
 				
 			item.Num = Num;
+				
+			item.Plan = Plan;
 				
 	        item.Save(UserName);
 	    }

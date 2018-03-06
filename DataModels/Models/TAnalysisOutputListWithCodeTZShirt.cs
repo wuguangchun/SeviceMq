@@ -170,7 +170,7 @@ namespace Model
 				colvarScyspd.DataType = DbType.String;
 				colvarScyspd.MaxLength = 12;
 				colvarScyspd.AutoIncrement = false;
-				colvarScyspd.IsNullable = false;
+				colvarScyspd.IsNullable = true;
 				colvarScyspd.IsPrimaryKey = false;
 				colvarScyspd.IsForeignKey = false;
 				colvarScyspd.IsReadOnly = false;
@@ -196,7 +196,7 @@ namespace Model
 				colvarScggdh.DataType = DbType.String;
 				colvarScggdh.MaxLength = 12;
 				colvarScggdh.AutoIncrement = false;
-				colvarScggdh.IsNullable = false;
+				colvarScggdh.IsNullable = true;
 				colvarScggdh.IsPrimaryKey = false;
 				colvarScggdh.IsForeignKey = false;
 				colvarScggdh.IsReadOnly = false;
@@ -352,7 +352,7 @@ namespace Model
 				colvarClothtype.DataType = DbType.Int32;
 				colvarClothtype.MaxLength = 0;
 				colvarClothtype.AutoIncrement = false;
-				colvarClothtype.IsNullable = false;
+				colvarClothtype.IsNullable = true;
 				colvarClothtype.IsPrimaryKey = false;
 				colvarClothtype.IsForeignKey = false;
 				colvarClothtype.IsReadOnly = false;
@@ -365,7 +365,7 @@ namespace Model
 				colvarCM35.DataType = DbType.Int32;
 				colvarCM35.MaxLength = 0;
 				colvarCM35.AutoIncrement = false;
-				colvarCM35.IsNullable = false;
+				colvarCM35.IsNullable = true;
 				colvarCM35.IsPrimaryKey = false;
 				colvarCM35.IsForeignKey = false;
 				colvarCM35.IsReadOnly = false;
@@ -378,7 +378,7 @@ namespace Model
 				colvarJiaji.DataType = DbType.Int32;
 				colvarJiaji.MaxLength = 0;
 				colvarJiaji.AutoIncrement = false;
-				colvarJiaji.IsNullable = false;
+				colvarJiaji.IsNullable = true;
 				colvarJiaji.IsPrimaryKey = false;
 				colvarJiaji.IsForeignKey = false;
 				colvarJiaji.IsReadOnly = false;
@@ -391,7 +391,7 @@ namespace Model
 				colvarGuowai.DataType = DbType.Int32;
 				colvarGuowai.MaxLength = 0;
 				colvarGuowai.AutoIncrement = false;
-				colvarGuowai.IsNullable = false;
+				colvarGuowai.IsNullable = true;
 				colvarGuowai.IsPrimaryKey = false;
 				colvarGuowai.IsForeignKey = false;
 				colvarGuowai.IsReadOnly = false;
@@ -404,7 +404,7 @@ namespace Model
 				colvarMiantang.DataType = DbType.Int32;
 				colvarMiantang.MaxLength = 0;
 				colvarMiantang.AutoIncrement = false;
-				colvarMiantang.IsNullable = false;
+				colvarMiantang.IsNullable = true;
 				colvarMiantang.IsPrimaryKey = false;
 				colvarMiantang.IsForeignKey = false;
 				colvarMiantang.IsReadOnly = false;
@@ -417,7 +417,7 @@ namespace Model
 				colvarYangpinban.DataType = DbType.Int32;
 				colvarYangpinban.MaxLength = 0;
 				colvarYangpinban.AutoIncrement = false;
-				colvarYangpinban.IsNullable = false;
+				colvarYangpinban.IsNullable = true;
 				colvarYangpinban.IsPrimaryKey = false;
 				colvarYangpinban.IsForeignKey = false;
 				colvarYangpinban.IsReadOnly = false;
@@ -430,7 +430,7 @@ namespace Model
 				colvarPeijian.DataType = DbType.Int32;
 				colvarPeijian.MaxLength = 0;
 				colvarPeijian.AutoIncrement = false;
-				colvarPeijian.IsNullable = false;
+				colvarPeijian.IsNullable = true;
 				colvarPeijian.IsPrimaryKey = false;
 				colvarPeijian.IsForeignKey = false;
 				colvarPeijian.IsReadOnly = false;
@@ -443,7 +443,7 @@ namespace Model
 				colvarIsfangge.DataType = DbType.Int32;
 				colvarIsfangge.MaxLength = 0;
 				colvarIsfangge.AutoIncrement = false;
-				colvarIsfangge.IsNullable = false;
+				colvarIsfangge.IsNullable = true;
 				colvarIsfangge.IsPrimaryKey = false;
 				colvarIsfangge.IsForeignKey = false;
 				colvarIsfangge.IsReadOnly = false;
@@ -638,65 +638,65 @@ namespace Model
 		  
 		[XmlAttribute("Clothtype")]
 		[Bindable(true)]
-		public int Clothtype 
+		public int? Clothtype 
 		{
-			get { return GetColumnValue<int>(Columns.Clothtype); }
+			get { return GetColumnValue<int?>(Columns.Clothtype); }
 			set { SetColumnValue(Columns.Clothtype, value); }
 		}
 		  
 		[XmlAttribute("CM35")]
 		[Bindable(true)]
-		public int CM35 
+		public int? CM35 
 		{
-			get { return GetColumnValue<int>(Columns.CM35); }
+			get { return GetColumnValue<int?>(Columns.CM35); }
 			set { SetColumnValue(Columns.CM35, value); }
 		}
 		  
 		[XmlAttribute("Jiaji")]
 		[Bindable(true)]
-		public int Jiaji 
+		public int? Jiaji 
 		{
-			get { return GetColumnValue<int>(Columns.Jiaji); }
+			get { return GetColumnValue<int?>(Columns.Jiaji); }
 			set { SetColumnValue(Columns.Jiaji, value); }
 		}
 		  
 		[XmlAttribute("Guowai")]
 		[Bindable(true)]
-		public int Guowai 
+		public int? Guowai 
 		{
-			get { return GetColumnValue<int>(Columns.Guowai); }
+			get { return GetColumnValue<int?>(Columns.Guowai); }
 			set { SetColumnValue(Columns.Guowai, value); }
 		}
 		  
 		[XmlAttribute("Miantang")]
 		[Bindable(true)]
-		public int Miantang 
+		public int? Miantang 
 		{
-			get { return GetColumnValue<int>(Columns.Miantang); }
+			get { return GetColumnValue<int?>(Columns.Miantang); }
 			set { SetColumnValue(Columns.Miantang, value); }
 		}
 		  
 		[XmlAttribute("Yangpinban")]
 		[Bindable(true)]
-		public int Yangpinban 
+		public int? Yangpinban 
 		{
-			get { return GetColumnValue<int>(Columns.Yangpinban); }
+			get { return GetColumnValue<int?>(Columns.Yangpinban); }
 			set { SetColumnValue(Columns.Yangpinban, value); }
 		}
 		  
 		[XmlAttribute("Peijian")]
 		[Bindable(true)]
-		public int Peijian 
+		public int? Peijian 
 		{
-			get { return GetColumnValue<int>(Columns.Peijian); }
+			get { return GetColumnValue<int?>(Columns.Peijian); }
 			set { SetColumnValue(Columns.Peijian, value); }
 		}
 		  
 		[XmlAttribute("Isfangge")]
 		[Bindable(true)]
-		public int Isfangge 
+		public int? Isfangge 
 		{
-			get { return GetColumnValue<int>(Columns.Isfangge); }
+			get { return GetColumnValue<int?>(Columns.Isfangge); }
 			set { SetColumnValue(Columns.Isfangge, value); }
 		}
 		  
@@ -743,7 +743,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varPlans,string varScgydm,DateTime? varScjhrq,string varScyspd,string varSchtbh,string varScggdh,string varScggbz,string varSchtsl,string varSchtxh,string varXtwpmc,string varXtwpks,string varXtwpys,string varPtfs,string varXtwldm,string varSckhxm,string varScjhdd,string varScjhbz,int varClothtype,int varCM35,int varJiaji,int varGuowai,int varMiantang,int varYangpinban,int varPeijian,int varIsfangge,string varBanzu,DateTime? varCreateTime,string varPkid)
+		public static void Insert(string varPlans,string varScgydm,DateTime? varScjhrq,string varScyspd,string varSchtbh,string varScggdh,string varScggbz,string varSchtsl,string varSchtxh,string varXtwpmc,string varXtwpks,string varXtwpys,string varPtfs,string varXtwldm,string varSckhxm,string varScjhdd,string varScjhbz,int? varClothtype,int? varCM35,int? varJiaji,int? varGuowai,int? varMiantang,int? varYangpinban,int? varPeijian,int? varIsfangge,string varBanzu,DateTime? varCreateTime,string varPkid)
 		{
 			TAnalysisOutputListWithCodeTZShirt item = new TAnalysisOutputListWithCodeTZShirt();
 			
@@ -813,7 +813,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varPlans,string varScgydm,DateTime? varScjhrq,string varScyspd,string varSchtbh,string varScggdh,string varScggbz,string varSchtsl,string varSchtxh,string varXtwpmc,string varXtwpks,string varXtwpys,string varPtfs,string varXtwldm,string varSckhxm,string varScjhdd,string varScjhbz,int varClothtype,int varCM35,int varJiaji,int varGuowai,int varMiantang,int varYangpinban,int varPeijian,int varIsfangge,string varBanzu,DateTime? varCreateTime,string varPkid)
+		public static void Update(string varPlans,string varScgydm,DateTime? varScjhrq,string varScyspd,string varSchtbh,string varScggdh,string varScggbz,string varSchtsl,string varSchtxh,string varXtwpmc,string varXtwpks,string varXtwpys,string varPtfs,string varXtwldm,string varSckhxm,string varScjhdd,string varScjhbz,int? varClothtype,int? varCM35,int? varJiaji,int? varGuowai,int? varMiantang,int? varYangpinban,int? varPeijian,int? varIsfangge,string varBanzu,DateTime? varCreateTime,string varPkid)
 		{
 			TAnalysisOutputListWithCodeTZShirt item = new TAnalysisOutputListWithCodeTZShirt();
 			

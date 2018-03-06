@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Sczsbh,string Scgcdm,DateTime? Scxdrq,DateTime? Sccjjq,DateTime? Scfzjq,DateTime? Scjhrq,string Scjhry,string Sczsbz,string Sczszt,string Scjqsm,DateTime? Scjqrq,DateTime? Sclrrq,string Sclrry,DateTime? Scshrq,string Scshry,DateTime? Scztjq,DateTime? Scbzjq,string Schtbh,DateTime? Sctcrq,bool IsGet)
+	    public void Insert(string Sczsbh,string Scgcdm,DateTime? Scxdrq,DateTime? Sccjjq,DateTime? Scfzjq,DateTime? Scjhrq,string Scjhry,string Sczsbz,string Sczszt,string Scjqsm,DateTime? Scjqrq,DateTime? Sclrrq,string Sclrry,DateTime? Scshrq,string Scshry,DateTime? Scztjq,DateTime? Scbzjq,string Schtbh,DateTime? Sctcrq)
 	    {
 		    SCT26Test item = new SCT26Test();
 		    
@@ -122,8 +122,6 @@ namespace Model
             
             item.Sctcrq = Sctcrq;
             
-            item.IsGet = IsGet;
-            
 	    
 		    item.Save(UserName);
 	    }
@@ -132,7 +130,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string Sczsbh,string Scgcdm,DateTime? Scxdrq,DateTime? Sccjjq,DateTime? Scfzjq,DateTime? Scjhrq,string Scjhry,string Sczsbz,string Sczszt,string Scjqsm,DateTime? Scjqrq,DateTime? Sclrrq,string Sclrry,DateTime? Scshrq,string Scshry,DateTime? Scztjq,DateTime? Scbzjq,string Schtbh,DateTime? Sctcrq,bool IsGet)
+	    public void Update(string Sczsbh,string Scgcdm,DateTime? Scxdrq,DateTime? Sccjjq,DateTime? Scfzjq,DateTime? Scjhrq,string Scjhry,string Sczsbz,string Sczszt,string Scjqsm,DateTime? Scjqrq,DateTime? Sclrrq,string Sclrry,DateTime? Scshrq,string Scshry,DateTime? Scztjq,DateTime? Scbzjq,string Schtbh,DateTime? Sctcrq)
 	    {
 		    SCT26Test item = new SCT26Test();
 	        item.MarkOld();
@@ -175,8 +173,6 @@ namespace Model
 			item.Schtbh = Schtbh;
 				
 			item.Sctcrq = Sctcrq;
-				
-			item.IsGet = IsGet;
 				
 	        item.Save(UserName);
 	    }

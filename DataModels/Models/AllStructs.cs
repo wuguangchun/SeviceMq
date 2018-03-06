@@ -30,21 +30,17 @@ namespace Model
         
 		public static readonly string HljtTaskList = @"HLJT_TaskList";
         
-		public static readonly string Isypb = @"ISYPB";
-        
 		public static readonly string SCM06 = @"SCM06";
-        
-		public static readonly string SCM13Delete = @"SCM13_delete";
         
 		public static readonly string SCT26 = @"SCT26";
         
 		public static readonly string SCT26Test = @"SCT26_test";
         
-		public static readonly string SCT26Test1 = @"SCT26_test1";
-        
 		public static readonly string SCT27 = @"SCT27";
         
 		public static readonly string SCT27Test = @"SCT27_test";
+        
+		public static readonly string SCT28 = @"SCT28";
         
 		public static readonly string TAnalysisCyMTMJh = @"T_Analysis_CyMTMJh";
         
@@ -148,7 +144,7 @@ namespace Model
         
 		public static readonly string TBLDataPld = @"T_BLData_PLD";
         
-		public static readonly string TBLDataPLD1 = @"T_BLData_PLD1";
+		public static readonly string TBLDataPLD2 = @"T_BLData_PLD2";
         
 		public static readonly string TBom = @"T_BOM";
         
@@ -218,16 +214,6 @@ namespace Model
         
 		public static readonly string WmsSyncPlan = @"WMS_SYNC_plans";
         
-		public static readonly string XTM12Delete = @"XTM12_delete";
-        
-		public static readonly string XTM124Delete = @"XTM124_delete";
-        
-		public static readonly string XTM14Delete = @"XTM14_delete";
-        
-		public static readonly string XTM22Delete = @"XTM22_delete";
-        
-		public static readonly string XTM32Delete = @"XTM32_delete";
-        
 	}
 	#endregion
     #region Schemas
@@ -263,19 +249,9 @@ namespace Model
             get { return DataService.GetSchema("HLJT_TaskList", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table Isypb
-		{
-            get { return DataService.GetSchema("ISYPB", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table SCM06
 		{
             get { return DataService.GetSchema("SCM06", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table SCM13Delete
-		{
-            get { return DataService.GetSchema("SCM13_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table SCT26
@@ -288,11 +264,6 @@ namespace Model
             get { return DataService.GetSchema("SCT26_test", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table SCT26Test1
-		{
-            get { return DataService.GetSchema("SCT26_test1", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table SCT27
 		{
             get { return DataService.GetSchema("SCT27", "Nowthwin"); }
@@ -301,6 +272,11 @@ namespace Model
 		public static TableSchema.Table SCT27Test
 		{
             get { return DataService.GetSchema("SCT27_test", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table SCT28
+		{
+            get { return DataService.GetSchema("SCT28", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisCyMTMJh
@@ -558,9 +534,9 @@ namespace Model
             get { return DataService.GetSchema("T_BLData_PLD", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TBLDataPLD1
+		public static TableSchema.Table TBLDataPLD2
 		{
-            get { return DataService.GetSchema("T_BLData_PLD1", "Nowthwin"); }
+            get { return DataService.GetSchema("T_BLData_PLD2", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBom
@@ -733,31 +709,6 @@ namespace Model
             get { return DataService.GetSchema("WMS_SYNC_plans", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table XTM12Delete
-		{
-            get { return DataService.GetSchema("XTM12_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table XTM124Delete
-		{
-            get { return DataService.GetSchema("XTM124_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table XTM14Delete
-		{
-            get { return DataService.GetSchema("XTM14_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table XTM22Delete
-		{
-            get { return DataService.GetSchema("XTM22_delete", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table XTM32Delete
-		{
-            get { return DataService.GetSchema("XTM32_delete", "Nowthwin"); }
-		}
-        
 	
     }
     #endregion
@@ -845,11 +796,15 @@ namespace Model
         
 		public static readonly string ViewCFByMTM = @"View_CFByMTM";
         
+		public static readonly string ViewErpSct51 = @"View_ErpSct51";
+        
 		public static readonly string ViewErrorLog = @"View_ErrorLogs";
         
 		public static readonly string ViewFzCoatlist = @"View_FZ_Coatlist";
         
 		public static readonly string ViewFzerpCoatlist = @"View_FZERP_Coatlist";
+        
+		public static readonly string ViewGylx = @"view_gylx";
         
 		public static readonly string ViewLookOutPutTable = @"View_LookOutPutTable";
         

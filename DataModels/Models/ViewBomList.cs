@@ -57,30 +57,6 @@ namespace Model{
                 schema.SchemaName = @"dbo";
                 //columns
                 
-                TableSchema.TableColumn colvarProcode = new TableSchema.TableColumn(schema);
-                colvarProcode.ColumnName = "Procode";
-                colvarProcode.DataType = DbType.String;
-                colvarProcode.MaxLength = 250;
-                colvarProcode.AutoIncrement = false;
-                colvarProcode.IsNullable = true;
-                colvarProcode.IsPrimaryKey = false;
-                colvarProcode.IsForeignKey = false;
-                colvarProcode.IsReadOnly = false;
-                
-                schema.Columns.Add(colvarProcode);
-                
-                TableSchema.TableColumn colvarModeltype = new TableSchema.TableColumn(schema);
-                colvarModeltype.ColumnName = "Modeltype";
-                colvarModeltype.DataType = DbType.String;
-                colvarModeltype.MaxLength = 250;
-                colvarModeltype.AutoIncrement = false;
-                colvarModeltype.IsNullable = true;
-                colvarModeltype.IsPrimaryKey = false;
-                colvarModeltype.IsForeignKey = false;
-                colvarModeltype.IsReadOnly = false;
-                
-                schema.Columns.Add(colvarModeltype);
-                
                 TableSchema.TableColumn colvarResourcesName = new TableSchema.TableColumn(schema);
                 colvarResourcesName.ColumnName = "resourcesName";
                 colvarResourcesName.DataType = DbType.AnsiString;
@@ -104,6 +80,30 @@ namespace Model{
                 colvarResource.IsReadOnly = false;
                 
                 schema.Columns.Add(colvarResource);
+                
+                TableSchema.TableColumn colvarProcode = new TableSchema.TableColumn(schema);
+                colvarProcode.ColumnName = "Procode";
+                colvarProcode.DataType = DbType.String;
+                colvarProcode.MaxLength = 250;
+                colvarProcode.AutoIncrement = false;
+                colvarProcode.IsNullable = true;
+                colvarProcode.IsPrimaryKey = false;
+                colvarProcode.IsForeignKey = false;
+                colvarProcode.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarProcode);
+                
+                TableSchema.TableColumn colvarModeltype = new TableSchema.TableColumn(schema);
+                colvarModeltype.ColumnName = "Modeltype";
+                colvarModeltype.DataType = DbType.String;
+                colvarModeltype.MaxLength = 250;
+                colvarModeltype.AutoIncrement = false;
+                colvarModeltype.IsNullable = true;
+                colvarModeltype.IsPrimaryKey = false;
+                colvarModeltype.IsForeignKey = false;
+                colvarModeltype.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarModeltype);
                 
                 
                 BaseSchema = schema;
@@ -155,34 +155,6 @@ namespace Model{
 	    #region Props
 	    
           
-        [XmlAttribute("Procode")]
-        [Bindable(true)]
-        public string Procode 
-	    {
-		    get
-		    {
-			    return GetColumnValue<string>("Procode");
-		    }
-            set 
-		    {
-			    SetColumnValue("Procode", value);
-            }
-        }
-	      
-        [XmlAttribute("Modeltype")]
-        [Bindable(true)]
-        public string Modeltype 
-	    {
-		    get
-		    {
-			    return GetColumnValue<string>("Modeltype");
-		    }
-            set 
-		    {
-			    SetColumnValue("Modeltype", value);
-            }
-        }
-	      
         [XmlAttribute("ResourcesName")]
         [Bindable(true)]
         public string ResourcesName 
@@ -210,6 +182,34 @@ namespace Model{
 			    SetColumnValue("Resource", value);
             }
         }
+	      
+        [XmlAttribute("Procode")]
+        [Bindable(true)]
+        public string Procode 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("Procode");
+		    }
+            set 
+		    {
+			    SetColumnValue("Procode", value);
+            }
+        }
+	      
+        [XmlAttribute("Modeltype")]
+        [Bindable(true)]
+        public string Modeltype 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("Modeltype");
+		    }
+            set 
+		    {
+			    SetColumnValue("Modeltype", value);
+            }
+        }
 	    
 	    #endregion
     
@@ -218,13 +218,13 @@ namespace Model{
 	    {
 		    
 		    
-            public static string Procode = @"Procode";
-            
-            public static string Modeltype = @"Modeltype";
-            
             public static string ResourcesName = @"resourcesName";
             
             public static string Resource = @"Resource";
+            
+            public static string Procode = @"Procode";
+            
+            public static string Modeltype = @"Modeltype";
             
 	    }
 	    #endregion

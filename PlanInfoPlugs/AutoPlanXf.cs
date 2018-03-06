@@ -186,7 +186,7 @@ namespace TestService.Helper
                 //控制台输出查看当前分了多少
                 Console.WriteLine(" 最终分配订单");
                 lines.ForEach(x => Console.WriteLine(x.LineName + "::" + LineOrder.FindAll(y => y.LineName == x.LineName).Sum(y => y.Num)));
-                
+
                 #region 加急订单分配
                 //----马甲全部给缝制1  ListXjOrder
                 ListXjOrder.FindAll(x => x.Fzfl.Contains("MJ")).ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, LineName = "马甲缝制1", Fzfl = x.Fzfl, Num = int.Parse(x.Ddsl.ToString()) }));
@@ -258,7 +258,7 @@ namespace TestService.Helper
                 ListPjOrder.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, LineName = "西服缝制2", Fzfl = x.Fzfl, Num = int.Parse(x.Ddsl.ToString()) }));
 
                 #endregion
-                
+
                 //筛选订单完成
                 return new CreatePlanNo(LineOrder, copyData, beginTime).AutoPlanNo();
             }
@@ -769,6 +769,12 @@ namespace TestService.Helper
                 list.AddRange(planList);
             }
 
+            foreach (var obj in list)
+            {
+                var data = new TTempLineOrderPool { Khdh = obj.Khdh, Fzfl = obj.Fzfl, LineName = obj.LineName, Plan = obj.PlanCode };
+                data.Save();
+            }
+
             var planInfos = new List<PlanInfo>();
             var planGroup = list.GroupBy(x => x.PlanCode);
             foreach (var key in planGroup)
@@ -787,7 +793,7 @@ namespace TestService.Helper
                     Scxdrq = BeginTime.ToString("yyyy-MM-dd HH:mm:ss"),
                     Scjhrq = DataOrder.Find(x => x.Khdh == orders.First().Khdh).Jhrq.ToString(),
                     Scshrq = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace('/', '-'),
-                    Sczsbz = "",//$"{Lines.Find(y => y.LineName == orders.First().LineName).Abbreviation}{Lines.Find(y => y.LineName == orders.First().LineName).LineNumber} {mlwg}",
+                    Sczsbz = mlwg,//$"{Lines.Find(y => y.LineName == orders.First().LineName).Abbreviation}{Lines.Find(y => y.LineName == orders.First().LineName).LineNumber} {mlwg}",
                     Sclrrq = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace('/', '-'),
                     Type = orders.First().TypeId,
                     OrderPools = new List<LineOrderPool>()
@@ -799,13 +805,13 @@ namespace TestService.Helper
             }
 
             //循环输出计划信息，推送到计划时间节点计算接口
-            planInfos.ForEach(x => Console.WriteLine($"{x.Sczsbh}--{x.Type}--{x.Scjhry}--{x.Scshry}--{x.Scxdrq}--{JsonConvert.SerializeObject(x.OrderPools)}\r\n"));
+            planInfos.ForEach(x => Console.WriteLine($"{x.Sczsbh}--{x.Type}--{x.Scjhry}--{x.Scshry}--{x.Sczsbh}--{x.Scxdrq}--{JsonConvert.SerializeObject(x.OrderPools)}\r\n"));
 
             int successCount = 0;
             foreach (var planInfo in planInfos)
             {
                 var result = string.Empty;
-                //PushWebHelper.PostToPost("http://172.16.7.214:8196/api/aps/CalculateDelivery", JsonConvert.SerializeObject(planInfo), ref result);
+                PushWebHelper.PostToPost("http://172.16.7.214:8196/api/aps/CalculateDelivery", JsonConvert.SerializeObject(planInfo), ref result);
 
                 if (result.Contains("成功"))
                 {

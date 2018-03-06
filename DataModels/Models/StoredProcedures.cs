@@ -380,6 +380,28 @@ namespace Model{
         }
         
         /// <summary>
+        /// Creates an object wrapper for the Proc_PlanOrderCon Procedure
+        /// </summary>
+        public static StoredProcedure ProcPlanOrderCon(string SCGGDH)
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_PlanOrderCon", DataService.GetInstance("Nowthwin"), "dbo");
+        	
+            sp.Command.AddParameter("@SCGGDH", SCGGDH, DbType.AnsiString, null, null);
+        	
+            return sp;
+        }
+        
+        /// <summary>
+        /// Creates an object wrapper for the Proc_PlanOrders Procedure
+        /// </summary>
+        public static StoredProcedure ProcPlanOrders()
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("Proc_PlanOrders", DataService.GetInstance("Nowthwin"), "");
+        	
+            return sp;
+        }
+        
+        /// <summary>
         /// Creates an object wrapper for the PROC_PlanTypeGnw_delete Procedure
         /// </summary>
         public static StoredProcedure ProcPlanTypeGnwDelete()
