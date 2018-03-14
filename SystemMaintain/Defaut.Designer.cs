@@ -61,6 +61,7 @@
             this.BlSendPld = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
             this.Excel_To_Db = new System.Windows.Forms.ToolStripMenuItem();
+            this.Input_plan = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.log_Service = new System.Windows.Forms.ToolStripMenuItem();
             this.log_serviceError = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +72,7 @@
             this.tab_box = new System.Windows.Forms.TabControl();
             this.tabBoxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.Input_plan = new System.Windows.Forms.ToolStripMenuItem();
+            this.Input_excel = new System.Windows.Forms.ToolStripMenuItem();
             this.tool_menu.SuspendLayout();
             this.tab_box.SuspendLayout();
             this.SuspendLayout();
@@ -313,7 +314,8 @@
             this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Excel_To_Db,
-            this.Input_plan});
+            this.Input_plan,
+            this.Input_excel});
             this.toolStripSplitButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton3.Image")));
             this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton3.Name = "toolStripSplitButton3";
@@ -323,9 +325,16 @@
             // Excel_To_Db
             // 
             this.Excel_To_Db.Name = "Excel_To_Db";
-            this.Excel_To_Db.Size = new System.Drawing.Size(152, 22);
+            this.Excel_To_Db.Size = new System.Drawing.Size(153, 22);
             this.Excel_To_Db.Text = "EXCEL导入";
             this.Excel_To_Db.Click += new System.EventHandler(this.Excel_To_Db_Click);
+            // 
+            // Input_plan
+            // 
+            this.Input_plan.Name = "Input_plan";
+            this.Input_plan.Size = new System.Drawing.Size(153, 22);
+            this.Input_plan.Text = "手工计划导入";
+            this.Input_plan.Click += new System.EventHandler(this.Input_plan_Click);
             // 
             // toolStripSplitButton2
             // 
@@ -408,12 +417,12 @@
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
-            // Input_plan
+            // Input_excel
             // 
-            this.Input_plan.Name = "Input_plan";
-            this.Input_plan.Size = new System.Drawing.Size(152, 22);
-            this.Input_plan.Text = "手工计划导入";
-            this.Input_plan.Click += new System.EventHandler(this.Input_plan_Click);
+            this.Input_excel.Name = "Input_excel";
+            this.Input_excel.Size = new System.Drawing.Size(153, 22);
+            this.Input_excel.Text = "Excel模板导入";
+            this.Input_excel.Click += new System.EventHandler(this.Input_excel_Click);
             // 
             // Defaut
             // 
@@ -481,6 +490,7 @@
         private System.Windows.Forms.ToolStripMenuItem Intercourse;
         private System.Windows.Forms.ToolStripMenuItem BlSendPld;
         private System.Windows.Forms.ToolStripMenuItem Input_plan;
+        private System.Windows.Forms.ToolStripMenuItem Input_excel;
     }
 }
 

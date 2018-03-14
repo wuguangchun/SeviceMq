@@ -131,8 +131,8 @@ namespace Model
 				colvarSczsbh.DataType = DbType.AnsiString;
 				colvarSczsbh.MaxLength = 12;
 				colvarSczsbh.AutoIncrement = false;
-				colvarSczsbh.IsNullable = true;
-				colvarSczsbh.IsPrimaryKey = false;
+				colvarSczsbh.IsNullable = false;
+				colvarSczsbh.IsPrimaryKey = true;
 				colvarSczsbh.IsForeignKey = false;
 				colvarSczsbh.IsReadOnly = false;
 				colvarSczsbh.DefaultSetting = @"";
@@ -144,8 +144,8 @@ namespace Model
 				colvarSchtbh.DataType = DbType.AnsiString;
 				colvarSchtbh.MaxLength = 12;
 				colvarSchtbh.AutoIncrement = false;
-				colvarSchtbh.IsNullable = true;
-				colvarSchtbh.IsPrimaryKey = false;
+				colvarSchtbh.IsNullable = false;
+				colvarSchtbh.IsPrimaryKey = true;
 				colvarSchtbh.IsForeignKey = false;
 				colvarSchtbh.IsReadOnly = false;
 				colvarSchtbh.DefaultSetting = @"";
@@ -157,8 +157,8 @@ namespace Model
 				colvarSchtxh.DataType = DbType.Int32;
 				colvarSchtxh.MaxLength = 0;
 				colvarSchtxh.AutoIncrement = false;
-				colvarSchtxh.IsNullable = true;
-				colvarSchtxh.IsPrimaryKey = false;
+				colvarSchtxh.IsNullable = false;
+				colvarSchtxh.IsPrimaryKey = true;
 				colvarSchtxh.IsForeignKey = false;
 				colvarSchtxh.IsReadOnly = false;
 				colvarSchtxh.DefaultSetting = @"";
@@ -196,8 +196,8 @@ namespace Model
 				colvarXtwpks.DataType = DbType.AnsiString;
 				colvarXtwpks.MaxLength = 20;
 				colvarXtwpks.AutoIncrement = false;
-				colvarXtwpks.IsNullable = true;
-				colvarXtwpks.IsPrimaryKey = false;
+				colvarXtwpks.IsNullable = false;
+				colvarXtwpks.IsPrimaryKey = true;
 				colvarXtwpks.IsForeignKey = false;
 				colvarXtwpks.IsReadOnly = false;
 				colvarXtwpks.DefaultSetting = @"";
@@ -209,8 +209,8 @@ namespace Model
 				colvarXtwpys.DataType = DbType.AnsiString;
 				colvarXtwpys.MaxLength = 20;
 				colvarXtwpys.AutoIncrement = false;
-				colvarXtwpys.IsNullable = true;
-				colvarXtwpys.IsPrimaryKey = false;
+				colvarXtwpys.IsNullable = false;
+				colvarXtwpys.IsPrimaryKey = true;
 				colvarXtwpys.IsForeignKey = false;
 				colvarXtwpys.IsReadOnly = false;
 				colvarXtwpys.DefaultSetting = @"";
@@ -222,8 +222,8 @@ namespace Model
 				colvarXtxmdm.DataType = DbType.AnsiString;
 				colvarXtxmdm.MaxLength = 10;
 				colvarXtxmdm.AutoIncrement = false;
-				colvarXtxmdm.IsNullable = true;
-				colvarXtxmdm.IsPrimaryKey = false;
+				colvarXtxmdm.IsNullable = false;
+				colvarXtxmdm.IsPrimaryKey = true;
 				colvarXtxmdm.IsForeignKey = false;
 				colvarXtxmdm.IsReadOnly = false;
 				colvarXtxmdm.DefaultSetting = @"";
@@ -321,6 +321,19 @@ namespace Model
 				colvarFzfl.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarFzfl);
 				
+				TableSchema.TableColumn colvarScddcx = new TableSchema.TableColumn(schema);
+				colvarScddcx.ColumnName = "SCDDCX";
+				colvarScddcx.DataType = DbType.AnsiString;
+				colvarScddcx.MaxLength = 50;
+				colvarScddcx.AutoIncrement = false;
+				colvarScddcx.IsNullable = true;
+				colvarScddcx.IsPrimaryKey = false;
+				colvarScddcx.IsForeignKey = false;
+				colvarScddcx.IsReadOnly = false;
+				colvarScddcx.DefaultSetting = @"";
+				colvarScddcx.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarScddcx);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -349,9 +362,9 @@ namespace Model
 		  
 		[XmlAttribute("Schtxh")]
 		[Bindable(true)]
-		public int? Schtxh 
+		public int Schtxh 
 		{
-			get { return GetColumnValue<int?>(Columns.Schtxh); }
+			get { return GetColumnValue<int>(Columns.Schtxh); }
 			set { SetColumnValue(Columns.Schtxh, value); }
 		}
 		  
@@ -450,6 +463,14 @@ namespace Model
 			get { return GetColumnValue<string>(Columns.Fzfl); }
 			set { SetColumnValue(Columns.Fzfl, value); }
 		}
+		  
+		[XmlAttribute("Scddcx")]
+		[Bindable(true)]
+		public string Scddcx 
+		{
+			get { return GetColumnValue<string>(Columns.Scddcx); }
+			set { SetColumnValue(Columns.Scddcx, value); }
+		}
 		
 		#endregion
 		
@@ -470,7 +491,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varSczsbh,string varSchtbh,int? varSchtxh,string varScggdh,int varScggxh,string varXtwpks,string varXtwpys,string varXtxmdm,int? varSczssl,string varSczsbz,string varSczsph,string varScgybz,string varScdlzt,string varScddbz,string varFzfl)
+		public static void Insert(string varSczsbh,string varSchtbh,int varSchtxh,string varScggdh,int varScggxh,string varXtwpks,string varXtwpys,string varXtxmdm,int? varSczssl,string varSczsbz,string varSczsph,string varScgybz,string varScdlzt,string varScddbz,string varFzfl,string varScddcx)
 		{
 			SCT27 item = new SCT27();
 			
@@ -504,6 +525,8 @@ namespace Model
 			
 			item.Fzfl = varFzfl;
 			
+			item.Scddcx = varScddcx;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -514,7 +537,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varSczsbh,string varSchtbh,int? varSchtxh,string varScggdh,int varScggxh,string varXtwpks,string varXtwpys,string varXtxmdm,int? varSczssl,string varSczsbz,string varSczsph,string varScgybz,string varScdlzt,string varScddbz,string varFzfl)
+		public static void Update(string varSczsbh,string varSchtbh,int varSchtxh,string varScggdh,int varScggxh,string varXtwpks,string varXtwpys,string varXtxmdm,int? varSczssl,string varSczsbz,string varSczsph,string varScgybz,string varScdlzt,string varScddbz,string varFzfl,string varScddcx)
 		{
 			SCT27 item = new SCT27();
 			
@@ -547,6 +570,8 @@ namespace Model
 				item.Scddbz = varScddbz;
 			
 				item.Fzfl = varFzfl;
+			
+				item.Scddcx = varScddcx;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -666,6 +691,13 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn ScddcxColumn
+        {
+            get { return Schema.Columns[15]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -685,6 +717,7 @@ namespace Model
 			 public static string Scdlzt = @"SCDLZT";
 			 public static string Scddbz = @"SCDDBZ";
 			 public static string Fzfl = @"FZFL";
+			 public static string Scddcx = @"SCDDCX";
 						
 		}
 		#endregion

@@ -34,3 +34,15 @@ F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\obj\Debug\PlanInfoPlugs.csproj.CoreComp
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\obj\Debug\PlanInfoPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\obj\Debug\PlanInfoPlugs.pdb
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\obj\Debug\PlanInfoPlugs.csprojResolveAssemblyReference.cache
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\itextsharp.dll
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\NPOI.dll
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\NPOI.OOXML.dll
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\NPOI.OpenXml4Net.dll
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\NPOI.OpenXmlFormats.dll
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\itextsharp.xml
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\NPOI.xml
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\Spire.License.dll
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\Spire.Pdf.dll
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\Spire.XLS.dll
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\Microsoft.mshtml.dll

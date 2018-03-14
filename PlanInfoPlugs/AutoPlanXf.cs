@@ -811,7 +811,7 @@ namespace TestService.Helper
             foreach (var planInfo in planInfos)
             {
                 var result = string.Empty;
-                PushWebHelper.PostToPost("http://172.16.7.214:8196/api/aps/CalculateDelivery", JsonConvert.SerializeObject(planInfo), ref result);
+                //PushWebHelper.PostToPost("http://172.16.7.214:8196/api/aps/CalculateDelivery", JsonConvert.SerializeObject(planInfo), ref result);
 
                 if (result.Contains("成功"))
                 {

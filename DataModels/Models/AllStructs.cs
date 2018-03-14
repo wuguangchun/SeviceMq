@@ -42,6 +42,8 @@ namespace Model
         
 		public static readonly string SCT28 = @"SCT28";
         
+		public static readonly string SCT282 = @"SCT282";
+        
 		public static readonly string TAnalysisCyMTMJh = @"T_Analysis_CyMTMJh";
         
 		public static readonly string TAnalysisCyTZJhDelete = @"T_Analysis_CyTZJh_delete";
@@ -68,7 +70,7 @@ namespace Model
         
 		public static readonly string TAnalysisOutPutListByFZ = @"T_Analysis_OutPutListByFZ";
         
-		public static readonly string TAnalysisOutputListTzWithCodeDelete = @"T_Analysis_OutputListTzWithCode_delete";
+		public static readonly string TAnalysisOutputListTzWithCode = @"T_Analysis_OutputListTzWithCode";
         
 		public static readonly string TAnalysisOutputListWithCodeCopy = @"T_Analysis_OutputListWithCode_copy";
         
@@ -93,6 +95,8 @@ namespace Model
 		public static readonly string TBasisCoatList = @"T_Basis_CoatList";
         
 		public static readonly string TBasisCoatType = @"T_Basis_CoatType";
+        
+		public static readonly string TBasisExcelTemplate = @"T_Basis_ExcelTemplate";
         
 		public static readonly string TBasisIntercourse = @"T_Basis_Intercourse";
         
@@ -279,6 +283,11 @@ namespace Model
             get { return DataService.GetSchema("SCT28", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table SCT282
+		{
+            get { return DataService.GetSchema("SCT282", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TAnalysisCyMTMJh
 		{
             get { return DataService.GetSchema("T_Analysis_CyMTMJh", "Nowthwin"); }
@@ -344,9 +353,9 @@ namespace Model
             get { return DataService.GetSchema("T_Analysis_OutPutListByFZ", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TAnalysisOutputListTzWithCodeDelete
+		public static TableSchema.Table TAnalysisOutputListTzWithCode
 		{
-            get { return DataService.GetSchema("T_Analysis_OutputListTzWithCode_delete", "Nowthwin"); }
+            get { return DataService.GetSchema("T_Analysis_OutputListTzWithCode", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TAnalysisOutputListWithCodeCopy
@@ -407,6 +416,11 @@ namespace Model
 		public static TableSchema.Table TBasisCoatType
 		{
             get { return DataService.GetSchema("T_Basis_CoatType", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TBasisExcelTemplate
+		{
+            get { return DataService.GetSchema("T_Basis_ExcelTemplate", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBasisIntercourse

@@ -173,7 +173,7 @@ namespace SystemMaintain
             form.Show();
         }
 
-
+        //排料单推送接收接口
         private void BlSendPld_Click(object sender, EventArgs e)
         { //新增TAB页面 
             TabPage tabPage = AddTabPage(@"排料单推送", "BlSendPld");
@@ -183,6 +183,7 @@ namespace SystemMaintain
 
         }
 
+        //计划导入
         private void Input_plan_Click(object sender, EventArgs e)
         {
             //新增TAB页面 
@@ -191,6 +192,16 @@ namespace SystemMaintain
             var form = new Form_improt_Plan() { TopLevel = false, Parent = tabPage };
             form.Show();
 
+        }
+
+        //Excel 数据流导入到数据库
+        private void Input_excel_Click(object sender, EventArgs e)
+        {
+            //新增TAB页面 
+            TabPage tabPage = AddTabPage(@"Excel数据流导入", "Inputplan");
+
+            var form = new Form_Improt_Template() { TopLevel = false, Parent = tabPage };
+            form.Show();
         }
         #endregion
 
@@ -316,8 +327,8 @@ namespace SystemMaintain
 
 
 
-        #endregion
 
+        #endregion
 
     }
 }

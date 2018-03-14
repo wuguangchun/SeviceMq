@@ -50,9 +50,9 @@ namespace Model
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public SCT27Collection FetchByID(object Scggdh)
+        public SCT27Collection FetchByID(object Sczsbh)
         {
-            SCT27Collection coll = new SCT27Collection().Where("SCGGDH", Scggdh).Load();
+            SCT27Collection coll = new SCT27Collection().Where("SCZSBH", Sczsbh).Load();
             return coll;
         }
 		
@@ -64,24 +64,24 @@ namespace Model
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
-        public bool Delete(object Scggdh)
+        public bool Delete(object Sczsbh)
         {
-            return (SCT27.Delete(Scggdh) == 1);
+            return (SCT27.Delete(Sczsbh) == 1);
         }
         [DataObjectMethod(DataObjectMethodType.Delete, false)]
-        public bool Destroy(object Scggdh)
+        public bool Destroy(object Sczsbh)
         {
-            return (SCT27.Destroy(Scggdh) == 1);
+            return (SCT27.Destroy(Sczsbh) == 1);
         }
         
         
         
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
-        public bool Delete(string Scggdh,int Scggxh)
+        public bool Delete(string Sczsbh,string Schtbh,int Schtxh,string Scggdh,int Scggxh,string Xtwpks,string Xtwpys,string Xtxmdm)
         {
             Query qry = new Query(SCT27.Schema);
             qry.QueryType = QueryType.Delete;
-            qry.AddWhere("Scggdh", Scggdh).AND("Scggxh", Scggxh);
+            qry.AddWhere("Sczsbh", Sczsbh).AND("Schtbh", Schtbh).AND("Schtxh", Schtxh).AND("Scggdh", Scggdh).AND("Scggxh", Scggxh).AND("Xtwpks", Xtwpks).AND("Xtwpys", Xtwpys).AND("Xtxmdm", Xtxmdm);
             qry.Execute();
             return (true);
         }        
@@ -92,7 +92,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Sczsbh,string Schtbh,int? Schtxh,string Scggdh,int Scggxh,string Xtwpks,string Xtwpys,string Xtxmdm,int? Sczssl,string Sczsbz,string Sczsph,string Scgybz,string Scdlzt,string Scddbz,string Fzfl)
+	    public void Insert(string Sczsbh,string Schtbh,int Schtxh,string Scggdh,int Scggxh,string Xtwpks,string Xtwpys,string Xtxmdm,int? Sczssl,string Sczsbz,string Sczsph,string Scgybz,string Scdlzt,string Scddbz,string Fzfl,string Scddcx)
 	    {
 		    SCT27 item = new SCT27();
 		    
@@ -126,6 +126,8 @@ namespace Model
             
             item.Fzfl = Fzfl;
             
+            item.Scddcx = Scddcx;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -134,7 +136,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string Sczsbh,string Schtbh,int? Schtxh,string Scggdh,int Scggxh,string Xtwpks,string Xtwpys,string Xtxmdm,int? Sczssl,string Sczsbz,string Sczsph,string Scgybz,string Scdlzt,string Scddbz,string Fzfl)
+	    public void Update(string Sczsbh,string Schtbh,int Schtxh,string Scggdh,int Scggxh,string Xtwpks,string Xtwpys,string Xtxmdm,int? Sczssl,string Sczsbz,string Sczsph,string Scgybz,string Scdlzt,string Scddbz,string Fzfl,string Scddcx)
 	    {
 		    SCT27 item = new SCT27();
 	        item.MarkOld();
@@ -169,6 +171,8 @@ namespace Model
 			item.Scddbz = Scddbz;
 				
 			item.Fzfl = Fzfl;
+				
+			item.Scddcx = Scddcx;
 				
 	        item.Save(UserName);
 	    }

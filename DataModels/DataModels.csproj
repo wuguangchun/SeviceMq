@@ -60,6 +60,7 @@
     <Compile Include="ModelsOther\MesGerHourModel.cs" />
     <Compile Include="ModelsOther\MsmqModel.cs" />
     <Compile Include="ModelsOther\OrderWorkShop.cs" />
+    <Compile Include="ModelsOther\SCT26_PDF.cs" />
     <Compile Include="ModelsOther\ServiceLog.cs" />
     <Compile Include="Models\AllStructs.cs" />
     <Compile Include="Models\BCutterSet.cs" />
@@ -95,6 +96,10 @@
     <Compile Include="Models\SCT27Controller.cs" />
     <Compile Include="Models\SCT27Test.cs" />
     <Compile Include="Models\SCT27TestController.cs" />
+    <Compile Include="Models\SCT28.cs" />
+    <Compile Include="Models\SCT282.cs" />
+    <Compile Include="Models\SCT282Controller.cs" />
+    <Compile Include="Models\SCT28Controller.cs" />
     <Compile Include="Models\StoredProcedures.cs" />
     <Compile Include="Models\TAnalysisCyMTMJh.cs" />
     <Compile Include="Models\TAnalysisCyMTMJhController.cs" />
@@ -122,6 +127,8 @@
     <Compile Include="Models\TAnalysisOutPutListByFZ.cs" />
     <Compile Include="Models\TAnalysisOutPutListByFZController.cs" />
     <Compile Include="Models\TAnalysisOutputListController.cs" />
+    <Compile Include="Models\TAnalysisOutputListTzWithCode.cs" />
+    <Compile Include="Models\TAnalysisOutputListTzWithCodeController.cs" />
     <Compile Include="Models\TAnalysisOutputListTzWithCodeDelete.cs" />
     <Compile Include="Models\TAnalysisOutputListTzWithCodeDeleteController.cs" />
     <Compile Include="Models\TAnalysisOutputListWithCodeCopy.cs" />
@@ -148,6 +155,8 @@
     <Compile Include="Models\TBasisCoatListController.cs" />
     <Compile Include="Models\TBasisCoatType.cs" />
     <Compile Include="Models\TBasisCoatTypeController.cs" />
+    <Compile Include="Models\TBasisExcelTemplate.cs" />
+    <Compile Include="Models\TBasisExcelTemplateController.cs" />
     <Compile Include="Models\TBasisIntercourse.cs" />
     <Compile Include="Models\TBasisIntercourseController.cs" />
     <Compile Include="Models\TBasisLinerType.cs" />
@@ -335,6 +344,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

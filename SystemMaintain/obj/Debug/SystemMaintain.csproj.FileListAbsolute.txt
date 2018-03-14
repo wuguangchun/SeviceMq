@@ -100,3 +100,4 @@ F:\Release\SystemMaintain\APS系统维护.exe
 F:\Release\SystemMaintain\APS系统维护.pdb
 F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\APS系统维护.exe
 F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\APS系统维护.pdb
+F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.Improt.Form_Improt_Template.resources
