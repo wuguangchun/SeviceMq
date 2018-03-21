@@ -111,8 +111,8 @@ namespace ApsAdmin.EFModel.TempModels
 
     public class MtmPdf
     {
-        public SCT26_PDF Sct26 { get; set; }
-        public MtmModel Mtmpdf { get; set; }
+        public SCT26_PDF sct26PDF { get; set; }
+        public List<MtmModel> mtmPDFs { get; set; }
     }
 
     public class TzModel

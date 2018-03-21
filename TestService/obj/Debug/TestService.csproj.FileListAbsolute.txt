@@ -78,13 +78,5 @@ F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.csprojResolveAssemb
 F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.exe
 F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.pdb
-F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\Spire.XLS.dll
-F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\Spire.Pdf.dll
-F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\Spire.License.dll
-F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\Microsoft.mshtml.dll
 F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\NPOI.dll
-F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\NPOI.OOXML.dll
-F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\ICSharpCode.SharpZipLib.dll
-F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\NPOI.OpenXmlFormats.dll
-F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\NPOI.OpenXml4Net.dll
 F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\NPOI.xml

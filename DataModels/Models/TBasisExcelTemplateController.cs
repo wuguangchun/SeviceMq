@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string FileName,byte[] FileContext,DateTime CreateTime)
+	    public void Insert(string FileName,byte[] FileContext,DateTime CreateTime,string FileType)
 	    {
 		    TBasisExcelTemplate item = new TBasisExcelTemplate();
 		    
@@ -90,6 +90,8 @@ namespace Model
             
             item.CreateTime = CreateTime;
             
+            item.FileType = FileType;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -98,7 +100,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string FileName,byte[] FileContext,DateTime CreateTime)
+	    public void Update(string FileName,byte[] FileContext,DateTime CreateTime,string FileType)
 	    {
 		    TBasisExcelTemplate item = new TBasisExcelTemplate();
 	        item.MarkOld();
@@ -109,6 +111,8 @@ namespace Model
 			item.FileContext = FileContext;
 				
 			item.CreateTime = CreateTime;
+				
+			item.FileType = FileType;
 				
 	        item.Save(UserName);
 	    }

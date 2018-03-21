@@ -139,6 +139,11 @@ namespace IntelligentLogHelper
                         var intercourse = (TBasisIntercourse)JsonConvert.DeserializeObject(logService.Context, typeof(TBasisIntercourse));
                         okRow += UpdateLogs(logService.Id, intercourse.Xtwldm) ? 1 : 0;
                     }
+                    //计划Excle文件生成队列
+                    else if (logService.MessagePath == "GenerateFile" && (logService.Lable == "TZ"|| logService.Lable == "MTM"))
+                    {
+                        okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
+                    }
 
 
                     //执行后删除日志信息

@@ -78,12 +78,16 @@ namespace ServiceHandle.Helper
             Thread threadIntercourse = new Thread(IntercourseHandle.GetMessageQueues) { IsBackground = true };
             threadIntercourse.Start();
 
+            //文件生成
+            Thread threadGenerateFile = new Thread(GenerateFileHandle.GetMessageQueues) { IsBackground = true };
+            threadGenerateFile.Start();
+
             //线程集合
             threads = new List<Thread>
             {
                 threadLog,threadNewOrder,threadComp,threadNewCadOrder,threadNewCaiJianOrder,threadBlanking,
                 threadKillOrder,threadPushBl,threadAutoLog,threadArtHour,threadAnalysisLis,threadCallBack,
-                threadPlan,threadOnlineTest,threadIntercourse
+                threadPlan,threadOnlineTest,threadIntercourse,threadGenerateFile
             };
 
             ////检测以上自启动线程状态

@@ -46,7 +46,7 @@ F:\ServiceMQPlugs\SeviceMq\APSWcfService\bin\APSWcfService.dll
 F:\ServiceMQPlugs\SeviceMq\APSWcfService\bin\APSWcfService.pdb
 F:\ServiceMQPlugs\SeviceMq\APSWcfService\bin\Newtonsoft.Json.dll
 F:\ServiceMQPlugs\SeviceMq\APSWcfService\bin\Newtonsoft.Json.xml
-F:\ServiceMQPlugs\SeviceMq\APSWcfService\obj\Debug\APSWcfService.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\APSWcfService\obj\Debug\APSWcfService.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\APSWcfService\obj\Debug\APSWcfService.dll
 F:\ServiceMQPlugs\SeviceMq\APSWcfService\obj\Debug\APSWcfService.pdb
+F:\ServiceMQPlugs\SeviceMq\APSWcfService\obj\Debug\APSWcfService.csprojResolveAssemblyReference.cache

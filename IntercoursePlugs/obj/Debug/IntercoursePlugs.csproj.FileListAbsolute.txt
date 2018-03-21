@@ -33,4 +33,3 @@ F:\ServiceMQPlugs\SeviceMq\IntercoursePlugs\bin\Debug\Newtonsoft.Json.xml
 F:\ServiceMQPlugs\SeviceMq\IntercoursePlugs\obj\Debug\IntercoursePlugs.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\IntercoursePlugs\obj\Debug\IntercoursePlugs.dll
 F:\ServiceMQPlugs\SeviceMq\IntercoursePlugs\obj\Debug\IntercoursePlugs.pdb
-F:\ServiceMQPlugs\SeviceMq\IntercoursePlugs\obj\Debug\IntercoursePlugs.csprojResolveAssemblyReference.cache

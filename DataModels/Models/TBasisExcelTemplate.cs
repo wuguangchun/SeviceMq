@@ -166,6 +166,19 @@ namespace Model
 				colvarCreateTime.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarCreateTime);
 				
+				TableSchema.TableColumn colvarFileType = new TableSchema.TableColumn(schema);
+				colvarFileType.ColumnName = "FileType";
+				colvarFileType.DataType = DbType.AnsiString;
+				colvarFileType.MaxLength = 50;
+				colvarFileType.AutoIncrement = false;
+				colvarFileType.IsNullable = true;
+				colvarFileType.IsPrimaryKey = false;
+				colvarFileType.IsForeignKey = false;
+				colvarFileType.IsReadOnly = false;
+				colvarFileType.DefaultSetting = @"";
+				colvarFileType.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarFileType);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -199,6 +212,14 @@ namespace Model
 			get { return GetColumnValue<DateTime>(Columns.CreateTime); }
 			set { SetColumnValue(Columns.CreateTime, value); }
 		}
+		  
+		[XmlAttribute("FileType")]
+		[Bindable(true)]
+		public string FileType 
+		{
+			get { return GetColumnValue<string>(Columns.FileType); }
+			set { SetColumnValue(Columns.FileType, value); }
+		}
 		
 		#endregion
 		
@@ -219,7 +240,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varFileName,byte[] varFileContext,DateTime varCreateTime)
+		public static void Insert(string varFileName,byte[] varFileContext,DateTime varCreateTime,string varFileType)
 		{
 			TBasisExcelTemplate item = new TBasisExcelTemplate();
 			
@@ -228,6 +249,8 @@ namespace Model
 			item.FileContext = varFileContext;
 			
 			item.CreateTime = varCreateTime;
+			
+			item.FileType = varFileType;
 			
 		
 			if (System.Web.HttpContext.Current != null)
@@ -239,7 +262,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varFileName,byte[] varFileContext,DateTime varCreateTime)
+		public static void Update(string varFileName,byte[] varFileContext,DateTime varCreateTime,string varFileType)
 		{
 			TBasisExcelTemplate item = new TBasisExcelTemplate();
 			
@@ -248,6 +271,8 @@ namespace Model
 				item.FileContext = varFileContext;
 			
 				item.CreateTime = varCreateTime;
+			
+				item.FileType = varFileType;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -283,6 +308,13 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn FileTypeColumn
+        {
+            get { return Schema.Columns[3]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -290,6 +322,7 @@ namespace Model
 			 public static string FileName = @"FileName";
 			 public static string FileContext = @"FileContext";
 			 public static string CreateTime = @"CreateTime";
+			 public static string FileType = @"FileType";
 						
 		}
 		#endregion

@@ -166,13 +166,5 @@ F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\APSWcfServiceHandle.csprojRes
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\APSWcfServiceHandle.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\ServiceHandle.dll
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\ServiceHandle.pdb
-F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\Spire.XLS.dll
-F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\Spire.Pdf.dll
-F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\Spire.License.dll
-F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\Microsoft.mshtml.dll
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\NPOI.dll
-F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\NPOI.OOXML.dll
-F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\ICSharpCode.SharpZipLib.dll
-F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\NPOI.OpenXmlFormats.dll
-F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\NPOI.OpenXml4Net.dll
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\NPOI.xml

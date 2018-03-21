@@ -141,6 +141,7 @@
     <Compile Include="Handle\CompletionHandle.cs" />
     <Compile Include="Handle\CreateCadOrderHandle.cs" />
     <Compile Include="Handle\ErrorAutoHandle.cs" />
+    <Compile Include="Handle\GenerateFileHandle.cs" />
     <Compile Include="Handle\IntelligentLogHandle.cs" />
     <Compile Include="Handle\IntercourseHandle.cs" />
     <Compile Include="Handle\KillOrderHandle.cs" />

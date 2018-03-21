@@ -24,7 +24,6 @@ F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\bin\Debug\SubSonic.dll
 F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\bin\Debug\SubSonic.Migrations.dll
 F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\bin\Debug\DataModels.pdb
 F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\bin\Debug\Newtonsoft.Json.xml
-F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\obj\Debug\IntelligentLogHelper.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\obj\Debug\IntelligentLogHelper.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\obj\Debug\IntelligentLogHelper.dll
 F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\obj\Debug\IntelligentLogHelper.pdb

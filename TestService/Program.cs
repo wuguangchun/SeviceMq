@@ -31,23 +31,43 @@ namespace TestService
 
             while (true)
             {
+                Console.ReadLine();
                 //测试计划生成
                 var beginTime = DateTime.Parse("2018-02-23 15:00");
                 //result = new AutoPlanXf().OrderScreen(beginTime);
                 // DateTime.Now.Date.AddHours(10);
 
-                //var service = new PlanService.SystemPlanServiceClient();
-                //result = service.AutoXfPlan(beginTime);
-                //service.Close();
 
 
-                //var service=new ServiceTest.NewMassgeServiceClient();
-                //result=service.InsertMessage("KillOrder", "KillSingle", "{\"remark\":\"{ 撤单类型：bfcx; 产品大类：MXF; 撤单数量：3; 撤单原因不想要了}\",\"CustmerId\":\"YEQ518010012\",\"CallingParty\":\"BPM\",\"OrderFl\":\"MXF\"}",null);
 
-                new GeneratePdf().GeneratePdfTz("CY18010009");
+                //所有已下达的计划重新生成Excle
+                //var list = new Select().From<SCT26>()
+                //    .Where(SCT26.SczsztColumn).IsEqualTo("X")
+                //    .ExecuteTypedList<SCT26>();
+                //string lable = string.Empty;
+                //foreach (var str in list)
+                //{
+                //    lable = "TZ";
+                //    if (str.Sczsbz.Contains("XM") || str.Sczsbz.Contains("XS") || str.Sczsbz.Contains("CM") ||
+                //        str.Sczsbz.Contains("CS"))
+                //    {
+                //        lable = "MTM";
+                //    }
+                //    else
+                //    {
+                //        continue;
+                //    }
+                //    var service = new LocalService.NewMassgeServiceClient();
+                //    result = service.InsertMessage("GenerateFile", lable, str.Sczsbh, null);
 
-                Console.WriteLine(result);
-                Console.ReadLine();
+                //    Console.ReadLine();
+                //    //Console.WriteLine(result);
+                //}
+
+                var service = new APSService.NewMassgeServiceClient();
+                result = service.InsertMessage("GenerateFile", "MTM", "CM180300763", null);
+
+                Console.WriteLine("已全部执行完：" + result);
             }
         }
     }
