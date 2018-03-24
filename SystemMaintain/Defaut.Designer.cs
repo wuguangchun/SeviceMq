@@ -62,6 +62,7 @@
             this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
             this.Excel_To_Db = new System.Windows.Forms.ToolStripMenuItem();
             this.Input_plan = new System.Windows.Forms.ToolStripMenuItem();
+            this.Input_excel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.log_Service = new System.Windows.Forms.ToolStripMenuItem();
             this.log_serviceError = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,8 @@
             this.tab_box = new System.Windows.Forms.TabControl();
             this.tabBoxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.Input_excel = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSplitButton4 = new System.Windows.Forms.ToolStripSplitButton();
+            this.Menu_print = new System.Windows.Forms.ToolStripMenuItem();
             this.tool_menu.SuspendLayout();
             this.tab_box.SuspendLayout();
             this.SuspendLayout();
@@ -83,7 +85,8 @@
             this.select,
             this.toolStripSplitButton1,
             this.toolStripSplitButton3,
-            this.toolStripSplitButton2});
+            this.toolStripSplitButton2,
+            this.toolStripSplitButton4});
             this.tool_menu.Location = new System.Drawing.Point(0, 0);
             this.tool_menu.Name = "tool_menu";
             this.tool_menu.Size = new System.Drawing.Size(847, 25);
@@ -107,7 +110,7 @@
             // Select_Basicdata
             // 
             this.Select_Basicdata.Name = "Select_Basicdata";
-            this.Select_Basicdata.Size = new System.Drawing.Size(125, 22);
+            this.Select_Basicdata.Size = new System.Drawing.Size(152, 22);
             this.Select_Basicdata.Text = "基础数据";
             this.Select_Basicdata.Click += new System.EventHandler(this.Select_Basicdata_Click);
             // 
@@ -117,7 +120,7 @@
             this.Select_CADSchedulingData,
             this.Select_CADResultData});
             this.Select_CADData.Name = "Select_CADData";
-            this.Select_CADData.Size = new System.Drawing.Size(125, 22);
+            this.Select_CADData.Size = new System.Drawing.Size(152, 22);
             this.Select_CADData.Text = "CAD数据";
             // 
             // Select_CADSchedulingData
@@ -140,7 +143,7 @@
             this.Select_PlanCyMtm,
             this.Select_PlanCyTz});
             this.计划数据ToolStripMenuItem.Name = "计划数据ToolStripMenuItem";
-            this.计划数据ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.计划数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.计划数据ToolStripMenuItem.Text = "计划数据";
             // 
             // Select_PlanXfMtm
@@ -173,7 +176,7 @@
             this.Select_SchedulingCjData,
             this.Select_ResultCjData});
             this.裁剪数据ToolStripMenuItem.Name = "裁剪数据ToolStripMenuItem";
-            this.裁剪数据ToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.裁剪数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.裁剪数据ToolStripMenuItem.Text = "裁剪数据";
             // 
             // Select_SchedulingCjData
@@ -209,7 +212,7 @@
             // Push_BlToAps
             // 
             this.Push_BlToAps.Name = "Push_BlToAps";
-            this.Push_BlToAps.Size = new System.Drawing.Size(150, 22);
+            this.Push_BlToAps.Size = new System.Drawing.Size(152, 22);
             this.Push_BlToAps.Text = "BL订单推送";
             this.Push_BlToAps.Click += new System.EventHandler(this.Push_BlToAps_Click);
             // 
@@ -219,7 +222,7 @@
             this.Push_CadToBlXf,
             this.Push_CadToBlCy});
             this.Push_CadToBl.Name = "Push_CadToBl";
-            this.Push_CadToBl.Size = new System.Drawing.Size(150, 22);
+            this.Push_CadToBl.Size = new System.Drawing.Size(152, 22);
             this.Push_CadToBl.Text = "排程CAD推送";
             // 
             // Push_CadToBlXf
@@ -239,7 +242,7 @@
             // Push_Completion
             // 
             this.Push_Completion.Name = "Push_Completion";
-            this.Push_Completion.Size = new System.Drawing.Size(150, 22);
+            this.Push_Completion.Size = new System.Drawing.Size(152, 22);
             this.Push_Completion.Text = "完工汇报";
             this.Push_Completion.Click += new System.EventHandler(this.Push_Completion_Click);
             // 
@@ -250,7 +253,7 @@
             this.New_CjData,
             this.New_DlData});
             this.生成CAD数据ToolStripMenuItem.Name = "生成CAD数据ToolStripMenuItem";
-            this.生成CAD数据ToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.生成CAD数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.生成CAD数据ToolStripMenuItem.Text = "生成数据";
             // 
             // New_CadData
@@ -279,7 +282,7 @@
             this.KillOrderAll,
             this.单品撤单ToolStripMenuItem});
             this.KillOrder.Name = "KillOrder";
-            this.KillOrder.Size = new System.Drawing.Size(150, 22);
+            this.KillOrder.Size = new System.Drawing.Size(152, 22);
             this.KillOrder.Text = "订单撤单";
             // 
             // KillOrderAll
@@ -298,14 +301,14 @@
             // Intercourse
             // 
             this.Intercourse.Name = "Intercourse";
-            this.Intercourse.Size = new System.Drawing.Size(150, 22);
+            this.Intercourse.Size = new System.Drawing.Size(152, 22);
             this.Intercourse.Text = "往来户通知";
             this.Intercourse.Click += new System.EventHandler(this.Intercourse_Click);
             // 
             // BlSendPld
             // 
             this.BlSendPld.Name = "BlSendPld";
-            this.BlSendPld.Size = new System.Drawing.Size(150, 22);
+            this.BlSendPld.Size = new System.Drawing.Size(152, 22);
             this.BlSendPld.Text = "BL排料单推送";
             this.BlSendPld.Click += new System.EventHandler(this.BlSendPld_Click);
             // 
@@ -335,6 +338,13 @@
             this.Input_plan.Size = new System.Drawing.Size(153, 22);
             this.Input_plan.Text = "手工计划导入";
             this.Input_plan.Click += new System.EventHandler(this.Input_plan_Click);
+            // 
+            // Input_excel
+            // 
+            this.Input_excel.Name = "Input_excel";
+            this.Input_excel.Size = new System.Drawing.Size(153, 22);
+            this.Input_excel.Text = "Excel模板导入";
+            this.Input_excel.Click += new System.EventHandler(this.Input_excel_Click);
             // 
             // toolStripSplitButton2
             // 
@@ -417,12 +427,23 @@
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
-            // Input_excel
+            // toolStripSplitButton4
             // 
-            this.Input_excel.Name = "Input_excel";
-            this.Input_excel.Size = new System.Drawing.Size(153, 22);
-            this.Input_excel.Text = "Excel模板导入";
-            this.Input_excel.Click += new System.EventHandler(this.Input_excel_Click);
+            this.toolStripSplitButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripSplitButton4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Menu_print});
+            this.toolStripSplitButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton4.Image")));
+            this.toolStripSplitButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton4.Name = "toolStripSplitButton4";
+            this.toolStripSplitButton4.Size = new System.Drawing.Size(72, 22);
+            this.toolStripSplitButton4.Text = "功能测试";
+            // 
+            // Menu_print
+            // 
+            this.Menu_print.Name = "Menu_print";
+            this.Menu_print.Size = new System.Drawing.Size(152, 22);
+            this.Menu_print.Text = "打印机测试";
+            this.Menu_print.Click += new System.EventHandler(this.Menu_print_Click);
             // 
             // Defaut
             // 
@@ -491,6 +512,8 @@
         private System.Windows.Forms.ToolStripMenuItem BlSendPld;
         private System.Windows.Forms.ToolStripMenuItem Input_plan;
         private System.Windows.Forms.ToolStripMenuItem Input_excel;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton4;
+        private System.Windows.Forms.ToolStripMenuItem Menu_print;
     }
 }
 

@@ -154,7 +154,6 @@ namespace PlanInfoPlugs
 
                         row.Height = 24 * 20;
                         i++;
-                        continue;
                     }
 
                     row = sheet.GetRow(i);
@@ -324,27 +323,27 @@ namespace PlanInfoPlugs
 
                 //投产日期
                 cell = row.GetCell(1);
-                cell.SetCellValue(DateTime.Parse(data.sct26PDF.SCTCRQ.ToString()).ToString("yy/MM/dd hh:mm"));
+                cell.SetCellValue(DateTime.Parse(data.sct26PDF.SCTCRQ.ToString()).ToString("yy/MM/dd HH:mm"));
 
                 //裁剪交期
                 cell = row.GetCell(3);
-                cell.SetCellValue(DateTime.Parse(data.sct26PDF.SCCJJQ.ToString()).ToString("yy/MM/dd hh:mm"));
+                cell.SetCellValue(DateTime.Parse(data.sct26PDF.SCCJJQ.ToString()).ToString("yy/MM/dd HH:mm"));
 
                 //缝制日期
                 cell = row.GetCell(5);
-                cell.SetCellValue(DateTime.Parse(data.sct26PDF.SCFZJQ.ToString()).ToString("yy/MM/dd hh:mm"));
+                cell.SetCellValue(DateTime.Parse(data.sct26PDF.SCFZJQ.ToString()).ToString("yy/MM/dd HH:mm"));
 
                 //整烫交期
                 cell = row.GetCell(7);
-                cell.SetCellValue(DateTime.Parse(data.sct26PDF.SCZTJQ.ToString()).ToString("yy/MM/dd hh:mm"));
+                cell.SetCellValue(DateTime.Parse(data.sct26PDF.SCZTJQ.ToString()).ToString("yy/MM/dd HH:mm"));
 
                 //包装交期
                 cell = row.GetCell(9);
-                cell.SetCellValue(DateTime.Parse(data.sct26PDF.SCBZJQ.ToString()).ToString("yy/MM/dd hh:mm"));
+                cell.SetCellValue(DateTime.Parse(data.sct26PDF.SCBZJQ.ToString()).ToString("yy/MM/dd HH:mm"));
 
                 //成品交期
                 cell = row.GetCell(11);
-                cell.SetCellValue(DateTime.Parse(data.sct26PDF.SCBZJQ.ToString()).ToString("yy/MM/dd hh:mm"));
+                cell.SetCellValue(DateTime.Parse(data.sct26PDF.SCBZJQ.ToString()).ToString("yy/MM/dd HH:mm"));
                 #endregion
 
                 #region 订单主信息修改

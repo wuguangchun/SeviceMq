@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemMaintain.DailyQuery.Basicdata;
+using SystemMaintain.Function;
 using SystemMaintain.Improt;
 using SystemMaintain.ServiceLog;
 using SystemMaintain.WebService;
@@ -327,6 +328,19 @@ namespace SystemMaintain
 
 
 
+
+        #endregion
+
+
+        #region 功能测试
+        private void Menu_print_Click(object sender, EventArgs e)
+        {
+            //新增TAB页面 
+            TabPage tabPage = AddTabPage(@"打印测试", "Tab_PrintTest");
+
+            var form = new Form_PrintTest { TopLevel = false, Parent = tabPage };
+            form.Show();
+        }
 
         #endregion
 

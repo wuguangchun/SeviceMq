@@ -609,8 +609,6 @@ namespace TestService.Helper
 
         public string AutoPlanNo()
         {
-            //当前已分配计划集合
-            List<PlanInfo> listplan = new List<PlanInfo>();
 
             OrderAnalyMx.ForEach(x => x.Scjhbz.Replace("绘纸皮/", "MTM/"));
 
@@ -769,11 +767,11 @@ namespace TestService.Helper
                 list.AddRange(planList);
             }
 
-            foreach (var obj in list)
-            {
-                var data = new TTempLineOrderPool { Khdh = obj.Khdh, Fzfl = obj.Fzfl, LineName = obj.LineName, Plan = obj.PlanCode };
-                data.Save();
-            }
+            //foreach (var obj in list)
+            //{
+            //    var data = new TTempLineOrderPool { Khdh = obj.Khdh, Fzfl = obj.Fzfl, LineName = obj.LineName, Plan = obj.PlanCode };
+            //    data.Save();
+            //}
 
             var planInfos = new List<PlanInfo>();
             var planGroup = list.GroupBy(x => x.PlanCode);
@@ -811,7 +809,7 @@ namespace TestService.Helper
             foreach (var planInfo in planInfos)
             {
                 var result = "成功";//string.Empty;
-                //PushWebHelper.PostToPost("http://172.16.7.214:8196/api/aps/CalculateDelivery", JsonConvert.SerializeObject(planInfo), ref result);
+                PushWebHelper.PostToPost("http://172.16.7.214:8196/api/aps/CalculateDelivery", JsonConvert.SerializeObject(planInfo), ref result);
 
                 if (result.Contains("成功"))
                 {

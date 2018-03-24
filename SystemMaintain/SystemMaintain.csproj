@@ -115,6 +115,12 @@
     <Compile Include="Defaut.Designer.cs">
       <DependentUpon>Defaut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function\Form_PrintTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\Form_PrintTest.Designer.cs">
+      <DependentUpon>Form_PrintTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpler\DbHelper.cs" />
     <Compile Include="Helpler\HttpHelper.cs" />
     <Compile Include="Helpler\JsonHelperT.cs" />
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Defaut.resx">
       <DependentUpon>Defaut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\Form_PrintTest.resx">
+      <DependentUpon>Form_PrintTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Improt\Form_Improt_Excel.resx">
       <DependentUpon>Form_Improt_Excel.cs</DependentUpon>

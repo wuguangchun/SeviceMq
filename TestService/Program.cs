@@ -33,23 +33,26 @@ namespace TestService
             {
                 Console.ReadLine();
                 //测试计划生成
-                var beginTime = DateTime.Parse("2018-02-23 15:00");
-                //result = new AutoPlanXf().OrderScreen(beginTime);
-                // DateTime.Now.Date.AddHours(10);
+                var beginTime = DateTime.Parse("2018-03-27 09:00");
+                result = new AutoPlanXf().OrderScreen(beginTime);
 
 
 
 
-                //所有已下达的计划重新生成Excle
+                ////所有已下达的计划重新生成Excle
                 //var list = new Select().From<SCT26>()
                 //    .Where(SCT26.SczsztColumn).IsEqualTo("X")
+                //    .And(SCT26.SczsbhColumn).Like("XM%")
+                //    .Or(SCT26.SczsbhColumn).Like("XS%")
+                //    .Or(SCT26.SczsbhColumn).Like("CM%")
+                //    .Or(SCT26.SczsbhColumn).Like("CS%")
                 //    .ExecuteTypedList<SCT26>();
                 //string lable = string.Empty;
                 //foreach (var str in list)
                 //{
                 //    lable = "TZ";
-                //    if (str.Sczsbz.Contains("XM") || str.Sczsbz.Contains("XS") || str.Sczsbz.Contains("CM") ||
-                //        str.Sczsbz.Contains("CS"))
+                //    if (str.Sczsbh.Contains("XM") || str.Sczsbh.Contains("XS") || str.Sczsbh.Contains("CM") ||
+                //        str.Sczsbh.Contains("CS"))
                 //    {
                 //        lable = "MTM";
                 //    }
@@ -60,12 +63,12 @@ namespace TestService
                 //    var service = new LocalService.NewMassgeServiceClient();
                 //    result = service.InsertMessage("GenerateFile", lable, str.Sczsbh, null);
 
-                //    Console.ReadLine();
+                //    //Console.ReadLine();
                 //    //Console.WriteLine(result);
                 //}
 
-                var service = new APSService.NewMassgeServiceClient();
-                result = service.InsertMessage("GenerateFile", "MTM", "CM180300763", null);
+                ////var service = new APSService.NewMassgeServiceClient();
+                ////result = service.InsertMessage("GenerateFile", "MTM", "XS18033620", null);
 
                 Console.WriteLine("已全部执行完：" + result);
             }
