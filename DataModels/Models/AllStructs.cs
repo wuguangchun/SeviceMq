@@ -148,11 +148,7 @@ namespace Model
         
 		public static readonly string TBLDataPld = @"T_BLData_PLD";
         
-		public static readonly string TBLDataPLD2 = @"T_BLData_PLD2";
-        
 		public static readonly string TBom = @"T_BOM";
-        
-		public static readonly string TCategoryProcessFlowDelete = @"T_CategoryProcessFlow_delete";
         
 		public static readonly string TCutterAP = @"T_CutterAPS";
         
@@ -184,13 +180,11 @@ namespace Model
         
 		public static readonly string TOldApsByCfHistory = @"T_OldApsByCf@History";
         
-		public static readonly string TOrderdatapoolxf = @"T_orderdatapoolxf";
+		public static readonly string TOrderDatapoolXf = @"T_OrderDatapoolXf";
         
 		public static readonly string TOrderKeyProcess = @"T_OrderKeyProcess";
         
 		public static readonly string TOrderMESArtInfo = @"T_OrderMESArtInfo";
-        
-		public static readonly string TOrderProcessHourDelete = @"T_OrderProcessHour_delete";
         
 		public static readonly string TPlanM = @"T_PlanM";
         
@@ -548,19 +542,9 @@ namespace Model
             get { return DataService.GetSchema("T_BLData_PLD", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TBLDataPLD2
-		{
-            get { return DataService.GetSchema("T_BLData_PLD2", "Nowthwin"); }
-		}
-        
 		public static TableSchema.Table TBom
 		{
             get { return DataService.GetSchema("T_BOM", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TCategoryProcessFlowDelete
-		{
-            get { return DataService.GetSchema("T_CategoryProcessFlow_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TCutterAP
@@ -638,9 +622,9 @@ namespace Model
             get { return DataService.GetSchema("T_OldApsByCf@History", "Nowthwin"); }
 		}
         
-		public static TableSchema.Table TOrderdatapoolxf
+		public static TableSchema.Table TOrderDatapoolXf
 		{
-            get { return DataService.GetSchema("T_orderdatapoolxf", "Nowthwin"); }
+            get { return DataService.GetSchema("T_OrderDatapoolXf", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TOrderKeyProcess
@@ -651,11 +635,6 @@ namespace Model
 		public static TableSchema.Table TOrderMESArtInfo
 		{
             get { return DataService.GetSchema("T_OrderMESArtInfo", "Nowthwin"); }
-		}
-        
-		public static TableSchema.Table TOrderProcessHourDelete
-		{
-            get { return DataService.GetSchema("T_OrderProcessHour_delete", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TPlanM
@@ -768,8 +747,6 @@ namespace Model
         
 		public static readonly string VOrderDatapoolXf = @"V_OrderDatapoolXf";
         
-		public static readonly string VOrderDatapoolXfTest = @"V_OrderDatapoolXf_Test";
-        
 		public static readonly string VOrderKeyProcessRow = @"V_OrderKeyProcessRow";
         
 		public static readonly string VOrderListCJAll = @"V_OrderListCJ_ALL";
@@ -806,6 +783,8 @@ namespace Model
         
 		public static readonly string View3 = @"View_3";
         
+		public static readonly string ViewApsOrder = @"View_aps_orders";
+        
 		public static readonly string ViewBLDataOrder = @"View_BLData_order";
         
 		public static readonly string ViewCFByMTM = @"View_CFByMTM";
@@ -822,13 +801,19 @@ namespace Model
         
 		public static readonly string ViewLookOutPutTable = @"View_LookOutPutTable";
         
+		public static readonly string ViewOrderDatum = @"View_OrderData";
+        
 		public static readonly string ViewOrderList = @"View_orderList";
         
 		public static readonly string ViewOrderListWithoutmflxx = @"View_orderListWithoutmflxx";
         
+		public static readonly string ViewOutputList = @"View_OutputList";
+        
 		public static readonly string ViewOutPutListByCF = @"View_outPutListByCF";
         
 		public static readonly string ViewOutputListCFBackup = @"View_outputListCF_Backup";
+        
+		public static readonly string ViewPlan = @"view_Plans";
         
 		public static readonly string ViewUsersList = @"View_UsersList";
         

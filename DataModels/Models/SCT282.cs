@@ -219,7 +219,7 @@ namespace Model
 				
 				TableSchema.TableColumn colvarScbzyl = new TableSchema.TableColumn(schema);
 				colvarScbzyl.ColumnName = "SCBZYL";
-				colvarScbzyl.DataType = DbType.Int32;
+				colvarScbzyl.DataType = DbType.Double;
 				colvarScbzyl.MaxLength = 0;
 				colvarScbzyl.AutoIncrement = false;
 				colvarScbzyl.IsNullable = true;
@@ -232,7 +232,7 @@ namespace Model
 				
 				TableSchema.TableColumn colvarScgcsh = new TableSchema.TableColumn(schema);
 				colvarScgcsh.ColumnName = "SCGCSH";
-				colvarScgcsh.DataType = DbType.Int32;
+				colvarScgcsh.DataType = DbType.Single;
 				colvarScgcsh.MaxLength = 0;
 				colvarScgcsh.AutoIncrement = false;
 				colvarScgcsh.IsNullable = true;
@@ -245,7 +245,7 @@ namespace Model
 				
 				TableSchema.TableColumn colvarScyfsl = new TableSchema.TableColumn(schema);
 				colvarScyfsl.ColumnName = "SCYFSL";
-				colvarScyfsl.DataType = DbType.Int32;
+				colvarScyfsl.DataType = DbType.Double;
 				colvarScyfsl.MaxLength = 0;
 				colvarScyfsl.AutoIncrement = false;
 				colvarScyfsl.IsNullable = true;
@@ -363,25 +363,25 @@ namespace Model
 		  
 		[XmlAttribute("Scbzyl")]
 		[Bindable(true)]
-		public int? Scbzyl 
+		public double? Scbzyl 
 		{
-			get { return GetColumnValue<int?>(Columns.Scbzyl); }
+			get { return GetColumnValue<double?>(Columns.Scbzyl); }
 			set { SetColumnValue(Columns.Scbzyl, value); }
 		}
 		  
 		[XmlAttribute("Scgcsh")]
 		[Bindable(true)]
-		public int? Scgcsh 
+		public float? Scgcsh 
 		{
-			get { return GetColumnValue<int?>(Columns.Scgcsh); }
+			get { return GetColumnValue<float?>(Columns.Scgcsh); }
 			set { SetColumnValue(Columns.Scgcsh, value); }
 		}
 		  
 		[XmlAttribute("Scyfsl")]
 		[Bindable(true)]
-		public int? Scyfsl 
+		public double? Scyfsl 
 		{
-			get { return GetColumnValue<int?>(Columns.Scyfsl); }
+			get { return GetColumnValue<double?>(Columns.Scyfsl); }
 			set { SetColumnValue(Columns.Scyfsl, value); }
 		}
 		  
@@ -428,7 +428,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varSczsbh,string varSchtbh,string varXtwpks,string varXtwpys,int varScclxh,string varScfddm,string varXttxhm,int? varScbzyl,int? varScgcsh,int? varScyfsl,string varScytdm,string varScylbz,string varScglbz)
+		public static void Insert(string varSczsbh,string varSchtbh,string varXtwpks,string varXtwpys,int varScclxh,string varScfddm,string varXttxhm,double? varScbzyl,float? varScgcsh,double? varScyfsl,string varScytdm,string varScylbz,string varScglbz)
 		{
 			SCT282 item = new SCT282();
 			
@@ -468,7 +468,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varSczsbh,string varSchtbh,string varXtwpks,string varXtwpys,int varScclxh,string varScfddm,string varXttxhm,int? varScbzyl,int? varScgcsh,int? varScyfsl,string varScytdm,string varScylbz,string varScglbz)
+		public static void Update(string varSczsbh,string varSchtbh,string varXtwpks,string varXtwpys,int varScclxh,string varScfddm,string varXttxhm,double? varScbzyl,float? varScgcsh,double? varScyfsl,string varScytdm,string varScylbz,string varScglbz)
 		{
 			SCT282 item = new SCT282();
 			

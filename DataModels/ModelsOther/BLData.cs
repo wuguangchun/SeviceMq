@@ -58,6 +58,12 @@ namespace DataModels.ModelsOther
         public string Mltgkd { get; set; }
     }
 
+    public class Delivery
+    {
+        public string  Khdh { get; set; }
+        public DateTime DateTime { get; set; }
+    }
+
     public class BlReturnMsg
     {
         public string S { get; set; }

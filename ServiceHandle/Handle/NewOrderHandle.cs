@@ -52,6 +52,10 @@ namespace ServiceHandle.Handle
                 {//接收BL传入数据源
                     reMeg = new NewOrderHelper().SavaData(message.Body.ToString());
                 }
+                else if (message.Label.ToLower().Trim() == "UpdateDelivery".ToLower())
+                {//接收BL传入数据源
+                    reMeg = new NewOrderHelper().UpdateDelivery(message.Body.ToString());
+                }
                 else
                 {//无法识别标签内容
                     throw new ApplicationException("无法识别标签内容");

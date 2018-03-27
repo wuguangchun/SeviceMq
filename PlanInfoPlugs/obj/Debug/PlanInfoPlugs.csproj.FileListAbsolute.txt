@@ -44,7 +44,6 @@ F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\Microsoft.mshtml.dll
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\NPOI.OOXML.dll
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\NPOI.OpenXml4Net.dll
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\NPOI.OpenXmlFormats.dll
-F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\obj\Debug\PlanInfoPlugs.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\ICSharpCode.SharpZipLib.dll
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\Microsoft.Win32.Primitives.dll
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\System.AppContext.dll

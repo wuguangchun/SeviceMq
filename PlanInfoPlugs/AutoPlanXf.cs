@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using ServiceHandle.Helper;
+using ServiceHelper;
 using TestService.ModelsOther;
 
 namespace TestService.Helper
@@ -638,13 +639,15 @@ namespace TestService.Helper
                         Khzb = DataOrder.Find(y => y.Khdh == x.Khdh).Khzb,
                         TypeId = "4"
                     })
-             );
+             ); 
 
             //填充集合得交期类型
             foreach (var dataPool in list)
             {
                 try
                 {
+                    var obj = list.FindAll(x => x.Fzfl == "P0");
+
 
                     var jhrq = DataOrder.Find(x => x.Khdh == dataPool.Khdh).Jhrq;
                     var day = workTime.Where(x => x.Worktime >= BeginTime && x.Worktime <= jhrq).ToList().ConvertAll(x => x.Worktime.ToShortDateString()).Distinct().ToList().Count;
@@ -767,12 +770,6 @@ namespace TestService.Helper
                 list.AddRange(planList);
             }
 
-            //foreach (var obj in list)
-            //{
-            //    var data = new TTempLineOrderPool { Khdh = obj.Khdh, Fzfl = obj.Fzfl, LineName = obj.LineName, Plan = obj.PlanCode };
-            //    data.Save();
-            //}
-
             var planInfos = new List<PlanInfo>();
             var planGroup = list.GroupBy(x => x.PlanCode);
             foreach (var key in planGroup)
@@ -782,6 +779,10 @@ namespace TestService.Helper
                 //面料外观
                 var mlwg = orders.First().Mlwg == "素" ? "新裁床" : "单裁";
 
+                //加急标识 
+                mlwg += (orders.First().TypeId == "34" || orders.First().TypeId == "47") ? " 加急" : "";
+
+                //填充计划信息
                 var planinfo = new PlanInfo
                 {
                     Sczsbh = orders.First().PlanCode,
@@ -806,20 +807,24 @@ namespace TestService.Helper
             planInfos.ForEach(x => Console.WriteLine($"{x.Sczsbh}--{x.Type}--{x.Scjhry}--{x.Scshry}--{x.Sczsbh}--{x.Scxdrq}--{JsonConvert.SerializeObject(x.OrderPools)}\r\n"));
 
             int successCount = 0;
+            string resultRtx = string.Empty;
             foreach (var planInfo in planInfos)
             {
-                var result = "成功";//string.Empty;
+                var result = string.Empty;
                 PushWebHelper.PostToPost("http://172.16.7.214:8196/api/aps/CalculateDelivery", JsonConvert.SerializeObject(planInfo), ref result);
 
                 if (result.Contains("成功"))
                 {
+                    resultRtx += planInfo.Sczsbh + ",";
                     successCount++;
                 }
                 else
                 {
-
+                    new RtxSendNotifyHelper().SendNotifyError("AutoPlanXFErr", planInfo.Sczsbh);
                 }
+
             }
+            new RtxSendNotifyHelper().SendNotifyError("AutoPlanXF", resultRtx.Length > 0 ? resultRtx : "计划生成不成功，请重新发起请求重试。");
 
             string rmark = successCount == planInfos.Count ? "" : $"计算交期时失败{planInfos.Count - successCount}个";
             return $"{BeginTime}共生成计划{planGroup?.Count()}个  {rmark}";

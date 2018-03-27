@@ -92,7 +92,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Sczsbh,string Schtbh,string Xtwpks,string Xtwpys,int Scclxh,string Scfddm,string Xttxhm,int? Scbzyl,int? Scgcsh,int? Scyfsl,string Scytdm,string Scylbz,string Scglbz)
+	    public void Insert(string Sczsbh,string Schtbh,string Xtwpks,string Xtwpys,int Scclxh,string Scfddm,string Xttxhm,double? Scbzyl,float? Scgcsh,double? Scyfsl,string Scytdm,string Scylbz,string Scglbz)
 	    {
 		    SCT28 item = new SCT28();
 		    
@@ -130,7 +130,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string Sczsbh,string Schtbh,string Xtwpks,string Xtwpys,int Scclxh,string Scfddm,string Xttxhm,int? Scbzyl,int? Scgcsh,int? Scyfsl,string Scytdm,string Scylbz,string Scglbz)
+	    public void Update(string Sczsbh,string Schtbh,string Xtwpks,string Xtwpys,int Scclxh,string Scfddm,string Xttxhm,double? Scbzyl,float? Scgcsh,double? Scyfsl,string Scytdm,string Scylbz,string Scglbz)
 	    {
 		    SCT28 item = new SCT28();
 	        item.MarkOld();

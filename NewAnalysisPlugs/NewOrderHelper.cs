@@ -191,5 +191,26 @@ namespace NewAnalysisPlugs
             }
             return JsonConvert.SerializeObject(json);
         }
+
+        public string UpdateDelivery(string jsonModel)
+        {
+            try
+            {
+                var delivery = (Delivery)JsonConvert.DeserializeObject(jsonModel, typeof(Delivery));
+
+                var row = new Update(TBLDataOrder.Schema)
+                    .Set(TBLDataOrder.JhrqColumn).EqualTo(delivery.DateTime)
+                    .Where(TBLDataOrder.KhdhColumn).IsEqualTo(delivery.Khdh)
+                    .Execute();
+                json.RetCode = RetCode.Success;
+                json.RetMessage = $"交期修改成功，订单：{delivery.Khdh} 交期修改为【{delivery.DateTime}】,影响行数【{row}】";
+            }
+            catch (Exception e)
+            {
+                json.RetCode = "error";
+                json.RetMessage = "存储异常," + e.Message;
+            }
+            return JsonConvert.SerializeObject(json);
+        }
     }
 }
