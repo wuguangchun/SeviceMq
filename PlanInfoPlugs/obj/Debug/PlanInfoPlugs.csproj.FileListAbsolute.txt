@@ -63,3 +63,4 @@ F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\System.Security.Cryptography.
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\System.Security.Cryptography.X509Certificates.dll
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\System.Xml.ReaderWriter.dll
 F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+F:\ServiceMQPlugs\SeviceMq\PlanInfoPlugs\obj\Debug\PlanInfoPlugs.csprojResolveAssemblyReference.cache

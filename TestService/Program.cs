@@ -37,13 +37,14 @@ namespace TestService
 
                 //new AutoPlanXf().OrderScreen(DateTime.Parse("2018-03-27 17:00"));
 
-                //var service=new LocalPlanService.SystemPlanServiceClient();
-                //service.AutoXfPlanAsync(DateTime.Parse("2018-03-27 17:00"));
+                var service = new LocalPlanService.SystemPlanServiceClient();
+                service.AutoXfPlanAsync(DateTime.Parse("2018-03-27 17:00"));
 
-                var de = new Delivery { DateTime = DateTime.Parse("2018-04-04 00:00"), Khdh = "SVP518030157" };
-                var json = JsonConvert.SerializeObject(de);
-                var service = new APSService.NewMassgeServiceClient();
-                service.InsertMessage("NewOrderData", "UpdateDelivery", json, null);
+                //交期修改
+                //var de = new Delivery { DateTime = DateTime.Parse("2018-04-04 00:00"), Khdh = "SVP518030157" };
+                //var json = JsonConvert.SerializeObject(de);
+                //var service = new APSService.NewMassgeServiceClient();
+                //service.InsertMessage("NewOrderData", "UpdateDelivery", json, null);
 
                 Console.WriteLine("已全部执行完：" + result);
             }

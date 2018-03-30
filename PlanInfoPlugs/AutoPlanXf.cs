@@ -639,7 +639,7 @@ namespace TestService.Helper
                         Khzb = DataOrder.Find(y => y.Khdh == x.Khdh).Khzb,
                         TypeId = "4"
                     })
-             ); 
+             );
 
             //填充集合得交期类型
             foreach (var dataPool in list)
@@ -811,7 +811,10 @@ namespace TestService.Helper
             foreach (var planInfo in planInfos)
             {
                 var result = string.Empty;
-                PushWebHelper.PostToPost("http://172.16.7.214:8196/api/aps/CalculateDelivery", JsonConvert.SerializeObject(planInfo), ref result);
+
+                var url = "http://172.16.7.214:8196/api/aps/CalculateDelivery";//正式地址
+                url = "http://172.16.7.214:8093/api/aps/CalculateDelivery";//测试地址
+                PushWebHelper.PostToPost(url, JsonConvert.SerializeObject(planInfo), ref result);
 
                 if (result.Contains("成功"))
                 {
@@ -820,7 +823,7 @@ namespace TestService.Helper
                 }
                 else
                 {
-                    new RtxSendNotifyHelper().SendNotifyError("AutoPlanXFErr", planInfo.Sczsbh);
+                    new RtxSendNotifyHelper().SendNotifyError("AutoPlanXFErr", planInfo.Sczsbh + "," + result);
                 }
 
             }
