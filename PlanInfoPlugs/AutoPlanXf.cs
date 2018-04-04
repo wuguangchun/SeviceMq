@@ -626,6 +626,7 @@ namespace TestService.Helper
             //填充待生成计划订单
             var list = new List<DataPool>();
 
+
             LineOrder.ForEach(x =>
                 list.Add(
                     new DataPool
@@ -641,13 +642,13 @@ namespace TestService.Helper
                     })
              );
 
+            int i = 0;
+
             //填充集合得交期类型
             foreach (var dataPool in list)
             {
                 try
                 {
-                    var obj = list.FindAll(x => x.Fzfl == "P0");
-
 
                     var jhrq = DataOrder.Find(x => x.Khdh == dataPool.Khdh).Jhrq;
                     var day = workTime.Where(x => x.Worktime >= BeginTime && x.Worktime <= jhrq).ToList().ConvertAll(x => x.Worktime.ToShortDateString()).Distinct().ToList().Count;
@@ -676,7 +677,7 @@ namespace TestService.Helper
                     if (ordermx.Sfbcpsy == "1")
                     {
                         dataPool.TypeId = "5";
-                        break;
+                        continue;
 
                     }
 
@@ -737,13 +738,18 @@ namespace TestService.Helper
                     }
                     #endregion
 
+                    //将同一订单下得全部更新成统一得交期计算类型
+                    list.Where(x => x.Khdh == dataPool.Khdh).ToList().ForEach(x => x.TypeId = dataPool.TypeId);
+
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
                     throw;
                 }
+                i++;
             }
+
 
             //计划号不区分产线，可以合并产线，标识都打在明细了 , x.LineName
             var keys = list.GroupBy(x => new { x.Khzb, x.Mlwg, x.Sex, x.TypeId });
@@ -770,6 +776,7 @@ namespace TestService.Helper
                 list.AddRange(planList);
             }
 
+
             var planInfos = new List<PlanInfo>();
             var planGroup = list.GroupBy(x => x.PlanCode);
             foreach (var key in planGroup)
@@ -780,7 +787,7 @@ namespace TestService.Helper
                 var mlwg = orders.First().Mlwg == "素" ? "新裁床" : "单裁";
 
                 //加急标识 
-                mlwg += (orders.First().TypeId == "34" || orders.First().TypeId == "47") ? " 加急" : "";
+                mlwg += (orders.First().TypeId == "13" || orders.First().TypeId == "34" || orders.First().TypeId == "47") ? " 加急" : "";
 
                 //填充计划信息
                 var planinfo = new PlanInfo
@@ -813,8 +820,9 @@ namespace TestService.Helper
                 var result = string.Empty;
 
                 var url = "http://172.16.7.214:8196/api/aps/CalculateDelivery";//正式地址
-                url = "http://172.16.7.214:8093/api/aps/CalculateDelivery";//测试地址
+                //url = "http://172.16.7.214:8093/api/aps/CalculateDelivery";//测试地址
                 PushWebHelper.PostToPost(url, JsonConvert.SerializeObject(planInfo), ref result);
+
 
                 if (result.Contains("成功"))
                 {
