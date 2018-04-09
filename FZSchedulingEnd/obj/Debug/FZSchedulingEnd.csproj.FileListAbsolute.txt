@@ -1,0 +1,13 @@
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\bin\Debug\FZSchedulingEnd.exe.config
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\bin\Debug\FZSchedulingEnd.exe
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\bin\Debug\FZSchedulingEnd.pdb
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\bin\Debug\DataModels.dll
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\bin\Debug\MySql.Data.dll
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\bin\Debug\SubSonic.Core.dll
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\bin\Debug\SubSonic.dll
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\bin\Debug\SubSonic.Migrations.dll
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\bin\Debug\DataModels.pdb
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\obj\Debug\FZSchedulingEnd.csprojResolveAssemblyReference.cache
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\obj\Debug\FZSchedulingEnd.csproj.CoreCompileInputs.cache
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\obj\Debug\FZSchedulingEnd.exe
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\obj\Debug\FZSchedulingEnd.pdb

@@ -57,18 +57,6 @@ namespace Model{
                 schema.SchemaName = @"dbo";
                 //columns
                 
-                TableSchema.TableColumn colvarJqts = new TableSchema.TableColumn(schema);
-                colvarJqts.ColumnName = "JQTS";
-                colvarJqts.DataType = DbType.String;
-                colvarJqts.MaxLength = 20;
-                colvarJqts.AutoIncrement = false;
-                colvarJqts.IsNullable = true;
-                colvarJqts.IsPrimaryKey = false;
-                colvarJqts.IsForeignKey = false;
-                colvarJqts.IsReadOnly = false;
-                
-                schema.Columns.Add(colvarJqts);
-                
                 TableSchema.TableColumn colvarMxid = new TableSchema.TableColumn(schema);
                 colvarMxid.ColumnName = "mxid";
                 colvarMxid.DataType = DbType.Int32;
@@ -345,6 +333,18 @@ namespace Model{
                 
                 schema.Columns.Add(colvarScjhbz);
                 
+                TableSchema.TableColumn colvarJqts = new TableSchema.TableColumn(schema);
+                colvarJqts.ColumnName = "JQTS";
+                colvarJqts.DataType = DbType.String;
+                colvarJqts.MaxLength = 20;
+                colvarJqts.AutoIncrement = false;
+                colvarJqts.IsNullable = true;
+                colvarJqts.IsPrimaryKey = false;
+                colvarJqts.IsForeignKey = false;
+                colvarJqts.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarJqts);
+                
                 TableSchema.TableColumn colvarGyxx = new TableSchema.TableColumn(schema);
                 colvarGyxx.ColumnName = "gyxx";
                 colvarGyxx.DataType = DbType.String;
@@ -356,6 +356,42 @@ namespace Model{
                 colvarGyxx.IsReadOnly = false;
                 
                 schema.Columns.Add(colvarGyxx);
+                
+                TableSchema.TableColumn colvarMdmc = new TableSchema.TableColumn(schema);
+                colvarMdmc.ColumnName = "mdmc";
+                colvarMdmc.DataType = DbType.String;
+                colvarMdmc.MaxLength = 50;
+                colvarMdmc.AutoIncrement = false;
+                colvarMdmc.IsNullable = true;
+                colvarMdmc.IsPrimaryKey = false;
+                colvarMdmc.IsForeignKey = false;
+                colvarMdmc.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarMdmc);
+                
+                TableSchema.TableColumn colvarKhzb = new TableSchema.TableColumn(schema);
+                colvarKhzb.ColumnName = "Khzb";
+                colvarKhzb.DataType = DbType.String;
+                colvarKhzb.MaxLength = 10;
+                colvarKhzb.AutoIncrement = false;
+                colvarKhzb.IsNullable = true;
+                colvarKhzb.IsPrimaryKey = false;
+                colvarKhzb.IsForeignKey = false;
+                colvarKhzb.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarKhzb);
+                
+                TableSchema.TableColumn colvarScggdh = new TableSchema.TableColumn(schema);
+                colvarScggdh.ColumnName = "SCGGDH";
+                colvarScggdh.DataType = DbType.String;
+                colvarScggdh.MaxLength = 50;
+                colvarScggdh.AutoIncrement = false;
+                colvarScggdh.IsNullable = true;
+                colvarScggdh.IsPrimaryKey = false;
+                colvarScggdh.IsForeignKey = false;
+                colvarScggdh.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarScggdh);
                 
                 
                 BaseSchema = schema;
@@ -407,20 +443,6 @@ namespace Model{
 	    #region Props
 	    
           
-        [XmlAttribute("Jqts")]
-        [Bindable(true)]
-        public string Jqts 
-	    {
-		    get
-		    {
-			    return GetColumnValue<string>("JQTS");
-		    }
-            set 
-		    {
-			    SetColumnValue("JQTS", value);
-            }
-        }
-	      
         [XmlAttribute("Mxid")]
         [Bindable(true)]
         public int Mxid 
@@ -743,6 +765,20 @@ namespace Model{
             }
         }
 	      
+        [XmlAttribute("Jqts")]
+        [Bindable(true)]
+        public string Jqts 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("JQTS");
+		    }
+            set 
+		    {
+			    SetColumnValue("JQTS", value);
+            }
+        }
+	      
         [XmlAttribute("Gyxx")]
         [Bindable(true)]
         public string Gyxx 
@@ -756,6 +792,48 @@ namespace Model{
 			    SetColumnValue("gyxx", value);
             }
         }
+	      
+        [XmlAttribute("Mdmc")]
+        [Bindable(true)]
+        public string Mdmc 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("mdmc");
+		    }
+            set 
+		    {
+			    SetColumnValue("mdmc", value);
+            }
+        }
+	      
+        [XmlAttribute("Khzb")]
+        [Bindable(true)]
+        public string Khzb 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("Khzb");
+		    }
+            set 
+		    {
+			    SetColumnValue("Khzb", value);
+            }
+        }
+	      
+        [XmlAttribute("Scggdh")]
+        [Bindable(true)]
+        public string Scggdh 
+	    {
+		    get
+		    {
+			    return GetColumnValue<string>("SCGGDH");
+		    }
+            set 
+		    {
+			    SetColumnValue("SCGGDH", value);
+            }
+        }
 	    
 	    #endregion
     
@@ -764,8 +842,6 @@ namespace Model{
 	    {
 		    
 		    
-            public static string Jqts = @"JQTS";
-            
             public static string Mxid = @"mxid";
             
             public static string Orderid = @"orderid";
@@ -812,7 +888,15 @@ namespace Model{
             
             public static string Scjhbz = @"SCJHBZ";
             
+            public static string Jqts = @"JQTS";
+            
             public static string Gyxx = @"gyxx";
+            
+            public static string Mdmc = @"mdmc";
+            
+            public static string Khzb = @"Khzb";
+            
+            public static string Scggdh = @"SCGGDH";
             
 	    }
 	    #endregion

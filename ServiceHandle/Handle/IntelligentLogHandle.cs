@@ -18,7 +18,7 @@ namespace ServiceHandle.Handle
         {
             try
             {
-                Timer time = new Timer(1000 * 60 * 1);
+                Timer time = new Timer(1000 * 60 * 3);
                 time.Elapsed += LogParsingElapsed;
                 time.AutoReset = true;
                 time.Start();

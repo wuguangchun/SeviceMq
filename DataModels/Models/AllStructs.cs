@@ -110,11 +110,15 @@ namespace Model
         
 		public static readonly string TBasisOrderStatusHistory = @"T_Basis_OrderStatus@History";
         
+		public static readonly string TBasisPlanTime = @"T_Basis_PlanTime";
+        
 		public static readonly string TBasisResource = @"T_Basis_resource";
         
 		public static readonly string TBasisRTXMsg = @"T_Basis_RTXMsg";
         
 		public static readonly string TBasisScgcmc = @"T_Basis_SCGCMC";
+        
+		public static readonly string TBasisSchedulingSew = @"T_Basis_SchedulingSew";
         
 		public static readonly string TBasisSewingProcess = @"T_Basis_SewingProcess";
         
@@ -186,9 +190,13 @@ namespace Model
         
 		public static readonly string TOrderMESArtInfo = @"T_OrderMESArtInfo";
         
+		public static readonly string TOrderTypeKeyProcess = @"T_OrderTypeKeyProcess";
+        
 		public static readonly string TPlanM = @"T_PlanM";
         
 		public static readonly string TResultMsg = @"T_ResultMsg";
+        
+		public static readonly string TSystemStatistic = @"T_System_Statistics";
         
 		public static readonly string TTempLineOrderPool = @"T_Temp_LineOrderPool";
         
@@ -447,6 +455,11 @@ namespace Model
             get { return DataService.GetSchema("T_Basis_OrderStatus@History", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBasisPlanTime
+		{
+            get { return DataService.GetSchema("T_Basis_PlanTime", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBasisResource
 		{
             get { return DataService.GetSchema("T_Basis_resource", "Nowthwin"); }
@@ -460,6 +473,11 @@ namespace Model
 		public static TableSchema.Table TBasisScgcmc
 		{
             get { return DataService.GetSchema("T_Basis_SCGCMC", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TBasisSchedulingSew
+		{
+            get { return DataService.GetSchema("T_Basis_SchedulingSew", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TBasisSewingProcess
@@ -637,6 +655,11 @@ namespace Model
             get { return DataService.GetSchema("T_OrderMESArtInfo", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TOrderTypeKeyProcess
+		{
+            get { return DataService.GetSchema("T_OrderTypeKeyProcess", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TPlanM
 		{
             get { return DataService.GetSchema("T_PlanM", "Nowthwin"); }
@@ -645,6 +668,11 @@ namespace Model
 		public static TableSchema.Table TResultMsg
 		{
             get { return DataService.GetSchema("T_ResultMsg", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TSystemStatistic
+		{
+            get { return DataService.GetSchema("T_System_Statistics", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TTempLineOrderPool
@@ -749,9 +777,13 @@ namespace Model
         
 		public static readonly string VOrderKeyProcessRow = @"V_OrderKeyProcessRow";
         
+		public static readonly string VOrderKeyTypeProcessRow = @"V_OrderKeyTypeProcessRow";
+        
 		public static readonly string VOrderListCJAll = @"V_OrderListCJ_ALL";
         
 		public static readonly string VOrderListFZXf = @"V_OrderListFZ_XF";
+        
+		public static readonly string VOrderListFZXFType = @"V_OrderListFZ_XFType";
         
 		public static readonly string VOutPutByCAD = @"V_OutPutByCAD";
         
@@ -820,6 +852,8 @@ namespace Model
 		public static readonly string ViewBomList = @"ViewBomList";
         
 		public static readonly string ViewUnPerson = @"ViewUnPerson";
+        
+		public static readonly string 死锁查询 = @"死锁查询";
         
     }
     #endregion
