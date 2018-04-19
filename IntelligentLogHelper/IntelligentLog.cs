@@ -122,8 +122,8 @@ namespace IntelligentLogHelper
                     {
                         okRow += UpdateLogs(logService.Id, new TBLDataOrdermx(TBLDataOrdermx.MxidColumn.ColumnName, logService.Context).Khdh) ? 1 : 0;
                     }
-                    //从ERP获取计划数据
-                    else if (logService.MessagePath == "PlanInfo" && (logService.Lable == "NewPlan" || logService.Lable == "NewPlanMain"))
+                    //从ERP获取计划数据 --根据裁剪完工汇报 计算是否排缝制
+                    else if (logService.MessagePath == "PlanInfo" && (logService.Lable == "NewPlan" || logService.Lable == "NewPlanMain" || logService.Lable == "NewSewPlan"))
                     {
                         okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
                     }

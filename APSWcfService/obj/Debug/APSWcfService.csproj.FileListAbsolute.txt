@@ -50,3 +50,4 @@ F:\ServiceMQPlugs\SeviceMq\APSWcfService\obj\Debug\APSWcfService.csproj.CoreComp
 F:\ServiceMQPlugs\SeviceMq\APSWcfService\obj\Debug\APSWcfService.dll
 F:\ServiceMQPlugs\SeviceMq\APSWcfService\obj\Debug\APSWcfService.pdb
 F:\ServiceMQPlugs\SeviceMq\APSWcfService\obj\Debug\APSWcfService.csproj.CopyComplete
+F:\ServiceMQPlugs\SeviceMq\APSWcfService\obj\Debug\APSWcfService.csprojResolveAssemblyReference.cache

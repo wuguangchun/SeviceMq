@@ -143,26 +143,34 @@ namespace PlanInfoPlugs
             var result = new JsonHelper();
             try
             {
-                var sctcrq = new Select().From<TBLDataOrder>()
-                   .LeftInnerJoin(SCT27.Schema.TableName, SCT27.ScggdhColumn.ColumnName, TBLDataOrder.Schema.TableName, TBLDataOrder.ScggdhColumn.ColumnName)
-                    .LeftInnerJoin(SCT26.Schema.TableName, SCT26.SczsbhColumn.ColumnName, SCT27.Schema.TableName, SCT27.SczsbhColumn.ColumnName)
-                   .Where(TBLDataOrder.KhdhColumn).IsEqualTo(khdh)
-                   .ExecuteTypedList<SCT26>().FirstOrDefault()?.Sctcrq.ToString();
+                var sctcrqquery = new Select().From<SCT26>()
+                    .InnerJoin(SCT27.Schema.TableName, SCT27.SczsbhColumn.ColumnName, SCT26.Schema.TableName,
+                        SCT26.SczsbhColumn.ColumnName)
+                    .InnerJoin(TBLDataOrder.Schema.TableName, TBLDataOrder.ScggdhColumn.ColumnName, SCT27.Schema.TableName, SCT27.ScggdhColumn.ColumnName)
+                    .Where(TBLDataOrder.KhdhColumn).IsEqualTo(khdh);
 
-                if (string.IsNullOrEmpty(sctcrq))
-                {
-                    var planTimeExit = new Select().From<TBasisPlanTime>()
-                        .Where(TBasisPlanTime.SctcrqColumn).IsEqualTo(sctcrq)
-                        .ExecuteTypedList<TBasisPlanTime>().Count < 0;
-                    if (planTimeExit)
-                    {
-                        var planTime = new TBasisPlanTime { CrateTime = DateTime.Now, State = "0", Sctcrq = DateTime.Parse(sctcrq) };
-                        planTime.Save();
-                    }
-                }
-                else
+                var sct26 = sctcrqquery.ExecuteTypedList<SCT26>().FirstOrDefault();
+                if (sct26 == null)
                 {
                     throw new Exception($@"数据库中没有【{khdh}】的计划信息。请手动确认数据库中SCT26/SCT27/T_BLDATA_ORDER中的数据。此此异常回影响缝制排程的结果，请尽快排查原因！");
+                }
+
+                if (sct26.Scgcdm == "01")
+                {
+                    var planTimeExit = new Select().From<TBasisPlanTime>()
+                        .Where(TBasisPlanTime.SctcrqColumn).IsEqualTo(sct26.Sctcrq)
+                        .ExecuteTypedList<TBasisPlanTime>().Count < 1;
+                    if (planTimeExit)
+                    {
+                        //将计划执行点新增到数据库
+                        var planTime = new TBasisPlanTime { CrateTime = DateTime.Now, State = "0", Sctcrq = sct26.Sctcrq };
+                        planTime.Save();
+
+                        //将模型排程状态 修改成排产模式
+                        new HljtTaskList(HljtTaskList.ModelTypeColumn.ColumnName, "缝制") { Flag = "Y" }
+                        .Save("缝制");
+
+                    }
                 }
 
                 result.RetCode = RetCode.Success;
