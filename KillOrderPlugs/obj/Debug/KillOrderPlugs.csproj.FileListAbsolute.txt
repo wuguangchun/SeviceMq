@@ -34,3 +34,4 @@ F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.csprojResolve
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.pdb
+F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.csproj.CopyComplete

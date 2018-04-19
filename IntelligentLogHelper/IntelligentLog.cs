@@ -15,7 +15,6 @@ namespace IntelligentLogHelper
 {
     public class IntelligentLog
     {
-
         public void LogParsing()
         {
             try
@@ -140,9 +139,16 @@ namespace IntelligentLogHelper
                         okRow += UpdateLogs(logService.Id, intercourse.Xtwldm) ? 1 : 0;
                     }
                     //计划Excle文件生成队列
-                    else if (logService.MessagePath == "GenerateFile" && (logService.Lable == "TZ"|| logService.Lable == "MTM"))
+                    else if (logService.MessagePath == "GenerateFile" && (logService.Lable == "TZ" || logService.Lable == "MTM"))
                     {
                         okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
+                    }
+                    //修改订单交期
+                    else if (logService.MessagePath == "NewOrderData" && logService.Lable == "UpdateDelivery")
+                    {
+
+                        var delivery = (Delivery)JsonConvert.DeserializeObject(logService.Context, typeof(Delivery));
+                        okRow += UpdateLogs(logService.Id, delivery.Khdh) ? 1 : 0;
                     }
 
 

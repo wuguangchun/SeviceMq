@@ -54,3 +54,4 @@ F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.csprojResolveAs
 F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.pdb
+F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.csproj.CopyComplete

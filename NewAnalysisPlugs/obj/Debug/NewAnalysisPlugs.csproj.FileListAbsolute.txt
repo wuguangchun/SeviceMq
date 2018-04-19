@@ -57,3 +57,4 @@ F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.csprojRes
 F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.pdb
+F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.csproj.CopyComplete

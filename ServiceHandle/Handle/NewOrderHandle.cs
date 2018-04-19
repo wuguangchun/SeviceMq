@@ -53,7 +53,7 @@ namespace ServiceHandle.Handle
                     reMeg = new NewOrderHelper().SavaData(message.Body.ToString());
                 }
                 else if (message.Label.ToLower().Trim() == "UpdateDelivery".ToLower())
-                {//接收BL传入数据源
+                {//修改订单交期
                     reMeg = new NewOrderHelper().UpdateDelivery(message.Body.ToString());
                 }
                 else

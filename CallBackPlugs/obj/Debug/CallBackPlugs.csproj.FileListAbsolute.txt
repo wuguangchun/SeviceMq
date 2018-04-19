@@ -49,3 +49,4 @@ F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.csprojResolveAs
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.pdb
+F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.csproj.CopyComplete

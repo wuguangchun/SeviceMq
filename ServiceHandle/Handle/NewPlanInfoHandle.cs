@@ -60,6 +60,11 @@ namespace ServiceHandle.Handle
 
                     reMeg = new PlanInfoHelper().GetPlanInfo(message.Body.ToString());
                 }
+                else if (message.Label.ToLower().Trim() == "NewSewPlan".ToLower())
+                {//计划下达获取计划主信息
+
+                    reMeg = new PlanInfoHelper().GetPlanInfo(message.Body.ToString());
+                }
                 else
                 {//无法识别标签内容
                     throw new ApplicationException("无法识别标签内容");

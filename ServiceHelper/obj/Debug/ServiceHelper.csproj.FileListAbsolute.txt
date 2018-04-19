@@ -56,3 +56,4 @@ F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.csproj.ResolveC
 F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.dll
 F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.pdb
+F:\ServiceMQPlugs\SeviceMq\ServiceHelper\obj\Debug\ServiceHelper.csproj.CopyComplete

@@ -34,3 +34,4 @@ F:\ServiceMQPlugs\SeviceMq\CompletionPlugs\obj\Debug\CompletionPlugs.csproj.Core
 F:\ServiceMQPlugs\SeviceMq\CompletionPlugs\obj\Debug\CompletionPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\CompletionPlugs\obj\Debug\CompletionPlugs.pdb
 F:\ServiceMQPlugs\SeviceMq\CompletionPlugs\obj\Debug\CompletionPlugs.csprojResolveAssemblyReference.cache
+F:\ServiceMQPlugs\SeviceMq\CompletionPlugs\obj\Debug\CompletionPlugs.csproj.CopyComplete

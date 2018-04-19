@@ -30,3 +30,5 @@ F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\obj\Debug\IntelligentLogHelper.p
 F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\bin\Debug\ServiceHelper.dll
 F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\bin\Debug\ServiceHelper.pdb
 F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\bin\Debug\ServiceHelper.dll.config
+F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\obj\Debug\IntelligentLogHelper.csproj.CopyComplete
+F:\ServiceMQPlugs\SeviceMq\IntelligentLogHelper\obj\Debug\IntelligentLogHelper.csprojResolveAssemblyReference.cache

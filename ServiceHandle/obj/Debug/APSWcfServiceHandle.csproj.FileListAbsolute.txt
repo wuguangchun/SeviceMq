@@ -168,3 +168,4 @@ F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\ServiceHandle.dll
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\ServiceHandle.pdb
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\NPOI.dll
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\NPOI.xml
+F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\APSWcfServiceHandle.csproj.CopyComplete

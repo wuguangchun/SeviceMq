@@ -105,25 +105,22 @@ namespace CompletionPlugs
                     {
                         var msmqList = new List<MsmqModel>
                         {
-                            new MsmqModel{Path = "CaiJianOrder",Label = "NewOrder",Body = objCompletion.CustmerId,CallBackUrl = null},
-                            //new MsmqModel{Path = "PlanInfo",Label = "NewPlan",Body = objCompletion.CustmerId,CallBackUrl = null}
+                            new MsmqModel{Path = "CaiJianOrder",Label = "NewOrder",Body = objCompletion.CustmerId,CallBackUrl = null}
                         };
 
                         Json.RetMessage = JsonConvert.SerializeObject(msmqList);
                         Json.RetCode = "Proceed";
                     }
+                    else if (objCompletion.OrderSrate == "302")
+                    {
+                        var msmqList = new List<MsmqModel>
+                        {
+                            new MsmqModel{Path = "PlanInfo",Label = "NewSewPlan",Body = objCompletion.CustmerId,CallBackUrl = null}
+                        };
 
-                    ////如果完工汇报是裁床排程成功则出发新消息队列BlankingData生成断料数据(老APS给的完工汇报)
-                    //else if (objCompletion.OrderSrate == "300")
-                    //{
-                    //    //var msmqList = new List<MsmqModel>
-                    //    //{
-                    //    //    new MsmqModel{Path = "BlankingData",Label = "NewOrder",Body = objCompletion.CustmerId,CallBackUrl = null}
-                    //    //};
-
-                    //    //Json.RetMessage = JsonConvert.SerializeObject(msmqList);
-                    //    //Json.RetCode = "Proceed";
-                    //}//如果完工汇报是CAD提交 则生成计划标注信息
+                        Json.RetMessage = JsonConvert.SerializeObject(msmqList);
+                        Json.RetCode = "Proceed";
+                    }
                     else if (objCompletion.OrderSrate == "103")
                     {
 
@@ -135,6 +132,17 @@ namespace CompletionPlugs
                         Json.RetMessage = JsonConvert.SerializeObject(msmqList);
                         Json.RetCode = "Proceed";
                     }
+                    ////如果完工汇报是裁床排程成功则出发新消息队列BlankingData生成断料数据(老APS给的完工汇报)
+                    //else if (objCompletion.OrderSrate == "300")
+                    //{
+                    //    //var msmqList = new List<MsmqModel>
+                    //    //{
+                    //    //    new MsmqModel{Path = "BlankingData",Label = "NewOrder",Body = objCompletion.CustmerId,CallBackUrl = null}
+                    //    //};
+
+                    //    //Json.RetMessage = JsonConvert.SerializeObject(msmqList);
+                    //    //Json.RetCode = "Proceed";
+                    //}//如果完工汇报是CAD提交 则生成计划标注信息
                     else
                     {
                         Json.RetMessage = $@"操作成功！{objCompletion.CustmerId}";

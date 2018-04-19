@@ -80,3 +80,4 @@ F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.exe
 F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.pdb
 F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\NPOI.dll
 F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\NPOI.xml
+F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.csproj.CopyComplete

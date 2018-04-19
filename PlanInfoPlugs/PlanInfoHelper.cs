@@ -138,5 +138,42 @@ namespace PlanInfoPlugs
             return JsonConvert.SerializeObject(obj);
         }
 
+        public string NewSewPlan(string khdh)
+        {
+            var result = new JsonHelper();
+            try
+            {
+                var sctcrq = new Select().From<TBLDataOrder>()
+                   .LeftInnerJoin(SCT27.Schema.TableName, SCT27.ScggdhColumn.ColumnName, TBLDataOrder.Schema.TableName, TBLDataOrder.ScggdhColumn.ColumnName)
+                    .LeftInnerJoin(SCT26.Schema.TableName, SCT26.SczsbhColumn.ColumnName, SCT27.Schema.TableName, SCT27.SczsbhColumn.ColumnName)
+                   .Where(TBLDataOrder.KhdhColumn).IsEqualTo(khdh)
+                   .ExecuteTypedList<SCT26>().FirstOrDefault()?.Sctcrq.ToString();
+
+                if (string.IsNullOrEmpty(sctcrq))
+                {
+                    var planTimeExit = new Select().From<TBasisPlanTime>()
+                        .Where(TBasisPlanTime.SctcrqColumn).IsEqualTo(sctcrq)
+                        .ExecuteTypedList<TBasisPlanTime>().Count < 0;
+                    if (planTimeExit)
+                    {
+                        var planTime = new TBasisPlanTime { CrateTime = DateTime.Now, State = "0", Sctcrq = DateTime.Parse(sctcrq) };
+                        planTime.Save();
+                    }
+                }
+                else
+                {
+                    throw new Exception($@"数据库中没有【{khdh}】的计划信息。请手动确认数据库中SCT26/SCT27/T_BLDATA_ORDER中的数据。此此异常回影响缝制排程的结果，请尽快排查原因！");
+                }
+
+                result.RetCode = RetCode.Success;
+                result.RetMessage = "获取成功";
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            return JsonConvert.SerializeObject(result);
+        }
     }
 }
