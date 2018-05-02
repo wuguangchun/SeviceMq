@@ -85,7 +85,7 @@ namespace KillOrderPlugs
                 //撤单异常后系统自动执行撤单
                 var msmqList = new List<MsmqModel>
                 {
-                    new MsmqModel{Path = "BlankingData",Label = "NewOrder",Body = json,CallBackUrl = "ErrorAuto-Local"}
+                    new MsmqModel{Path = "KillOrder",Label = "KillOrder",Body = json,CallBackUrl = "ErrorAuto-Local"}
                 };
 
                 resultJson.RetMessage = JsonConvert.SerializeObject(msmqList);
@@ -125,7 +125,7 @@ namespace KillOrderPlugs
 
 
                 }//有多条明细，只删除此条明细的信息
-                else if (ordermx.Count > 1)
+                else if (ordermx.Count > 1 && ordermx.Any(x => x.Fzfl == killOrder.OrderFl))
                 {
                     var mx = ordermx.Find(x => x.Khdh == killOrder.CustmerId && x.Fzfl == killOrder.OrderFl);
                     new Delete().From<TBLDataOrdermx>().Where(TBLDataOrdermx.MxidColumn).IsEqualTo(mx.Mxid).Execute();

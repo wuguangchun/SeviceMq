@@ -80,7 +80,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int MxId,string CustomerId,string Resources,string Res,DateTime? Sctcrq,DateTime? Key1endtime,DateTime? Key2endtime,DateTime? Key3endtime,DateTime? Key4endtime,DateTime? Key5endtime,DateTime? Key6endtime,DateTime? Key7endtime,DateTime? Key8endtime,DateTime? Key9endtime,DateTime? Key10endtime,DateTime? Key11endtime,DateTime? Key12endtime,DateTime? Key13endtime,DateTime? Key14endtime,DateTime? Key15endtime,DateTime? Key16endtime,DateTime? Key17endtime,DateTime? Key18endtime,DateTime? Key19endtime,DateTime? Key20endtime,DateTime? Key21endtime,DateTime? Key22endtime,DateTime? Key23endtime,DateTime? Key24endtime,DateTime? Key25endtime,DateTime? Key26endtime,DateTime? Key27endtime,DateTime? Key28endtime,DateTime? Key29endtime,DateTime? Key30endtime)
+	    public void Insert(int MxId,string CustomerId,string Resources,string Res,DateTime? Sctcrq,DateTime? Key1endtime,DateTime? Key2endtime,DateTime? Key3endtime,DateTime? Key4endtime,DateTime? Key5endtime,DateTime? Key6endtime,DateTime? Key7endtime,DateTime? Key8endtime,DateTime? Key9endtime,DateTime? Key10endtime,DateTime? Key11endtime,DateTime? Key12endtime,DateTime? Key13endtime,DateTime? Key14endtime,DateTime? Key15endtime,DateTime? Key16endtime,DateTime? Key17endtime,DateTime? Key18endtime,DateTime? Key19endtime,DateTime? Key20endtime,DateTime? Key21endtime,DateTime? Key22endtime,DateTime? Key23endtime,DateTime? Key24endtime,DateTime? Key25endtime,DateTime? Key26endtime,DateTime? Key27endtime,DateTime? Key28endtime,DateTime? Key29endtime,DateTime? Key30endtime,DateTime? BeginTime)
 	    {
 		    TBasisSchedulingSew item = new TBasisSchedulingSew();
 		    
@@ -154,6 +154,8 @@ namespace Model
             
             item.Key30endtime = Key30endtime;
             
+            item.BeginTime = BeginTime;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -162,7 +164,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int MxId,string CustomerId,string Resources,string Res,DateTime? Sctcrq,DateTime? Key1endtime,DateTime? Key2endtime,DateTime? Key3endtime,DateTime? Key4endtime,DateTime? Key5endtime,DateTime? Key6endtime,DateTime? Key7endtime,DateTime? Key8endtime,DateTime? Key9endtime,DateTime? Key10endtime,DateTime? Key11endtime,DateTime? Key12endtime,DateTime? Key13endtime,DateTime? Key14endtime,DateTime? Key15endtime,DateTime? Key16endtime,DateTime? Key17endtime,DateTime? Key18endtime,DateTime? Key19endtime,DateTime? Key20endtime,DateTime? Key21endtime,DateTime? Key22endtime,DateTime? Key23endtime,DateTime? Key24endtime,DateTime? Key25endtime,DateTime? Key26endtime,DateTime? Key27endtime,DateTime? Key28endtime,DateTime? Key29endtime,DateTime? Key30endtime)
+	    public void Update(int MxId,string CustomerId,string Resources,string Res,DateTime? Sctcrq,DateTime? Key1endtime,DateTime? Key2endtime,DateTime? Key3endtime,DateTime? Key4endtime,DateTime? Key5endtime,DateTime? Key6endtime,DateTime? Key7endtime,DateTime? Key8endtime,DateTime? Key9endtime,DateTime? Key10endtime,DateTime? Key11endtime,DateTime? Key12endtime,DateTime? Key13endtime,DateTime? Key14endtime,DateTime? Key15endtime,DateTime? Key16endtime,DateTime? Key17endtime,DateTime? Key18endtime,DateTime? Key19endtime,DateTime? Key20endtime,DateTime? Key21endtime,DateTime? Key22endtime,DateTime? Key23endtime,DateTime? Key24endtime,DateTime? Key25endtime,DateTime? Key26endtime,DateTime? Key27endtime,DateTime? Key28endtime,DateTime? Key29endtime,DateTime? Key30endtime,DateTime? BeginTime)
 	    {
 		    TBasisSchedulingSew item = new TBasisSchedulingSew();
 	        item.MarkOld();
@@ -237,6 +239,8 @@ namespace Model
 			item.Key29endtime = Key29endtime;
 				
 			item.Key30endtime = Key30endtime;
+				
+			item.BeginTime = BeginTime;
 				
 	        item.Save(UserName);
 	    }

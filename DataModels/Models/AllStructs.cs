@@ -773,6 +773,8 @@ namespace Model
         
 		public static readonly string VOderArtHour = @"V_OderArtHour";
         
+		public static readonly string VOrderDatapoolCy = @"V_OrderDatapoolCy";
+        
 		public static readonly string VOrderDatapoolXf = @"V_OrderDatapoolXf";
         
 		public static readonly string VOrderKeyProcessRow = @"V_OrderKeyProcessRow";
@@ -846,6 +848,8 @@ namespace Model
 		public static readonly string ViewOutputListCFBackup = @"View_outputListCF_Backup";
         
 		public static readonly string ViewPlan = @"view_Plans";
+        
+		public static readonly string ViewSchedulingSew = @"View_SchedulingSew";
         
 		public static readonly string ViewUsersList = @"View_UsersList";
         

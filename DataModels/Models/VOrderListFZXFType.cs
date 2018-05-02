@@ -587,8 +587,8 @@ namespace Model{
                 
                 TableSchema.TableColumn colvarSctcrq = new TableSchema.TableColumn(schema);
                 colvarSctcrq.ColumnName = "SCTCRQ";
-                colvarSctcrq.DataType = DbType.DateTime;
-                colvarSctcrq.MaxLength = 0;
+                colvarSctcrq.DataType = DbType.AnsiString;
+                colvarSctcrq.MaxLength = 50;
                 colvarSctcrq.AutoIncrement = false;
                 colvarSctcrq.IsNullable = true;
                 colvarSctcrq.IsPrimaryKey = false;
@@ -620,6 +620,18 @@ namespace Model{
                 colvarSpecialCode.IsReadOnly = false;
                 
                 schema.Columns.Add(colvarSpecialCode);
+                
+                TableSchema.TableColumn colvarSccjjq = new TableSchema.TableColumn(schema);
+                colvarSccjjq.ColumnName = "SCCJJQ";
+                colvarSccjjq.DataType = DbType.DateTime;
+                colvarSccjjq.MaxLength = 0;
+                colvarSccjjq.AutoIncrement = false;
+                colvarSccjjq.IsNullable = true;
+                colvarSccjjq.IsPrimaryKey = false;
+                colvarSccjjq.IsForeignKey = false;
+                colvarSccjjq.IsReadOnly = false;
+                
+                schema.Columns.Add(colvarSccjjq);
                 
                 
                 BaseSchema = schema;
@@ -1289,11 +1301,11 @@ namespace Model{
 	      
         [XmlAttribute("Sctcrq")]
         [Bindable(true)]
-        public DateTime? Sctcrq 
+        public string Sctcrq 
 	    {
 		    get
 		    {
-			    return GetColumnValue<DateTime?>("SCTCRQ");
+			    return GetColumnValue<string>("SCTCRQ");
 		    }
             set 
 		    {
@@ -1326,6 +1338,20 @@ namespace Model{
             set 
 		    {
 			    SetColumnValue("SpecialCode", value);
+            }
+        }
+	      
+        [XmlAttribute("Sccjjq")]
+        [Bindable(true)]
+        public DateTime? Sccjjq 
+	    {
+		    get
+		    {
+			    return GetColumnValue<DateTime?>("SCCJJQ");
+		    }
+            set 
+		    {
+			    SetColumnValue("SCCJJQ", value);
             }
         }
 	    
@@ -1429,6 +1455,8 @@ namespace Model{
             public static string Sczsbz = @"SCZSBZ";
             
             public static string SpecialCode = @"SpecialCode";
+            
+            public static string Sccjjq = @"SCCJJQ";
             
 	    }
 	    #endregion

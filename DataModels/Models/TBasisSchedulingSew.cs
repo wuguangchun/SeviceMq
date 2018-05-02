@@ -581,6 +581,19 @@ namespace Model
 				colvarKey30endtime.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarKey30endtime);
 				
+				TableSchema.TableColumn colvarBeginTime = new TableSchema.TableColumn(schema);
+				colvarBeginTime.ColumnName = "BeginTime";
+				colvarBeginTime.DataType = DbType.DateTime;
+				colvarBeginTime.MaxLength = 0;
+				colvarBeginTime.AutoIncrement = false;
+				colvarBeginTime.IsNullable = true;
+				colvarBeginTime.IsPrimaryKey = false;
+				colvarBeginTime.IsForeignKey = false;
+				colvarBeginTime.IsReadOnly = false;
+				colvarBeginTime.DefaultSetting = @"";
+				colvarBeginTime.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarBeginTime);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -870,6 +883,14 @@ namespace Model
 			get { return GetColumnValue<DateTime?>(Columns.Key30endtime); }
 			set { SetColumnValue(Columns.Key30endtime, value); }
 		}
+		  
+		[XmlAttribute("BeginTime")]
+		[Bindable(true)]
+		public DateTime? BeginTime 
+		{
+			get { return GetColumnValue<DateTime?>(Columns.BeginTime); }
+			set { SetColumnValue(Columns.BeginTime, value); }
+		}
 		
 		#endregion
 		
@@ -890,7 +911,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int varMxId,string varCustomerId,string varResources,string varRes,DateTime? varSctcrq,DateTime? varKey1endtime,DateTime? varKey2endtime,DateTime? varKey3endtime,DateTime? varKey4endtime,DateTime? varKey5endtime,DateTime? varKey6endtime,DateTime? varKey7endtime,DateTime? varKey8endtime,DateTime? varKey9endtime,DateTime? varKey10endtime,DateTime? varKey11endtime,DateTime? varKey12endtime,DateTime? varKey13endtime,DateTime? varKey14endtime,DateTime? varKey15endtime,DateTime? varKey16endtime,DateTime? varKey17endtime,DateTime? varKey18endtime,DateTime? varKey19endtime,DateTime? varKey20endtime,DateTime? varKey21endtime,DateTime? varKey22endtime,DateTime? varKey23endtime,DateTime? varKey24endtime,DateTime? varKey25endtime,DateTime? varKey26endtime,DateTime? varKey27endtime,DateTime? varKey28endtime,DateTime? varKey29endtime,DateTime? varKey30endtime)
+		public static void Insert(int varMxId,string varCustomerId,string varResources,string varRes,DateTime? varSctcrq,DateTime? varKey1endtime,DateTime? varKey2endtime,DateTime? varKey3endtime,DateTime? varKey4endtime,DateTime? varKey5endtime,DateTime? varKey6endtime,DateTime? varKey7endtime,DateTime? varKey8endtime,DateTime? varKey9endtime,DateTime? varKey10endtime,DateTime? varKey11endtime,DateTime? varKey12endtime,DateTime? varKey13endtime,DateTime? varKey14endtime,DateTime? varKey15endtime,DateTime? varKey16endtime,DateTime? varKey17endtime,DateTime? varKey18endtime,DateTime? varKey19endtime,DateTime? varKey20endtime,DateTime? varKey21endtime,DateTime? varKey22endtime,DateTime? varKey23endtime,DateTime? varKey24endtime,DateTime? varKey25endtime,DateTime? varKey26endtime,DateTime? varKey27endtime,DateTime? varKey28endtime,DateTime? varKey29endtime,DateTime? varKey30endtime,DateTime? varBeginTime)
 		{
 			TBasisSchedulingSew item = new TBasisSchedulingSew();
 			
@@ -964,6 +985,8 @@ namespace Model
 			
 			item.Key30endtime = varKey30endtime;
 			
+			item.BeginTime = varBeginTime;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -974,7 +997,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varMxId,string varCustomerId,string varResources,string varRes,DateTime? varSctcrq,DateTime? varKey1endtime,DateTime? varKey2endtime,DateTime? varKey3endtime,DateTime? varKey4endtime,DateTime? varKey5endtime,DateTime? varKey6endtime,DateTime? varKey7endtime,DateTime? varKey8endtime,DateTime? varKey9endtime,DateTime? varKey10endtime,DateTime? varKey11endtime,DateTime? varKey12endtime,DateTime? varKey13endtime,DateTime? varKey14endtime,DateTime? varKey15endtime,DateTime? varKey16endtime,DateTime? varKey17endtime,DateTime? varKey18endtime,DateTime? varKey19endtime,DateTime? varKey20endtime,DateTime? varKey21endtime,DateTime? varKey22endtime,DateTime? varKey23endtime,DateTime? varKey24endtime,DateTime? varKey25endtime,DateTime? varKey26endtime,DateTime? varKey27endtime,DateTime? varKey28endtime,DateTime? varKey29endtime,DateTime? varKey30endtime)
+		public static void Update(int varMxId,string varCustomerId,string varResources,string varRes,DateTime? varSctcrq,DateTime? varKey1endtime,DateTime? varKey2endtime,DateTime? varKey3endtime,DateTime? varKey4endtime,DateTime? varKey5endtime,DateTime? varKey6endtime,DateTime? varKey7endtime,DateTime? varKey8endtime,DateTime? varKey9endtime,DateTime? varKey10endtime,DateTime? varKey11endtime,DateTime? varKey12endtime,DateTime? varKey13endtime,DateTime? varKey14endtime,DateTime? varKey15endtime,DateTime? varKey16endtime,DateTime? varKey17endtime,DateTime? varKey18endtime,DateTime? varKey19endtime,DateTime? varKey20endtime,DateTime? varKey21endtime,DateTime? varKey22endtime,DateTime? varKey23endtime,DateTime? varKey24endtime,DateTime? varKey25endtime,DateTime? varKey26endtime,DateTime? varKey27endtime,DateTime? varKey28endtime,DateTime? varKey29endtime,DateTime? varKey30endtime,DateTime? varBeginTime)
 		{
 			TBasisSchedulingSew item = new TBasisSchedulingSew();
 			
@@ -1047,6 +1070,8 @@ namespace Model
 				item.Key29endtime = varKey29endtime;
 			
 				item.Key30endtime = varKey30endtime;
+			
+				item.BeginTime = varBeginTime;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -1306,6 +1331,13 @@ namespace Model
         
         
         
+        public static TableSchema.TableColumn BeginTimeColumn
+        {
+            get { return Schema.Columns[35]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -1345,6 +1377,7 @@ namespace Model
 			 public static string Key28endtime = @"key28endtime";
 			 public static string Key29endtime = @"key29endtime";
 			 public static string Key30endtime = @"key30endtime";
+			 public static string BeginTime = @"BeginTime";
 						
 		}
 		#endregion
