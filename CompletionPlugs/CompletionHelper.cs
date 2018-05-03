@@ -133,6 +133,17 @@ namespace CompletionPlugs
                         Json.RetCode = "Proceed";
                     }
                     ////如果完工汇报是裁床排程成功则出发新消息队列BlankingData生成断料数据(老APS给的完工汇报)
+                    else if (objCompletion.OrderSrate == "601")
+                    {
+                        var msmqList = new List<MsmqModel>
+                        {
+                            new MsmqModel{Path = "KillOrder",Label = "MoveOld",Body = objCompletion.CustmerId,CallBackUrl = null}
+                        };
+
+                        Json.RetMessage = JsonConvert.SerializeObject(msmqList);
+                        Json.RetCode = "Proceed";
+                    }
+                    ////如果完工汇报是裁床排程成功则出发新消息队列BlankingData生成断料数据(老APS给的完工汇报)
                     //else if (objCompletion.OrderSrate == "300")
                     //{
                     //    //var msmqList = new List<MsmqModel>

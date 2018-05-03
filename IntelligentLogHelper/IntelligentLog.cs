@@ -19,17 +19,16 @@ namespace IntelligentLogHelper
         {
             try
             {
-                var logListQuery = new Select().From<TLogService>()
+                var query = new Select("top 2000 id").From<TLogService>()
                     .Where(TLogService.KhdhColumn).IsEqualTo("")
-                    // .And(TLogService.MessagePathColumn).IsNotEqualTo("CallBackMsg")
-                    .And(TLogService.MessagePathColumn).IsNotEqualTo("LogService")
-                    .And(TLogService.MessagePathColumn).IsNotEqualTo("computejq")
-                    .And(TLogService.LableColumn).IsNotEqualTo("SchedulingReady")
-                    .And(TLogService.LableColumn).IsNotEqualTo("AutoKill");
-                //.ExecuteTypedList<TLogService>();
+                    .And(TLogService.MessagePathColumn).In("Intercourse", "OrderGetMesHour", "PlanInfo", "AnalysisOrder", "CadOrder", "KillOrder", "BlankingData", "PlanInfo", "NewOrderData", "PutCadBL", "OrderGetMesHour", "KillOrder", "AnalysisOrder", "PlanInfo", "NewOrderData", "Completion", "CallBackMsg", "AnalysisOrder", "CaiJianOrder", "CreateScjhbz", "GenerateFile", "CreateScjhbz", "KillOrder", "KillOrder", "GenerateFile")
+                    .And(TLogService.LableColumn).In("NewCustomer", "NewOrder", "NewPlan", "NewFlBom", "NewOrder", "MoveOld", "NewOrder", "NewSewPlan", "UpdateDelivery", "CADScheduling", "KeyProcess", "KillSingleERP", "NewOrderPld", "NewPlanMain", "BlPutData", "Completion", "Message", "NewOrder", "NewOrder", "SCJHBZ", "TZ", "NewOrder", "KillOrder", "KillSingle", "MTM");
+                
+                var logList = query.ExecuteTypedList<TLogService>();
 
-                logListQuery.Paged(1, 10000);
-                var logList = logListQuery.ExecuteTypedList<TLogService>();
+               logList=new Select().From<TLogService>()
+                    .Where(TLogService.IdColumn).In(logList.ConvertAll(x=>x.Id))
+                    .ExecuteTypedList<TLogService>();
 
                 int okRow = 0;
                 foreach (var logService in logList.FindAll(x => 1 == 1))
@@ -88,7 +87,7 @@ namespace IntelligentLogHelper
                         okRow += UpdateLogs(logService.Id, json.RetObj.ToString()) ? 1 : 0;
                     }
                     //撤单
-                    else if (logService.MessagePath == "KillOrder" && logService.Lable == "KillOrder")
+                    else if (logService.MessagePath == "KillOrder" && (logService.Lable == "KillOrder"|| logService.Lable == "MoveOld"))
                     {
                         okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
                     }
@@ -149,6 +148,11 @@ namespace IntelligentLogHelper
 
                         var delivery = (Delivery)JsonConvert.DeserializeObject(logService.Context, typeof(Delivery));
                         okRow += UpdateLogs(logService.Id, delivery.Khdh) ? 1 : 0;
+                    }//接受新辅料BOM信息
+                    else if (logService.MessagePath == "AnalysisOrder" && logService.Lable == "NewFlBom")
+                    {
+                        var bomList = (List<FlBom>)JsonConvert.DeserializeObject(logService.Context, typeof(List<FlBom>));
+                        okRow += UpdateLogs(logService.Id, bomList.First().Khdh) ? 1 : 0;
                     }
 
 
@@ -157,7 +161,7 @@ namespace IntelligentLogHelper
 
                 }
             }
-            catch (Exception exception)
+            catch (Exception e)
             {
                 throw;
             }
@@ -176,6 +180,47 @@ namespace IntelligentLogHelper
             {
                 return false;
             }
+        }
+
+        public string MoveOld(string khdh)
+        {
+            var result = new JsonHelper();
+            try
+            {
+                //查询原始数据
+                var logList = new Select().From<TLogService>().Where(TLogService.KhdhColumn).IsEqualTo(khdh).ExecuteTypedList<TLogService>();
+
+                //移动到历史表
+                foreach (var log in logList)
+                {
+                    new TLogServiceOld
+                    {
+
+                        Id = log.Id,
+                        Khdh = log.Khdh,
+                        Lable = log.Lable,
+                        MessagePath = log.MessagePath,
+                        CallBackUrl = log.CallBackUrl,
+                        CreateTime = log.CreateTime,
+                        Context = log.Context,
+                        MessageID = log.MessageID
+
+                    }.Save();
+                }
+
+                //删掉历史数据
+                new Delete().From<TLogService>().Where(TLogService.KhdhColumn).IsEqualTo(khdh).Execute();
+
+
+                result.RetCode = RetCode.Success;
+                result.RetMessage = "移动成功";
+            }
+            catch (Exception e)
+            {
+                result.RetCode = RetCode.Error;
+                result.RetMessage = e.Message;
+            }
+            return JsonConvert.SerializeObject(result);
         }
     }
 }

@@ -60,6 +60,7 @@
     <Compile Include="HelperClass.cs" />
     <Compile Include="NewAnalysisHelper.cs" />
     <Compile Include="NewCadHelper.cs" />
+    <Compile Include="NewFlBomHelper.cs" />
     <Compile Include="NewOrderByCfHelper.cs" />
     <Compile Include="NewOrderHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

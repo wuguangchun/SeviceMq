@@ -142,7 +142,7 @@ namespace Model
 				TableSchema.TableColumn colvarOrderStatus = new TableSchema.TableColumn(schema);
 				colvarOrderStatus.ColumnName = "orderStatus";
 				colvarOrderStatus.DataType = DbType.String;
-				colvarOrderStatus.MaxLength = 100;
+				colvarOrderStatus.MaxLength = 500;
 				colvarOrderStatus.AutoIncrement = false;
 				colvarOrderStatus.IsNullable = true;
 				colvarOrderStatus.IsPrimaryKey = false;

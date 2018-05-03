@@ -102,3 +102,4 @@ F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\APS系统维护.exe
 F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\APS系统维护.pdb
 F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.Improt.Form_Improt_Template.resources
 F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.Function.Form_PrintTest.resources
+F:\ServiceMQPlugs\SeviceMq\SystemMaintain\obj\Debug\SystemMaintain.csproj.CopyComplete

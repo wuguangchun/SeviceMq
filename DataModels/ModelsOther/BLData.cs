@@ -28,7 +28,7 @@ namespace DataModels.ModelsOther
         public string Mddm { get; set; }
         public string Mdmc { get; set; }
         public string Htbh { get; set; }
-        
+
 
     }
 
@@ -60,7 +60,7 @@ namespace DataModels.ModelsOther
 
     public class Delivery
     {
-        public string  Khdh { get; set; }
+        public string Khdh { get; set; }
         public DateTime DateTime { get; set; }
     }
 
@@ -89,5 +89,25 @@ namespace DataModels.ModelsOther
     public class CadBlModelList
     {
         public List<CadBlModel> ds { get; set; }
+    }
+
+    public class FlBom
+    {
+        /// <summary>
+        /// 客户单号
+        /// </summary>
+        public string Khdh { get; set; }
+        /// <summary>
+        /// 好用
+        /// </summary>
+        public string Hy { get; set; }
+        /// <summary>
+        /// 原料编码
+        /// </summary>
+        public string Ylbm { get; set; }
+        /// <summary>
+        /// 材料分类名称
+        /// </summary>
+        public string Clflmx { get; set; }
     }
 }

@@ -56,8 +56,13 @@ namespace ServiceHandle.Handle
 
                     reMeg = new BlPldHelper().ReceiveBlPldHelper(message.Body.ToString());
                 }
+                else if (message.Label.ToLower().Trim() == "NewFlBom".ToLower())
+                {
+                    reMeg = new NewFlBomHelper().NewFlBom(message.Body.ToString());
+                }
                 else
-                {//无法识别标签内容
+                {
+                    //无法识别标签内容
                     throw new ApplicationException("无法识别标签内容");
                 }
 

@@ -176,8 +176,8 @@ namespace NewAnalysisPlugs
                     //生成AnalysisOrder表队列接口
                     msmqList.Add(new MsmqModel { Path = "AnalysisOrder", Label = "NewOrder", Body = JsonConvert.SerializeObject(blDate), CallBackUrl = null });
 
-                    //生成 新订单获取MES工时 队列命令
-                    msmqList.Add(new MsmqModel { Path = "OrderGetMesHour", Label = "NewOrder", Body = blDate.order.Khdh, CallBackUrl = null });
+                    ////生成 新订单获取MES工时 队列命令
+                    //msmqList.Add(new MsmqModel { Path = "OrderGetMesHour", Label = "NewOrder", Body = blDate.order.Khdh, CallBackUrl = null });
 
                     json.RetMessage = JsonConvert.SerializeObject(msmqList);
                     json.RetCode = "Proceed";

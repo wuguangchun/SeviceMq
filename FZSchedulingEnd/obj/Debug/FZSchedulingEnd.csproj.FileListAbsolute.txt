@@ -11,3 +11,4 @@ F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\obj\Debug\FZSchedulingEnd.csprojResol
 F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\obj\Debug\FZSchedulingEnd.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\obj\Debug\FZSchedulingEnd.exe
 F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\obj\Debug\FZSchedulingEnd.pdb
+F:\ServiceMQPlugs\SeviceMq\FZSchedulingEnd\obj\Debug\FZSchedulingEnd.csproj.CopyComplete

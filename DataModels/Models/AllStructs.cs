@@ -152,6 +152,8 @@ namespace Model
         
 		public static readonly string TBLDataPld = @"T_BLData_PLD";
         
+		public static readonly string TBlflbom = @"T_BLFLBOM";
+        
 		public static readonly string TBom = @"T_BOM";
         
 		public static readonly string TCutterAP = @"T_CutterAPS";
@@ -171,6 +173,8 @@ namespace Model
 		public static readonly string TLogError = @"T_Log_Error";
         
 		public static readonly string TLogService = @"T_Log_Service";
+        
+		public static readonly string TLogServiceOld = @"T_Log_Service_old";
         
 		public static readonly string TLogAPSToSAP = @"T_LogAPSToSAP";
         
@@ -560,6 +564,11 @@ namespace Model
             get { return DataService.GetSchema("T_BLData_PLD", "Nowthwin"); }
 		}
         
+		public static TableSchema.Table TBlflbom
+		{
+            get { return DataService.GetSchema("T_BLFLBOM", "Nowthwin"); }
+		}
+        
 		public static TableSchema.Table TBom
 		{
             get { return DataService.GetSchema("T_BOM", "Nowthwin"); }
@@ -608,6 +617,11 @@ namespace Model
 		public static TableSchema.Table TLogService
 		{
             get { return DataService.GetSchema("T_Log_Service", "Nowthwin"); }
+		}
+        
+		public static TableSchema.Table TLogServiceOld
+		{
+            get { return DataService.GetSchema("T_Log_Service_old", "Nowthwin"); }
 		}
         
 		public static TableSchema.Table TLogAPSToSAP
@@ -770,6 +784,8 @@ namespace Model
 		public static readonly string VJh = @"V_JH";
         
 		public static readonly string VNoKeyProcess = @"V_NoKeyProcess";
+        
+		public static readonly string VNoKhdhService = @"V_NoKhdhService";
         
 		public static readonly string VOderArtHour = @"V_OderArtHour";
         

@@ -5,6 +5,7 @@ using System.Messaging;
 using System.Threading;
 using System.Web;
 using DataModels.ModelsOther;
+using IntelligentLogHelper;
 using Kute.Helper;
 using Model;
 using SubSonic;
@@ -57,22 +58,6 @@ namespace ServiceHandle.Handle
 
                     reMeg = new KillOrderHelper().KillOrder(message.Body.ToString());
 
-                    //foreach (var order in ordermx)
-                    //{
-                    //    try
-                    //    {
-                    //        var service = new EepPlanService.DdcxMainDelegateClient();
-                    //        var result = service.ddcx(@"{'SCYSPD':'" + order.Khdh + "','FZFL':'" + order.Fzfl + "'}");
-                    //        if (!result.ToLower().Contains("true"))
-                    //        {
-                    //            throw new Exception(result);
-                    //        }
-                    //    }
-                    //    catch (Exception exception)
-                    //    {
-                    //        throw;
-                    //    }
-                    //}
                 }
                 else if (message.Label.ToLower().Trim() == "KillSingle".ToLower())
                 {
@@ -101,6 +86,10 @@ namespace ServiceHandle.Handle
                         throw;
 
                     }
+                }
+                else if (message.Label.ToLower().Trim() == "MoveOld".ToLower())
+                {
+                    reMeg = new IntelligentLog().MoveOld(message.Body.ToString());
                 }
                 else
                 {//无法识别标签内容

@@ -213,6 +213,8 @@
     <Compile Include="Models\TBLDataPLD1.cs" />
     <Compile Include="Models\TBLDataPLD1Controller.cs" />
     <Compile Include="Models\TBLDataPldController.cs" />
+    <Compile Include="Models\TBlflbom.cs" />
+    <Compile Include="Models\TBlflbomController.cs" />
     <Compile Include="Models\TBom.cs" />
     <Compile Include="Models\TBomController.cs" />
     <Compile Include="Models\TCategoryProcessFlowDelete.cs" />
@@ -237,6 +239,8 @@
     <Compile Include="Models\TLogErrorController.cs" />
     <Compile Include="Models\TLogService.cs" />
     <Compile Include="Models\TLogServiceController.cs" />
+    <Compile Include="Models\TLogServiceOld.cs" />
+    <Compile Include="Models\TLogServiceOldController.cs" />
     <Compile Include="Models\TMessage.cs" />
     <Compile Include="Models\TMessageController.cs" />
     <Compile Include="Models\TMflSearch.cs" />

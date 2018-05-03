@@ -278,6 +278,16 @@ namespace Model{
         }
         
         /// <summary>
+        /// Creates an object wrapper for the proc_GetNoKhdhLog Procedure
+        /// </summary>
+        public static StoredProcedure ProcGetNoKhdhLog()
+        {
+            SubSonic.StoredProcedure sp = new SubSonic.StoredProcedure("proc_GetNoKhdhLog", DataService.GetInstance("Nowthwin"), "");
+        	
+            return sp;
+        }
+        
+        /// <summary>
         /// Creates an object wrapper for the Proc_GetPlansDataCY_Cient Procedure
         /// </summary>
         public static StoredProcedure ProcGetPlansDataCYCient(DateTime? BeginTime)
