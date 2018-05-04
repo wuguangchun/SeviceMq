@@ -46,9 +46,9 @@ namespace TestService
 
                 var list = new List<FlBom>
                 {
-                    new FlBom{Clflmx = "纸板1",Hy = "12",Khdh = "2018276-CY",Ylbm = "凯莱乔治衬衣精装盒"},
-                    new FlBom{Clflmx = "纸板2",Hy = "12",Khdh = "2018276-CY",Ylbm = "凯莱乔治衬衣精装盒"},
-                    new FlBom{Clflmx = "纸板3",Hy = "12",Khdh = "2018276-CY",Ylbm = "凯莱乔治衬衣精装盒"}
+                    new FlBom{Clflmc = "纸板1",Hy = 12,Khdh = "2018276-CY",Ylbm = "凯莱乔治衬衣精装盒"},
+                    new FlBom{Clflmc = "纸板2",Hy = 12,Khdh = "2018276-CY",Ylbm = "凯莱乔治衬衣精装盒"},
+                    new FlBom{Clflmc = "纸板3",Hy = 12,Khdh = "2018276-CY",Ylbm = "凯莱乔治衬衣精装盒"}
                 };
 
                 var json = JsonConvert.SerializeObject(list);

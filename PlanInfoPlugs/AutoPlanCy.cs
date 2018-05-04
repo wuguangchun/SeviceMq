@@ -54,9 +54,7 @@ namespace PlanInfoPlugs
                 var orders = new List<VOrderDatapoolCy>();
 
                 //优化数据量支取按照交期排序的前500条订单 
-                var orderList = OrderDatapool.OrderBy(x => x.Jhrq).Take(500).ToList();
-
-                //夹胶条，免烫，高级免烫5B42 58U1 58U2
+                var orderList = OrderDatapool.OrderBy(x => x.Jhrq).Take(2000).ToList();
 
                 orders.AddRange(orderList);
                 OrderDatapool.Clear();
@@ -66,8 +64,132 @@ namespace PlanInfoPlugs
                 ListOrder.AddRange(orders.OrderBy(x => x.Jhrq).ToList().ConvertAll(x => x.Khdh).Distinct());
 
                 //分配订单算法--初步分配
-                LineOrder = ScheduingOrderUnion(Lines, ListOrder);
+                LineOrder = ScheduingOrder(Lines, ListOrder);
 
+                //待分配订单去除已分配订单
+                LineOrder.ForEach(x => ListOrder.RemoveAll(y => y == x.Khdh));
+
+                //订单分配后产能检测,产能不饱和记录List
+                var lineUnSaturated = new List<TBasisLinesFz>();
+
+                //产线品类分组  检测是否饱和
+                foreach (var liner in Lines.GroupBy(x => x.Abbreviation))
+                {
+                    //按照同品类的订单检测是否饱和
+                    foreach (var line in Lines.FindAll(x => x.Abbreviation == liner.Key))
+                        //订单不饱和
+                        if (line.Capacity - LineOrder.FindAll(x => x.LineName == line.LineName).Sum(x => x.Num) > 5)
+                        {
+                            if (!lineUnSaturated.Contains(line))
+                                lineUnSaturated.AddRange(Lines.FindAll(x => x.Abbreviation == liner.Key));
+                        }
+
+                }
+
+                //如果有产线的产能没有达到饱和
+                if (lineUnSaturated.Count > 0)
+                {
+                    //1.把所有的订单拿出来
+                    var listOrder = new List<LineOrderPool>();
+                    lineUnSaturated.ForEach(x => listOrder.AddRange(LineOrder.FindAll(y => y.LineName == x.LineName)));
+
+                    //2.计算重新分配比例
+                    var group = lineUnSaturated.GroupBy(x => x.Abbreviation);
+                    foreach (var fzes in group)
+                    {
+                        //所需同品类订单的总和
+                        var sum = lineUnSaturated.FindAll(x => x.Abbreviation == fzes.Key).Sum(x => x.Capacity);
+
+                        //现有同品类订单的数量总和
+                        var nowOrder = 0;
+                        foreach (var linesFz in lineUnSaturated.FindAll(x => x.Abbreviation == fzes.Key))
+                            nowOrder += LineOrder.FindAll(x => x.LineName == linesFz.LineName).Sum(x => x.Num);
+
+                        //计算现有数量的订单比例数量
+                        foreach (var linesFz in lineUnSaturated.FindAll(x => x.Abbreviation == fzes.Key))
+                        {
+                            /**
+                                 * 公式计算规则
+                                 * 现有同品类数量总和 * （所有同品类的总和/当前产线的所需数量）
+                                 * **/
+                            var num = (float)linesFz.Capacity / (float)sum * nowOrder;
+                            linesFz.Capacity = int.Parse(Math.Round(num).ToString());
+                        }
+
+                    }
+                    //从已分配的集合中删除等待重新分配订单数据
+                    listOrder.ForEach(x => LineOrder.RemoveAll(y => y.LineName == x.LineName && y.Khdh == x.Khdh));
+
+                    //将产能能不饱和的生产线聚合重新分配
+                    LineOrder.AddRange(ScheduingOrder(lineUnSaturated, listOrder.ConvertAll(x => x.Khdh)));
+
+                    //将全局的产线信息更新
+                    Lines = lineUnSaturated;
+                }
+
+                #region 加胶条/免烫订单产线平均分配
+
+                //最终分完后将免烫订单和夹胶条的2/6，平分
+                var gyxxOrder = new Select("khdh,ddsl,gyxx").From<TBLDataOrdermx>()
+                    .Where(TBLDataOrdermx.KhdhColumn).In(LineOrder.Where(x => x.LineName == "衬衣缝制2" || x.LineName == "衬衣缝制6").ToList().ConvertAll(x => x.Khdh))
+                    .ExecuteTypedList<TBLDataOrdermx>();
+                //加胶条，免烫，高级免烫5B42 58U1 58U2
+                var gjmtList = gyxxOrder.Where(x => x.Gyxx.Contains("5B42") || x.Gyxx.Contains("58U1") || x.Gyxx.Contains("58U2")).ToList();
+
+                var puList = gyxxOrder.Where(x => !x.Gyxx.Contains("5B42") && !x.Gyxx.Contains("58U1") && !x.Gyxx.Contains("58U2")).ToList();
+
+                //只有特殊类型订单大于3件时再平分
+                if (gjmtList.Sum(x => x.Ddsl) > 3)
+                {
+
+                    //清除掉产线分配的订单
+                    LineOrder.RemoveAll(x => x.LineName == "衬衣缝制2" || x.LineName == "衬衣缝制6");
+
+                    //按平均分配加胶条，免烫订单
+                    var mtLines = new List<TBasisLinesFz>
+                {
+                    new TBasisLinesFz{LineName = "衬衣缝制2",Capacity = int.Parse((gjmtList.Sum(x=>x.Ddsl)/2).ToString()),LineNumber =2,LineType = "CY",Categorys = "MCY,WCY",Abbreviation = "2"},
+                    new TBasisLinesFz{LineName = "衬衣缝制6",Capacity = int.Parse((gjmtList.Sum(x=>x.Ddsl)/2).ToString()),LineNumber =6,LineType = "CY",Categorys = "MCY,WCY",Abbreviation = "6"}
+                };
+                    var gjmtFp = ScheduingOrder(mtLines, gjmtList.ConvertAll(x => x.Khdh));
+                    LineOrder.AddRange(gjmtFp);
+
+                    //按照之前的比例去重新分配正常的订单
+                    foreach (var line in mtLines)
+                    {
+                        var capacity = Lines.FindAll(x => x.LineName == line.LineName).Capacity;
+                        line.Capacity = capacity - line.Capacity;
+                    }
+                    var zcFp = ScheduingOrder(mtLines, puList.ConvertAll(x => x.Khdh));
+                    LineOrder.AddRange(gjmtFp);
+                }
+
+                #endregion
+
+                #region 配件分配
+
+                var gyxxP0Order = new Select("khdh,ddsl,gyxx").From<TBLDataOrdermx>()
+                    .Where(TBLDataOrdermx.KhdhColumn).In(ListPjOrder.ConvertAll(x => x.Khdh))
+                    .ExecuteTypedList<TBLDataOrdermx>();
+
+                var mtpjLines = new List<TBasisLinesFz>
+                {
+                    new TBasisLinesFz{LineName = "衬衣缝制2",Capacity = int.Parse((gjmtList.Sum(x=>x.Ddsl)/2).ToString()),LineNumber =2,LineType = "CY",Categorys = "MCY,WCY",Abbreviation = "2"},
+                    new TBasisLinesFz{LineName = "衬衣缝制6",Capacity = int.Parse((gjmtList.Sum(x=>x.Ddsl)/2).ToString()),LineNumber =6,LineType = "CY",Categorys = "MCY,WCY",Abbreviation = "6"}
+                };
+
+                //加胶条，免烫，高级免烫5B42 58U1 58U2
+                var gjmtP0List = gyxxOrder.Where(x => x.Gyxx.Contains("5B42") || x.Gyxx.Contains("58U1") || x.Gyxx.Contains("58U2")).ToList();
+
+                var puP0List = gyxxOrder.Where(x => !x.Gyxx.Contains("5B42") && !x.Gyxx.Contains("58U1") && !x.Gyxx.Contains("58U2")).ToList();
+
+                //分配全部的正常配件给1
+                puP0List.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, Fzfl = x.Fzfl, LineName = "", Num = int.Parse(x.Ddsl.ToString()) }));
+
+                //分配特殊订单给2，6
+                ScheduingOrder(mtpjLines, gjmtP0List.ConvertAll(x => x.Khdh));
+
+                #endregion
 
                 return "";
             }
@@ -78,7 +200,7 @@ namespace PlanInfoPlugs
             }
         }
 
-        public List<LineOrderPool> ScheduingOrderUnion(List<TBasisLinesFz> lines, List<string> listOrder)
+        public List<LineOrderPool> ScheduingOrder(List<TBasisLinesFz> lines, List<string> listOrder)
         {
             var lineOrders = new List<LineOrderPool>();
             try
