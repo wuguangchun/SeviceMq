@@ -109,5 +109,10 @@ namespace DataModels.ModelsOther
         /// 材料分类名称
         /// </summary>
         public string Clflmc { get; set; }
+        /// <summary>
+        /// 服装分类
+        /// </summary>
+        public string Fzfl { get; set; }
+
     }
 }

@@ -13,5 +13,9 @@ namespace ServiceHandle.API
     {
         [OperationContract]
         string AutoXfPlan(DateTime beginTime);
+
+
+        [OperationContract]
+        string AutoCyPlan(DateTime beginTime);
     }
 }

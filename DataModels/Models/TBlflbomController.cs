@@ -77,11 +77,11 @@ namespace Model
         
         
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
-        public bool Delete(string Khdh,string Clflmc,string Ylbm)
+        public bool Delete(string Khdh,string Clflmc,string Ylbm,string Fzfl)
         {
             Query qry = new Query(TBlflbom.Schema);
             qry.QueryType = QueryType.Delete;
-            qry.AddWhere("Khdh", Khdh).AND("Clflmc", Clflmc).AND("Ylbm", Ylbm);
+            qry.AddWhere("Khdh", Khdh).AND("Clflmc", Clflmc).AND("Ylbm", Ylbm).AND("Fzfl", Fzfl);
             qry.Execute();
             return (true);
         }        
@@ -92,7 +92,7 @@ namespace Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Khdh,string Clflmc,string Ylbm,decimal Hy)
+	    public void Insert(string Khdh,string Clflmc,string Ylbm,decimal Hy,string Fzfl)
 	    {
 		    TBlflbom item = new TBlflbom();
 		    
@@ -104,6 +104,8 @@ namespace Model
             
             item.Hy = Hy;
             
+            item.Fzfl = Fzfl;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -112,7 +114,7 @@ namespace Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string Khdh,string Clflmc,string Ylbm,decimal Hy)
+	    public void Update(string Khdh,string Clflmc,string Ylbm,decimal Hy,string Fzfl)
 	    {
 		    TBlflbom item = new TBlflbom();
 	        item.MarkOld();
@@ -125,6 +127,8 @@ namespace Model
 			item.Ylbm = Ylbm;
 				
 			item.Hy = Hy;
+				
+			item.Fzfl = Fzfl;
 				
 	        item.Save(UserName);
 	    }

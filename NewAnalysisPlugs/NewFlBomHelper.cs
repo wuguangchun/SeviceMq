@@ -36,7 +36,7 @@ namespace NewAnalysisPlugs
                 //将数据存到数据库
                 foreach (var flBom in bomList)
                 {
-                    var bom = new TBlflbom { Khdh = flBom.Khdh, Hy = flBom.Hy, Ylbm = flBom.Ylbm, Clflmc = flBom.Clflmc };
+                    var bom = new TBlflbom { Khdh = flBom.Khdh, Hy = flBom.Hy, Ylbm = flBom.Ylbm, Clflmc = flBom.Clflmc, Fzfl = flBom.Fzfl };
                     bom.Save();
                 }
 
