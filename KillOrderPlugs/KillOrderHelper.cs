@@ -135,6 +135,10 @@ namespace KillOrderPlugs
                     new Delete().From<TOrderMESArtInfo>().Where(TOrderMESArtInfo.MxIdColumn).IsEqualTo(ordermx.FirstOrDefault()?.Mxid).Execute();
                 }
 
+                //删除APS计划信息
+                new Delete().From<SCT27>().Where(SCT27.ScggdhColumn).IsEqualTo(order.Scggdh).And(SCT27.FzflColumn)
+                    .IsEqualTo(killOrder.OrderFl).Execute();
+
                 // 撤单后通知ERP进行同步撤单
                 var msmqList = new List<MsmqModel>
                 {

@@ -640,7 +640,7 @@ namespace TestService.Helper
                         Khzb = DataOrder.Find(y => y.Khdh == x.Khdh).Khzb,
                         TypeId = "4"
                     })
-             );
+            );
 
             int i = 0;
 

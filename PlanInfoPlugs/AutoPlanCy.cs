@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 using Newtonsoft.Json;
+using ServiceHandle.Helper;
+using ServiceHelper;
 using SubSonic;
 using TestService.ModelsOther;
 
@@ -256,7 +258,7 @@ namespace PlanInfoPlugs
                 ListXj3Order.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, Fzfl = x.Fzfl, LineName = "衬衣样品班", Num = int.Parse(x.Ddsl.ToString()) }));
                 #endregion
 
-                return JsonConvert.SerializeObject(LineOrder);
+                return new CreatePlanNo(LineOrder, OrderDatapool, beginTime).AutoPlanNo();
             }
             catch (Exception e)
             {
@@ -321,7 +323,6 @@ namespace PlanInfoPlugs
             }
             return lineOrders;
         }
-
 
         public bool TestRule(TBasisLinesFz line, List<LineOrderPool> lineOrders)
         {
@@ -410,4 +411,267 @@ namespace PlanInfoPlugs
         }
 
     }
+
+    public class CreatePlanNo
+    {
+        public List<LineOrderPool> LineOrder { get; set; }
+        public List<TBLDataOrder> DataOrder { get; set; }
+        public List<TBLDataOrdermx> DataOrderMx { get; set; }
+        public List<TAnalysisOrderMx> OrderAnalyMx { get; set; }
+        public List<VOrderDatapoolCy> OrderDatapool { get; set; }
+        public DateTime BeginTime { get; set; }
+        public List<TWorkTimeShirt> WorkTimes { get; set; }
+        public List<TBasisLinesFz> Lines { get; set; }
+
+
+        //构造函数，初始化集合
+        public CreatePlanNo(List<LineOrderPool> lineOrder, List<VOrderDatapoolCy> orderDatapool, DateTime beginTime)
+        {
+            //初始化数据DateTime 
+            BeginTime = beginTime;
+            OrderDatapool = orderDatapool;
+            LineOrder = lineOrder;
+            WorkTimes = new Select().From<TWorkTimeShirt>().OrderAsc(TWorkTimeShirt.WorktimeColumn.ColumnName).Where(TWorkTimeShirt.WorktimeColumn).IsBetweenAnd(beginTime, beginTime.AddDays(30)).ExecuteTypedList<TWorkTimeShirt>();
+            DataOrder = new Select().From<TBLDataOrder>().Where(TBLDataOrder.KhdhColumn).In(lineOrder.ConvertAll(x => x.Khdh)).ExecuteTypedList<TBLDataOrder>();
+            DataOrderMx = new Select().From<TBLDataOrdermx>().Where(TBLDataOrdermx.KhdhColumn).In(lineOrder.ConvertAll(x => x.Khdh)).ExecuteTypedList<TBLDataOrdermx>();
+            OrderAnalyMx = new Select().From<TAnalysisOrderMx>().Where(TAnalysisOrderMx.KhdhColumn).In(lineOrder.ConvertAll(x => x.Khdh)).ExecuteTypedList<TAnalysisOrderMx>();
+            Lines = new Select().From<TBasisLinesFz>().ExecuteTypedList<TBasisLinesFz>();
+
+        }
+
+        public string AutoPlanNo()
+        {
+
+            OrderAnalyMx.ForEach(x => x.Scjhbz.Replace("绘纸皮/", "MTM/"));
+
+            //数据库中得最大计划号
+            var xmbh = new Select(SCT27.SczsbhColumn).From<SCT27>().Where(SCT27.SczsbhColumn).Like($"CM{DateTime.Now.ToString("yyMM")}%").OrderDesc(SCT27.SczsbhColumn.ColumnName).ExecuteScalar();//国外
+            var xsbh = new Select(SCT27.SczsbhColumn).From<SCT27>().Where(SCT27.SczsbhColumn).Like($"CS{DateTime.Now.ToString("yyMM")}%").OrderDesc(SCT27.SczsbhColumn.ColumnName).ExecuteScalar();//国内 
+
+            var xmbhNum = xmbh == null ? int.Parse(DateTime.Now.ToString("yyMM") + "0000") : int.Parse(xmbh.ToString().Replace("CM", ""));
+            var xsbhNum = xsbh == null ? int.Parse(DateTime.Now.ToString("yyMM") + "0000") : int.Parse(xsbh.ToString().Replace("CS", ""));
+
+            //数据库中得日历
+            var workTime = new Select().From<TWorkTimeShirt>().Where(TWorkTimeShirt.WorktimeColumn).IsBetweenAnd(BeginTime, BeginTime.AddDays(30)).ExecuteTypedList<TWorkTimeShirt>();
+
+            //填充待生成计划订单
+            var list = new List<DataPool>();
+
+
+            LineOrder.ForEach(x =>
+                list.Add(
+                    new DataPool
+                    {
+                        Khdh = x.Khdh,
+                        LineName = x.LineName,
+                        Fzfl = x.Fzfl,
+                        Jqts = OrderDatapool.Find(y => y.Khdh == x.Khdh).Jqts,
+                        Sex = x.Fzfl.IndexOf("W", StringComparison.Ordinal) == 0 ? "女" : "男",
+                        Mlwg = OrderAnalyMx.Find(y => y.Khdh == x.Khdh).Scjhbz.Contains("新/") ? "素" : "格",
+                        Khzb = DataOrder.Find(y => y.Khdh == x.Khdh).Khzb,
+                        TypeId = "4"
+                    })
+            );
+
+            int i = 0;
+
+            //填充集合得交期类型
+            foreach (var dataPool in list)
+            {
+                try
+                {
+
+                    var jhrq = DataOrder.Find(x => x.Khdh == dataPool.Khdh).Jhrq;
+                    var day = workTime.Where(x => x.Worktime >= BeginTime && x.Worktime <= jhrq).ToList().ConvertAll(x => x.Worktime.ToShortDateString()).Distinct().ToList().Count;
+
+                    var ordermx = DataOrderMx.Find(x => x.Khdh == dataPool.Khdh);
+
+                    #region 测试订单填充
+                    if (dataPool.Khdh.IndexOf("JJJ") == 0)
+                    {
+                        dataPool.TypeId = "20";
+                        continue;
+                    }
+                    #endregion
+
+                    #region 配件订单填充
+
+                    if (dataPool.Fzfl == "P0")
+                    {
+                        dataPool.TypeId = "13";
+                        continue;
+                    }
+                    #endregion
+
+                    #region 半成品试衣
+
+                    if (ordermx.Sfbcpsy == "1")
+                    {
+                        dataPool.TypeId = "5";
+                        continue;
+
+                    }
+
+                    #endregion
+
+                    #region 加急标识填充
+
+                    if (day == 4)
+                    {
+                        dataPool.TypeId = "34";
+                        continue;
+                    }
+                    else if (day <= 3)
+                    {
+                        dataPool.TypeId = "47";
+                        continue;
+                    }
+                    #endregion
+
+                    #region 全手工订单
+
+                    var code = new List<string> { "0AAA", "0AAB", "0AAC", "0AAD" };
+                    if (code.Find(x => x == ordermx.Gylx) != null)
+                    {
+                        dataPool.TypeId = "19";
+                        continue;
+                    }
+
+                    #endregion
+
+                    #region 填充8/9天订单
+
+                    if (OrderDatapool.Find(x => x.Khdh == dataPool.Khdh).Jqts == "8")
+                    {
+                        dataPool.TypeId = "51";
+                        continue;
+                    }
+
+                    if (OrderDatapool.Find(x => x.Khdh == dataPool.Khdh).Jqts == "9")
+                    {
+                        dataPool.TypeId = "52";
+                        continue;
+                    }
+
+                    #endregion
+
+                    #region 全手工14天  半手工10天
+
+                    if (dataPool.Jqts == "10")
+                    {
+                        dataPool.TypeId = "49";
+                        continue;
+                    }
+                    else if (dataPool.Jqts == "14")
+                    {
+                        dataPool.TypeId = "50";
+                        continue;
+                    }
+                    #endregion
+
+                    //将同一订单下得全部更新成统一得交期计算类型
+                    list.Where(x => x.Khdh == dataPool.Khdh).ToList().ForEach(x => x.TypeId = dataPool.TypeId);
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+                i++;
+            }
+
+
+            //计划号不区分产线，可以合并产线，标识都打在明细了 , x.LineName
+            var keys = list.GroupBy(x => new { x.Khzb, x.Mlwg, x.Sex, x.TypeId });
+
+
+            //生成填充计划号
+            foreach (var key in keys)
+            {
+                //&& x.LineName == key.Key.LineName     && x.LineName == key.Key.LineName
+                var planList = list.FindAll(x => x.Khzb == key.Key.Khzb && x.Mlwg == key.Key.Mlwg && x.Sex == key.Key.Sex && x.TypeId == key.Key.TypeId);
+                list.RemoveAll(x => x.Khzb == key.Key.Khzb && x.Mlwg == key.Key.Mlwg && x.Sex == key.Key.Sex && x.TypeId == key.Key.TypeId);
+
+                var planCode = string.Empty;
+                if (key.Key.Khzb == "国外")
+                {
+                    planCode = $@"XM{xmbhNum += 1}";
+                }
+                else
+                {
+                    planCode = $@"XS{xsbhNum += 1}";
+                }
+
+                planList.ForEach(x => x.PlanCode = planCode);
+                list.AddRange(planList);
+            }
+
+
+            var planInfos = new List<PlanInfo>();
+            var planGroup = list.GroupBy(x => x.PlanCode);
+            foreach (var key in planGroup)
+            {
+                var orders = list.FindAll(x => x.PlanCode == key.Key);
+
+                //面料外观
+                var mlwg = orders.First().Mlwg == "素" ? "新裁床" : "单裁";
+
+                //加急标识 
+                mlwg += (orders.First().TypeId == "13" || orders.First().TypeId == "34" || orders.First().TypeId == "47") ? " 加急" : "";
+
+                //填充计划信息
+                var planinfo = new PlanInfo
+                {
+                    Sczsbh = orders.First().PlanCode,
+                    Scjhry = "APS",
+                    Scshry = "00903",
+                    Scgcdm = "01",
+                    Scxdrq = BeginTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Scjhrq = DataOrder.Find(x => x.Khdh == orders.First().Khdh).Jhrq.ToString(),
+                    Scshrq = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace('/', '-'),
+                    Sczsbz = mlwg,//$"{Lines.Find(y => y.LineName == orders.First().LineName).Abbreviation}{Lines.Find(y => y.LineName == orders.First().LineName).LineNumber} {mlwg}",
+                    Sclrrq = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace('/', '-'),
+                    Type = orders.First().TypeId,
+                    OrderPools = new List<LineOrderPool>()
+                };
+
+                orders.ForEach(x => planinfo.OrderPools.Add(new LineOrderPool { Fzfl = x.Fzfl, Khdh = x.Khdh, LineName = $"{Lines.Find(y => y.LineName == x.LineName).Abbreviation}{Lines.Find(y => y.LineName == x.LineName).LineNumber}" }));
+
+                planInfos.Add(planinfo);
+            }
+
+            //循环输出计划信息，推送到计划时间节点计算接口
+            planInfos.ForEach(x => Console.WriteLine($"{x.Sczsbh}--{x.Type}--{x.Scjhry}--{x.Scshry}--{x.Sczsbh}--{x.Scxdrq}--{JsonConvert.SerializeObject(x.OrderPools)}\r\n"));
+
+            int successCount = 0;
+            string resultRtx = string.Empty;
+            foreach (var planInfo in planInfos)
+            {
+                var result = string.Empty;
+
+                //var url = "http://172.16.7.214:8196/api/aps/CalculateDelivery";//正式地址
+                var url = "http://172.16.7.214:8093/api/aps/CalculateDelivery";//测试地址
+                PushWebHelper.PostToPost(url, JsonConvert.SerializeObject(planInfo), ref result);
+
+
+                if (result.Contains("成功"))
+                {
+                    resultRtx += planInfo.Sczsbh + ",";
+                    successCount++;
+                }
+                else
+                {
+                    new RtxSendNotifyHelper().SendNotifyError("AutoPlanXFErr", planInfo.Sczsbh + "," + result);
+                }
+
+            }
+            new RtxSendNotifyHelper().SendNotifyError("AutoPlanXF", resultRtx.Length > 0 ? resultRtx : "计划生成不成功，请重新发起请求重试。");
+
+            string rmark = successCount == planInfos.Count ? "" : $"计算交期时失败{planInfos.Count - successCount}个";
+            return $"{BeginTime}共生成计划{planGroup?.Count()}个  {rmark}";
+        }
+
+    }
+
 }
