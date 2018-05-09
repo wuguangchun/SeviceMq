@@ -84,7 +84,6 @@ namespace TestService.Helper
                 ListPjOrder.AddRange(OrderDatapool.FindAll(x => x.Fzfl == "P0"));
                 OrderDatapool.RemoveAll(x => x.Fzfl == "P0");
 
-
                 var orders = new List<VOrderDatapoolXf>();
 
                 //订单池数据

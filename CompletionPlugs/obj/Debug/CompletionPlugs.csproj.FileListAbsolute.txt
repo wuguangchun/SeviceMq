@@ -33,5 +33,5 @@ F:\ServiceMQPlugs\SeviceMq\CompletionPlugs\bin\Debug\Newtonsoft.Json.xml
 F:\ServiceMQPlugs\SeviceMq\CompletionPlugs\obj\Debug\CompletionPlugs.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\CompletionPlugs\obj\Debug\CompletionPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\CompletionPlugs\obj\Debug\CompletionPlugs.pdb
-F:\ServiceMQPlugs\SeviceMq\CompletionPlugs\obj\Debug\CompletionPlugs.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\CompletionPlugs\obj\Debug\CompletionPlugs.csproj.CopyComplete
+F:\ServiceMQPlugs\SeviceMq\CompletionPlugs\obj\Debug\CompletionPlugs.csprojAssemblyReference.cache

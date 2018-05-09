@@ -457,7 +457,8 @@ namespace PlanInfoPlugs
 
             //填充待生成计划订单
             var list = new List<DataPool>();
-
+             
+           LineOrder.RemoveAll(x => string.IsNullOrEmpty(x.Fzfl)); 
 
             LineOrder.ForEach(x =>
                 list.Add(
@@ -466,7 +467,7 @@ namespace PlanInfoPlugs
                         Khdh = x.Khdh,
                         LineName = x.LineName,
                         Fzfl = x.Fzfl,
-                        Jqts = OrderDatapool.Find(y => y.Khdh == x.Khdh).Jqts,
+                        Jqts = "",//OrderDatapool.Find(y => y.Khdh == x.Khdh).Jqts,
                         Sex = x.Fzfl.IndexOf("W", StringComparison.Ordinal) == 0 ? "女" : "男",
                         Mlwg = OrderAnalyMx.Find(y => y.Khdh == x.Khdh).Scjhbz.Contains("新裁床/") ? "素" : "格",
                         Khzb = DataOrder.Find(y => y.Khdh == x.Khdh).Khzb,
@@ -538,7 +539,7 @@ namespace PlanInfoPlugs
 
 
             //计划号不区分产线，可以合并产线，标识都打在明细了 , x.LineName
-            var keys = list.GroupBy(x => new { x.Khzb, x.Mlwg, x.Sex, x.TypeId,x.LineName });
+            var keys = list.GroupBy(x => new { x.Khzb, x.Mlwg, x.Sex, x.TypeId, x.LineName });
 
 
             //生成填充计划号
@@ -588,7 +589,7 @@ namespace PlanInfoPlugs
                     Sczsbh = orders.First().PlanCode,
                     Scjhry = "APS",
                     Scshry = "00903",
-                    Scgcdm = "01",
+                    Scgcdm = "02",
                     Scxdrq = BeginTime.ToString("yyyy-MM-dd HH:mm:ss"),
                     Scjhrq = DataOrder.Find(x => x.Khdh == orders.First().Khdh).Jhrq.ToString(),
                     Scshrq = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace('/', '-'),
@@ -612,8 +613,8 @@ namespace PlanInfoPlugs
             {
                 var result = string.Empty;
 
-                //var url = "http://172.16.7.214:8196/api/aps/CalculateDelivery";//正式地址
-                var url = "http://172.16.7.214:8093/api/aps/CalculateDelivery";//测试地址
+                var url = "http://172.16.7.214:8196/api/aps/CalculateDelivery";//正式地址
+                //var url = "http://172.16.7.214:8093/api/aps/CalculateDelivery";//测试地址
                 PushWebHelper.PostToPost(url, JsonConvert.SerializeObject(planInfo), ref result);
 
 

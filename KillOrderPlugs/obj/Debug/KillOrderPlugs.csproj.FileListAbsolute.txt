@@ -30,8 +30,8 @@ F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\bin\Debug\DataModels.pdb
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\bin\Debug\ServiceHelper.pdb
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\bin\Debug\ServiceHelper.dll.config
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\bin\Debug\Newtonsoft.Json.xml
-F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.pdb
 F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.csproj.CopyComplete
+F:\ServiceMQPlugs\SeviceMq\KillOrderPlugs\obj\Debug\KillOrderPlugs.csprojAssemblyReference.cache

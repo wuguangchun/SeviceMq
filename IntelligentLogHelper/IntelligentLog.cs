@@ -23,12 +23,12 @@ namespace IntelligentLogHelper
                     .Where(TLogService.KhdhColumn).IsEqualTo("")
                     .And(TLogService.MessagePathColumn).In("Intercourse", "OrderGetMesHour", "PlanInfo", "AnalysisOrder", "CadOrder", "KillOrder", "BlankingData", "PlanInfo", "NewOrderData", "PutCadBL", "OrderGetMesHour", "KillOrder", "AnalysisOrder", "PlanInfo", "NewOrderData", "Completion", "CallBackMsg", "AnalysisOrder", "CaiJianOrder", "CreateScjhbz", "GenerateFile", "CreateScjhbz", "KillOrder", "KillOrder", "GenerateFile")
                     .And(TLogService.LableColumn).In("NewCustomer", "NewOrder", "NewPlan", "NewFlBom", "NewOrder", "MoveOld", "NewOrder", "NewSewPlan", "UpdateDelivery", "CADScheduling", "KeyProcess", "KillSingleERP", "NewOrderPld", "NewPlanMain", "BlPutData", "Completion", "Message", "NewOrder", "NewOrder", "SCJHBZ", "TZ", "NewOrder", "KillOrder", "KillSingle", "MTM");
-                
+
                 var logList = query.ExecuteTypedList<TLogService>();
 
-               logList=new Select().From<TLogService>()
-                    .Where(TLogService.IdColumn).In(logList.ConvertAll(x=>x.Id))
-                    .ExecuteTypedList<TLogService>();
+                logList = new Select().From<TLogService>()
+                     .Where(TLogService.IdColumn).In(logList.ConvertAll(x => x.Id))
+                     .ExecuteTypedList<TLogService>();
 
                 int okRow = 0;
                 foreach (var logService in logList.FindAll(x => 1 == 1))
@@ -87,7 +87,7 @@ namespace IntelligentLogHelper
                         okRow += UpdateLogs(logService.Id, json.RetObj.ToString()) ? 1 : 0;
                     }
                     //撤单
-                    else if (logService.MessagePath == "KillOrder" && (logService.Lable == "KillOrder"|| logService.Lable == "MoveOld"))
+                    else if (logService.MessagePath == "KillOrder" && (logService.Lable == "KillOrder" || logService.Lable == "MoveOld"))
                     {
                         okRow += UpdateLogs(logService.Id, logService.Context) ? 1 : 0;
                     }
@@ -166,6 +166,7 @@ namespace IntelligentLogHelper
                 throw;
             }
         }
+
         private bool UpdateLogs(int logId, string khdh)
         {
             try
@@ -222,5 +223,6 @@ namespace IntelligentLogHelper
             }
             return JsonConvert.SerializeObject(result);
         }
+
     }
 }

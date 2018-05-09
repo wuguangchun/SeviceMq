@@ -162,10 +162,10 @@ F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\ServiceHelper.pdb
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\ServiceHelper.dll.config
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\Microsoft.Owin.xml
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\Newtonsoft.Json.xml
-F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\APSWcfServiceHandle.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\APSWcfServiceHandle.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\ServiceHandle.dll
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\ServiceHandle.pdb
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\NPOI.dll
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\bin\NPOI.xml
 F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\APSWcfServiceHandle.csproj.CopyComplete
+F:\ServiceMQPlugs\SeviceMq\ServiceHandle\obj\Debug\APSWcfServiceHandle.csprojAssemblyReference.cache

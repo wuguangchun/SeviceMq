@@ -36,7 +36,7 @@ namespace TestService
                 //测试计划生成
 
                 var service = new LocalPlanService.SystemPlanServiceClient(); 
-                result = service.AutoCyPlan(DateTime.Parse("2018-05-05 17:00"));
+                result = service.AutoCyPlan(DateTime.Parse("2018-05-10 17:00"));
 
                 //var service = new LocalPlanService.SystemPlanServiceClient();
                 //service.AutoXfPlanAsync(DateTime.Parse("2018-03-27 17:00"));

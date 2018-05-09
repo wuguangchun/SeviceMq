@@ -50,8 +50,8 @@ F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\bin\Debug\DataModels.pdb
 F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\bin\Debug\ServiceHelper.pdb
 F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\bin\Debug\ServiceHelper.dll.config
 F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\bin\Debug\Newtonsoft.Json.xml
-F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.pdb
 F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.csproj.CopyComplete
+F:\ServiceMQPlugs\SeviceMq\BlankingPlugs\obj\Debug\BlankingPlugs.csprojAssemblyReference.cache

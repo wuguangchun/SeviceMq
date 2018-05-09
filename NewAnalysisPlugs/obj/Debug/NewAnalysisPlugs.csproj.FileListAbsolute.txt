@@ -53,8 +53,8 @@ F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\bin\Debug\KillOrderPlugs.dll.config
 F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\bin\Debug\ServiceHelper.pdb
 F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\bin\Debug\ServiceHelper.dll.config
 F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\bin\Debug\Newtonsoft.Json.xml
-F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.pdb
 F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.csproj.CopyComplete
+F:\ServiceMQPlugs\SeviceMq\NewAnalysisPlugs\obj\Debug\NewAnalysisPlugs.csprojAssemblyReference.cache

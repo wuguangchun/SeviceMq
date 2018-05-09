@@ -45,8 +45,8 @@ F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\bin\Debug\DataModels.pdb
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\bin\Debug\ServiceHelper.pdb
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\bin\Debug\ServiceHelper.dll.config
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\bin\Debug\Newtonsoft.Json.xml
-F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.dll
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.pdb
 F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.csproj.CopyComplete
+F:\ServiceMQPlugs\SeviceMq\CallBackPlugs\obj\Debug\CallBackPlugs.csprojAssemblyReference.cache
