@@ -20,6 +20,7 @@ namespace TestService.Helper
         public List<LineOrderPool> LineOrder { get; set; }
         public List<VOrderDatapoolXf> ListXjOrder { get; set; }
         public List<VOrderDatapoolXf> ListPjOrder { get; set; }
+        public List<VOrderDatapoolXf> ListTestOrder { get; set; }
         public List<string> AllCategorys { get; set; }
         public List<VOrderDatapoolXf> OrderDatapool { get; set; }
         public List<TBasisLinesRestriction> Restriction { get; set; }
@@ -33,6 +34,7 @@ namespace TestService.Helper
             LineOrder = new List<LineOrderPool>();
             ListXjOrder = new List<VOrderDatapoolXf>();
             ListPjOrder = new List<VOrderDatapoolXf>();
+            ListTestOrder = new List<VOrderDatapoolXf>();
             AllCategorys = new List<string>();
             OrderDatapool = new Select().From<VOrderDatapoolXf>().ExecuteTypedList<VOrderDatapoolXf>();
             Restriction = new Select().From<TBasisLinesRestriction>().ExecuteTypedList<TBasisLinesRestriction>();
@@ -67,6 +69,13 @@ namespace TestService.Helper
 
                 //去除还没有计划标注的订单
                 OrderDatapool.RemoveAll(x => string.IsNullOrEmpty(x.Scjhbz) || x.Scjhbz.Contains("未"));
+
+                //测试订单
+                ListTestOrder.AddRange(
+                    OrderDatapool.FindAll(x => x.Khdh.ToUpper().IndexOf("JJJ", StringComparison.Ordinal) == 0 || x.Khdh.ToUpper().IndexOf("TEST", StringComparison.Ordinal) == 0 || x.Khdh.ToUpper().IndexOf("XXX", StringComparison.Ordinal) == 0));
+                OrderDatapool.RemoveAll(x => x.Khdh.ToUpper().IndexOf("JJJ", StringComparison.Ordinal) == 0 ||
+                                             x.Khdh.ToUpper().IndexOf("TEST", StringComparison.Ordinal) == 0 ||
+                                             x.Khdh.ToUpper().IndexOf("XXX", StringComparison.Ordinal) == 0);
 
                 //线上加急订单
                 ListXjOrder.AddRange(OrderDatapool.FindAll(x => x.Jqts == "6"));

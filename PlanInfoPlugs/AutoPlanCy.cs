@@ -57,8 +57,9 @@ namespace PlanInfoPlugs
                 OrderDatapool.RemoveAll(x => x.Fzfl == "P0");
 
                 //测试订单
-                ListTestOrder.AddRange(OrderDatapool.FindAll(x => x.Khdh.ToUpper().IndexOf("JJJ", StringComparison.Ordinal) == 0 || x.Khdh.ToUpper().IndexOf("TEST", StringComparison.Ordinal) == 0));
-                OrderDatapool.RemoveAll(x => x.Khdh.ToUpper().IndexOf("JJJ", StringComparison.Ordinal) == 0 || x.Khdh.ToUpper().IndexOf("TEST", StringComparison.Ordinal) == 0);
+                ListTestOrder.AddRange(OrderDatapool.FindAll(x => x.Khdh.ToUpper().IndexOf("JJJ", StringComparison.Ordinal) == 0 || x.Khdh.ToUpper().IndexOf("TEST", StringComparison.Ordinal) == 0 || x.Khdh.ToUpper().IndexOf("XXX", StringComparison.Ordinal) == 0));
+
+                OrderDatapool.RemoveAll(x => x.Khdh.ToUpper().IndexOf("JJJ", StringComparison.Ordinal) == 0 || x.Khdh.ToUpper().IndexOf("TEST", StringComparison.Ordinal) == 0 || x.Khdh.ToUpper().IndexOf("XXX", StringComparison.Ordinal) == 0);
 
                 //线上加急订单5/6天
                 ListXjOrder.AddRange(OrderDatapool.FindAll(x => x.Jqts == "6"));
@@ -467,7 +468,7 @@ namespace PlanInfoPlugs
                         Fzfl = x.Fzfl,
                         Jqts = OrderDatapool.Find(y => y.Khdh == x.Khdh).Jqts,
                         Sex = x.Fzfl.IndexOf("W", StringComparison.Ordinal) == 0 ? "女" : "男",
-                        Mlwg = OrderAnalyMx.Find(y => y.Khdh == x.Khdh).Scjhbz.Contains("新/") ? "素" : "格",
+                        Mlwg = OrderAnalyMx.Find(y => y.Khdh == x.Khdh).Scjhbz.Contains("新裁床/") ? "素" : "格",
                         Khzb = DataOrder.Find(y => y.Khdh == x.Khdh).Khzb,
                         TypeId = "4"
                     })
@@ -489,7 +490,7 @@ namespace PlanInfoPlugs
                     #region 测试订单填充
                     if (dataPool.Khdh.IndexOf("JJJ") == 0)
                     {
-                        dataPool.TypeId = "20";
+                        dataPool.TypeId = "50";
                         continue;
                     }
                     #endregion
@@ -498,76 +499,30 @@ namespace PlanInfoPlugs
 
                     if (dataPool.Fzfl == "P0")
                     {
-                        dataPool.TypeId = "13";
+                        dataPool.TypeId = "21";
                         continue;
                     }
-                    #endregion
-
-                    #region 半成品试衣
-
-                    if (ordermx.Sfbcpsy == "1")
-                    {
-                        dataPool.TypeId = "5";
-                        continue;
-
-                    }
-
                     #endregion
 
                     #region 加急标识填充
 
-                    if (day == 4)
+                    if (day == 5)
                     {
-                        dataPool.TypeId = "34";
+                        dataPool.TypeId = "15";
+                        continue;
+                    }
+                    else if (day <= 4)
+                    {
+                        dataPool.TypeId = "16";
                         continue;
                     }
                     else if (day <= 3)
                     {
-                        dataPool.TypeId = "47";
+                        dataPool.TypeId = "48";
                         continue;
                     }
                     #endregion
 
-                    #region 全手工订单
-
-                    var code = new List<string> { "0AAA", "0AAB", "0AAC", "0AAD" };
-                    if (code.Find(x => x == ordermx.Gylx) != null)
-                    {
-                        dataPool.TypeId = "19";
-                        continue;
-                    }
-
-                    #endregion
-
-                    #region 填充8/9天订单
-
-                    if (OrderDatapool.Find(x => x.Khdh == dataPool.Khdh).Jqts == "8")
-                    {
-                        dataPool.TypeId = "51";
-                        continue;
-                    }
-
-                    if (OrderDatapool.Find(x => x.Khdh == dataPool.Khdh).Jqts == "9")
-                    {
-                        dataPool.TypeId = "52";
-                        continue;
-                    }
-
-                    #endregion
-
-                    #region 全手工14天  半手工10天
-
-                    if (dataPool.Jqts == "10")
-                    {
-                        dataPool.TypeId = "49";
-                        continue;
-                    }
-                    else if (dataPool.Jqts == "14")
-                    {
-                        dataPool.TypeId = "50";
-                        continue;
-                    }
-                    #endregion
 
                     //将同一订单下得全部更新成统一得交期计算类型
                     list.Where(x => x.Khdh == dataPool.Khdh).ToList().ForEach(x => x.TypeId = dataPool.TypeId);
@@ -583,24 +538,24 @@ namespace PlanInfoPlugs
 
 
             //计划号不区分产线，可以合并产线，标识都打在明细了 , x.LineName
-            var keys = list.GroupBy(x => new { x.Khzb, x.Mlwg, x.Sex, x.TypeId });
+            var keys = list.GroupBy(x => new { x.Khzb, x.Mlwg, x.Sex, x.TypeId,x.LineName });
 
 
             //生成填充计划号
             foreach (var key in keys)
             {
                 //&& x.LineName == key.Key.LineName     && x.LineName == key.Key.LineName
-                var planList = list.FindAll(x => x.Khzb == key.Key.Khzb && x.Mlwg == key.Key.Mlwg && x.Sex == key.Key.Sex && x.TypeId == key.Key.TypeId);
-                list.RemoveAll(x => x.Khzb == key.Key.Khzb && x.Mlwg == key.Key.Mlwg && x.Sex == key.Key.Sex && x.TypeId == key.Key.TypeId);
+                var planList = list.FindAll(x => x.Khzb == key.Key.Khzb && x.Mlwg == key.Key.Mlwg && x.Sex == key.Key.Sex && x.TypeId == key.Key.TypeId && x.LineName == key.Key.LineName);
+                list.RemoveAll(x => x.Khzb == key.Key.Khzb && x.Mlwg == key.Key.Mlwg && x.Sex == key.Key.Sex && x.TypeId == key.Key.TypeId && x.LineName == key.Key.LineName);
 
                 var planCode = string.Empty;
                 if (key.Key.Khzb == "国外")
                 {
-                    planCode = $@"XM{xmbhNum += 1}";
+                    planCode = $@"CM{xmbhNum += 1}";
                 }
                 else
                 {
-                    planCode = $@"XS{xsbhNum += 1}";
+                    planCode = $@"CS{xsbhNum += 1}";
                 }
 
                 planList.ForEach(x => x.PlanCode = planCode);
@@ -620,6 +575,13 @@ namespace PlanInfoPlugs
                 //加急标识 
                 mlwg += (orders.First().TypeId == "13" || orders.First().TypeId == "34" || orders.First().TypeId == "47") ? " 加急" : "";
 
+                //测试订单
+                if (orders.First().Khdh.ToLower().IndexOf("jjj", StringComparison.Ordinal) == 0 || orders.First().Khdh
+                        .ToLower().IndexOf("test", StringComparison.Ordinal) == 0)
+                {
+                    mlwg = "测试订单 不裁剪";
+                }
+
                 //填充计划信息
                 var planinfo = new PlanInfo
                 {
@@ -630,13 +592,13 @@ namespace PlanInfoPlugs
                     Scxdrq = BeginTime.ToString("yyyy-MM-dd HH:mm:ss"),
                     Scjhrq = DataOrder.Find(x => x.Khdh == orders.First().Khdh).Jhrq.ToString(),
                     Scshrq = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace('/', '-'),
-                    Sczsbz = mlwg,//$"{Lines.Find(y => y.LineName == orders.First().LineName).Abbreviation}{Lines.Find(y => y.LineName == orders.First().LineName).LineNumber} {mlwg}",
+                    Sczsbz = $"{Lines.Find(y => y.LineName == orders.First().LineName).LineNumber} {mlwg}",
                     Sclrrq = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace('/', '-'),
                     Type = orders.First().TypeId,
                     OrderPools = new List<LineOrderPool>()
                 };
 
-                orders.ForEach(x => planinfo.OrderPools.Add(new LineOrderPool { Fzfl = x.Fzfl, Khdh = x.Khdh, LineName = $"{Lines.Find(y => y.LineName == x.LineName).Abbreviation}{Lines.Find(y => y.LineName == x.LineName).LineNumber}" }));
+                orders.ForEach(x => planinfo.OrderPools.Add(new LineOrderPool { Fzfl = x.Fzfl, Khdh = x.Khdh, LineName = $"{Lines.Find(y => y.LineName == x.LineName).LineNumber}" }));
 
                 planInfos.Add(planinfo);
             }
