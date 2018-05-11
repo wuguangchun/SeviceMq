@@ -74,10 +74,10 @@ F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\PlanInfoPlugs.dll.config
 F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\ServiceHelper.pdb
 F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\ServiceHelper.dll.config
 F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\Newtonsoft.Json.xml
-F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.exe
 F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.pdb
 F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\NPOI.dll
 F:\ServiceMQPlugs\SeviceMq\TestService\bin\Debug\NPOI.xml
 F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.csproj.CopyComplete
+F:\ServiceMQPlugs\SeviceMq\TestService\obj\Debug\TestService.csprojAssemblyReference.cache

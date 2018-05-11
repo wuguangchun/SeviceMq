@@ -163,9 +163,9 @@ namespace PlanInfoPlugs
                     .Where(TBLDataOrdermx.KhdhColumn).In(LineOrder.Where(x => x.LineName == "衬衣缝制2" || x.LineName == "衬衣缝制6").ToList().ConvertAll(x => x.Khdh))
                     .ExecuteTypedList<TBLDataOrdermx>();
                 //加胶条，免烫，高级免烫5B42 58U1 58U2
-                var gjmtList = gyxxOrder.Where(x => x.Gyxx.Contains("5B42") || x.Gyxx.Contains("58U1") || x.Gyxx.Contains("58U2")).ToList();
+                var gjmtList = gyxxOrder.Where(x => x.Gyxx.Contains("5B42") || !x.Gyxx.Contains("9357") || x.Gyxx.Contains("58U1") || x.Gyxx.Contains("58U2")).ToList();
 
-                var puList = gyxxOrder.Where(x => !x.Gyxx.Contains("5B42") && !x.Gyxx.Contains("58U1") && !x.Gyxx.Contains("58U2")).ToList();
+                var puList = gyxxOrder.Where(x => !x.Gyxx.Contains("5B42") || !x.Gyxx.Contains("9357") || !x.Gyxx.Contains("58U1") || !x.Gyxx.Contains("58U2")).ToList();
 
                 //只有特殊类型订单大于3件时再平分
                 if (gjmtList.Sum(x => x.Ddsl) > 3)
@@ -176,10 +176,10 @@ namespace PlanInfoPlugs
 
                     //按平均分配加胶条，免烫订单
                     var mtLines = new List<TBasisLinesFz>
-                {
-                    new TBasisLinesFz{LineName = "衬衣缝制2",Capacity = int.Parse((gjmtList.Sum(x=>x.Ddsl)/2).ToString()),LineNumber =2,LineType = "CY",Categorys = "MCY,WCY",Abbreviation = "2"},
-                    new TBasisLinesFz{LineName = "衬衣缝制6",Capacity = gjmtList.Sum(x=>x.Ddsl)-int.Parse((gjmtList.Sum(x=>x.Ddsl)/2).ToString()),LineNumber =6,LineType = "CY",Categorys = "MCY,WCY",Abbreviation = "6"}
-                };
+                    {
+                        new TBasisLinesFz{LineName = "衬衣缝制2",Capacity = int.Parse((gjmtList.Sum(x=>x.Ddsl)/2).ToString()),LineNumber =2,LineType = "CY",Categorys = "MCY,WCY",Abbreviation = "2"},
+                        new TBasisLinesFz{LineName = "衬衣缝制6",Capacity = gjmtList.Sum(x=>x.Ddsl)-int.Parse((gjmtList.Sum(x=>x.Ddsl)/2).ToString()),LineNumber =6,LineType = "CY",Categorys = "MCY,WCY",Abbreviation = "6"}
+                    };
                     var gjmtFp = ScheduingOrder(mtLines, gjmtList.ConvertAll(x => x.Khdh));
                     LineOrder.AddRange(gjmtFp);
 
@@ -202,9 +202,9 @@ namespace PlanInfoPlugs
                     .ExecuteTypedList<TBLDataOrdermx>();
 
                 //加胶条，免烫，高级免烫5B42 58U1 58U2
-                var gjmtP0List = gyxxP0Order.Where(x => x.Gyxx.Contains("5B42") || x.Gyxx.Contains("58U1") || x.Gyxx.Contains("58U2")).ToList();
+                var gjmtP0List = gyxxP0Order.Where(x => x.Gyxx.Contains("5B42") || x.Gyxx.Contains("58U1") || !x.Gyxx.Contains("9357") || x.Gyxx.Contains("58U2")).ToList();
 
-                var puP0List = gyxxP0Order.Where(x => !x.Gyxx.Contains("5B42") && !x.Gyxx.Contains("58U1") && !x.Gyxx.Contains("58U2")).ToList();
+                var puP0List = gyxxP0Order.Where(x => !x.Gyxx.Contains("5B42") || !x.Gyxx.Contains("58U1")|| !x.Gyxx.Contains("9357") || !x.Gyxx.Contains("58U2")).ToList();
 
                 //分配全部的正常配件给1
                 puP0List.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, Fzfl = x.Fzfl, LineName = "衬衣缝制1", Num = int.Parse(x.Ddsl.ToString()) }));
@@ -219,7 +219,7 @@ namespace PlanInfoPlugs
                             Capacity = gyxxP0Order.Sum(x => x.Ddsl)-int.Parse((gyxxP0Order.Sum(x => x.Ddsl) / 2).ToString()),
                             LineNumber = 2,
                             LineType = "CY",
-                            Categorys = "MCY,WCY",
+                            Categorys = "MCY,WCY,P0",
                             Abbreviation = "2"
                         },
                         new TBasisLinesFz
@@ -228,7 +228,7 @@ namespace PlanInfoPlugs
                             Capacity = int.Parse((gyxxP0Order.Sum(x => x.Ddsl) / 2).ToString()),
                             LineNumber = 6,
                             LineType = "CY",
-                            Categorys = "MCY,WCY",
+                            Categorys = "MCY,WCY,P0",
                             Abbreviation = "6"
                         }
                     };
@@ -252,11 +252,11 @@ namespace PlanInfoPlugs
                 #endregion
 
                 #region 测试订单分配
-                ListTestOrder.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, Fzfl = x.Fzfl, LineName = "衬衣样品班", Num = int.Parse(x.Ddsl.ToString()) }));
+                ListTestOrder.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, Fzfl = x.Fzfl, LineName = "样品班", Num = int.Parse(x.Ddsl.ToString()) }));
                 #endregion
 
                 #region 线上加急3天得分配
-                ListXj3Order.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, Fzfl = x.Fzfl, LineName = "衬衣样品班", Num = int.Parse(x.Ddsl.ToString()) }));
+                ListXj3Order.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, Fzfl = x.Fzfl, LineName = "样品班", Num = int.Parse(x.Ddsl.ToString()) }));
                 #endregion
 
                 return new CreatePlanNo(LineOrder, OrderDatapool, beginTime).AutoPlanNo();
@@ -457,8 +457,8 @@ namespace PlanInfoPlugs
 
             //填充待生成计划订单
             var list = new List<DataPool>();
-             
-           LineOrder.RemoveAll(x => string.IsNullOrEmpty(x.Fzfl)); 
+
+            LineOrder.RemoveAll(x => string.IsNullOrEmpty(x.Fzfl));
 
             LineOrder.ForEach(x =>
                 list.Add(
@@ -471,7 +471,7 @@ namespace PlanInfoPlugs
                         Sex = x.Fzfl.IndexOf("W", StringComparison.Ordinal) == 0 ? "女" : "男",
                         Mlwg = OrderAnalyMx.Find(y => y.Khdh == x.Khdh).Scjhbz.Contains("新裁床/") ? "素" : "格",
                         Khzb = DataOrder.Find(y => y.Khdh == x.Khdh).Khzb,
-                        TypeId = "4"
+                        TypeId = "9"
                     })
             );
 
@@ -489,7 +489,7 @@ namespace PlanInfoPlugs
                     var ordermx = DataOrderMx.Find(x => x.Khdh == dataPool.Khdh);
 
                     #region 测试订单填充
-                    if (dataPool.Khdh.IndexOf("JJJ") == 0)
+                    if (dataPool.Khdh.IndexOf("JJJ") == 0|| dataPool.Khdh.IndexOf("test") == 0|| dataPool.Khdh.IndexOf("xxx") == 0)
                     {
                         dataPool.TypeId = "50";
                         continue;
@@ -574,13 +574,14 @@ namespace PlanInfoPlugs
                 var mlwg = orders.First().Mlwg == "素" ? "新裁床" : "单裁";
 
                 //加急标识 
-                mlwg += (orders.First().TypeId == "13" || orders.First().TypeId == "34" || orders.First().TypeId == "47") ? " 加急" : "";
+                mlwg += (orders.First().TypeId == "15" || orders.First().TypeId == "16" || orders.First().TypeId == "48") ? " 加急" : "";
 
                 //测试订单
                 if (orders.First().Khdh.ToLower().IndexOf("jjj", StringComparison.Ordinal) == 0 || orders.First().Khdh
-                        .ToLower().IndexOf("test", StringComparison.Ordinal) == 0)
+                        .ToLower().IndexOf("test", StringComparison.Ordinal) == 0 || orders.First().Khdh
+                        .ToLower().IndexOf("xxx", StringComparison.Ordinal) == 0)
                 {
-                    mlwg = "测试订单 不裁剪";
+                    mlwg = " 测试订单";
                 }
 
                 //填充计划信息
@@ -625,11 +626,11 @@ namespace PlanInfoPlugs
                 }
                 else
                 {
-                    new RtxSendNotifyHelper().SendNotifyError("AutoPlanXFErr", planInfo.Sczsbh + "," + result);
+                    new RtxSendNotifyHelper().SendNotifyError("AutoPlanCYErr", planInfo.Sczsbh + "," + result);
                 }
 
             }
-            new RtxSendNotifyHelper().SendNotifyError("AutoPlanXF", resultRtx.Length > 0 ? resultRtx : "计划生成不成功，请重新发起请求重试。");
+            new RtxSendNotifyHelper().SendNotifyError("AutoPlanCY", resultRtx.Length > 0 ? resultRtx : "计划生成不成功，请重新发起请求重试。");
 
             string rmark = successCount == planInfos.Count ? "" : $"计算交期时失败{planInfos.Count - successCount}个";
             return $"{BeginTime}共生成计划{planGroup?.Count()}个  {rmark}";

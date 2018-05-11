@@ -100,7 +100,7 @@ namespace DataModels.ModelsOther
         /// <summary>
         /// 好用
         /// </summary>
-        public decimal Hy { get; set; }
+        public string Hy { get; set; }
         /// <summary>
         /// 原料编码
         /// </summary>
@@ -108,11 +108,6 @@ namespace DataModels.ModelsOther
         /// <summary>
         /// 材料分类名称
         /// </summary>
-        public string Clflmc { get; set; }
-        /// <summary>
-        /// 服装分类
-        /// </summary>
-        public string Fzfl { get; set; }
-
+        public string Clflmx { get; set; }
     }
 }

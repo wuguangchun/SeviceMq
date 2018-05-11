@@ -178,19 +178,6 @@ namespace Model
 				colvarHy.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarHy);
 				
-				TableSchema.TableColumn colvarFzfl = new TableSchema.TableColumn(schema);
-				colvarFzfl.ColumnName = "fzfl";
-				colvarFzfl.DataType = DbType.AnsiString;
-				colvarFzfl.MaxLength = 50;
-				colvarFzfl.AutoIncrement = false;
-				colvarFzfl.IsNullable = false;
-				colvarFzfl.IsPrimaryKey = true;
-				colvarFzfl.IsForeignKey = false;
-				colvarFzfl.IsReadOnly = false;
-				colvarFzfl.DefaultSetting = @"";
-				colvarFzfl.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarFzfl);
-				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -232,14 +219,6 @@ namespace Model
 			get { return GetColumnValue<decimal>(Columns.Hy); }
 			set { SetColumnValue(Columns.Hy, value); }
 		}
-		  
-		[XmlAttribute("Fzfl")]
-		[Bindable(true)]
-		public string Fzfl 
-		{
-			get { return GetColumnValue<string>(Columns.Fzfl); }
-			set { SetColumnValue(Columns.Fzfl, value); }
-		}
 		
 		#endregion
 		
@@ -260,7 +239,7 @@ namespace Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varKhdh,string varClflmc,string varYlbm,decimal varHy,string varFzfl)
+		public static void Insert(string varKhdh,string varClflmc,string varYlbm,decimal varHy)
 		{
 			TBlflbom item = new TBlflbom();
 			
@@ -272,8 +251,6 @@ namespace Model
 			
 			item.Hy = varHy;
 			
-			item.Fzfl = varFzfl;
-			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -284,7 +261,7 @@ namespace Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varKhdh,string varClflmc,string varYlbm,decimal varHy,string varFzfl)
+		public static void Update(string varKhdh,string varClflmc,string varYlbm,decimal varHy)
 		{
 			TBlflbom item = new TBlflbom();
 			
@@ -295,8 +272,6 @@ namespace Model
 				item.Ylbm = varYlbm;
 			
 				item.Hy = varHy;
-			
-				item.Fzfl = varFzfl;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -339,13 +314,6 @@ namespace Model
         
         
         
-        public static TableSchema.TableColumn FzflColumn
-        {
-            get { return Schema.Columns[4]; }
-        }
-        
-        
-        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -354,7 +322,6 @@ namespace Model
 			 public static string Clflmc = @"clflmc";
 			 public static string Ylbm = @"ylbm";
 			 public static string Hy = @"hy";
-			 public static string Fzfl = @"fzfl";
 						
 		}
 		#endregion

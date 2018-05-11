@@ -67,6 +67,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ErpServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ErpService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,6 +102,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Helper\AutoPlanCy.cs" />
     <Compile Include="Helper\PushWebHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,6 +115,13 @@
     </None>
     <None Include="Connected Services\APSService\NewMassgeService1.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ErpServices\DdcxMainPort.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ErpServices\DdcxMainService.wsdl" />
+    <None Include="Connected Services\ErpServices\TestService.ErpServices.ddcxResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ErpService\IServiceToFyerpService.wsdl" />
     <None Include="Connected Services\LocalPlanService\SystemPlanService.wsdl" />
@@ -153,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\APSService\" />
+    <WCFMetadataStorage Include="Connected Services\ErpServices\" />
     <WCFMetadataStorage Include="Connected Services\ErpService\" />
     <WCFMetadataStorage Include="Connected Services\LocalPlanService\" />
     <WCFMetadataStorage Include="Connected Services\LocalService\" />
@@ -269,6 +283,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\LocalPlanService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ErpServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ErpServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ErpServices\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

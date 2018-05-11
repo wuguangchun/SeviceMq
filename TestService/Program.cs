@@ -34,9 +34,7 @@ namespace TestService
             {
                 Console.ReadLine();
                 //测试计划生成
-
-                var service = new LocalPlanService.SystemPlanServiceClient(); 
-                result = service.AutoCyPlan(DateTime.Parse("2018-05-10 17:00"));
+                //new AutoPlanXf().OrderScreen(DateTime.Parse("2018-03-27 17:00"));
 
                 //var service = new LocalPlanService.SystemPlanServiceClient();
                 //service.AutoXfPlanAsync(DateTime.Parse("2018-03-27 17:00"));
@@ -45,7 +43,18 @@ namespace TestService
                 //var de = new Delivery { DateTime = DateTime.Parse("2018-04-04 00:00"), Khdh = "SVP518030157" };
                 //var json = JsonConvert.SerializeObject(de);
 
+                new ErpServices.DdcxMainDelegateClient();
 
+                var list = new List<FlBom>
+                {
+                    new FlBom{Clflmx = "纸板1",Hy = "12",Khdh = "2018276-CY",Ylbm = "凯莱乔治衬衣精装盒"},
+                    new FlBom{Clflmx = "纸板2",Hy = "12",Khdh = "2018276-CY",Ylbm = "凯莱乔治衬衣精装盒"},
+                    new FlBom{Clflmx = "纸板3",Hy = "12",Khdh = "2018276-CY",Ylbm = "凯莱乔治衬衣精装盒"}
+                };
+
+                var json = JsonConvert.SerializeObject(list);
+                var service = new APSService.NewMassgeServiceClient();
+                service.InsertMessage("AnalysisOrder", "NewFlBom", json, null);
 
                 Console.WriteLine("已全部执行完：" + result);
             }

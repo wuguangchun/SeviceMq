@@ -7,7 +7,6 @@ using System.ServiceModel.Activation;
 using System.Text;
 using Kute.Helper;
 using Newtonsoft.Json;
-using PlanInfoPlugs;
 using ServiceHelper.Helper;
 using TestService.Helper;
 
@@ -18,25 +17,6 @@ namespace ServiceHandle.API
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     public class SystemPlanService : ISystemPlanService
     {
-        public string AutoCyPlan(DateTime beginTime)
-        {
-            var json = new JsonHelper();
-            try
-            {
-                var result = new AutoPlanCy().OrderScreen(beginTime);
-                json.RetCode = RetCode.Success;
-                json.RetMessage = result;
-                json.RetObj = new DataHelper().GetTimeStamp();//时间戳
-            }
-            catch (Exception e)
-            {
-                json.RetCode = RetCode.Error;
-                json.RetMessage = e.Message;
-                json.RetObj = new DataHelper().GetTimeStamp();//时间戳
-            }
-
-            return JsonConvert.SerializeObject(json);
-        }
 
         public string AutoXfPlan(DateTime beginTime)
         {

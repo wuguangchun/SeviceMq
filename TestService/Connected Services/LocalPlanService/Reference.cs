@@ -20,12 +20,6 @@ namespace TestService.LocalPlanService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemPlanService/AutoXfPlan", ReplyAction="http://tempuri.org/ISystemPlanService/AutoXfPlanResponse")]
         System.Threading.Tasks.Task<string> AutoXfPlanAsync(System.DateTime beginTime);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemPlanService/AutoCyPlan", ReplyAction="http://tempuri.org/ISystemPlanService/AutoCyPlanResponse")]
-        string AutoCyPlan(System.DateTime beginTime);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemPlanService/AutoCyPlan", ReplyAction="http://tempuri.org/ISystemPlanService/AutoCyPlanResponse")]
-        System.Threading.Tasks.Task<string> AutoCyPlanAsync(System.DateTime beginTime);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -61,14 +55,6 @@ namespace TestService.LocalPlanService {
         
         public System.Threading.Tasks.Task<string> AutoXfPlanAsync(System.DateTime beginTime) {
             return base.Channel.AutoXfPlanAsync(beginTime);
-        }
-        
-        public string AutoCyPlan(System.DateTime beginTime) {
-            return base.Channel.AutoCyPlan(beginTime);
-        }
-        
-        public System.Threading.Tasks.Task<string> AutoCyPlanAsync(System.DateTime beginTime) {
-            return base.Channel.AutoCyPlanAsync(beginTime);
         }
     }
 }
