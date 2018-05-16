@@ -163,9 +163,17 @@ namespace PlanInfoPlugs
                     .Where(TBLDataOrdermx.KhdhColumn).In(LineOrder.Where(x => x.LineName == "衬衣缝制2" || x.LineName == "衬衣缝制6").ToList().ConvertAll(x => x.Khdh))
                     .ExecuteTypedList<TBLDataOrdermx>();
                 //加胶条，免烫，高级免烫5B42 58U1 58U2
-                var gjmtList = gyxxOrder.Where(x => x.Gyxx.Contains("5B42") || !x.Gyxx.Contains("9357") || x.Gyxx.Contains("58U1") || x.Gyxx.Contains("58U2")).ToList();
+                var gjmtList = gyxxOrder.Where(x => x.Gyxx.Contains("5B42") ||
+                                                    x.Gyxx.Contains("9357") ||
+                                                    x.Gyxx.Contains("58U1") ||
+                                                    x.Gyxx.Contains("58U2")
+                                              ).ToList();
 
-                var puList = gyxxOrder.Where(x => !x.Gyxx.Contains("5B42") || !x.Gyxx.Contains("9357") || !x.Gyxx.Contains("58U1") || !x.Gyxx.Contains("58U2")).ToList();
+                var puList = gyxxOrder.Where(x => !x.Gyxx.Contains("5B42") &&
+                                                !x.Gyxx.Contains("9357") &&
+                                                !x.Gyxx.Contains("58U1") &&
+                                                !x.Gyxx.Contains("58U2")
+                                             ).ToList();
 
                 //只有特殊类型订单大于3件时再平分
                 if (gjmtList.Sum(x => x.Ddsl) > 3)
@@ -202,9 +210,17 @@ namespace PlanInfoPlugs
                     .ExecuteTypedList<TBLDataOrdermx>();
 
                 //加胶条，免烫，高级免烫5B42 58U1 58U2
-                var gjmtP0List = gyxxP0Order.Where(x => x.Gyxx.Contains("5B42") || x.Gyxx.Contains("58U1") || !x.Gyxx.Contains("9357") || x.Gyxx.Contains("58U2")).ToList();
+                var gjmtP0List = gyxxP0Order.Where(x => x.Gyxx.Contains("5B42") ||
+                                                        x.Gyxx.Contains("58U1") ||
+                                                        x.Gyxx.Contains("9357") ||
+                                                        x.Gyxx.Contains("58U2")
+                                                    ).ToList();
 
-                var puP0List = gyxxP0Order.Where(x => !x.Gyxx.Contains("5B42") || !x.Gyxx.Contains("58U1")|| !x.Gyxx.Contains("9357") || !x.Gyxx.Contains("58U2")).ToList();
+                var puP0List = gyxxP0Order.Where(x => !x.Gyxx.Contains("5B42") &&
+                                                    !x.Gyxx.Contains("58U1") &&
+                                                    !x.Gyxx.Contains("9357") &&
+                                                    !x.Gyxx.Contains("58U2")
+                                                ).ToList();
 
                 //分配全部的正常配件给1
                 puP0List.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, Fzfl = x.Fzfl, LineName = "衬衣缝制1", Num = int.Parse(x.Ddsl.ToString()) }));
@@ -489,9 +505,9 @@ namespace PlanInfoPlugs
                     var ordermx = DataOrderMx.Find(x => x.Khdh == dataPool.Khdh);
 
                     #region 测试订单填充
-                    if (dataPool.Khdh.IndexOf("JJJ") == 0|| dataPool.Khdh.IndexOf("test") == 0|| dataPool.Khdh.IndexOf("xxx") == 0)
+                    if (dataPool.Khdh.ToUpper().IndexOf("JJJ") == 0 || dataPool.Khdh.ToUpper().IndexOf("TEST") == 0 || dataPool.Khdh.ToUpper().IndexOf("XXX") == 0)
                     {
-                        dataPool.TypeId = "50";
+                        dataPool.TypeId = "57";
                         continue;
                     }
                     #endregion
@@ -571,15 +587,15 @@ namespace PlanInfoPlugs
                 var orders = list.FindAll(x => x.PlanCode == key.Key);
 
                 //面料外观
-                var mlwg = orders.First().Mlwg == "素" ? "新裁床" : "单裁";
+                var mlwg = orders.First().Mlwg == "素" ? " 新裁床" : " 单裁";
 
                 //加急标识 
                 mlwg += (orders.First().TypeId == "15" || orders.First().TypeId == "16" || orders.First().TypeId == "48") ? " 加急" : "";
 
                 //测试订单
-                if (orders.First().Khdh.ToLower().IndexOf("jjj", StringComparison.Ordinal) == 0 || orders.First().Khdh
-                        .ToLower().IndexOf("test", StringComparison.Ordinal) == 0 || orders.First().Khdh
-                        .ToLower().IndexOf("xxx", StringComparison.Ordinal) == 0)
+                if (orders.First().Khdh.ToLower().IndexOf("jjj", StringComparison.Ordinal) == 0 ||
+                    orders.First().Khdh.ToLower().IndexOf("test", StringComparison.Ordinal) == 0 ||
+                    orders.First().Khdh.ToLower().IndexOf("xxx", StringComparison.Ordinal) == 0)
                 {
                     mlwg = " 测试订单";
                 }

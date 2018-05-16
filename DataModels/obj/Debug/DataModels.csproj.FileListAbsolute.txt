@@ -35,4 +35,4 @@ F:\ServiceMQPlugs\SeviceMq\DataModels\obj\Debug\DataModels.csproj.CoreCompileInp
 F:\ServiceMQPlugs\SeviceMq\DataModels\obj\Debug\DataModels.dll
 F:\ServiceMQPlugs\SeviceMq\DataModels\obj\Debug\DataModels.pdb
 F:\ServiceMQPlugs\SeviceMq\DataModels\obj\Debug\DataModels.csproj.CopyComplete
-F:\ServiceMQPlugs\SeviceMq\DataModels\obj\Debug\DataModels.csprojResolveAssemblyReference.cache
+F:\ServiceMQPlugs\SeviceMq\DataModels\obj\Debug\DataModels.csprojAssemblyReference.cache

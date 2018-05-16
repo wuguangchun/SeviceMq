@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using iTextSharp.text.pdf.parser;
 using Newtonsoft.Json;
 using ServiceHandle.Helper;
 using ServiceHelper;
@@ -23,6 +24,7 @@ namespace TestService.Helper
         public List<VOrderDatapoolXf> ListTestOrder { get; set; }
         public List<string> AllCategorys { get; set; }
         public List<VOrderDatapoolXf> OrderDatapool { get; set; }
+        public List<VOrderDatapoolXf> OrderDatapoolL { get; set; }
         public List<TBasisLinesRestriction> Restriction { get; set; }
 
 
@@ -38,6 +40,7 @@ namespace TestService.Helper
             AllCategorys = new List<string>();
             OrderDatapool = new Select().From<VOrderDatapoolXf>().ExecuteTypedList<VOrderDatapoolXf>();
             Restriction = new Select().From<TBasisLinesRestriction>().ExecuteTypedList<TBasisLinesRestriction>();
+            OrderDatapoolL = new List<VOrderDatapoolXf>();
         }
 
         //筛选订单 
@@ -69,6 +72,10 @@ namespace TestService.Helper
 
                 //去除还没有计划标注的订单
                 OrderDatapool.RemoveAll(x => string.IsNullOrEmpty(x.Scjhbz) || x.Scjhbz.Contains("未"));
+
+                //交期长的挑选出来
+                OrderDatapoolL = OrderDatapool.FindAll(x => int.Parse(x.Jqts) > 7);
+                OrderDatapool.RemoveAll(x => int.Parse(x.Jqts) > 7);
 
                 //测试订单
                 ListTestOrder.AddRange(
@@ -118,6 +125,7 @@ namespace TestService.Helper
                 //添加的订单客户单号去重
                 ListOrder.AddRange(orders.OrderBy(x => x.Jhrq).ToList().ConvertAll(x => x.Khdh).Distinct());
 
+                #region 初次排程 按照交期排序，计算数量，订单池不足时重新计算比例
 
                 //产线排序  以西服为主
                 Lines.Clear();
@@ -191,6 +199,33 @@ namespace TestService.Helper
                     //将产能能不饱和的生产线聚合重新分配
                     LineOrder.AddRange(ScheduingOrderUnion(lineUnSaturated, listOrder.ConvertAll(x => x.Khdh)));
                 }
+
+                #endregion
+
+                #region 将交期延长的订单加入 按照下单时间重新拍 
+
+                if (OrderDatapoolL.Count > 0)
+                {
+                    //产线信息过滤
+
+                    var linesNew = new List<TBasisLinesFz>(lineUnSaturated);
+                    foreach (var line in Lines)
+                    {
+                        if (linesNew.Where(x => x.LineName == line.LineName) == null)
+                        {
+                            linesNew.Add(line);
+                        }
+                    }
+
+                    //筛选过滤已合理排程订单 和 交期延长订单 加入到一起
+                    var data = new List<VOrderDatapoolXf>();
+                    LineOrder.ForEach(x => data.AddRange(copyData.FindAll(y => y.Khdh == x.Khdh)));
+
+                    data.AddRange(OrderDatapoolL);
+                    data = data.OrderBy(x => x.Trantime).ToList();
+                    LineOrder = ScheduingOrderUnion(linesNew, data.ConvertAll(x => x.Khdh));
+                }
+                #endregion
 
                 //控制台输出查看当前分了多少
                 Console.WriteLine(" 最终分配订单");
@@ -266,6 +301,10 @@ namespace TestService.Helper
                 //--配件订单分配（默认全部F2）
                 ListPjOrder.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, LineName = "西服缝制2", Fzfl = x.Fzfl, Num = int.Parse(x.Ddsl.ToString()) }));
 
+                #endregion
+
+                #region 测试订单分配
+                ListTestOrder.ForEach(x => LineOrder.Add(new LineOrderPool { Khdh = x.Khdh, LineName = "西服缝制1", Fzfl = x.Fzfl, Num = int.Parse(x.Ddsl.ToString()) }));
                 #endregion
 
                 //筛选订单完成
@@ -633,8 +672,7 @@ namespace TestService.Helper
 
             //填充待生成计划订单
             var list = new List<DataPool>();
-
-
+            
             LineOrder.ForEach(x =>
                 list.Add(
                     new DataPool
@@ -757,12 +795,10 @@ namespace TestService.Helper
                 }
                 i++;
             }
-
-
+            
             //计划号不区分产线，可以合并产线，标识都打在明细了 , x.LineName
             var keys = list.GroupBy(x => new { x.Khzb, x.Mlwg, x.Sex, x.TypeId });
-
-
+            
             //生成填充计划号
             foreach (var key in keys)
             {
@@ -783,8 +819,7 @@ namespace TestService.Helper
                 planList.ForEach(x => x.PlanCode = planCode);
                 list.AddRange(planList);
             }
-
-
+            
             var planInfos = new List<PlanInfo>();
             var planGroup = list.GroupBy(x => x.PlanCode);
             foreach (var key in planGroup)
@@ -796,6 +831,13 @@ namespace TestService.Helper
 
                 //加急标识 
                 mlwg += (orders.First().TypeId == "13" || orders.First().TypeId == "34" || orders.First().TypeId == "47") ? " 加急" : "";
+
+                //测试订单标识
+                if (orders.First().TypeId == "20")
+                {
+                    mlwg = "新裁床 测试订单";
+
+                }
 
                 //填充计划信息
                 var planinfo = new PlanInfo
@@ -827,8 +869,8 @@ namespace TestService.Helper
             {
                 var result = string.Empty;
 
-                var url = "http://172.16.7.214:8196/api/aps/CalculateDelivery";//正式地址
-                //url = "http://172.16.7.214:8093/api/aps/CalculateDelivery";//测试地址
+                //var url = "http://172.16.7.214:8196/api/aps/CalculateDelivery";//正式地址
+                var url = "http://172.16.7.214:8093/api/aps/CalculateDelivery";//测试地址
                 PushWebHelper.PostToPost(url, JsonConvert.SerializeObject(planInfo), ref result);
 
 
@@ -843,6 +885,8 @@ namespace TestService.Helper
                 }
 
             }
+
+            //RTX通知
             new RtxSendNotifyHelper().SendNotifyError("AutoPlanXF", resultRtx.Length > 0 ? resultRtx : "计划生成不成功，请重新发起请求重试。");
 
             string rmark = successCount == planInfos.Count ? "" : $"计算交期时失败{planInfos.Count - successCount}个";

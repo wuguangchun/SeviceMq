@@ -22,7 +22,7 @@ C:\Users\wugc\Source\Repos\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCyScheduling
 F:\Release\CADCYPush\CADCySchedulingEnd.exe.config
 F:\Release\CADCYPush\CADCySchedulingEnd.exe
 F:\Release\CADCYPush\CADCySchedulingEnd.pdb
-F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.csprojResolveAssemblyReference.cache
 F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.csproj.CoreCompileInputs.cache
 F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.exe
 F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.pdb
+F:\ServiceMQPlugs\SeviceMq\CADCySchedulingEnd\obj\Debug\CADCySchedulingEnd.csprojAssemblyReference.cache
