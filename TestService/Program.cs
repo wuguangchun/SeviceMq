@@ -34,7 +34,22 @@ namespace TestService
             {
                 Console.ReadLine();
                 //测试计划生成
-                new AutoPlanXf().OrderScreen(DateTime.Parse("2018-03-27 17:00"));
+                //new AutoPlanXf().OrderScreen(DateTime.Parse("2018-03-27 17:00"));
+
+                var khdh = new List<string>()
+                {
+                    "SV7M18050328", "SV8M18050695", "SV8M18050694", "SV8M18050693", "SV8M18050333", "SV7M18050333", "SV7M18050336", "SV3M18050453", "SV7M18050382", "SV8M18050437"
+                };
+
+                foreach (var dh in khdh)
+                {
+                    var de = new Delivery { DateTime = DateTime.Parse("2018-06-01 00:00"), Khdh = dh };
+                    var json = JsonConvert.SerializeObject(de);
+                    var service = new APSService.NewMassgeServiceClient();
+                    result += "\r\n" + service.InsertMessage("NewOrderData", "UpdateDelivery", json, null);
+
+                }
+                //交期修改
 
                 Console.WriteLine("已全部执行完：" + result);
             }
